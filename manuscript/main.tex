@@ -1,0 +1,40 @@
+\documentclass[11pt]{article}
+\usepackage{royden-report}
+\title{Learning Nonlinear Optical Dysthe Dynamics}
+\author{}
+\date{Manuscript outline}
+\begin{document}
+\maketitle
+\begin{abstract}
+This outline concerns prediction across initial fields for optical Dysthe.
+Reference migration, learning methods and experiments remain to be completed.
+No new performance or novelty claim is made.
+\end{abstract}
+\section{Question and scope}
+State one testable question about accuracy, cost, or a resolved wave mechanism.
+Identify the closest prior work and the proposed distinction. Keep optical
+Dysthe separate from water-wave and kinetic-plasma models.
+\section{Equation and reference problem}
+Use \texttt{optical-dysthe-127-v1} from the shared core. Record the equation,
+signs, coordinates, coefficients, initial-field family and domain. Report grid,
+time-step and domain checks; state the limits of a periodic box as an
+approximation to whole space.
+\section{Learning method and protocol}
+Describe the selected method and baselines. Declare prediction inputs,
+normalization, loss, optimizer, early stopping, checkpoints, seeds and hardware.
+Keep each initial condition and its refinements in one split. Select models
+using validation; reserve a locked test set for final claims.
+\section{Results to establish}
+Provide convergence, held-out field and phase errors, growth or event timing,
+physical diagnostics, rollout error and cost comparisons. Report failures and
+variability across cases and seeds. Conservation does not establish phase
+accuracy. Separate training and inference costs.
+\section{Interpretation and limitations}
+Connect each claim to its run and figure. Distinguish computational improvement
+from wave-physics discovery. Do not present trends as theorems or infer
+long-time laws from unresolved runs.
+\section{Reproducibility}
+Freeze code revisions; record configurations, data and checkpoint hashes,
+artifact locations and software versions. Use PDF figures and retain compact
+numerical figure data. The claim ledger is initially empty.
+\end{document}

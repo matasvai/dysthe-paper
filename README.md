@@ -1,5 +1,8 @@
 # dysthe-paper
 
+**Scope: water-wave Dysthe only.** See [SCOPE.md](SCOPE.md) for the fixed
+physical model, exclusions and enforced boundaries.
+
 Editable LaTeX manuscript, vector figures, and traceable scientific claims.
 
 **Status: migration scaffold.** No solver or trained predictor has been ported

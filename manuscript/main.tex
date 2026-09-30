@@ -1,39 +1,50 @@
 \documentclass[11pt]{article}
 \usepackage{royden-report}
-\title{Learning Nonlinear Optical Dysthe Dynamics}
+\title{Water-Wave Dysthe: Research Outline}
 \author{}
 \date{}
 \begin{document}
 \maketitle
 \begin{abstract}
-This outline concerns prediction across initial fields for optical Dysthe.
-Reference migration, learning methods and experiments remain to be completed.
-No new performance or novelty claim is made.
+Can a learned model predict unseen water-wave packets accurately and at useful
+cost? This outline fixes the scope and evidence requirements. Reference migration
+and learning experiments remain pending; no new result is claimed.
 \end{abstract}
-\section{Question and scope}
-State one testable question about accuracy, cost, or a resolved wave mechanism.
-Identify the closest prior work and the proposed distinction. Keep optical
-Dysthe separate from water-wave and kinetic-plasma models.
-\section{Equation and reference problem}
-Use \texttt{optical-dysthe-127-v1} from the shared core. Record the equation,
-signs, coordinates, coefficients, initial-field family and domain. Report grid,
-time-step and domain checks; state the limits of a periodic box as an
-approximation to whole space.
-\section{Learning method and protocol}
-Describe the selected method and baselines. Declare prediction inputs,
-normalization, loss, optimizer, early stopping, checkpoints, seeds and hardware.
-Keep each initial condition and its refinements in one split. Select models
-using validation; reserve a locked test set for final claims.
-\section{Results to establish}
-Provide convergence, held-out field and phase errors, growth or event timing,
-physical diagnostics, rollout error and cost comparisons. Report failures and
-variability across cases and seeds. Conservation does not establish phase
-accuracy. Separate training and inference costs.
-\section{Interpretation and reproducibility}
-Connect each claim to its run and figure. Distinguish computational improvement
-from wave-physics discovery. Do not present trends as theorems or infer
-long-time laws from unresolved runs.
-Freeze code revisions; record configurations, data and checkpoint hashes,
-artifact locations and software versions. Use PDF figures and retain compact
-numerical figure data. The claim ledger is initially empty.
+\section{Water-wave model}
+The baseline is the spatial Dysthe equation for a weakly nonlinear, narrowband,
+unidirectional deep-water free-surface envelope $u(\xi,\tau)\in\CC$:
+\begin{equation}\label{eq:dysthe}
+\begin{aligned}
+u_\xi={}&-i u_{\tau\tau}-i|u|^2u\\
+&-\epsilon\bigl(8|u|^2u_\tau+2u^2\overline{u_\tau}
+                 +2iu|D_\tau|(|u|^2)\bigr).
+\end{aligned}
+\end{equation}
+Here $\xi$ is propagation distance, $\tau$ is retarded time, $\epsilon$ is
+carrier steepness, and $|D_\tau|$ has Fourier multiplier $|k|$.
+This is the free-surface convention of Fedele and Dutykh,
+\href{https://arxiv.org/abs/1110.3605}{equation (1.3)}.
+The shared contract is \texttt{water-wave-dysthe-spatial-v1}.
+The computational profile is periodic; there is no resolved transverse
+direction. Other physical settings are excluded from this research.
+\section{Reference and learning protocol}
+Verify the existing water-wave reference, including signs, mean flow and the NLS
+limit. Qualify packet families by grid, propagation-step and domain refinement.
+Compare an FNO baseline with a hybrid numerical--learned stepper. Record losses,
+normalization, optimizer, validation-rollout early stopping, checkpoints, seeds
+and hardware. Keep each initial condition and its refinements in one split;
+reserve complete test trajectories. Physics penalties must follow
+\eqref{eq:dysthe}. The raw envelope is noncanonical: a Hamiltonian constraint
+requires the appropriate transformation and boundary convention.
+\section{Evidence and publication}
+Measure weighted $L^p$ errors over $\tau$, phase, modulation growth, focusing
+distance, invariant drift and accumulated propagation error. Compare inference
+cost at matched accuracy and report reference-generation and training costs
+separately. Include ablations, failures and variability across cases and seeds.
+Conservation alone does not establish field or phase accuracy.
+
+Choose one demonstrated contribution and compare it with the closest literature. Link each claim to configurations, source revisions,
+artifact locations and hashes. Preserve compact figure data and vector PDF
+figures. The evidence ledger is empty. Historical results from other physical
+models must not be relabeled or used to support this paper.
 \end{document}

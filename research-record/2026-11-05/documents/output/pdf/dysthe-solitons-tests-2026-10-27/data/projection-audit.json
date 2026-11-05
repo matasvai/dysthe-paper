@@ -1,0 +1,94 @@
+{
+  "kind": "new bounded Fourier projection audit of stored historical profile; no propagation or neural training",
+  "audited_date": "2026-10-27",
+  "source_path": "/home/matasvai/Documents/Codex/2026-10-01/task-2/evidence/solitary-smoke-001/fields.npz",
+  "source_sha256": "63e8636ed53c3183c6f5c2abb246ed4e62d0a97499c0f7029f104de198e21123",
+  "source_report_path": "/home/matasvai/Documents/Codex/2026-10-01/task-2/evidence/solitary-smoke-001/report.json",
+  "source_report_sha256": "bf69c08898e236cd5290259cb1e918e81c9c63550485c5249b875d4087b797ec",
+  "stored_field_checksum_matches_report": true,
+  "n": 4096,
+  "length": 160.0,
+  "grid_origin": -80.0,
+  "profile_epsilon": 0.025,
+  "mu": 2.0,
+  "speed": 0.0,
+  "norm_definition": "||u||_{H^r}^2=L*sum_m (1+k_m^2)^r*|hat(u)_m|^2; hat(u)=FFT(u)/N; k_m=2*pi*m/L",
+  "projection_definition": "retain all integer modes |m|<=K; error is relative H^r norm of discarded modes",
+  "interpretation": "Best possible relative error floor for outputs restricted to |m|<=K, on the stored periodic grid. Not a continuum error certificate, propagated accuracy result, or trained neural performance measurement. NLS seed is sampled analytic mu=2,s=0 whole-line sech on same periodic grid.",
+  "data": {
+    "stored_Dysthe_eps0.025_mu2": [
+      {
+        "K": 48,
+        "max_physical_wavenumber": 1.8849555921538759,
+        "relative_l2": 0.1914608541633616,
+        "relative_h1": 0.3852048564141851,
+        "relative_h2": 0.6608556676740052
+      },
+      {
+        "K": 96,
+        "max_physical_wavenumber": 3.7699111843077517,
+        "relative_l2": 0.02989460893728016,
+        "relative_h1": 0.10073511132899635,
+        "relative_h2": 0.2746656100771616
+      },
+      {
+        "K": 192,
+        "max_physical_wavenumber": 7.5398223686155035,
+        "relative_l2": 0.0008096154050754557,
+        "relative_h1": 0.005004909640442512,
+        "relative_h2": 0.024486832961866954
+      },
+      {
+        "K": 256,
+        "max_physical_wavenumber": 10.053096491487338,
+        "relative_l2": 7.531772680675662e-05,
+        "relative_h1": 0.0006079626473523812,
+        "relative_h2": 0.003868832577680878
+      },
+      {
+        "K": 384,
+        "max_physical_wavenumber": 15.079644737231007,
+        "relative_l2": 6.64126805630592e-07,
+        "relative_h1": 7.878661869639723e-06,
+        "relative_h2": 7.346851378377342e-05
+      }
+    ],
+    "NLS_mu2_seed": [
+      {
+        "K": 48,
+        "max_physical_wavenumber": 1.8849555921538759,
+        "relative_l2": 0.16926944992715814,
+        "relative_h1": 0.3410386074995171,
+        "relative_h2": 0.5977178746725573
+      },
+      {
+        "K": 96,
+        "max_physical_wavenumber": 3.7699111843077517,
+        "relative_l2": 0.02100861481181771,
+        "relative_h1": 0.07126932788599133,
+        "relative_h2": 0.20137142247651812
+      },
+      {
+        "K": 192,
+        "max_physical_wavenumber": 7.5398223686155035,
+        "relative_l2": 0.0003190920436411024,
+        "relative_h1": 0.0019982555785381956,
+        "relative_h2": 0.010245797986257138
+      },
+      {
+        "K": 256,
+        "max_physical_wavenumber": 10.053096491487338,
+        "relative_l2": 1.9568750755744156e-05,
+        "relative_h1": 0.00016037285051086133,
+        "relative_h2": 0.0010730239540747936
+      },
+      {
+        "K": 384,
+        "max_physical_wavenumber": 15.079644737231007,
+        "relative_l2": 7.35965289861635e-08,
+        "relative_h1": 8.886543778699109e-07,
+        "relative_h2": 8.741670744338204e-06
+      }
+    ]
+  }
+}

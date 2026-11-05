@@ -1,0 +1,6 @@
+{
+  "run_kind": "smoke",
+  "evaluation": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/runs/local-evaluation",
+  "report": "report.tex",
+  "generated_from_actual_outputs": true
+}

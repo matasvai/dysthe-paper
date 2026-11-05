@@ -1,0 +1,195 @@
+\section{A numerical study of continued smoothness}
+\label{sec:numerical-campaign}
+
+The first computational question should be precise: for specified smooth
+initial packets, how far can solutions of \eqref{eq:baseline} be followed with
+resolved derivatives and reproducible error estimates?  A successful finite
+interval supplies evidence of continued smooth behavior on that interval.
+Extending the interval does not by itself establish global existence.
+
+\subsection{What can already be reused}
+
+The local \texttt{dysthe-core} reference evolves the approved spatial equation
+on a periodic profile interval of length $L$, with Fourier differentiation,
+retained modes $|m|<N/4$, and integrating-factor fourth-order Runge--Kutta
+steps in $\xi$.  Its independent controls include the linear symbol, a nonzero
+wavenumber plane wave, the exact NLS traveling profile, and a direct Fourier
+convolution of the nonlinear terms including mean flow.  The local
+\texttt{dysthe-experiments} code already supplies matched controls,
+phase/translation alignment, full periodic residual checks, and separate
+grid, step, and domain comparisons.
+
+Stored results for $\epsilon=.025$, $L=160$, $N=4096$,
+$h=\Delta\xi=.00125$, and $0\leq\xi\leq4$ give the following maximum raw
+complex relative $L^2$ discrepancies.  Each input was compared separately
+with $2N$, with $h/2$, and with $2L,2N$ at fixed profile spacing.
+\begin{center}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Initial field & Grid & Step & Domain\\
+\midrule
+Solitary profile & $4.17\times10^{-15}$ & $3.07\times10^{-9}$ & $1.54\times10^{-6}$\\
+Localized $2\%$ perturbation & $3.09\times10^{-15}$ & $4.08\times10^{-9}$ & $2.26\times10^{-6}$\\
+Complex Gaussian & $9.28\times10^{-16}$ & $4.05\times10^{-11}$ & $2.18\times10^{-5}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+These are existing two-level agreement checks, not rigorous error bounds or
+observed convergence orders.  The stored qualification files were inspected
+for this review; these trajectories were not rerun.  Fresh unit tests passed
+21 of 21 core checks and 43 of 47 experiment checks; four HTTP tests could not
+open a socket in the execution sandbox.  Passing tests neither qualifies a
+new packet nor proves a PDE theorem.  The reference additions are local
+uncommitted work; a reproducible campaign must record their source hashes.
+
+\subsection{A bounded campaign with explicit stopping rules}
+
+Use $\epsilon\in\{0,.025,.05\}$, treating zero as the mathematical NLS
+control.  Start with the existing smooth Gaussian and qualified traveling
+profiles, then add signed amplitude and phase perturbations outside the
+profile-construction symmetry.  Keep all parameters, initial Fourier
+coefficients, and initial-condition identifiers fixed within a refinement
+comparison.  The first task is a few documented cases, not a large training
+dataset.
+
+Start at $(N,L,h)=(4096,160,.00125)$.  Compare $N,2N,4N$ at fixed $L$ with a
+separately qualified step; compare $h,h/2,h/4$ at fixed fine grid; enlarge to
+$2L$ and, when necessary, $4L$ at fixed profile spacing.  Reconstruct localized
+initial data on each domain rather than repeating its periodic copies.
+Recomputed solitary profiles must retain and report their initial-domain
+discrepancy.  The nonlocal mean flow can change with $L$ even when edge
+amplitudes are tiny.
+
+Use successive horizons
+\[
+  \Xi\in\{1,2,4,8,16,32\},
+\]
+advancing only after the preceding horizon passes its checks.  Compare all
+saved stations and inspect denser output near rapid growth.  Retain raw
+complex errors as well as errors after fitting only translation and constant
+phase; never fit away amplitude changes.  Perturbations should also be
+compared with their matched propagated control.  A failed gate calls for
+refinement or a shorter qualified interval; it is not evidence of blow-up
+or nonexistence.
+
+For $k_m=2\pi m/L$ and Fourier coefficients normalized by $1/L$, record
+\begin{equation}\label{eq:monitor-sobolev}
+ \norm{u}_{H^s(\TT)}^2
+ =L\sum_m(1+k_m^2)^s|\widehat u_m|^2,
+ \qquad s=1,2,3.
+\end{equation}
+Also record $\norm{u}_{\infty}$, $\norm{u_\tau}_{\infty}$, and spectral
+slopes above the resolved signal floor.  Monitor the fraction of each
+$H^s$ sum in the upper fifth of the retained band.  A small unweighted
+spectral tail can conceal a large derivative error.  Check boundary and
+exterior contributions in derivative norms, not action alone.  Apparent
+norm growth is interpretable only while these weighted tails, slopes, and
+refinement comparisons remain resolved.
+
+Provisional gates are maximum raw relative $L^2$ discrepancy $10^{-4}$,
+$H^1$ discrepancy $10^{-3}$, and $H^2,H^3$ discrepancies $10^{-2}$, with
+upper-band weighted fractions below $10^{-6}$.  Use the finer field for
+normalization and absolute scales when the reference norm is near zero.
+For a weak perturbation, additionally require the signed response
+discrepancy below $2\%$ of the measured response above its numerical floor.
+These are proposed acceptance tolerances, not established error bounds;
+tighten them when the scientific effect is smaller.  Step halving must show
+the expected order before roundoff, rather than just two close answers.
+The existing $\epsilon\norm{u}_\infty$ and bandwidth screens remain
+separate physical-model checks; their thresholds are not universal validity
+theorems.
+
+Evaluate the unprojected RHS on an enlarged Fourier grid, retaining discarded
+nonlinear modes.  For a continuous reconstruction $v$ of a numerical
+trajectory, the useful defect is $r=v_\xi-F(v)$, including error from the
+reconstruction in $\xi$.  The existing snapshot RHS diagnostic alone does
+not provide that time-dependent defect or its integral.  Mass drift is an
+additional diagnostic; it cannot replace derivative resolution or residual
+control.
+
+\section{A Fourier-in-profile physics-informed network}
+\label{sec:spectral-pinn}
+
+\subsection{Represent the periodic field and retain the full residual}
+
+The recommended first PINN is a neural approximation of the Fourier
+coefficients as functions of propagation distance:
+\begin{equation}\label{eq:spectral-pinn}
+ v_\vartheta(\xi,\tau)
+ =\sum_{m=-K}^{K}a_m(\xi;\vartheta)e^{ik_m\tau},
+ \qquad a_m\in\CC.
+\end{equation}
+A smooth network takes $\xi$ and returns the real and imaginary parts of
+all coefficients.  Periodicity is exact.  Because the envelope is complex,
+\emph{do not impose} $a_{-m}=\overline{a_m}$ or conjugate-reflection symmetry.
+Choose $K$ from convergence of the reference fields in $H^3$, and repeat
+with a larger $K$; action capture alone is insufficient.
+
+Automatic differentiation supplies $a_m'$, while the profile derivatives
+use $ik_m$ and $-k_m^2$.  At each sampled $\xi$, form
+$\rho=|v_\vartheta|^2$, compute $\D\rho$ with multiplier $|k_m|$ and zero
+mean mode, and evaluate every term of \eqref{eq:baseline}.  Define
+\begin{equation}\label{eq:pinn-residual}
+ r_\vartheta=\partial_\xi v_\vartheta-F(v_\vartheta).
+\end{equation}
+The cubic terms, including $v_\vartheta\D(|v_\vartheta|^2)$, can contain modes
+through $3K$.  The residual must retain these modes even though the trial
+field stops at $K$.  A uniform quadrature grid with $Q>6K$ points resolves
+this full residual and its squared $L^2$ norm for the trigonometric trial
+field.  Penalizing only $|m|\leq K$ could conceal a large discarded RHS and
+merely solve a truncated coefficient system.  Independently validate with
+larger $Q$, larger $K$, and new propagation stations.
+
+\subsection{Hard initial values and short propagation windows}
+
+On $[\xi_j,\xi_{j+1}]$, write
+\[
+ a_m(\xi;\vartheta)
+ =a_m^{(j)}+(\xi-\xi_j)b_m(\xi;\vartheta).
+\]
+This enforces the supplied initial coefficients exactly.  On the first
+window, report the projection error of the prescribed initial field onto
+$|m|\leq K$; a hard condition does not remove this error.  On later windows,
+set $a_m^{(j)}$ to the previous learned terminal value.  Errors therefore
+accumulate honestly.  Replacing every window's initial value with a
+reference snapshot defines a different, data-assisted experiment and must
+be reported separately.
+
+Begin with short windows inside $\Xi=1$, double precision, a smooth modest
+network, and at least three recorded initialization seeds.  A practical
+training sequence is Adam followed by a bounded L-BFGS refinement.  Declare
+the architecture, coefficient scaling, optimization budget, window length,
+and stopping rules before comparison.  A basic loss is
+\[
+ \mathcal L_{\rm PDE}
+ =\frac{1}{(\xi_{j+1}-\xi_j)L}
+   \int_{\xi_j}^{\xi_{j+1}}\int_{\TT}|r_\vartheta|^2\dd\tau\dd\xi.
+\]
+An explicitly stated Fourier-weighted residual may improve derivative
+control, but changes the training objective and must be tested.  Conservation
+is a diagnostic rather than a substitute for the PDE loss.  Do not supply
+interior reference snapshots to a purported physics-only run; if such data
+are used, report that variant alongside it.
+
+\subsection{What would count as a meaningful result}
+
+First require the NLS and plane-wave controls, then the nonconstant mean-flow
+case, then the packet campaign.  At held-out stations compare the network
+with the refined reference in raw complex $L^2$, $H^1,H^2,H^3$, peak and
+profile slope, phase where amplitude is meaningful, and full residual.
+Compare matched perturbation responses before interpreting their growth.
+Training failure, a small collocation loss, or disagreement between two
+networks cannot decide existence.  A residual becomes an error certificate
+only when combined with justified stability estimates or validated inverse
+bounds of the kind discussed elsewhere in this report.
+
+The active learning repository has no implemented water-wave PINN.  This
+review adds no new trajectory or trained network.  Its proposed first
+deliverable is one reproducible short-window comparison, followed by horizon
+extension only after qualification.  Record total training and evaluation
+time, peak memory, all restarts and seeds, and any reference-generation cost;
+compare with the numerical solver at matched accuracy.  A PINN has no
+presumed speed advantage for this one-coordinate problem.  Its potential
+value must come from a demonstrated use---for example, a differentiable
+family of accurate approximations---rather than the name of the method.

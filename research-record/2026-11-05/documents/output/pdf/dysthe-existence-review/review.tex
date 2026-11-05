@@ -1,0 +1,398 @@
+\documentclass[11pt]{article}
+\usepackage{royden-report}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,array}
+\newcommand{\D}{\lvert D_\tau\rvert}
+\newcommand{\HH}{\mathcal H}
+\newcommand{\TT}{\mathbb T_L}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\F}{\mathcal F}
+\title{Dysthe Evolution: Numerical Evidence and Existence}
+\author{}
+\date{23 October 2026}
+\hypersetup{pdftitle={Dysthe Evolution: Numerical Evidence and Existence},
+pdfsubject={Review of two water-wave papers and a numerical/PINN existence research plan}}
+\begin{document}
+\maketitle
+\begin{abstract}
+The recommended first project is a study of continued smooth evolution
+for the approved spatial free-surface water-wave Dysthe equation, using
+a qualified Fourier solver and a separately evaluated physics-informed
+neural network (PINN). The immediate output should be a reproducible map
+of resolved propagation intervals, derivative growth, and approximation
+error. An existence theorem requires additional control of stability
+and unresolved modes. We review Dysthe (1979) and Schober--Islas (2026,
+supplied version 1), identify two apparent linear-dispersion
+inconsistencies in the latter, and show why a real delayed mean flow is
+not automatically equivalent to its complex damping model.
+No new evolution campaign, trained PINN, or computer-assisted existence
+certificate is claimed here.
+\end{abstract}
+
+\section{The research target}
+The question is whether prescribed smooth envelopes remain smooth as
+time or propagation distance increases. It is not primarily a search
+for solitary waves. Three tasks must be distinguished:
+\begin{enumerate}
+\item Construct a numerical trajectory and a PINN approximation for the
+same equation, initial data, domain, and interval.
+\item Assess continued regularity by checking derivative norms, spectra,
+and the full equation residual under independent refinement.
+\item Prove existence through a matching local theory and continuation
+estimate, or a rigorous a posteriori validation of a trajectory.
+\end{enumerate}
+A successful first project can complete the first two tasks and prepare
+the third. A smooth plot, agreement between two methods, or a small
+training loss does not by itself complete the third.
+
+\paragraph{Recommendation.}
+Begin with \texttt{water-wave-dysthe-spatial-v1}, which already has a
+working reference solver. Use short propagation windows and a
+Fourier-in-profile PINN. Evaluate both methods using the full residual,
+including discarded frequencies. Target a rigorous certificate on one
+short periodic interval before attempting an all-distance claim.
+Keep the newer paper's temporal damping and relaxation constructions
+separately identified; do not insert them into the approved baseline by
+changing a coefficient.
+
+The useful research result is: for a specified family of initial
+water-wave envelopes, how far are the approximations trustworthy,
+which derivatives grow first, what limits that interval, and can a
+rigorous bound certify at least one trajectory?
+
+\section{What the supplied papers establish}
+\subsection{Dysthe (1979): a model and a stability calculation}
+Dysthe derives corrections beyond cubic nonlinear Schr\"odinger (NLS)
+theory from inviscid, irrotational, deep-water free-surface flow
+\cite{dysthe}. His \(A\) is a velocity-potential envelope. The full
+system, printed equations (2.19)--(2.21) with the mean-flow Laplace
+equation, evolves in time and includes two horizontal coordinates.
+It is not the project's spatial free-surface equation.
+
+Slow modulation drives an induced mean potential. Its horizontal
+current changes the local carrier frequency and modifies sideband
+instability. Section 3 linearizes about a uniform wavetrain.
+For example, equation (3.10), printed p.~111, gives
+\[
+ \gamma_M=\tfrac12(1-2A_0)A_0^2,
+\]
+where \(A_0\) is nondimensional carrier steepness. Figures 1--3 compare
+approximate instability predictions with previous calculations and
+measurements. These are not convergence tests of nonlinear trajectories.
+
+The simplified equations (4.1)--(4.3), printed p.~113, retain the
+mechanism responsible for the stated leading stability correction.
+They should not replace the full evolution model in a regularity study
+without a separate justification. The paper supplies neither a
+well-posedness theorem nor a rigorous approximation-error theorem
+relative to the Euler equations.
+
+\begin{remark}
+Modulational instability means that certain small disturbances grow.
+It does not imply blow-up or nonexistence. Conversely, a smooth
+envelope solution need not stay within the weak-steepness, narrowband
+regime in which the water-wave approximation is physically credible.
+\end{remark}
+
+\subsection{Schober--Islas (2026): three distinct constructions}
+The supplied preprint \cite{schober} must be read as three constructions.
+\begin{enumerate}
+\item Its introductory equation (1.1) is a phenomenological temporal
+model with a complex coefficient in the nonlocal interaction:
+\begin{equation}
+ i u_t+u_{xx}+2|u|^2u+
+ \epsilon\left[2u(1+i\beta)\HH\partial_x(|u|^2)
+ -8i|u|^2u_x+\tfrac i2u_{xxx}\right]=0.
+ \label{eq:beta}
+\end{equation}
+The paper identifies \(\beta=0\) with a Hamiltonian Dysthe formulation.
+Its variable is not automatically the 1979 potential envelope or the
+approved spatial free-surface envelope.
+\item Sections 2--6 use the Dias--Dyachenko--Zakharov (DDZ)
+potential-flow reduction with weak viscosity
+\(\bar\nu=\epsilon^2\nu\). The reported fifth-order calculation produces
+derivative-dependent nonlocal terms but no explicit viscosity
+multiplier on the leading mean-flow operator. The sixth-order
+calculation isolates one carrier--mean contribution; it does not
+derive the complete sixth-order equation or the final net coefficient.
+\item Section 7 introduces an independent relaxation closure for the
+mean flow. It is not derived from the DDZ hierarchy. Its adjustment
+time is prescribed, with physical origin and calibration unresolved.
+\end{enumerate}
+The preprint does not derive a constant positive \(\beta\) from first
+principles and does not establish existence or continued smoothness.
+Its fifth-order cancellation is a conclusion of its formal expansion;
+we have not independently reproduced the full harmonic calculation.
+The paper itself distinguishes asymptotic order and operator structure
+from a term-by-term identification with its introductory equation.
+
+\subsection{Two apparent inconsistencies in the supplied version}
+The following findings were checked against the rendered PDF. They
+motivate a source/author audit, not an unannounced repair of the model.
+
+\paragraph{Cubic dispersion.}
+Equation (4.14), p.~9, prints
+\[
+ -\epsilon^2\frac{8ik^3}{\omega^2}A_{XXX}.
+\]
+For the stated dimensional \(X=\epsilon x\), \(T=\epsilon t\),
+\(\omega^2=gk\), and carrier \(e^{i(\omega t-kx)}\), the coefficient
+is dimensionally inconsistent. Independently, put
+\(A=e^{i(KX-\Omega T)}\) and remove viscosity and nonlinearity.
+Exact deep-water dispersion requires
+\begin{align}
+ \Omega
+ &=\frac{\omega-\sqrt{g(k-\epsilon K)}}{\epsilon} \notag\\
+ &=\frac{\omega K}{2k}
+ +\epsilon\frac{\omega K^2}{8k^2}
+ +\epsilon^2\frac{\omega K^3}{16k^3}
+ +\epsilon^3\frac{5\omega K^4}{128k^4}
+ +O(\epsilon^4).
+ \label{eq:dispersion}
+\end{align}
+In the paper's normalization
+\(2i\omega(A_T+\omega A_X/(2k))+\cdots=0\),
+the cubic coefficient consistent with this expansion is
+\(-i\omega^2/(8k^3)\), not \(-8ik^3/\omega^2\).
+Even at \(k=\omega=1\), their magnitudes differ by a factor of 64.
+
+\paragraph{Missing quartic dispersion.}
+Equations (5.6), (5.7), and (5.11), p.~12, claim a complete fifth-order
+condition, but their inviscid linearization contains no \(A_{XXXX}\).
+In the same variables, \eqref{eq:dispersion} requires
+\(-5\epsilon^3\omega^2 A_{XXXX}/(64k^4)\).
+No exact-dispersion operator or documented change of envelope variable
+explaining this absence was identified.
+
+These are apparent inconsistencies in the supplied version, not a
+rederivation of its nonlinear hierarchy. Check possible corrections
+and the complete linear DDZ dispersion before implementing the
+higher-order equation. Correcting two terms would not validate
+all remaining coefficients.
+
+\section{Real mean-flow delay is not automatically nonlinear damping}
+Adopt \(\widehat{\HH f}(k)=-i\operatorname{sgn}(k)\widehat f(k)\),
+so \(\HH\partial_x=|D_x|\).
+Write \(\theta>0\) for the relaxation time called \(\tau\) in the
+new paper, avoiding confusion with the project's retarded time.
+Its equations (7.1)--(7.2) are
+\begin{equation}
+ M_0=-\frac{2k^2}{\omega}\HH\partial_X|A|^2,\qquad
+ \theta M_T+M=M_0.
+ \label{eq:relax}
+\end{equation}
+For real forcing and real initial \(M_{\rm in}\),
+\begin{equation}
+ M(T)=e^{-T/\theta}M_{\rm in}
+ +\theta^{-1}\int_0^T e^{-(T-s)/\theta}M_0(s)\dd s
+ \label{eq:convolution}
+\end{equation}
+is real. An initial-value simulation must specify \(M_{\rm in}\);
+a steady harmonic transfer function omits this transient.
+
+For time dependence \(e^{-i\Omega T}\),
+\[
+ G(\Omega)=\frac1{1-i\Omega\theta},\qquad
+ G(-\Omega)=\overline{G(\Omega)}.
+\]
+Its low-frequency approximation is \(1+i\Omega\theta\).
+In physical time this corresponds to
+\[
+ M=M_0-\theta\,\partial_T M_0+O(\theta^2),
+\]
+under appropriate temporal regularity and with the initial layer
+accounted for. It remains real. Replacing the entire real signal by
+\((1+i\beta)M_0\), for a constant positive \(\beta\), does not preserve
+the required conjugate symmetry. A selected complex Fourier amplitude
+can have such a phase lag; that does not establish equality of the
+full nonlinear models.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.94\linewidth]{figures/phase_lag_response.pdf}
+\caption{Analytic relaxation response for \(z=\Omega\theta\).
+The exact and first-order transfer functions have the same phase,
+but different magnitudes. These are analytic curves, not simulated
+wave trajectories.}
+\end{figure}
+Indeed \(G=(1+iz)/(1+z^2)\), so
+\[
+ |G-(1+iz)|=\frac{z^2}{\sqrt{1+z^2}}.
+\]
+The assumption \(\Omega\theta=O(\epsilon)\) places the correction
+one order beyond Dysthe; it is an imposed asymptotic ordering,
+not a measured adjustment time.
+
+\begin{proposition}[Mass balance for the complex-coefficient model]
+Let \(u\) be a sufficiently smooth \(L\)-periodic solution of
+\eqref{eq:beta}, with real \(\epsilon,\beta\). Set
+\(\rho=|u|^2\), \(Q(t)=\int_0^L\rho\dd x\).
+Then
+\begin{equation}
+ Q'(t)=-4\epsilon\beta\int_0^L\rho\,|D_x|\rho\dd x
+ =-4\epsilon\beta\norm{|D_x|^{1/2}\rho}_{L^2}^2.
+ \label{eq:mass-beta}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Differentiate \(Q\) to obtain \(2\operatorname{Re}\int\bar u u_t\).
+The dispersive terms and the purely imaginary multiplication terms
+have zero real integral. The derivative nonlinearity gives a
+multiple of \(\int\rho\rho_x=0\).
+The remaining contribution to \(u_t\) is
+\(-2\epsilon\beta u|D_x|\rho\). Parseval's identity gives the
+last equality because the multiplier \(|k|\) is nonnegative.
+\end{proof}
+By contrast, a real \(M\) multiplying \(u\) with a real coefficient
+in the \(iu_t\) equation contributes zero to \(Q'\).
+Replacing the real mean term of the \(\beta=0\) equation by such
+a relaxing \(M\) therefore preserves envelope mass. Additional
+viscous terms can change this conclusion; the comparison isolates
+the mean-flow mechanism.
+Delay may affect phase and other energy exchanges, but it does not
+produce \eqref{eq:mass-beta} through this substitution.
+
+Even \eqref{eq:mass-beta} does not prove global smoothness. It bounds
+mass and a time-integrated half derivative of \emph{intensity},
+not all derivatives of the envelope. For example, \(|a e^{inx}|^2\)
+is constant although its envelope derivatives grow with \(n\).
+This is a mathematical demonstration of missing control; arbitrarily
+large \(n\) violates narrowband physics.
+
+\section{Freeze the equation and the meaning of smoothness}
+The approved periodic spatial initial-value problem is
+\begin{align}
+ u_\xi=F(u)&=-iu_{\tau\tau}-i|u|^2u \notag\\
+ &\quad-\epsilon\left(8|u|^2u_\tau+
+ 2u^2\overline{u_\tau}+2iu\D(|u|^2)\right),\label{eq:baseline}\\
+ u(0,\tau)&=u_0(\tau),\qquad \tau\in\TT=\RR/(L\ZZ).
+ \label{eq:initial}
+\end{align}
+Here \(\xi\) is propagation distance, \(\tau\) retarded time,
+and \(u\) the scaled free-surface envelope. In the contract's
+carrier units, \(\tau=\epsilon(2x-t)\), \(\xi=\epsilon^2x\),
+and \(B=\epsilon u\).
+For \(k_m=2\pi m/L\), \(\D\) has multiplier \(|k_m|\)
+and zero mean mode. The coefficient 2 of
+\(u^2\overline{u_\tau}\) must not be replaced by the
+potential-envelope value 0.
+This is the local contract's Fedele--Dutykh spatial convention
+\cite{fedele}.
+
+For \(u=\sum_m a_m e^{ik_m\tau}\), set
+\[
+ \norm{u}_{H^s(\TT)}^2=L\sum_m(1+k_m^2)^s|a_m|^2.
+\]
+The intended finite-interval claim must specify a class, such as
+\(C([0,\Xi];H^s(\TT))\). Well-posedness additionally requires
+uniqueness and continuous dependence in the stated spaces.
+The diagnostic choice \(s=3\) below is not claimed to be a
+known optimal existence threshold.
+
+\input{methods}
+\input{existence}
+
+\section{Recommended sequence and limits of the present review}
+First freeze the equation and domain and map candidate existence
+theorems term by term. Next extend the existing Gaussian benchmark
+with derivative histories, three-level checks, and explicit stopping
+reasons. Then build one short-window spectral PINN, test multiple
+windows and seeds, and measure full residuals and total cost.
+Finally attempt one finite-interval certificate, identifying precisely
+which estimate remains missing if certification fails.
+
+A later damping study would require separately versioned temporal
+constant-\(\beta\) and real-relaxation models, with specified initial
+mean flow. Test their different mass laws before interpreting either
+as a smoothness mechanism. Treat small relaxation times implicitly
+or exponentially. Do not relabel either model as spatial-v1.
+
+The defensible first research claim concerns resolved finite-distance
+smooth evolution and independently tested neural approximations
+for a specified water-wave model. A rigorous local certificate is
+a stronger second result. Global smoothness, physical wave breaking,
+and first-principles nonlinear damping require further arguments.
+
+\paragraph{Verification status.}
+The review used the supplied PDFs, visual checks of mathematical
+pages, current local scope contracts and code, stored qualification
+records, fresh unit tests, and primary literature checked as of
+23 October 2026. Original PDFs and active repository files were not
+modified. Some inspected reference additions are uncommitted or
+untracked; local capability is not a claim about a published release.
+The learning registry has no implemented active water-wave PINN, and
+the paper repository's claims file still records no new evidence.
+
+The portable source package includes editable LaTeX, style,
+the vector PDF figure, independent identity checks and results,
+build instructions, and verification metadata.
+Five low-mode test profiles verified the spatial mass balance to
+\(3.1\times10^{-16}\), the complex-coefficient mass balance to
+\(2.7\times10^{-16}\), and real-mean-flow mass preservation to
+\(4.0\times10^{-16}\) in absolute discrepancy.
+These floating-point checks support the explicit algebra; they
+are not interval-arithmetic certificates or new evolution results.
+The full fifth-order harmonic derivation was not reproduced.
+No new PINN, continuation dataset, existence certificate,
+or laboratory comparison was produced in this review.
+
+\clearpage
+\begin{thebibliography}{9}
+\bibitem{dysthe}
+K.~B. Dysthe, \emph{Note on a modification to the nonlinear
+Schr\"odinger equation for application to deep water waves},
+Proc. R. Soc. Lond. A \textbf{369} (1979), 105--114.
+Supplied PDF, especially printed pp.~109--113.
+\bibitem{schober}
+C.~M. Schober and A. Islas,
+\emph{Higher-Order Extensions of Weakly Viscous Dysthe Theory and
+a Phase-Lag Model for Nonlinear Mean-Flow Damping},
+\href{https://arxiv.org/abs/2608.04473v1}{arXiv:2608.04473v1}
+(2026). Supplied PDF, equations (1.1), (4.14),
+(5.6)--(5.16), (6.9), and (7.1)--(7.17).
+\bibitem{fedele}
+F. Fedele and D. Dutykh,
+\emph{Hamiltonian description and traveling waves of the spatial
+Dysthe equations},
+\href{https://arxiv.org/abs/1110.3605}{arXiv:1110.3605v3}
+(2012), especially equation (1.3).
+\bibitem{mps}
+R. Mosincat, D. Pilod and J.-C. Saut,
+\emph{Global well-posedness and scattering for the Dysthe equation
+in \(L^2(\RR^2)\)},
+\href{https://arxiv.org/abs/2007.01613}{arXiv:2007.01613v2}
+(2020), Theorems 1.1--1.2 and Remark 1.6.
+\bibitem{heller}
+G. Heller and C. Shao,
+\emph{Strichartz and Multi-linear Estimates for the
+One-dimensional Periodic Dysthe equation},
+\href{https://arxiv.org/abs/2112.12734}{arXiv:2112.12734}
+(2021), especially Section 1.5.
+\bibitem{belloni}
+A. Belloni and F. Giuliani,
+\emph{Global Well-Posedness and Uniform Long-Time Control for a
+Class of Periodic NLS-Dysthe Equations},
+\href{https://arxiv.org/abs/2610.14786}{arXiv:2610.14786v1}
+(2026), Corollary 1.2 and water-wave exclusion, pp.~5--6.
+\bibitem{mishra}
+S. Mishra and R. Molinaro,
+\emph{Estimates on the generalization error of Physics Informed
+Neural Networks (PINNs) for approximating PDEs},
+\href{https://arxiv.org/abs/2006.16144}{arXiv:2006.16144v3}
+(2023).
+\bibitem{bai}
+G. Bai, U. Koley, S. Mishra and R. Molinaro,
+\emph{On generalization error estimates of physics informed neural
+networks for approximating dispersive PDEs}, ETH SAM Report 2021-13,
+\href{https://www.sam.math.ethz.ch/sam_reports/reports_final/reports2021/2021-13_rev1.pdf}{primary report}.
+Its examples do not provide a Dysthe existence theorem.
+\bibitem{validation}
+I. Bal\'azs et al.,
+\emph{Computer-assisted proofs for radially symmetric solutions
+of PDEs},
+\href{https://www.math.mcgill.ca/jplessard/PDEs_files/compuproofsDEs.pdf}{authors' manuscript}.
+Cited for the validation method, not for a Dysthe result.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,36 @@
+{
+  "status": "executed independent review checks; not PINN training",
+  "existing_unittests": {
+    "passed": 6
+  },
+  "parameters": {
+    "epsilon1": 0.13,
+    "epsilon2": 0.21
+  },
+  "full_nonlinear_plane_wave": {
+    "wavevector": [
+      1,
+      2,
+      -1
+    ],
+    "amplitude": 0.6,
+    "Omega": 2.7331999999999996,
+    "rhs_relative_error": 1.3561672952008114e-14,
+    "T": 0.2,
+    "dt": [
+      0.02,
+      0.01,
+      0.005
+    ],
+    "relative_complex_errors": [
+      4.0103343979408076e-11,
+      2.5068985904088595e-12,
+      1.5713826300444116e-13
+    ],
+    "successive_error_ratios": [
+      15.997194355144407,
+      15.953457436003397
+    ]
+  },
+  "nonseparable_optical_mass_derivative": -1.9161731346356587e-16
+}

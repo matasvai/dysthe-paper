@@ -1,0 +1,52 @@
+{
+  "purpose": "Qualitative gallery, not a new whole-space bound check",
+  "grid": 128,
+  "length": 96,
+  "spacing": 0.75,
+  "regime": "homogeneous_minus",
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "isosurface_fraction": 0.3,
+  "carrier_wavenumber_illustrative": 3,
+  "records": [
+    {
+      "seed": 11,
+      "t": 0,
+      "sampled_peak": 0.0024894672921352066,
+      "l2": 0.029112318445489147
+    },
+    {
+      "seed": 11,
+      "t": 4,
+      "sampled_peak": 0.001659011205666755,
+      "l2": 0.029112318445481355
+    },
+    {
+      "seed": 22,
+      "t": 0,
+      "sampled_peak": 0.0033136446511833227,
+      "l2": 0.031536567994669314
+    },
+    {
+      "seed": 22,
+      "t": 4,
+      "sampled_peak": 0.0016732658654909336,
+      "l2": 0.03153656799466632
+    },
+    {
+      "seed": 33,
+      "t": 0,
+      "sampled_peak": 0.0037673470495638347,
+      "l2": 0.03548652834669101
+    },
+    {
+      "seed": 33,
+      "t": 4,
+      "sampled_peak": 0.002284952769554675,
+      "l2": 0.03548652834667759
+    }
+  ]
+}

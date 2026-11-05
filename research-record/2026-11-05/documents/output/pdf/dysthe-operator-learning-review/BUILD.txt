@@ -1,0 +1,34 @@
+Learning Dysthe Evolution Across Initial Wave Fields
+Reviewed 25 October 2026
+
+Build the editable report from this directory:
+  pdflatex -interaction=nonstopmode -halt-on-error review.tex
+  pdflatex -interaction=nonstopmode -halt-on-error review.tex
+
+The source needs a normal TeX installation with the packages named in review.tex
+and royden-report.sty. All included source and figure paths are relative.
+No bibliography processor or internet access is required to compile.
+
+Optional arithmetic checks:
+  python3 implementation_checks.py
+Requires NumPy. This is an independent formula check, not a solver campaign.
+
+Optional vector figure regeneration:
+  MPLCONFIGDIR=/tmp/dysthe-review-mpl python3 make_figure.py
+Requires Matplotlib. The generated comparison_design.pdf is already supplied.
+
+Report status:
+- Primary-literature review and proposed implementation/experiment protocol.
+- Active scope: water-wave-dysthe-spatial-v1, one periodic profile coordinate.
+- Historical run metadata inspected; no new trajectory campaign.
+- Independent arithmetic operator checks executed and passed.
+- No trained FNO/PINN, learned rollout, physical experiment or existence proof.
+- The built-in editor compiler could not retrieve its uncached Tectonic bundle.
+  System pdfLaTeX compiled successfully; all pages were visually checked.
+- Source bundle portability was verified by building in a separate directory.
+- validation details are recorded in verification.json.
+
+The source_manifest.json records hashes of inspected project files, supplied
+papers and report source files. It does not bundle external literature or
+the numerical training dataset. The report's proposed tests have not been
+executed except for the explicitly described arithmetic subset.

@@ -1,0 +1,139 @@
+{
+  "target": {
+    "source": "Dysthe3D-2.pdf equation (1.27), corroborated by (6.5)-(6.6)",
+    "field": "complex E(t,x,y,z)",
+    "coordinates": {
+      "t": "dimensionless optical propagation",
+      "x_y": "transverse coordinates",
+      "z": "retarded time"
+    },
+    "rhs_fourier": "-i*((1+epsilon1*kz)*(kx^2+ky^2)-kz^2+epsilon2*kz^3)*Ehat+i*(1-epsilon1*kz)*FFT(abs(E)^2*E)",
+    "source_warning": "Equation (1.32) has a mixed-derivative sign inconsistent with (1.27); pin implementation to (1.27) and (6.6)."
+  },
+  "reusable": [
+    "existing optical Fourier branch",
+    "strict cubic cutoff abs(mode)<N/4",
+    "integrating-factor RK4",
+    "mass and spectral-edge diagnostics"
+  ],
+  "exclude_as_truth": [
+    "linear canonical decay datasets",
+    "one-coordinate water-wave Dysthe profiles and collisions",
+    "unresolved optical stripe output at t=8"
+  ],
+  "benchmark_proposal": {
+    "status": "implemented configuration, not yet reference-refinement validated",
+    "input": "A*exp(i*phase)*product(((1+cos(2*pi*xj/Lj))/2)^power)",
+    "amplitude": 0.3,
+    "phase": 0.0,
+    "power": 3,
+    "lengths": [
+      12,
+      12,
+      12
+    ],
+    "T": 0.5,
+    "epsilon1": 0.00831834509,
+    "epsilon2": 0.00498719622,
+    "reference_shape": [
+      32,
+      32,
+      32
+    ],
+    "reference_dt": 0.001,
+    "boundary": "exact periodic field and derivatives",
+    "physical_status": "coefficient pair physically motivated; full packet not experimentally calibrated",
+    "initial_bandwidth": "abs(mode_j)<=power; require N_j>4*power",
+    "domain_scope": "fixed-period torus pilot; changing L at fixed power changes packet, not a box-convergence experiment"
+  },
+  "mandatory_operator_tests": [
+    "full nonlinear plane wave all k nonzero",
+    "expanded nonlinear derivative",
+    "normalization chain rule",
+    "nonseparable optical mass derivative",
+    "cubic dealiasing"
+  ],
+  "reference_acceptance": {
+    "relative_complex_l2_max": 0.001,
+    "relative_peak_max": 0.005,
+    "comparisons": [
+      "dt halved fixed grid",
+      "finer grid fixed box"
+    ],
+    "record": [
+      "initial projection error",
+      "spectral-edge mass",
+      "boundary-shell mass",
+      "mass drift"
+    ],
+    "whole_space_gate": "pending fixed localized seed and consistent periodization across boxes; not applicable by changing L at fixed trig power"
+  },
+  "pinn_acceptance": {
+    "heldout_relative_complex_l2_max": 0.01,
+    "heldout_relative_peak_max": 0.02,
+    "relative_mass_drift_max": 0.01,
+    "seeds_min": 3,
+    "primary_errors_unaligned": true,
+    "residual_threshold": "report component scales; do not claim universal scalar threshold",
+    "status": "proposed gates, no PINN results"
+  },
+  "training_sequence": [
+    "analytic tests",
+    "labeled infrastructure smoke",
+    "refined fixed-period reference",
+    "one time window, three seeds",
+    "extend windows only after acceptance"
+  ],
+  "required_run_provenance": [
+    "config",
+    "seed",
+    "git revision",
+    "checkpoint",
+    "all component losses",
+    "independent metrics",
+    "GPU model",
+    "wall time",
+    "peak memory",
+    "exit status"
+  ],
+  "deferred": [
+    "inverse parameters",
+    "broad coefficient sweeps",
+    "long-time decay exponent claims",
+    "experimental validation",
+    "soliton claims"
+  ],
+  "physical_mapping": {
+    "epsilon1": "1/(omega0*tau)",
+    "epsilon2": "k3/(3*k2*tau)",
+    "normal_dispersion_example": {
+      "wavelength_nm": 800,
+      "sech_intensity_fwhm_fs": 90,
+      "k2_fs2_per_cm": 360,
+      "k3_fs3_per_cm": 275
+    },
+    "source": "https://tf.nist.gov/general/pdf/2968.pdf",
+    "limitations": [
+      "no delayed Raman in (1.27)",
+      "duration convention depends on shape",
+      "amplitude and width require separate scaling"
+    ]
+  },
+  "implementation_review": {
+    "files": [
+      "src/dysthe_pinn/physics.py",
+      "src/dysthe_pinn/model.py",
+      "src/dysthe_pinn/reference.py",
+      "src/dysthe_pinn/training.py",
+      "src/dysthe_pinn/evaluation.py",
+      "configs/benchmark.json"
+    ],
+    "hard_initial_and_periodic": true,
+    "reference_data_used_in_training": false,
+    "collocation": "uniform; adaptive or pulse-focused mixture deferred",
+    "resume": "model, optimizer, RNG, config and environment; no cross-device bitwise claim",
+    "evaluation": "strict equation/physics/initial/domain matching; reference convergence explicitly unestablished",
+    "action_metrics": "distinguish reference-relative action error from temporal prediction drift",
+    "acceptance_status": "proposed gates require executed experiments; program completion is not scientific acceptance"
+  }
+}

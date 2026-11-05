@@ -1,0 +1,244 @@
+\section{The strongest and newest relevant literature}
+\label{sec:literature}
+\subsection{Direct water-wave evidence}
+\paragraph{NLS assimilation and inverse calibration: Ehlers et al. (2024).}
+This \emph{Fluids} paper studies 630 synthetic higher-order-spectral (HOS)
+wave samples, using observations at two gauge positions and evaluating at
+intermediate positions. Fitting carrier-related parameters reduces reported
+mean surface similarity parameter (SSP) error from $0.204$ to $0.186$.
+Broader spectra and steeper waves remain difficult. The experiments use
+numerical data, not a laboratory validation. The paper explicitly proposes
+Dysthe residuals, gauge-separation studies, and actual measurements
+\cite{ehlers2024}. Its importance is the realistic inverse task and explicit
+model discrepancy. Better reconstruction with fitted parameters does not,
+by itself, prove that those parameters recover the true physics.
+
+\paragraph{Potential-flow PINNs: Ehlers et al. (2025).}
+Published in \emph{Physical Review Fluids} on 2 September 2025, this study
+uses elevation and velocity-potential networks with potential-flow
+constraints. It includes laboratory flume measurements and reports a
+laboratory reconstruction SSP of $0.049$. Forecast quality deteriorates
+beyond the assimilation interval; inferred laboratory velocity potential
+does not have independent measured ground truth. This is substantial
+evidence beyond analytic-soliton fitting, but uses different equations from
+the approved envelope model. Pretraining, faster training, and operators
+appear in the outlook \cite{ehlers2025}.
+
+\paragraph{Water-wave PINO: Ehlers, Stender and Hoffmann (2025).}
+Published in \emph{Physics of Fluids} on 7 October 2025, this paper already
+learns sparse-observation reconstruction with an FNO-based physics-informed
+operator. It uses 634/211/211 training/validation/test HOS samples and
+potential-flow constraints; reported test SSP means are $0.1035$ and
+$0.1341$ for two observation configurations. A representative $0.014$\,s
+inference time excludes training. These are synthetic, long-crested cases,
+not proof of operational ocean forecasting \cite{wavepino}.
+Author code is public. A 1,056-sample HOS dataset was released on
+8 April 2026 \cite{hosdata}. Availability was checked; neither was run here.
+This is the main prior-art obstacle to claiming generic sparse water-wave
+operator learning as new.
+
+\subsection{Direct NLS methods to reproduce or compare}
+\paragraph{Compact networks and optimization: Urb\'an, Stefanou and Pons (2025).}
+The \emph{Journal of Computational Physics} paper is a strong direct
+cubic-NLS baseline. Its self-scaled Broyden example uses two hidden layers
+of 40 units and reports real/imaginary relative errors of approximately
+$(5\pm1,8\pm2)\times10^{-6}$. Hard initial conditions and periodic features
+are part of the setup. Its domain differs from the original Raissi
+benchmark, expanding from $[-5,5]$ to $[-15,15]$; the nonperiodic
+$\operatorname{sech}$ tails become smaller. Consequently the cross-paper
+gain cannot be credited to optimization alone. The authors explicitly
+suggest further work on modified limited-memory BFGS
+\cite{urban}. Reproduce the complete setup before selecting a larger network.
+
+\paragraph{Complex-valued learning: Zhang et al. (2025).}
+The \emph{Physical Review Research} CV-PINN paper has particularly useful
+accessible evidence: a full manuscript and public implementation. Complex
+layers and predictive dynamic monitoring are compared with an approximately
+parameter-matched real network across 16 one-dimensional
+Gross--Pitaevskii/NLS examples, with three repeats. Some training runs take
+approximately two GPU hours. Spectral computations supply reference fields;
+this does not show superiority to those solvers. Sampling improvement is
+not uniform in every case. The conclusion explicitly proposes richer
+residual/solution-gradient sampling \cite{cvpinn}. Treat this as an
+architecture and training source, not as water-wave validation.
+
+\paragraph{Hard-constraint ablations: Hao et al. (2026).}
+The \emph{Foundations of Data Science} article, early online 8 June 2026,
+examines the effect of initial conditions and training stability. Its NLS
+combination of hard initial/periodic conditions, self-adaptive weighting,
+and mini-batching reports real/imaginary relative errors
+$1.80\times10^{-4}$ and $2.58\times10^{-4}$. Code is public
+\cite{hardic}. The value lies in ablation and analysis, not the invention of
+hard trial functions. The findings do not imply that every noisy inverse
+problem should enforce measured initial data exactly. Its numbers should
+not be ranked against Urb\'an's numbers without matching the experiments.
+
+\paragraph{Time decomposition and interacting structures: Chen, Li and Yuen (2025).}
+Two direct NLS papers study interface-trained time decomposition
+(TDD-PINNs) and nonlinear-interaction multi-domain networks (NI-MPINNs).
+They include breathers, rogue-wave combinations, and inverse coefficients
+with synthetic noise \cite{tdd,interaction}. Their publisher previews report
+substantial gains over conventional PINNs. Full comparative budgets and
+code were not verified, so the gains are not independently auditable here.
+These are relevant precedents for domain decomposition, which should not
+be presented as a new idea in a Dysthe application. A spatial formulation
+needs propagation-distance slabs, with consistent interface fields.
+
+\paragraph{Transfer between NLS cases: Chen et al. (2024).}
+Multi-view transfer learning reuses pretrained NLS information between
+related initial/boundary conditions \cite{transfer}. This is a useful
+repeated-case comparator, with publisher-level evidence inspected.
+Fine-tuning a pretrained solver and learning an input-conditioned operator
+are different algorithms. A new study must measure both adaptation cost
+and performance on complete unseen wave packets.
+
+\subsection{Very recent 2026 candidates}
+\begin{longtable}{@{}P{0.22\textwidth}P{0.35\textwidth}P{0.35\textwidth}@{}}
+\toprule
+Paper/date & Method and reported evidence & Assessment and access limit \\
+\midrule
+\endfirsthead
+\toprule
+Paper/date & Method and reported evidence & Assessment and access limit \\
+\midrule
+\endhead
+GRAVIS, 14 June \cite{gravis} &
+Residual magnitude plus output-layer loss-gradient information; seven
+localized NLS cases, matched architectures/budgets; reports
+$1.56$--$2.37$ times lower errors than RAD. &
+Strong recent sampling comparator. Publisher abstract/metadata inspected;
+full text, code, and complete cost audit unavailable. Parameter gradients
+are not the same as spatial solution gradients. \\
+\addlinespace
+Noether-constrained PINNs, 5 September issue \cite{noether} &
+Dynamic conservation penalties plus adaptive residual sampling; reports
+small soliton amplitude error and invariant fluctuations. &
+Promising conservation comparator. Abstract-level access; phase,
+forecast horizon, repetitions, and matched costs unverified. Soft penalties
+do not enforce exact conservation. \\
+\addlinespace
+CPA-PINNs, 15 October issue \cite{cpa} &
+Phase--amplitude representation with continuity, mass and energy penalties;
+semiclassical two-dimensional examples and inverse tests with noise. &
+Newest verified phase--amplitude candidate here. Publisher preview
+inspected; full tables/code unavailable. Defocusing examples do not validate
+focusing water-wave instability. \\
+\bottomrule
+\end{longtable}
+
+These papers justify updating an experimental comparison. They do not
+justify calling one method the established best. A separate late watchlist
+item is Hu et al.'s \emph{Geometry-Agnostic Data-Driven Discovery of Extreme
+Scenarios}, submitted 20 October 2026 \cite{extreme2026}. Its stationary
+NLS/coherent-structure examples and proposed extreme-event applications
+are not a demonstrated Dysthe forecasting method.
+
+Two WKB-PINN titles were screened but excluded from the confirmed-cutoff
+shortlist: DOI \texttt{10.1016/j.cnsns.2026.110653} has a November 2026
+issue date without a verified pre-cutoff online date; the exact eligible
+date of DOI \texttt{10.1016/j.physd.2026.135394} was not established.
+The source ledger retains these uncertainties rather than assigning dates.
+
+\subsection{Transferable methods: useful, with explicit boundaries}
+\paragraph{Causality and depth.}
+Wang, Sankaran and Perdikaris' causal PINNs weight later evolution stages
+according to earlier residuals \cite{causal}. This is not identical to
+training separate time windows. PirateNets initializes adaptive residual
+gates so that an effectively shallow model gains depth, and combines this
+with Fourier embeddings and physics-informed initialization
+\cite{pirate}. Neither flagship paper supplied a direct NLS benchmark in
+the inspected material. Their application to \eqref{eq:dysthe} is a
+testable transfer proposal. PirateNets explicitly points toward
+PDE-specific embeddings and operator-learning initialization.
+
+\paragraph{Optimization beyond Adam and L-BFGS.}
+The NeurIPS 2025 gradient-alignment paper studies SOAP preconditioning on
+ten PDE benchmarks, reporting roughly $2$--$10$ times better accuracy
+alongside approximately twice the training expense \cite{soap}.
+The inspected text does not establish NLS superiority. Kiyani et al.
+provide broader comparisons of self-scaled quasi-Newton methods
+\cite{optimizer}. Include a compact quasi-Newton baseline before declaring
+that a sophisticated architecture is necessary. Compare wall time to a
+target accuracy, not equal optimizer iteration counts.
+
+\paragraph{Operator learning and benchmark discipline.}
+Li et al.'s PINO combines data and PDE constraints to learn across input
+functions \cite{pino}. That supports the many-query formulation; it is not
+evidence for the present Dysthe implementation. PINNacle supplies broader
+evidence that method strengths depend on the PDE and problem regime
+\cite{pinnacle}. A shared benchmark is more informative than comparing the
+best numbers from unrelated papers.
+
+\paragraph{Spectral and goal-oriented residuals are already prior art.}
+Spectral informed neural networks replace differential evaluations with
+spectral operations \cite{spectral}. Govoeyi and Richter's April 2026
+preprint uses dual-weighted-residual ideas for functional-oriented sampling
+on Laplace problems \cite{goal}. An operator-budget study explicitly
+charges adaptive-sampler residual evaluations \cite{operatorbudget}.
+These are relevant precedents; none establishes a solution to the specific
+Dysthe nonlocal error-control problem proposed below. Their existence
+rules out claiming generic spectral PINNs or generic goal-oriented
+sampling as new.
+
+\subsection{Theory and classical numerical controls}
+\paragraph{NLS error bounds.}
+Alejo, Cossetti, Fanelli, Mu\~noz and Valenzuela study one-dimensional
+subcritical focusing NLS on the real line (preprint, revised June 2025)
+\cite{alejo}. Their result uses energy/Strichartz-type control, small
+defects, and integration assumptions. It is conditional error analysis,
+not a guarantee that gradient descent finds a suitable network.
+Nonzero-background breathers also need a functional setting different
+from directly assuming that the whole field lies in $H^1(\RR)$.
+This is the most directly relevant theoretical starting point found here;
+it does not immediately cover derivative/nonlocal Dysthe terms.
+
+\paragraph{Residual certification.}
+Eiras et al.'s ICML 2024 $\partial$-CROWN bounds worst-case residuals
+over continuous domains and includes a Schr\"odinger example
+\cite{eiras}. Full text and a public code repository were inspected.
+A bound on a residual is not yet a bound on solution or forecast error:
+one still needs a stability argument and controlled initial/boundary
+defects. The nonlocal operator in \eqref{eq:dysthe} requires additional
+analysis beyond a pointwise local residual.
+
+\paragraph{Do not assume PINNs beat numerical solvers.}
+Grossmann et al.'s systematic 2024 comparison includes semilinear
+Schr\"odinger problems; the tested vanilla PINNs do not outperform FEM in
+total solution time and accuracy, though evaluation can sometimes be
+faster \cite{grossmann}. This does not rule out newer methods. It does
+establish that a neural representation alone is not a competitive
+numerical result. For smooth periodic envelopes, include a well-resolved
+Fourier-based solver and an efficient tuned solver at each required
+accuracy; an excessively expensive reference is not a fair speed baseline.
+
+\clearpage
+\subsection{What is actually stated as future work?}
+\begin{longtable}{@{}P{0.22\textwidth}P{0.32\textwidth}P{0.38\textwidth}@{}}
+\toprule
+Source & Explicit direction in inspected text & Consequence for a new paper \\
+\midrule
+\endfirsthead
+\toprule
+Source & Explicit direction in inspected text & Consequence for a new paper \\
+\midrule
+\endhead
+Ehlers 2024 \cite{ehlers2024} & Dysthe residual; gauge separation;
+actual observations. & A directly motivated extension, requiring a
+controlled contribution beyond model substitution. \\
+Ehlers 2025 \cite{ehlers2025} & Faster training, pretraining, PINOs. &
+The generic operator direction is already pursued by \cite{wavepino}. \\
+CV-PINN \cite{cvpinn} & Residual and solution-gradient guided resampling. &
+GRAVIS overlaps the broader adaptive-sampling idea; target a specific
+physical observable or identifiability mechanism. \\
+Urb\'an et al. \cite{urban} & Modified limited-memory BFGS. &
+Compare memory and total solve time as well as final loss. \\
+PirateNets \cite{pirate} & PDE-specific embeddings; operator initialization. &
+Derive features from the approved dispersion relation and test transfer. \\
+SOAP \cite{soap} & Less expensive preconditioned algorithms. &
+Require matched-accuracy cost improvements, including preconditioner work. \\
+\bottomrule
+\end{longtable}
+The five questions that follow are this review's proposals. They are not
+attributed to authors unless explicitly connected above. Directional-wave
+and alternative-formulation suggestions in the literature are not part of
+the current project plan.

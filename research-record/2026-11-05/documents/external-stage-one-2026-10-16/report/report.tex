@@ -1,0 +1,182 @@
+\documentclass[11pt]{article}
+\usepackage{royden-report}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\title{A numerical reference for the spatial Dysthe equation}
+\author{Stage one: local reference validation}
+\date{16 October 2026}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\normtwo}[1]{\left\lVert #1\right\rVert_{2,L}}
+\newcommand{\opD}{\lvert D_\tau\rvert}
+\begin{document}
+\maketitle
+\begin{abstract}
+A bounded local campaign tests the existing water-wave reference before
+initial-data simulation or operator learning. Analytic controls, independent
+residuals, invariant audits, and separate step, grid, and domain comparisons
+qualify the stated periodic problem. Matched propagated controls separate
+phase and translation drift from deformation. Finite-window persistence
+establishes neither soliton discovery nor spectral or nonlinear stability.
+\end{abstract}
+
+\section{Equation and discretization}
+The verified project is
+\begin{quote}\small
+\path{/home/matasvai/Documents/Projects/Dysthe}.
+\end{quote}
+The contract \texttt{water-wave-dysthe-spatial-v1} specifies the complex scaled
+free-surface envelope $u(\xi,\tau)$, propagation distance $\xi$, and retarded
+time $\tau$:
+\begin{equation}\label{eq:dysthe}
+ u_\xi=-\ii u_{\tau\tau}-\ii\lvert u\rvert^2u
+ -\epsilon\left(8\lvert u\rvert^2u_\tau
+       +2u^2\overline{u_\tau}
+       +2\ii u\opD(\lvert u\rvert^2)\right).
+\end{equation}
+This is equation (1.3) of Fedele and Dutykh \cite{fedele2012}, with
+$(a,h,c,e,f)=(1,1,8,2,2)$. The source normalization is $B=\epsilon u$,
+$\tau=\epsilon(2x-t)$, $\xi=\epsilon^2x$, and $\epsilon=k_0a$ in
+dimensionless carrier coordinates. The $\epsilon=0$ NLS control is a
+mathematical limit; the coordinate transformation degenerates there.
+Complex128 arrays have axes $[\xi,\tau]$, not two horizontal directions.
+
+The domain $I_L=[-L/2,L/2)$ is periodic, with
+$\tau_j=-L/2+jL/N$, $0\leq j<N$. No absorbing layer is used.
+For Fourier kernel $e^{-\ii k\tau}$ and $k_m=2\pi m/L$,
+$\partial_\tau$ has symbol $\ii k_m$ and $\opD$ has symbol
+$\lvert k_m\rvert$, including a zero mean mode. Thus
+$\opD=\mathcal H\partial_\tau$ with Hilbert symbol
+$-\ii\operatorname{sign}(k_m)$.
+
+Let $P_N$ retain the strict band $\lvert m\rvert<N/4$, let $\mathcal F$
+be the full RHS of \eqref{eq:dysthe}, and let
+$\mathcal L=-\ii\partial_{\tau\tau}$. The computed Galerkin system is
+\begin{equation}\label{eq:galerkin}
+ u_\xi=\mathcal L u+P_N(\mathcal F(u)-\mathcal L u),\qquad u=P_Nu.
+\end{equation}
+This band resolves retained cubic products without aliasing. Lawson
+integrating-factor RK4 applies $\exp(\ii k_m^2\Delta\xi)$ exactly and
+advances the transformed nonlinear equation with classical RK4.
+Petviashvili-type profile construction restricts conjugate reflection;
+propagation imposes no such symmetry. Iteration convergence does not
+establish stability or enumerate all branches.
+
+\section{Controls and diagnostics}
+Use $\normtwo{f}^2=\int_{I_L}|f|^2\,\rad\tau$, discretized by
+$(L/N)\sum_j|f_j|^2$. Linear multiplier tests and explicit Fourier
+convolution of a nonconstant complex multimode field check signs,
+conjugation, and nonzero mean flow. Exact periodic plane waves satisfy
+\begin{equation}\label{eq:plane}
+ u=Ae^{\ii k\tau-\ii\Omega\xi},\qquad
+ \Omega=A^2-k^2+6\epsilon kA^2,\quad kL/(2\pi)\in\ZZ.
+\end{equation}
+The implementation's traveling convention is tested at $\epsilon=0$ by
+\begin{equation}\label{eq:nls}
+\begin{aligned}
+ u(\xi,\tau)&=e^{-\ii\mu\xi}F(\tau-s\xi),\\
+ F(\tau)&=\sqrt{2\nu}\operatorname{sech}(\sqrt\nu\,\tau)e^{-\ii s\tau/2},
+ \qquad \nu=\mu-s^2/4>0.
+\end{aligned}
+\end{equation}
+This whole-line solution requires negligible periodic-window error.
+Nonzero $s$ tests translation and phase; a moving Dysthe profile supplies
+an additional control.
+
+For a profile $F$, let $T=-\ii\mu F-sF_\tau\ne0$. Fourfold Fourier
+interpolation resolves its full cubic RHS and gives independent residuals
+\begin{equation}\label{eq:residual}
+\begin{aligned}
+ r_{\rm full}&=\frac{\normtwo{\mathcal F(F)-T}}{\normtwo{T}},&
+ r_{\rm ret}&=\frac{\normtwo{P_N[\mathcal F(F)-T]}}{\normtwo{T}},\\
+ r_{\rm disc}&=\frac{\normtwo{(1-P_N)\mathcal F(F)}}{\normtwo{T}}.
+\end{aligned}
+\end{equation}
+These qualify the trigonometric interpolant, not whole-line existence or
+accumulated propagation error. Arbitrary-field discarded-RHS diagnostics
+instead normalize by $\normtwo{\mathcal F(u)}$ and record that choice.
+
+With $\rho=|u|^2$ and $J=\operatorname{Im}(u_\tau\overline u)$, monitor
+\begin{align}
+ \mathcal A&=\int_{I_L}\rho\,\rad\tau,\label{eq:action}\\
+ \mathcal M&=\int_{I_L}(2J-2\epsilon\rho^2)\,\rad\tau,\label{eq:momentum}\\
+ \mathcal E&=\int_{I_L}\left(|u_\tau|^2-\tfrac12\rho^2
+ +\tfrac{10}{3}\epsilon^2\rho^3-5\epsilon\rho J
+ -\epsilon\rho\opD\rho\right)\,\rad\tau.\label{eq:energy}
+\end{align}
+These are continuum functionals \cite{fedele2012}; $u$ is noncanonical,
+and no periodic canonical gauge is imposed. Quadrature on $2N$ interpolated
+points resolves the degree-six density: $6K<2N$ for retained cutoff
+$K<N/4$. An independent directional-derivative audit uses both full and
+Galerkin RHSs. Projection can change energy/momentum conservation; RK4
+can change action. Absolute drift is retained, with relative drift omitted
+near zero. Conservation alone does not establish accuracy.
+
+For perturbed field $w$ and its matched propagated control $v$, fit only
+translation $a$ and constant phase $\theta$:
+\begin{equation}\label{eq:fit}
+ D_{\rm shape}=\min_{a,\theta}
+ \frac{\normtwo{w-e^{\ii\theta}v(\cdot-a)}}{\normtwo{v}},\qquad
+ q=e^{-\ii\theta}w(\cdot+a)-v.
+\end{equation}
+All discrete translations are searched, followed by correlation refinement
+and polishing; continuous global optimality is not proved. Regression
+controls test roundoff symmetry recovery and preservation of amplitude
+changes. Raw error, periodic translation, and principal-valued phase remain
+separate. Comparing signed fields $q$ between refinements retains radiation
+and deformation that differences of scalar norms would miss.
+
+Step comparisons fix $N,L$; grid comparisons fix $L,\Delta\xi$; domain
+comparisons preserve $L/N,\Delta\xi$ and recompute profiles. Common-window
+errors and larger-domain exterior norms are reported separately.
+Periodicity affects mean flow even with negligible boundary amplitude.
+Far-field group speed $-2k$ and folding exterior radiation into a smaller
+period diagnose wrapping; neither provides a nonlinear error bound.
+Boundary and spectral-edge action are supporting diagnostics. Weak-amplitude
+and narrowband screens are design choices, not universal physical bounds.
+
+\input{results.tex}
+
+\clearpage
+\section{Reproducibility}
+The checked snapshot is \path{stage1/source/}; additive modules are installed
+in the original project's \texttt{dysthe-core} and \texttt{dysthe-experiments}
+repositories. The installation manifest lists all nine added files and hashes.
+Initial provenance, effective
+configurations, SHA-256 hashes, environment versions, timings, and sampled
+complex fields accompany the results. Existing unrelated changes and
+historical arrays are preserved.
+
+Full commands are recorded in \path{stage1/README.md}. From the task root,
+use the two snapshot source directories and the existing project's
+\path{dysthe-learning/src} on \texttt{PYTHONPATH}. Run
+\texttt{pytest --import-mode=importlib -p no:cacheprovider}, followed by
+these experiment modules (\texttt{project} denotes the verified project):
+\begin{verbatim}
+python3 -m dysthe_experiments.reference_controls \
+  --profiles "$project/results/nonlinear" \
+  --output stage1/results/analytic-checks.json
+python3 -m dysthe_experiments.reference_stage_one \
+  --profile "$profile" --output stage1/results/benchmark --benchmark
+python3 -m dysthe_experiments.reference_stage_one \
+  --profile "$profile" --output stage1/results/campaign
+python3 -m dysthe_experiments.reference_stage_one \
+  --profile "$profile" --extended-domain --output stage1/results/extended
+python3 -m dysthe_experiments.reference_analysis \
+  --historical "$actualruns" --campaign stage1/results/campaign \
+  --extended stage1/results/extended --output stage1/results/analysis
+python3 stage1/make_report_results.py
+\end{verbatim}
+The initial-data simulator needs new per-family qualification, especially
+for focusing and radiation. This stage contains no training dataset, FNO
+training, paid compute, or HPC submission. Its finite periodic evidence
+also supplies no Euler-equation or experimental validation.
+
+\begin{thebibliography}{9}
+\bibitem{fedele2012}
+F. Fedele and D. Dutykh,
+\emph{Hamiltonian description and traveling waves of the spatial Dysthe
+ equations}, arXiv:1110.3605v3, 12 April 2012.
+\url{https://arxiv.org/html/1110.3605v3}.
+\end{thebibliography}
+\end{document}

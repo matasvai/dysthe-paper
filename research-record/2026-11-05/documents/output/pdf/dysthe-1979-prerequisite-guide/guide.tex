@@ -1,0 +1,66 @@
+\documentclass[11pt]{article}
+\usepackage{royden-report}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype,longtable,array,enumitem}
+\setlist{itemsep=3pt,topsep=5pt}
+\setcounter{tocdepth}{1}
+\newcommand{\Dg}{\mathcal{D}}
+\newcommand{\Ph}{\overline{\phi}}
+\newcommand{\Zh}{\overline{\zeta}}
+\newcommand{\Ps}{\overline{P}_1}
+\newcommand{\Pt}{\overline{P}_2}
+\newcommand{\papeq}[1]{\textup{Dysthe (#1)}}
+\newcommand{\paperlink}[1]{\par\smallskip\noindent\textit{Return to the paper:} #1\par}
+\newcommand{\checkpoint}[1]{\par\smallskip\noindent\textit{Readiness check.} #1\par}
+\hypersetup{pdftitle={Before Reading Dysthe (1979): A Prerequisite Guide},pdfauthor={Prepared for Matas Vai}}
+\title{Before Reading Dysthe (1979)\\\large A Prerequisite Guide to Deep-Water Wave Envelopes}
+\author{}
+\date{3 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+This guide assumes familiarity with partial differential equations and linear
+algebra, but no previous course in water-wave theory or multiple-scale
+perturbation methods. It develops the physical and mathematical background
+needed to read K. B. Dysthe's 1979 paper, then works through its main stability
+calculation. The emphasis is on why each approximation is made, what each
+variable represents, and which conclusions the approximation supports.
+\end{abstract}
+\tableofcontents
+\clearpage
+\input{sections/01-orientation}
+\input{sections/02-waves}
+\input{sections/03-fluid}
+\input{sections/04-dispersion}
+\input{sections/05-asymptotics}
+\input{sections/06-nls}
+\input{sections/07-mean-flow}
+\input{sections/08-dysthe}
+\input{sections/09-stability}
+\input{sections/10-whitham-reading}
+\input{sections/11-exercises}
+\appendix
+\input{sections/12-derivation-details}
+\input{sections/13-project-connection}
+\clearpage
+\begin{thebibliography}{9}
+\bibitem{dysthe}
+K. B. Dysthe, \emph{Note on a modification to the nonlinear Schr\"odinger
+equation for application to deep water waves}, Proceedings of the Royal
+Society of London A \textbf{369} (1979), 105--114.
+\href{https://doi.org/10.1098/rspa.1979.0154}{doi:10.1098/rspa.1979.0154}.
+The supplied JSTOR scan is the primary source used throughout this guide.
+\bibitem{plumb}
+R. Alan Plumb, \emph{Deep Water Gravity Waves}, Chapter 2 of the notes for
+MIT 12.333, Atmospheric and Ocean Circulations, Spring 2004.
+\href{https://ocw.mit.edu/courses/12-333-atmospheric-and-ocean-circulations-spring-2004/resources/ch2/}{MIT OpenCourseWare chapter and PDF}.
+Optional reinforcement for linear waves and group velocity.
+\bibitem{fedele}
+F. Fedele and D. Dutykh, \emph{Hamiltonian description and traveling waves of
+the spatial Dysthe equations}, arXiv:1110.3605v3 (2012).
+\href{https://arxiv.org/abs/1110.3605v3}{arXiv source}.
+Used only for the spatial/free-surface comparison in
+Appendix~\ref{sec:project}; equations (1.2)--(1.3) distinguish the envelopes.
+\end{thebibliography}
+\end{document}

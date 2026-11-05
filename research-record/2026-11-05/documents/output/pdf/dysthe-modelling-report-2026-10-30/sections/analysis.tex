@@ -1,0 +1,52 @@
+\section{Connection to analytical PDE questions}\label{sec:analysis}
+\subsection{A useful distinction that can be proved}
+The following elementary fact explains why a smooth-looking finite-dimensional trajectory is weak evidence for continuum global existence.
+\begin{proposition}[Mass and finite Fourier systems]
+For a smooth periodic solution of \eqref{eq:scaled} with real $c,\epsilon$, $M(T)=\int_0^L|u|^2\,\rad s$ is constant. An exact orthogonal finite Fourier Galerkin truncation of this equation has a global-in-time solution for every finite initial coefficient vector.
+\end{proposition}
+\begin{proof}
+Differentiate $M$ and take the real part of $2\int\overline u u_T$. Periodic integration by parts cancels the skew-adjoint linear terms. The cubic and nonlocal mass pairings are purely imaginary, since $|D_s|(|u|^2)$ is real. The real parts of both derivative nonlinearities are constant multiples of $\int\rho\rho_s$, which vanishes by periodicity. Hence $M'=0$. For a Fourier projection $P_K$, the same pairing holds because $P_K$ is orthogonal and $u_K=P_Ku_K$. The Galerkin vector field is a polynomial finite-dimensional ODE. Conservation keeps its coefficient vector in a bounded mass ball, so local ODE continuation prevents finite-time escape.
+\end{proof}
+The estimate
+\[
+ \norm{u_K}_{H^j}\le(1+k_K^2)^{j/2}\norm{u_K}_{L^2}
+\]
+depends on the cutoff. It gives no uniform continuum derivative bound as $K\to\infty$. The proposition also does not guarantee stability of an explicit time-discretization; the observed time-step artifact illustrates this distinction.
+
+\subsection{What is still needed for an existence or stability statement}
+A rigorous continuum claim must specify the exact envelope variable, coefficients, periodic or whole-space domain, regularity class, data size and solution concept. Dysthe well-posedness literature supplies important results for particular formulations and domains \cite{grande,mosincat,heller}; those hypotheses do not automatically match the present one-dimensional periodic potential model. This report does not assert that a matching theorem is absent. It does not supply one.
+
+For a PINN candidate $v$, define the defect $r=v_T-F(v)$ and initial mismatch $v(0)-u_0$. A residual-to-solution estimate would be valuable, but it requires a stability argument for this derivative and nonlocal PDE. \emph{Conditional} on an estimate in a specified norm $X$,
+\[
+ \frac{\rad}{\rad T}\norm{u-v}_X\le C(T)\norm{u-v}_X+\norm{r}_X,
+ \qquad C\ge0,
+\]
+Gronwall yields
+\[
+ \norm{u-v}_X(T)\le e^{\int_0^T C(s)\,\rad s}
+ \left[\norm{u_0-v(0)}_X+\int_0^T\norm{r(s)}_X\,\rad s\right].
+\]
+Establishing the hypothesis, including derivative loss and suitable bounds on $u,v$, is the hard analytical step. A sampled residual and a constant borrowed from cubic NLS do not establish it. A sensible collaboration is to use numerical spectra and residuals to identify tractable assumptions, then seek an a posteriori stability result for the chosen formulation.
+\clearpage
+\subsection{Solitons, recurrent packets and model validity}
+A soliton claim needs more than a localized bright curve. A practical first question is whether there is a travelling coherent profile
+\[
+ u(s,T)=e^{-\ii\Omega T}Q(s-VT)
+\]
+for the \emph{specified} Dysthe model. Substitute this ansatz, solve the stationary nonlocal profile equation with phase and translation conditions, and refine its residual independently. Compare a propagated candidate after the predicted shift and phase, while also reporting the unaligned error. Perturb it within the same formulation and measure orbital deviation. This is a coherent-wave and stability programme, not a claim of integrability or elastic soliton collisions.
+
+Numerical travelling-wave work exists for spatial Dysthe-type formulations \cite{fedele}; finite-bandwidth and mean-flow effects also matter in temporal wave-group simulations \cite{shemer}. Neither supplies a ready-made exact soliton for every equation labelled Dysthe. The Gaussian input in this report is a packet, not an exact NLS or Dysthe soliton. The NLS sech test verifies only the cubic limiting solver.
+
+The supplied Schober--Islas 2026 preprint studies higher-order weakly viscous extensions and a phase-lag mean-flow damping mechanism \cite{schober}. It is relevant to questions about persistent downshift and dissipative coherent structures, but it changes the model and the conservation structure. No damping or complex mean-flow multiplier is included in the present inviscid baseline. A dissipative comparison would require a separately versioned equation, its own calibration and different conservation diagnostics.
+
+\textbf{Useful analytical discussion questions.}
+\begin{enumerate}
+\item Which local theory and continuation norm match the selected potential-envelope equation on the periodic domain? Is the later spatial problem analytically preferable for the intended experiment?
+\item Can the reference spectra guide a bound on the derivative nonlinearities or a residual-to-solution estimate on a finite interval?
+\item Which reported features survive changes of period and narrowband regime, rather than merely a grid refinement?
+\item Is a travelling-profile continuation study a more focused first question than a broad claim about generic long-time smoothness?
+\end{enumerate}
+
+\subsection{Implementation agreement for a linearized control}
+\fig{temporal-mi-check}{.95}{Independent small-perturbation MI check, amplitude $0.8$ and modulation wavenumber $2\pi\cdot5/40$. Twelve trajectories span both $c$ values, both $\epsilon$ values and three grid/step settings. Growth and phase rate agree with the exact retained-model eigenvalue. Applying the wrong $c$ phase formula fails while growth remains identical. This is an implementation check, not a nonlinear stability theorem.}
+The perturbation amplitude is $10^{-6}$ and the interval is $T\le4$. Maximum measured rate discrepancies are below $7\cdot10^{-12}$, well below the declared $2\cdot10^{-6}$ absolute tolerance. Such cancellation-limited agreement is not an observed fourth-order convergence rate or a bound on later nonlinear error.

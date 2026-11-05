@@ -1,0 +1,96 @@
+\section{What you are preparing to understand}
+\label{sec:orientation}
+
+A nearly periodic surface wave can look regular while a small, long-scale
+disturbance grows on top of it. Dysthe asks how well an approximate envelope
+equation predicts that growth. The cubic nonlinear Schr\"odinger equation,
+abbreviated NLS, is the leading model. He retains the next order in wave
+steepness and finds that the current induced by a modulated wave changes
+the prediction substantially \cite{dysthe}.
+
+The paper is short because it assumes considerable background. Its hardest
+steps are the choices of scales, harmonic components, and approximation order
+that occur before the linear algebra begins. Your PDE background should make
+Laplace's equation, Fourier modes, and the eigenvalue calculation familiar
+once their physical roles are identified.
+
+\subsection{A useful reading route}
+Read Sections~\ref{sec:waves}--\ref{sec:asymptotics} first. They explain the
+wave envelope, the moving free boundary, and why a slow derivative changes
+the order of a term. Then study the NLS calculation in
+Section~\ref{sec:nls} and the mean-flow calculation in
+Section~\ref{sec:mean}. Finally, use
+Sections~\ref{sec:dysthe}--\ref{sec:reading} beside the paper.
+Appendix~\ref{sec:details} fills in two compressed derivative calculations.
+
+You are ready for a first reading when you can explain
+\begin{enumerate}
+\item why the carrier oscillates rapidly but its envelope changes slowly;
+\item why a deep-water Fourier mode decays exponentially below the surface;
+\item why group velocity is half the phase velocity;
+\item why a spatially varying intensity generates a mean current;
+\item why a negative radicand in the stability formula means growth.
+\end{enumerate}
+For a derivation-level reading, also work through the determinant in
+Section~\ref{sec:stability} and the order reduction in
+Appendix~\ref{sec:details}. The exercises have answers.
+
+\subsection{What is derived here and what is taken from the paper}
+The linear water-wave dispersion relation, NLS perturbation calculation,
+Fourier solution for the mean current, Dysthe stability determinant, and
+small-steepness growth formulas are worked out here. The numerical
+coefficients in the full fourth-order equation are transcribed from the
+scanned paper. The guide explains the harmonic-expansion procedure that
+produces them and the subsequent order reduction; it does not repeat
+every nonlinear product in the intermediate quantity $Q$.
+
+Agreement with Longuet-Higgins's full-equation calculations or laboratory
+observations refers to \emph{comparisons reported in the 1979 paper}.
+These are not new computations or independent validations. Our plots of
+approximate formulas do not reproduce those reference data. Perturbative
+derivations below are formal asymptotic calculations unless a proposition
+explicitly states an exact result for a specified reduced model.
+
+\subsection{Keep the different waves and frequencies separate}
+The \emph{carrier} has dimensional wavenumber $k_0>0$ and linear angular
+frequency $\omega_0=\sqrt{gk_0}$. The \emph{modulation} is a slower
+variation of amplitude and phase. In the paper's dimensionless stability
+calculation its wavenumbers are $\lambda,\mu$ and its frequency is $\Omega$.
+Thus $\Omega$ is not $\omega_0$, and $\lambda$ is not the carrier wavelength.
+
+\begin{longtable}{@{}p{.20\linewidth}p{.74\linewidth}@{}}
+\toprule
+Symbol & Meaning and convention\\
+\midrule
+\endhead
+$x,y,z,t$ & Along-wave, transverse, vertical coordinates and time;
+water lies below $z=\zeta$.\\
+$g,\rho$ & Gravitational acceleration and constant water density.\\
+$\zeta,\phi$ & Real surface elevation and real velocity potential;
+fluid velocity is $\nabla\phi$.\\
+$a,\varepsilon$ & Leading crest amplitude and steepness $\varepsilon=k_0a$;
+wave height is approximately $2a$.\\
+$\theta$ & Carrier phase $k_0x-\omega_0t$.\\
+$A,B$ & Complex first-harmonic coefficients of potential and elevation.
+They are different variables.\\
+$\Ph,\Zh$ & Mean potential and mean elevation; the bar denotes a
+carrier-period average.\\
+$A^*,|A|^2$ & Complex conjugate and $AA^*$.\\
+$A_0$ & Real dimensionless constant envelope amplitude; $A_0=k_0a$.\\
+$a',\theta'$ & Small real amplitude and phase perturbations in (3.1);
+primes here are not derivatives.\\
+$\lambda,\mu,K$ & Dimensionless modulation wavenumbers in $x,y$ and
+$K=\sqrt{\lambda^2+\mu^2}$.\\
+$\Omega,\gamma$ & Modulation frequency and growth rate;
+$\gamma=\operatorname{Im}\Omega$ for the growing mode.\\
+$P_1,P_2;\ \Ps,\Pt$ & Differential operators in (3.2)--(3.3),
+and algebraic quantities used in the dispersion relation.\\
+\bottomrule
+\end{longtable}
+
+Coordinates are dimensional until Section~\ref{sec:scaling}, and thereafter
+use Dysthe's dimensionless convention unless stated otherwise. Paper
+equation numbers appear as \papeq{2.19}; other equation numbers refer to
+this guide. Printed pages 105--114 correspond to PDF pages 2--11 because
+the supplied file begins with a JSTOR cover page.
+\clearpage

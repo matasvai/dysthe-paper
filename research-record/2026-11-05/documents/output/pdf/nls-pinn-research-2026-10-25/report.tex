@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{royden-report}
+\usepackage{microtype,longtable,array,enumitem}
+\setlist{topsep=5pt,itemsep=3pt,parsep=0pt}
+\setlength{\emergencystretch}{2em}
+\widowpenalty=10000
+\clubpenalty=10000
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\DeclareMathOperator{\Impart}{Im}
+\DeclareMathOperator{\Repart}{Re}
+\DeclareMathOperator{\Arg}{Arg}
+\hypersetup{pdftitle={Nonlinear Schrodinger equations and physics-informed learning},pdfauthor={Research review prepared for the Dysthe project}}
+\title{Nonlinear Schr\"odinger Equations\\and Physics-Informed Learning}
+\author{Research review and a water-wave Dysthe agenda}
+\date{Literature cutoff: 25 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Physics-informed neural networks have been used to approximate nonlinear
+Schr\"odinger solutions, infer coefficients, reconstruct fields from sparse
+observations, and learn reusable solution operators. These are different
+tasks, and progress on one does not establish superiority on the others.
+This review separates direct NLS evidence, water-wave evidence, transferable
+training methods, and very recent work with limited accessible evidence.
+The recommended first project asks whether the approved spatial Dysthe
+equation improves sparse-observation reconstruction and downstream prediction
+beyond retuned NLS and classical numerical assimilation. Five concrete
+research questions, a reproducible benchmark, and a staged plan are provided.
+No published experiment was independently reproduced for this review.
+\end{abstract}
+\tableofcontents
+\input{sections/01-overview}
+\input{sections/02-mathematics}
+\input{sections/03-literature}
+\input{sections/04-questions}
+\input{sections/05-protocol}
+\input{references}
+\end{document}

@@ -1,0 +1,239 @@
+\documentclass[11pt]{article}
+\usepackage{royden-report}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,array,longtable,enumitem}
+\setlist{itemsep=3pt,topsep=5pt}
+\newcommand{\D}{\lvert D_\tau\rvert}
+\newcommand{\TT}{\mathbb T_L}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\F}{\mathcal F}
+\newcommand{\testgoal}[1]{\paragraph{Goal.}#1}
+\newcommand{\testdesign}[1]{\paragraph{Experiment and control.}#1}
+\newcommand{\testdecision}[1]{\paragraph{Decision and limitation.}#1}
+\title{Learning Dysthe Evolution Across Initial Wave Fields\\
+\large A literature-grounded numerical, FNO, and PINN research protocol}
+\author{}
+\date{25 October 2026}
+\hypersetup{pdftitle={Learning Dysthe Evolution Across Initial Wave Fields},
+pdfsubject={Spatial water-wave Dysthe: numerical qualification, operator learning, and long-distance evaluation}}
+\begin{document}
+\maketitle
+\begin{abstract}
+The proposed goal is to learn the evolution of a bounded family of complex
+water-wave envelopes and establish how far predictions remain accurate on
+unseen initial fields. Begin with the approved spatial free-surface Dysthe
+equation, a qualified Fourier reference, and a short-distance Fourier neural
+operator (FNO). Compare the same architecture with and without a full
+equation residual; use an ordinary physics-informed neural network (PINN)
+on a small set of individual problems to diagnose physics training.
+A function-conditioned PINN is an optional operator comparison.
+Success means accurate modulation growth, focusing, recurrence and spectral
+transfer at a measured cost and within a declared validity range.
+It does not mean all-distance accuracy or a proof of global smoothness.
+This report reviews primary literature, audits the current implementation,
+specifies data and acceptance gates, and supplies small independent
+operator checks. No FNO/PINN was trained and no new long-distance evolution
+campaign was run for this review.
+\end{abstract}
+
+\section{The question and the proposed contribution}
+\label{sec:goal}
+
+\begin{quote}
+For a specified family of smooth initial free-surface envelopes, can a
+learned solution operator predict unseen wave fields and their modulation
+events over longer propagation distances, with controlled error and useful
+amortized cost relative to a tuned numerical solver?
+\end{quote}
+
+This question has three separately measurable parts. First, learn a map
+across initial fields, rather than fitting a single trajectory. Second,
+determine the distance over which repeated predictions remain qualified.
+Third, test whether the method retains the particular water-wave effects
+for which Dysthe corrections are useful. Reproducing known modulation
+phenomena is validation; a reproducible improvement in generalization,
+accuracy per unit cost, or reliable prediction distance would be the
+methodological contribution. Novel wave physics is not assumed.
+
+The first comparison should be a supervised FNO and the same
+distance-conditioned FNO with a physics loss, commonly called a
+physics-informed neural operator (PINO). The FNO and PINO literature
+supports these method classes, but does not establish their performance
+on this Dysthe problem \cite{fno,pino}. An ordinary PINN trained for each
+initial field answers a different question and incurs new optimization
+cost for every field. A branch-conditioned physics-informed operator
+can answer the multi-input question \cite{deeponet,pideeponet}.
+
+Water-wave studies provide closer precedents. Ehlers et al. fit a
+separate complex-output NLS PINN to synthetic sparse-gauge data, with
+coefficient identification for model mismatch; Dysthe appears as future
+work \cite{ehlers2024}. Ehlers, Stender and Hoffmann use an FNO-based
+PINO with high-order-spectral free-surface residuals to reconstruct
+phase-resolved surfaces across sensor inputs \cite{ehlers2025}.
+Eeltink et al. combine viscous MNLS with LSTM corrections learned from
+breaking-wave experiments; their magnitude and spectral-magnitude
+targets and wave-type-dependent corrections do not validate complex
+inviscid rollouts \cite{eeltink}. These precedents motivate distinguishing
+instance fitting from operator generalization, fixed-equation
+approximation from missing-physics correction, and reconstruction from
+autonomous propagation. This is a focused methods review, not a claim
+of first use or an exhaustive priority search.
+
+Three proposed hypotheses make negative results useful:
+\begin{enumerate}
+\item A short-distance FNO generalizes within a bounded initial-data
+distribution at a declared error tolerance.
+\item Adding a correctly evaluated residual improves held-out rollout
+accuracy or reduces the amount of reference data required, after
+accounting for its extra cost.
+\item Short rollout training extends the reliable prediction distance
+without suppressing true modulational instability.
+\end{enumerate}
+Failure of any hypothesis is a legitimate result. None implies a
+statement about existence of the underlying PDE.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{comparison_design.pdf}
+\caption{The first controlled comparison. Both models share a representation
+and data population; only the physics term differs. The ordinary per-input
+PINN is a separate, smaller diagnostic experiment. This is an experimental
+design, not a plot of completed results.}
+\label{fig:comparison}
+\end{figure}
+
+\section{Fix the equation before comparing methods}
+\label{sec:model}
+On the periodic profile interval $\TT=\RR/L\ZZ$, the approved
+\texttt{water-wave-dysthe-spatial-v1} initial-value problem is
+\begin{align}
+\partial_\xi u=F_\epsilon(u)
+&=-i u_{\tau\tau}-i|u|^2u \notag\\
+&\quad-\epsilon\left(8|u|^2u_\tau
++2u^2\overline{u_\tau}+2iu\D(|u|^2)\right),
+\qquad u(0,\tau)=u_0(\tau).
+\label{eq:baseline}
+\end{align}
+Here $\xi$ is propagation distance and $\tau$ is retarded profile time.
+This is the free-surface equation with coefficients
+$(a,h,c,e,f)=(1,1,8,2,2)$ in Fedele--Dutykh's displayed equation (1.3)
+\cite{fedele}. In particular the conjugate derivative term is present.
+A velocity-potential envelope has different coefficients.
+
+For $k_m=2\pi m/L$, use
+\[
+\widehat f_m=\frac1L\int_{\TT}f(\tau)e^{-ik_m\tau}\dd\tau,\qquad
+\widehat{\D f}_m=|k_m|\widehat f_m,\qquad \widehat{\D f}_0=0.
+\]
+Thus the Hilbert-transform multiplier is $-i\,\mathrm{sign}(k)$ and
+$\mathcal H\partial_\tau=\D$. The linear propagator has multiplier
+$e^{ik_m^2s}$, not $e^{-ik_m^2s}$.
+The stated carrier normalization is
+$\tau=\epsilon(2x-t)$, $\xi=\epsilon^2x$, and $B=\epsilon u$.
+The $\epsilon=0$ equation is a mathematical NLS control; that change of
+physical coordinates cannot be inverted at zero.
+
+When a sufficiently regular solution exists on $[0,s]$, write its map as
+$\mathcal S_s^\epsilon:u_0\mapsto u(s,\cdot)$. This notation presupposes a
+well-defined solution on that interval. An operator-approximation theorem
+does not construct that solution or prove its global existence.
+
+\subsection{How the two supplied papers enter this project}
+Dysthe's 1979 paper derives a temporal potential-envelope correction and
+studies sideband instability \cite{dysthe1979}. It motivates the mean-flow
+term and a modulation-growth test. Its variables, dimensionality and
+coefficients cannot be pasted into \eqref{eq:baseline}.
+The supplied Schober--Islas preprint develops a weakly viscous hierarchy
+and a separate finite-adjustment-time mean-flow closure
+\cite{schober}. It motivates a future, separately specified dissipative
+study. It neither supplies an operator-learning algorithm nor proves
+continued smoothness for the present spatial equation.
+
+The earlier companion review, \emph{Dysthe Evolution: Numerical Evidence
+and Existence} (23 October 2026), records two apparent linear-dispersion
+inconsistencies in the supplied version 1 and distinguishes its real
+relaxation closure from a complex damping coefficient. Those issues
+must be resolved before implementing that extension. The present plan
+keeps the inviscid spatial model fixed; it does not silently introduce
+viscosity, transverse coordinates, or a different envelope variable.
+
+\subsection{What currently exists}
+The five active repositories agree on the model and case schema.
+The local core supplies complex128 Fourier differentiation, projected
+nonlinear products, integrating-factor RK4, and diagnostics. It keeps
+$|m|<N/4$, which provides room for its cubic products. The learning
+registry still marks all methods unimplemented: there is no active
+water-wave FNO/PINN training pipeline.
+
+Stored short runs at $\epsilon=.025$, $L=160$, $N=4096$,
+$h=.00125$, $\Xi=4$ include profile, perturbed-profile and Gaussian
+qualification records. Their largest stored raw relative $L^2$
+grid discrepancy is about $4.2\times10^{-15}$, step discrepancy
+$4.1\times10^{-9}$, and domain discrepancy $2.2\times10^{-5}$.
+These are historical two-level comparisons for those cases, not
+fresh trajectories, error bounds, or evidence for arbitrary inputs.
+The Gaussian and solitary archive hashes were freshly checked against
+their reports; the core source hash agrees. A historical Gaussian
+runner hash differs from today's runner after later formula changes.
+
+A research dataset needs a new bounded generator using the core.
+The demonstration runner fixes $\epsilon=.025$, $\Xi\leq4$, and
+at most 101 output stations; part of its initializer also hardcodes
+that epsilon in provenance. Do not expand the meaning of those records
+to cover a new parameter campaign. Before packaging a reproducible run,
+align the learning repository's pinned core dependency with the actual
+reviewed reference implementation.
+
+\input{data}
+\input{learning}
+\input{physics}
+\input{tests}
+\input{implementation}
+
+\appendix
+\section{A direct modulation calculation for this convention}
+\label{app:mi}
+This calculation is derived from \eqref{eq:baseline}; it is not a
+transcription of a growth formula in another normalization.
+For $a>0$ write
+$u=a(1+p+iq)e^{-ia^2\xi}$ with real infinitesimal $p,q$.
+Keeping only first-order terms gives
+\begin{align*}
+p_\xi&=q_{\tau\tau}-10\epsilon a^2p_\tau,\\
+q_\xi&=-p_{\tau\tau}-2a^2p
+       -6\epsilon a^2q_\tau-4\epsilon a^2\D p.
+\end{align*}
+Consequently each Fourier component satisfies
+\begin{equation}
+\frac{\dd}{\dd\xi}
+\begin{pmatrix}\widehat p\\\widehat q\end{pmatrix}
+=M(k)\begin{pmatrix}\widehat p\\\widehat q\end{pmatrix},
+\qquad
+M(k)=
+\begin{pmatrix}
+-10i\epsilon a^2k & -k^2\\
+k^2-2a^2-4\epsilon a^2|k| & -6i\epsilon a^2k
+\end{pmatrix}.
+\label{eq:mi}
+\end{equation}
+Use $\exp(\xi M(k))$ for the complete small-signal comparison, including
+phase and both sidebands; fitting a scalar growth slope alone discards
+information. Its eigenvalues are
+\[
+-8i\epsilon a^2k
+\ \pm\sqrt{k^2\left(2a^2+4\epsilon a^2|k|-k^2
+                            -4\epsilon^2a^4\right)}.
+\]
+The $\epsilon^2$ term arises from diagonalizing the truncated PDE
+exactly; it is not a newly justified second-order water-wave correction.
+For an asymptotic comparison at Dysthe order, expand consistently.
+At $\epsilon=0$, the familiar NLS unstable band is
+$0<|k|<\sqrt2\,a$ in this convention.
+A centered finite-difference check of the nonlinear RHS is supplied
+with this report. An arithmetic check of the matrix is not a
+nonlinear stability theorem.
+
+\input{references}
+\end{document}

@@ -1,0 +1,36 @@
+{
+  "reviewed_through": "2026-09-23",
+  "pages": 6,
+  "visually_checked_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "vector_figure_count": 4,
+  "embedded_raster_images": 0,
+  "tex_layout_or_missing_character_warnings": 0,
+  "source_hashes_verified": true,
+  "portable_figure_regeneration": true,
+  "portable_compilation": true,
+  "portable_pdf_text_matches": true,
+  "pdf_sha256": "206dbfb62f73ea958bced149d822c60f694ede5c2af2347e7e687e3fa7996964",
+  "source_sha256": {
+    "report.tex": "2527f76b510b90cf02cf8516095fd15e0d41704a4d32f8d9fd36e6eff7e5aacd",
+    "royden-report.sty": "cb1d0cade75d47a5de899ef991ef5cb98ce6dc19d7d8626e751c4fefe0fd2b84",
+    "overview_data.json": "3eda0f4995e523c5c0f1a3fa5e01c4ce5cad50e8c16ca40918f2cffd7825b024",
+    "build_figures.py": "5139fa1e9c83599cce324ffefa21c23d41dba0d4129de6f1ea7edb934fe74eae",
+    "collect_evidence.py": "5fe4b79110617c7c028c4218ec42de2669bc22494e51ba6a55bcc52158438564",
+    "README.md": "64bf880b0cc8cc4a6875153e76f0aaa6c5f3332a7b78f71a8f69895d80efb0cf",
+    "figures/learning.pdf": "83b61355d087402c21ad273cf0a22dffc4e69d2086cb7f4e7875daa873dec589",
+    "figures/spreading.pdf": "54d9a4ad1ed2d0de2848a8df7431403ad37aec32cc4ccd687eaf9a5c4e5030ea",
+    "figures/tradeoff.pdf": "00f67b123c1822ea86bfcec21b01c18356511dd06400ba4e80a44efcc4a987ce",
+    "figures/unevenness.pdf": "8aae85a9dd1d7f5219040e95fe33134284def8ecf72e43e28f6939b51a14e340"
+  },
+  "limitations": [
+    "Synthesis of archived project results, not an independent physics or training rerun.",
+    "Full earlier wave archives are outside this repository; the included snapshot reproduces the overview figures."
+  ]
+}

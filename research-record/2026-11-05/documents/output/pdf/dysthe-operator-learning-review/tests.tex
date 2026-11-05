@@ -1,0 +1,244 @@
+\section{Tests with explicit scientific decisions}
+\label{sec:tests}
+
+\subsection{Common measurements and acceptance rules}
+For a reference $u$ and prediction $v$, measure raw complex errors
+\[
+E_s(\xi)=\frac{\norm{v(\xi)-u(\xi)}_{H^s}}
+                   {\max(\norm{u(\xi)}_{H^s},\eta_s)},\qquad
+\norm{u}_{H^s}^2=L\sum_m(1+k_m^2)^s|\widehat u_m|^2,
+\]
+where $\eta_s$ is a fixed, declared absolute scale for nearly zero
+references. Report $s=0,1,2,3$, maximum amplitude, spectral phase where
+the signal is above its floor, and spectra. Phase/translation-aligned
+errors are secondary: raw errors retain mistakes in propagation speed
+and phase. Record action and modified momentum defects but do not
+rank methods by conservation alone.
+
+For a continuous reconstruction $v$, evaluate
+$r=\partial_\xi v-F_\epsilon(v)$ on independent propagation stations
+and a refined profile grid, including nonlinear modes outside the
+output representation. A discrete endpoint defect is labeled separately.
+Compare residual norms after the same physical normalization and
+reconstruction; a smaller residual need not imply a smaller field error
+without a stability estimate.
+
+Proposed first gates are maximum $E_0\leq1\%$, maximum $E_1\leq5\%$,
+and errors at most $5\%$ in the prespecified primary event amplitude and
+distance. For an event near zero distance, use a declared absolute
+distance tolerance rather than an ill-conditioned percentage.
+A regularity interpretation also requires $E_2,E_3\leq10\%$ and
+derivative resolution. Require reference/refinement and representation
+errors to be at least ten times smaller than the corresponding
+surrogate tolerance. These are engineering targets to freeze after
+the pilot, not universal physical or rigorous error bounds.
+
+Track the upper fifth of the retained Fourier band in each $H^s$ sum.
+An initial reference screening target is a weighted-tail fraction below
+$10^{-6}$ together with grid agreement; a small tail alone does not pass
+a case. If a measured Dysthe--NLS difference is smaller than the
+combined numerical and learning error, the surrogate has not resolved
+that physical correction. Require those errors below one third of the
+effect being interpreted, or report the effect as unresolved.
+
+Define the \emph{qualified prediction distance} as the largest tested
+$\Xi$ for which all applicable gates pass at all checked stations up to
+$\Xi$. It is a sampled, tolerance-dependent quantity. Distinguish
+failure of the surrogate, loss of reference resolution, periodic
+wrap-around, and departure from physical-model screens. Increase output
+density around peaks and growth; do not infer a continuous supremum
+from sparse snapshots.
+
+Report at least three training seeds, individual cases, median and
+90th-percentile errors, worst cases and failure counts. Use group-level
+uncertainty estimates; correlated stations cannot be counted as
+independent observations. A small pilot needs case-level reporting
+rather than precise-looking population confidence claims.
+
+\subsection{T0. Verify that every method implements the same equation}
+\testgoal{Eliminate sign, phase, nonlocal-operator and data-interface
+errors before interpreting a training experiment.}
+\testdesign{Check the linear factor $e^{ik^2s}$ and the exact nonlinear
+plane wave
+\[
+u(\xi,\tau)=a\exp\{i[k\tau+(k^2-a^2-6\epsilon a^2k)\xi]\}.
+\]
+Use a nonconstant two/three-mode field to exercise mean-flow coupling.
+Check phase/translation equivariance, Fourier-origin reconstruction,
+normalization inversion, and agreement of the NumPy and differentiable RHS.
+Check network gradients against directional finite
+differences. Reject wrong shapes, duplicated endpoints, invalid hashes,
+split leakage and inconsistent actual output intervals.}
+\testdecision{Algebraic controls should agree to precision-appropriate
+tolerances before training; double-precision low-mode RHS differences
+should be near roundoff, with finite-difference gradient errors showing
+the expected step-size behavior. A failed control blocks the learning
+comparison. The supplied independent checks are only part of T0:
+the future differentiable adapter still needs to pass against the core.}
+
+\subsection{T1. Qualify the numerical reference and representation}
+\testgoal{Establish that the target trajectories and learning grid
+resolve the quantities the research intends to predict.}
+\testdesign{Use representative low/high amplitudes, narrow/wide packets,
+strong chirps and unstable sidebands. Compare $N,2N,4N$ at fixed $L$,
+and $h,h/2,h/4$ on a sufficiently fine grid. Check expected RK4 step
+convergence before roundoff dominates. For localized packets compare
+$L,2L$ and, if necessary, $4L$ at fixed spacing, reconstructing the same
+localized field instead of periodically repeating it. Compare common
+windows, derivative tails and mean flow. Perform the learning-grid
+projection check separately. Fourier methods have direct spatial
+Dysthe precedent \cite{fedele,lomei}; the specific gates here are proposed.}
+\testdecision{Accept only cases passing the common reference budget and
+spectral checks. A larger domain can alter nonlocal mean flow even when
+edge amplitudes are tiny. An unresolved case triggers refinement or a
+shorter qualified distance, not a claim of singularity. Full-period
+wavetrains have a different boundary question from localized packets.}
+
+\subsection{T2. Learn unseen initial fields at fixed parameters}
+\testgoal{Determine whether the FNO learns the declared short-distance
+operator rather than memorizing a small collection of trajectories.}
+\testdesign{Train on the three-family group split at fixed epsilon and
+length. Evaluate all held-out profiles without retraining. Compare
+one-step and autonomous rollout errors to a coarser spectral solver
+whose step and grid are tuned on validation for the same accuracy.
+Include the exact linear propagator and independently resolved NLS
+evolution as physical controls, while
+recognizing that neither solves the full Dysthe problem.
+Use nested training subsets to produce a learning curve \cite{fno}.}
+\testdecision{Pass only if the prespecified held-out errors and failure
+fraction meet the goal. A conservative first main-campaign target is
+at least $90\%$ of test groups passing the primary gates through
+$\Xi=4$, with uncertainty and all failures reported.
+This establishes bounded-distribution interpolation only.
+If a cheap spectral solve dominates accuracy and cost, report that
+outcome before adding model complexity.}
+
+\subsection{T3. Does the full physics loss actually help?}
+\testgoal{Isolate the benefit, if any, of physics training for this
+equation and input population.}
+\testdesign{Compare the same initialized FNO backbone, data, hard initial
+condition, linear skip, rollout schedule and validation protocol with
+$\lambda_r=0$ and $\lambda_r>0$. Select loss weights using validation
+only. Report both a matched-compute comparison and the extra cost to
+reach a matched accuracy; physics updates cost more.
+Evaluate on new collocation stations and refined full-profile residuals.
+At a fixed architecture, repeat on two or three data budgets to test
+data efficiency \cite{pino}.}
+\testdecision{Physics is useful if it improves the intended held-out
+metric or needs less reference data at acceptable total cost.
+A lower training residual alone fails this decision.
+A physics-only branch is optional after the hybrid works; it is not
+necessary to launch a large architecture search. If benefits disappear
+under independent residual refinement, investigate aliasing first.}
+
+\subsection{T4. What can a PINN contribute?}
+\testgoal{Separate single-problem optimization from genuine multi-input
+physics-informed prediction.}
+\testdesign{Choose six qualified validation cases, two per family.
+For an ordinary Fourier PINN, compare a single interval, sequential
+distance slabs, and slabs with causal residual weighting at comparable
+optimization budgets \cite{causal,failures}. Carry predicted endpoints
+forward; do not reset to exact interior snapshots.
+If this reveals a useful training strategy, test a function-conditioned
+Fourier/DeepONet model on unseen initial fields with no optimization
+\cite{pideeponet}.}
+\testdecision{Count per-case optimization, failed restarts and all slabs.
+A PINN can be informative without beating the spectral solver.
+The six-case exercise is a training diagnostic, not a broad statistical
+comparison. A parameter-conditioned network only generalizes over its
+declared packet parameters; an operator claim requires initial-field
+conditioning and a disjoint field-level test set.}
+
+\subsection{T5. How far does autonomous prediction remain useful?}
+\testgoal{Measure a defensible accuracy horizon and whether rollout
+training extends it.}
+\testdesign{Train on reference intervals no longer than $\Xi=4$ and
+repeat learned local maps on their own outputs to $\Xi=8,16$, then
+conditionally 32. Compare one-step training, a short multi-step rollout
+loss, and optionally stopped-gradient pushforward training
+\cite{pushforward}. Use validation to select the rollout depth before
+testing. Plot error and the qualified distance per held-out group.
+Inspect spectral-error growth, not only norm drift \cite{stability}.}
+\testdecision{Claim an extension only for the fixed test population and
+tolerances. Never reset the rollout with a reference state.
+For a locally Lipschitz exact map the conditional bound
+$e_{n+1}\leq L_n e_n+\delta_n$ explains why small one-step errors
+$\delta_n$ may accumulate. Here
+$\delta_n=\norm{G_\theta(\widetilde u_n,\epsilon,\Delta)
+-\mathcal S_\Delta^\epsilon(\widetilde u_n)}$ is the error
+at a \emph{predicted} input; teacher-forced errors do not supply this
+bound. This is not a proved uniform Dysthe estimate.
+Do not enforce artificial contraction merely to keep output bounded.}
+
+\subsection{T6. Preserve real modulational instability}
+\testgoal{Determine whether a learned method reproduces physical
+sideband amplification instead of damping it away.}
+\testdesign{For amplitudes and modulation modes covering stable and
+unstable regions, compare the full signed perturbation response with
+$\exp(\xi M(k))$ from Appendix~\ref{app:mi}, a refined Dysthe trajectory,
+and the NLS limit. Halve the perturbation until the early response
+converges to the linear prediction while remaining above numerical
+noise. Check both sideband amplitudes, their phases and growth rates.
+The observable is motivated by Dysthe's instability calculation
+\cite{dysthe1979}.}
+\testdecision{Use a provisional $5\%$ gain/growth tolerance over the
+verified linear interval, with absolute tolerances near zero growth.
+Require the perturbation signal to exceed the reference error by a
+declared margin. A filter that keeps a rollout smooth but suppresses
+the correct growing mode fails. Linear amplification is neither
+nonlinear blow-up nor wave breaking.}
+
+\subsection{T7. Predict focusing and recurrence events}
+\testgoal{Test the wave behavior that matters beyond average field error.}
+\testdesign{For localized packets measure the first focus distance,
+amplification, peak trajectory and asymmetry against refined Dysthe;
+compare NLS to identify the size of the higher-order effect
+\cite{lomei}. For periodic modulations measure carrier depletion,
+sideband exchange and recurrence distance \cite{recurrence}.
+Record raw complex recurrence defect and separately minimize over
+translation and constant phase. If no event occurs in the qualified
+reference interval, label it absent/censored rather than forcing a fit.}
+\testdecision{Prespecify event definitions and the $5\%$ primary event
+target. Similar peak oscillations do not establish recurrence of the
+complex wave field or a stable breather. Track spectral mean and peak
+separately and test the exact centroid identity
+\eqref{eq:centroid-constraint}.
+Two-packet collisions, with separated single-packet controls and a
+larger-domain check, are a later family-transfer test; they are not
+required to establish the first operator result.}
+
+\subsection{T8. State exactly which generalization is being tested}
+\testgoal{Find the boundary of the learned map's competence.}
+\testdesign{Change one factor at a time: withheld packet family;
+new epsilon values within the training interval; epsilon outside it;
+finer grids on the same domain; a different domain length; longer
+propagation. Each receives a separate score and qualification.
+If testing measurement noise later, specify the observation and
+reconstruction processes and compare to an appropriate estimator,
+not to a solver supplied with inaccessible noiseless phase.}
+\testdecision{An interpolation result does not imply extrapolation.
+A finer output grid does not recover missing input frequencies.
+A domain change alters physical wavenumbers and periodic mean flow.
+Do not pool these tasks into one favorable average or declare
+arbitrary-input performance.}
+
+\subsection{T9. Is there an amortized computational benefit?}
+\testgoal{Determine whether the learned solver saves work for the
+intended repeated-query workload.}
+\testdesign{Compare against the fastest numerical configuration that
+passes the same field, derivative and event gates. Measure hardware,
+precision, batch size, peak memory, output density, warm-up, inference,
+data generation, validation, all training seeds and any test-time
+optimization. Report accuracy--cost curves, not one speed ratio.
+For a fixed workload a useful accounting identity is
+\[
+M_*=\frac{C_{\rm data}+C_{\rm train}}
+          {C_{\rm numerical}-C_{\rm inference}},
+\]
+provided the denominator is positive; include other attributable
+setup/selection costs in the numerator.}
+\testdecision{The estimated break-even query count is meaningful only
+at matched accuracy and for the specified hardware/batching regime.
+If the denominator is nonpositive, there is no amortized inference
+advantage under that comparison. A differentiable surrogate may still
+be useful, but sensitivity accuracy then becomes a separate test.}

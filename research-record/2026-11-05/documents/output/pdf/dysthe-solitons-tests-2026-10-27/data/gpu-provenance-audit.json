@@ -1,0 +1,456 @@
+{
+  "audited_at_utc": "2026-10-27T17:32:33.274211+00:00",
+  "repository": "matasvai/dysthe-experiments",
+  "branch": "codex/long-distance-a100",
+  "published_commit": "723883f27a6b3489bfc36f55d9d15b52e8635ad0",
+  "run_source_commit": "c04b44ba6459cac6f216e3a59de4fac78e3b55d7",
+  "publication_url": "https://github.com/matasvai/dysthe-experiments/tree/723883f27a6b3489bfc36f55d9d15b52e8635ad0/results/long-distance-gpu2-2026-10-26",
+  "remote_compare": {
+    "base": "c04b44ba6459cac6f216e3a59de4fac78e3b55d7",
+    "ahead_by": 1,
+    "behind_by": 0,
+    "new_files": 29,
+    "only_result_files_added": true,
+    "source_code_changes": false,
+    "method": "GitHub connector compare_commits, independently queried in this audit"
+  },
+  "evidence_fetch_method": "GitHub connector fetch_file at exact published SHA; independently read all five top-level JSON files and all 24 PINN summary JSON files. Parent subsequently downloaded exact same 29 files; manifest verification reads those files.",
+  "snapshot_directory": "/home/matasvai/Documents/Projects/Dysthe/output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot",
+  "manifest_validation": {
+    "entries": 1125,
+    "published_entries": 28,
+    "unpublished_metadata_entries": 1097,
+    "all_28_published_hashes_match": true,
+    "all_28_published_byte_lengths_match": true,
+    "manifest_itself_self_listed": false,
+    "checks": [
+      {
+        "path": "cases.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "ee75ef2972e1feadd31a9472f581077a1605e76151bd477c3b8d1cff65baa819"
+      },
+      {
+        "path": "config.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "b9ae0899ac39c12d695fe5e61b3dd2281962a1ef482b777f4f375abb9adcec5c"
+      },
+      {
+        "path": "identity.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "eff12f4c9c78dc9c28e5d34aa731bcce2b3102879a3e98233688029e4e2589d6"
+      },
+      {
+        "path": "pinn/packet-008/seed-11/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "8556819c27d3f18adc1e7b6ca92012fcdeea7aa469a7fd1a41f9024ff90b7273"
+      },
+      {
+        "path": "pinn/packet-008/seed-29/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "8a2e63d63a885e9d990c12ec5ee38632dd6015eb34eb62f7f5f3a42cf4f06d0d"
+      },
+      {
+        "path": "pinn/packet-008/seed-47/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "2757370d4bcd787fae262e75a72beaba2f9561feed38097285b647620c4c5864"
+      },
+      {
+        "path": "pinn/packet-009/seed-11/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "04a826b0d2c73f5b278ce7471c0a89cca6507b32bf4689c90d2ab8b5c0609027"
+      },
+      {
+        "path": "pinn/packet-009/seed-29/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "9866d18b441c3c3a3d04b2b8c16f986f89ad11aba694d822e9b96acb19e22460"
+      },
+      {
+        "path": "pinn/packet-009/seed-47/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "cccd70bfe2d3a57d6d04e6564f62896f1cb94ec2012039c5738d667864fbcb36"
+      },
+      {
+        "path": "pinn/packet-010/seed-11/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "c46ffc862fe743b1512e0de8ac43dc59e8bb8e41b406558c09e3771e840b5ad1"
+      },
+      {
+        "path": "pinn/packet-010/seed-29/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "6e3304f43ab4023373513f4b52634903f271b5e29ffe37cd08b057be77e81b72"
+      },
+      {
+        "path": "pinn/packet-010/seed-47/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "7329a845f2dd4bc257e75f62822b25f894443b3ea0d1f5183fd18fe7d67bd167"
+      },
+      {
+        "path": "pinn/packet-011/seed-11/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "5384c805c4aa0d10078f8668b308bd8c528208c0c1960346c721773653711323"
+      },
+      {
+        "path": "pinn/packet-011/seed-29/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "63a82decad6c625d6711d96b304eefea708ced3d052880225fd68964b2bbc8b2"
+      },
+      {
+        "path": "pinn/packet-011/seed-47/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "698301d7505f6bc97c5baa9822b4abbfd87ef3424d02c7c44f54c28dc19f9a54"
+      },
+      {
+        "path": "pinn/sideband-008/seed-11/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "d7a7cf5a5abf6cee3887a512b256682d551aa733a67a828906fdcb073eb316c7"
+      },
+      {
+        "path": "pinn/sideband-008/seed-29/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "99ee8fa605f47c2a2e58244dbf93970a4b1b61faa5904e4d79dae87d750b60e7"
+      },
+      {
+        "path": "pinn/sideband-008/seed-47/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "cae4d859e925d78c18d0c4ef2f14ba804a278501c9b086de26a6fe2fec803df0"
+      },
+      {
+        "path": "pinn/sideband-009/seed-11/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "4aab430ee2c5ec728baf764d124f02c1f2dd5bc4232bdb8771b7143cfd548f3f"
+      },
+      {
+        "path": "pinn/sideband-009/seed-29/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "6a6eebd291dac516cf3f8489b14db1f6fe0ea082cb907ea5e1176a2e2b2d63e4"
+      },
+      {
+        "path": "pinn/sideband-009/seed-47/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "9299f58312d6e4b669f6f3e8e88b916d01b4ed060f0ad34af634e26dd9ca0d20"
+      },
+      {
+        "path": "pinn/sideband-010/seed-11/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "acccad2dbf956ed1e21a3c23cec450086c4a61f87eac1bfe43ea6e53514ffc73"
+      },
+      {
+        "path": "pinn/sideband-010/seed-29/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "357a6bb92e51360983dd1d5b3be530ee2841f61892e8bcfe3788a1a6e6d6fbaf"
+      },
+      {
+        "path": "pinn/sideband-010/seed-47/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "6a2954fad2706b00efe6708306c32aab50c4604865172cd3bc558d29edebd5c4"
+      },
+      {
+        "path": "pinn/sideband-011/seed-11/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "d7ba8536c4f331fbcf93ea24c5fb0dee35e95fb04e53df9961113d29575fb7ed"
+      },
+      {
+        "path": "pinn/sideband-011/seed-29/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "24258a5c90e32138197339347c780c1c06ffce5e573408e530599eb85bfba197"
+      },
+      {
+        "path": "pinn/sideband-011/seed-47/xi-4/pinn-summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "1bbc6777a8ca142d5b50adad1d062b443b78b41043cff14c0047d031155c8cec"
+      },
+      {
+        "path": "summary.json",
+        "bytes_match": true,
+        "sha256_match": true,
+        "sha256": "c92031f8e905740e2bae49b40fcef30133f61f1289b3bbb3eae6bf1241b7c50f"
+      }
+    ],
+    "metadata_top_level_counts": {
+      "cases.json": 1,
+      "config.json": 1,
+      "domain": 64,
+      "identity.json": 1,
+      "invocations": 73,
+      "launcher": 72,
+      "pinn": 96,
+      "reference": 420,
+      "sensitivity": 324,
+      "summary.json": 1,
+      "tasks": 72
+    },
+    "manifest_entries_are_only_json": true,
+    "raw_arrays_or_checkpoints_directly_listed_in_manifest": 0,
+    "raw_artifact_location": "/home1/mvaitkeviciu2024/Dysthe/dysthe-pinn/runs/long-distance-gpu2-20261026",
+    "raw_artifact_note": "Arrays and checkpoints remain in source_directory; not included in Git."
+  },
+  "source_identity": {
+    "all_eight_hashes_match_exact_previously_tested_sources": true,
+    "checks": [
+      {
+        "module": "dysthe_experiments.long_distance",
+        "expected_sha256": "aa77630f8c1c460b2c4f71bf77633028b7513b8107cfea6d35bf3e36a71413d6",
+        "actual_sha256": "aa77630f8c1c460b2c4f71bf77633028b7513b8107cfea6d35bf3e36a71413d6",
+        "matches": true
+      },
+      {
+        "module": "dysthe_experiments.long_reference",
+        "expected_sha256": "05953daafb6af055bda6094097ebf9351fa0ba36876c9beaf0afa167ad8e7bbe",
+        "actual_sha256": "05953daafb6af055bda6094097ebf9351fa0ba36876c9beaf0afa167ad8e7bbe",
+        "matches": true
+      },
+      {
+        "module": "dysthe_experiments.cpu_pilot",
+        "expected_sha256": "3af332cfb4181e4bae0800a5ecaa7efef87527829d67fb002ef23f73abd63730",
+        "actual_sha256": "3af332cfb4181e4bae0800a5ecaa7efef87527829d67fb002ef23f73abd63730",
+        "matches": true
+      },
+      {
+        "module": "dysthe_experiments.pilot_sensitivity",
+        "expected_sha256": "ad65d7b3114137634554a012bd7f2650a1720b0a5a71dae68bb7d3caa2593e2e",
+        "actual_sha256": "ad65d7b3114137634554a012bd7f2650a1720b0a5a71dae68bb7d3caa2593e2e",
+        "matches": true
+      },
+      {
+        "module": "dysthe_core.contracts",
+        "expected_sha256": "aa6bba2a4dad1594004b0a922acc2f8c9852402cd66b96ac4780c4ec450c48c8",
+        "actual_sha256": "aa6bba2a4dad1594004b0a922acc2f8c9852402cd66b96ac4780c4ec450c48c8",
+        "matches": true
+      },
+      {
+        "module": "dysthe_core.reference.spatial",
+        "expected_sha256": "4091833d58921bfbf2a4604e9cc46691316394c513643ee732066e7528235db8",
+        "actual_sha256": "4091833d58921bfbf2a4604e9cc46691316394c513643ee732066e7528235db8",
+        "matches": true
+      },
+      {
+        "module": "dysthe_core.torch_spatial",
+        "expected_sha256": "d74e28e87e9934a08626608c828ad9f404c5f50a2cb1c676570331252d2d19d5",
+        "actual_sha256": "d74e28e87e9934a08626608c828ad9f404c5f50a2cb1c676570331252d2d19d5",
+        "matches": true
+      },
+      {
+        "module": "dysthe_learning.pilot_models",
+        "expected_sha256": "2b4583f7bbd6c450e0d050263132181272c31c0dd20653e433eb80ad27d2f2af",
+        "actual_sha256": "2b4583f7bbd6c450e0d050263132181272c31c0dd20653e433eb80ad27d2f2af",
+        "matches": true
+      }
+    ],
+    "dependency_revisions": {
+      "dysthe-core": "a47a42321475feb6bc55031f4b752419f4b7fda9",
+      "dysthe-learning": "db7274f8cfe959cf187351f56b3dd4bf89f0e9b4"
+    },
+    "config_equals_identity_configuration": true,
+    "runtime": {
+      "python": "3.12.3",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "torch": "2.10.0+cu128",
+      "cuda_build": "12.8"
+    },
+    "scope": "SHA checks cover the eight recorded Python modules; they do not authenticate all environment contents, launcher state or scheduler allocations."
+  },
+  "software_verification": {
+    "previous_exact_source_suite_tests_passed": 39,
+    "new_expensive_reruns": false,
+    "interpretation": "The 39-test fresh CPU suite remains relevant because this commit changes results only and all eight recorded source hashes match. It is not a rerun of the GPU scientific campaign."
+  },
+  "coverage": {
+    "tasks": 72,
+    "status_counts": {
+      "reference": {
+        "completed": 12
+      },
+      "pinn": {
+        "stopped_at_gate": 24,
+        "execution_error": 12
+      },
+      "sensitivity": {
+        "completed": 12
+      },
+      "domain": {
+        "stopped_at_gate": 4,
+        "not_applicable": 8
+      }
+    },
+    "complete": false,
+    "all_requested_gates_passed": false,
+    "reference_cases": 12,
+    "reference_max_qualified_horizon": 64,
+    "sensitivity_cases": 12,
+    "sensitivity_max_qualified_horizon": 16,
+    "pinn_expected_case_seed_pairs_at_each_horizon": 36,
+    "pinn_evaluated_pairs_at_4": 24,
+    "pinn_passed_pairs_at_4": 0,
+    "pinn_random_family_execution_errors": 12,
+    "pinn_evaluated_pairs_at_8_or_16": 0,
+    "packet_domain_passed_horizon": 4,
+    "packet_domain_failed_horizon": 8,
+    "packet_domain_failed_cases": 4,
+    "nonpacket_domain_not_applicable_cases": 8,
+    "pinn_first_failed_station_ranges": {
+      "packet": [
+        0.30000000000000004,
+        0.45
+      ],
+      "sideband": [
+        0.5,
+        1.1
+      ]
+    }
+  },
+  "pinn_aggregates": [
+    {
+      "split": "validation",
+      "horizon": 4.0,
+      "expected_case_seed_pairs": 18,
+      "evaluated_case_seed_pairs": 12,
+      "passed_case_seed_pairs": 0,
+      "complete": false,
+      "worst_errors": {
+        "l2": 0.019684516682485383,
+        "h1": 0.058260846470379296,
+        "h2": 0.30741433040480765,
+        "peak": 0.013827729484728829
+      },
+      "median_errors": {
+        "l2": 0.013470581367529544,
+        "h1": 0.03419328283844631,
+        "h2": 0.14680514100050593,
+        "peak": 0.008196355103955822
+      }
+    },
+    {
+      "split": "validation",
+      "horizon": 8.0,
+      "expected_case_seed_pairs": 18,
+      "evaluated_case_seed_pairs": 0,
+      "passed_case_seed_pairs": 0,
+      "complete": false,
+      "worst_errors": null,
+      "median_errors": null
+    },
+    {
+      "split": "validation",
+      "horizon": 16.0,
+      "expected_case_seed_pairs": 18,
+      "evaluated_case_seed_pairs": 0,
+      "passed_case_seed_pairs": 0,
+      "complete": false,
+      "worst_errors": null,
+      "median_errors": null
+    },
+    {
+      "split": "test",
+      "horizon": 4.0,
+      "expected_case_seed_pairs": 18,
+      "evaluated_case_seed_pairs": 12,
+      "passed_case_seed_pairs": 0,
+      "complete": false,
+      "worst_errors": {
+        "l2": 0.015765930972724638,
+        "h1": 0.0413003135754998,
+        "h2": 0.22115309876000383,
+        "peak": 0.014980297239688665
+      },
+      "median_errors": {
+        "l2": 0.009340163726506576,
+        "h1": 0.029684040851984034,
+        "h2": 0.14900451558937433,
+        "peak": 0.006693845958492226
+      }
+    },
+    {
+      "split": "test",
+      "horizon": 8.0,
+      "expected_case_seed_pairs": 18,
+      "evaluated_case_seed_pairs": 0,
+      "passed_case_seed_pairs": 0,
+      "complete": false,
+      "worst_errors": null,
+      "median_errors": null
+    },
+    {
+      "split": "test",
+      "horizon": 16.0,
+      "expected_case_seed_pairs": 18,
+      "evaluated_case_seed_pairs": 0,
+      "passed_case_seed_pairs": 0,
+      "complete": false,
+      "worst_errors": null,
+      "median_errors": null
+    }
+  ],
+  "hardware_provenance": {
+    "cuda_software_recorded": true,
+    "positive_gpu_peak_memory_records": 24,
+    "gpu_peak_allocated_bytes_values": [
+      94955520
+    ],
+    "a100_runtime_lock_files_hash_listed_but_unpublished": 36,
+    "a100_job_files_hash_listed_but_unpublished": 36,
+    "actual_gpu_model_independently_verified_from_published_contents": false,
+    "node_driver_slurm_allocation_records_available": false,
+    "interpretation": "The committed metrics support CUDA GPU execution, but exact A100 model and scheduler/node allocation cannot be verified from the committed content. Publish launcher job and runtime lock records."
+  },
+  "interpretation_traps": [
+    {
+      "issue": "Per-fit sampled_interval_pass excludes H2",
+      "per_fit_true_records": 11,
+      "published_pinn_summaries": 24,
+      "authoritative_long_distance_passes": 0,
+      "explanation": "The long-distance gate in long_distance.py evaluates L2, H1, H2 and peak error. The older per-fit flag in cpu_pilot.py evaluates L2, H1 and peak only. Use authoritative long-distance statuses and state which norms were tested."
+    },
+    {
+      "issue": "Original config retains proposed; no long-distance A100 result",
+      "explanation": "Publication manifest explicitly preserves original config study_status. It is stale descriptive metadata, not a reason to ignore the newly published observations."
+    },
+    {
+      "issue": "Reference qualification is finite-distance periodic evidence",
+      "explanation": "Summary reports Dysthe reference refinement/tail/action gates through xi=64. Published detailed per-case reference diagnostics and numerical margins are unavailable. Packet domain failure at xi=8 prevents interpreting the long-distance periodic trajectories as isolated-packet dynamics."
+    }
+  ],
+  "reproducibility_limits": [
+    "All 28 published metadata files match their manifest hashes and sizes; 1097 hash-listed JSON metadata files are not published.",
+    "Raw NPZ fields and PT checkpoints remain only in the stated cluster source directory; Git contains neither those raw files nor a complete directly inspectable raw-artifact inventory.",
+    "No published per-case reference result.json, sensitivity result.json, domain result.json, PINN long-distance result.json, or tasks/*.json records are present. Thus reference margins, H2 traces, domain discrepancy magnitudes and random-family exception messages cannot be independently inspected from this snapshot.",
+    "The 24 PINN fits cover packet and sideband cases only; missing random-family fits make split aggregates incomplete. No fitted or forecast PINN result beyond xi=4 is published.",
+    "No new solitary-wave tests or results were added by this results-only commit.",
+    "Finite periodic runs and PINN errors do not prove global existence, singularity, nonlinear stability or physical water-wave validity."
+  ],
+  "priority_followups": [
+    "Publish tasks/pinn-024.json through tasks/pinn-035.json and corresponding invocation stderr/error records to diagnose all random-family execution errors.",
+    "Publish compact reference, sensitivity and domain result records including error margins, tail/action diagnostics, event summaries and per-case H2 error traces.",
+    "Publish launcher/*/a100-job-*.json and a100-runtime-lock.json for GPU/node/Slurm provenance.",
+    "Retain and make raw fields/checkpoints available in durable research storage with hashes and an access path.",
+    "Investigate PINN derivative accuracy and optimization on validation cases; freeze revised settings before a fresh held-out test.",
+    "Resolve packet domain dependence before making isolated long-wave/soliton claims."
+  ]
+}

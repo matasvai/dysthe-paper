@@ -1,0 +1,53 @@
+{
+  "checked_on": "2026-11-05",
+  "purpose": "Publication integrity and layout checks; not new numerical or neural evidence.",
+  "catalogue": {
+    "records": 42,
+    "unique_ids": 42,
+    "unmapped_evidence": 0
+  },
+  "chats": {
+    "user_chats": 12,
+    "pages_read": 34,
+    "returned_turns": 262,
+    "inherited_turns_identified": 67,
+    "selected_message_truncation_detected": false,
+    "raw_transcripts_published": false
+  },
+  "archives": {
+    "experiment_files": 2277,
+    "experiment_originals": 2276,
+    "explicit_derived_exact_field_extracts": 1,
+    "raw_or_large_experiment_artifacts_indexed_not_published": 1278,
+    "preserved_document_files": 505,
+    "source_hash_checks": "passed",
+    "published_file_limit_bytes": 5000000,
+    "raw_array_and_checkpoint_files_published": 0
+  },
+  "local_checks": {
+    "dysthe_paper_tests_passed": 4,
+    "dysthe_experiments_tests_passed": 6,
+    "dysthe_research_map_tests_passed": 7,
+    "scope_checks": "passed in all three publication repositories",
+    "staged_whitespace_checks": "passed; archived original formatting preserved through path-specific attributes",
+    "experiments_dependencies": {
+      "dysthe_core": "10889fed1d20f02f8318d281322585284711eadd",
+      "dysthe_learning": "27f94b0ebd7c42de3401c7430a380a2378b233b2"
+    },
+    "dependency_note": "Initial default-environment check lacked dysthe_core. Repeated successfully using source trees from the exact pinned dependency commits."
+  },
+  "catalogue_pdf": {
+    "engine": "XeLaTeX",
+    "pages": 15,
+    "passes": 2,
+    "missing_glyph_or_overfull_warnings": 0,
+    "all_rendered_pages_visually_checked": true,
+    "sha256": "ac7161c905aefbbb6a6879863e0fe25760ecae3f0ffdf30a298530cc73de65fb"
+  },
+  "limits": [
+    "Historical experiments and training were not rerun.",
+    "Historical reports were not all recompiled or scientifically revalidated.",
+    "Local link validation precedes remote publication; remote commit identity is verified separately.",
+    "Raw-data locations in manifests do not grant public data access."
+  ]
+}

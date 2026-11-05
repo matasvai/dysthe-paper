@@ -1,0 +1,147 @@
+\newpage
+\input{research_values.tex}
+\eyebrow{RESEARCH FOLLOW-UP / SEPTEMBER 10, 2026}
+\section*{1. Does the solver preserve cubic scaling?}
+The literature review suggested replacing a purely visual search with experiments
+that target the structure of the dispersion. We begin with an exact symmetry of
+the homogeneous equation, then vary spectral geometry and cancellation, and test
+an independent integral calculation.
+\[
+ f_\lambda(X)=\lambda^3 f(\lambda X),\qquad \|f_\lambda\|_1=\|f\|_1,
+ \qquad R(t;f_\lambda)=R(\lambda^3t;f).
+\]
+Here $X=(x,y,z)$ and $\beta=0$. At $t=8/\lambda^3$, all three rescaled
+inputs should produce the same compensated ratio as the original at $t=8$.
+\pic{1}{visuals/research_scaling.pdf}
+\takeaway{All eleven recipes pass the scaling check. Across 33 evaluations,
+the largest relative complex-field discrepancy is \texttt{\ResearchScaleError}.}
+The calculation uses $\lambda=1/2,1,2$, hence times $64,8,1$. A length-144,
+$96^3$ grid is rescaled to length $144/\lambda$ and spacing $1.5/\lambda$.
+Initial data and the dispersion symbol are reevaluated on each scaled grid.
+The left panel shows three representative recipes; the right summarizes all eleven.
+
+\textbf{What this verifies.} This is a check of the discrete implementation of an
+exact symmetry. The matched grids make the relation exact even for a finite
+periodic model; machine-precision agreement is not a new whole-space error bound.
+
+\textbf{What scaling says about the research question.} If a bound with exponent
+$\gamma$ and the same $L^1$ right-hand side held uniformly for every input at all
+$t\ge1$, then at $t=\lambda^{-3}$ it would require
+\[
+ \lambda^{7/2}\big\||D_x|^{1/2}S(1)f\big\|_\infty
+ \le C\lambda^{3\gamma}\|f\|_1.
+\]
+For a nonzero weighted solution this is impossible as $\lambda\to0$ when
+$\gamma>7/6$. Improving the homogeneous result therefore requires a different
+question: a better constant, or faster decay under additional input assumptions.
+This derivation does not apply unchanged to fixed $\beta=1$.
+
+\newpage
+\eyebrow{RESEARCH FOLLOW-UP / TARGETED FREQUENCIES}
+\section*{2. Where the spectrum sits changes the ratio}
+We vary longitudinal width $\sigma_x\in\{3,6\}$ and spectral offset
+$q_x+\beta\in\{-0.75,-0.25,0,0.25,0.75\}$, holding transverse width at 3.
+These give twenty cases. Three more target the second curvature-degenerate set,
+two impose zero spatial integral, and one supplies a Gaussian cancellation control:
+26 inputs, each evaluated at $t=4,8,16$.
+\pic{.94}{visuals/research_sweep.pdf}
+\textbf{Reading the markers.} Circles use the fine 3D FFT result after passing
+the 2\% screen. Diamonds use a separate Gaussian-integral follow-up after the
+initial screen failed. The dotted line marks the multiplier's cusp.
+
+\takeaway{The homogeneous ratios are largest at the central frequency among
+these sampled offsets. The inhomogeneous patterns differ. Frequency location
+and width both matter; there is no single ordering that transfers across regimes.}
+The original checks compare lengths 144 and 192 at spacing 1.5, then spacings
+1.5 and 1 at length 192. \ResearchPass\ of 78 case--time measurements pass the
+2\% screen. Eight are flagged and recomputed using analytic transverse integration,
+periods 8192 and 16384, radial limits 256 and 512, and local integral optimization. For the odd Gaussian control, the Fourier
+amplitude is multiplied by $-i\sqrt{\pi/2}\,\sigma_x k$ to enforce exact continuum
+$L^1=1$ normalization; the other follow-ups use normalized Gaussians.
+\ResearchFollowPass\ of eight pass the 0.1\% follow-up screen. The largest change
+between those two broad searches is \ResearchFollowChange; the largest correction
+to an original fine-grid peak is \ResearchCorrection.
+
+\textbf{Second degeneracy.} For the inhomogeneous symbol we also test
+$q_x=0.5$, $q_y=\sqrt{0.75}+\delta$ with $\delta=-0.2,0,0.2$ and widths 6.
+The middle center lies on $q_x(q_x+1)=q_y^2$. These are localized Gaussian spectra,
+not exact support on the surface. All three pass the original screen at $t=16$;
+the central case is not the largest of the three. This small test does not identify
+a worst-case input.
+
+\newpage
+\eyebrow{RESEARCH FOLLOW-UP / CANCELLATION AND CONCENTRATION}
+\section*{3. Test assumptions, not just different shapes}
+For each regime, compare an unshifted Gaussian with
+$f(X)\propto x\exp[-|X|^2/18]$, normalized separately to $L^1=1$.
+The latter has zero spatial integral by oddness: low-frequency cancellation is
+built into the input rather than inferred from a picture.
+\pic{.97}{visuals/research_cancellation.pdf}
+\textbf{Interpretation.} These are short-time ratios, not fitted asymptotic rates.
+The inhomogeneous zero-integral ratio is almost flat from $8$ to $16$, within
+the numerical differences tested here. A zero integral changes the curve but does not, by itself, establish a stronger
+uniform estimate. These inputs still have Gaussian spectral tails; no experiment
+with strictly supported spectra away from degeneracies has been completed.
+\pic{.97}{visuals/research_quadrature.pdf}
+\textbf{Left: concentrated inputs.} At $t=1$, exactly $L^1$-normalized Gaussian
+widths decrease from 3 to 0.75. Ratios increase in both regimes. All ten cases pass
+a 2\% numerical screen: longitudinal period/radial extent are doubled, radial
+spacing is halved, and candidate peaks are checked by non-periodic integration.
+The longitudinal spacing is 0.25 and the narrowest width spans three such steps.
+
+\takeaway{Narrower inputs probe larger ratios here, but five widths do not
+establish convergence to a kernel maximum or determine the optimal constant.}
+\textbf{Right: independent integration.} The comparison is explained on the next
+page. Its later-time points evaluate fixed coordinates, not newly located maxima.
+
+\newpage
+\eyebrow{RESEARCH FOLLOW-UP / INDEPENDENT INTEGRATION}
+\section*{4. A second quadrature agrees through $t=1024$}
+We compare two separately implemented methods for the reduced Gaussian integral.
+Both handle the multiplier cusp at $k=-\beta$, but use different panel placement
+and integration rules.
+\begin{center}\begin{tabular}{p{.26\linewidth}p{.65\linewidth}}\toprule
+Method & How it evaluates the integral\\\midrule
+Fixed Gauss--Legendre & 64 Gaussian-frequency panels plus a cusp split;
+$k=-\beta\pm u^2$ regularization; 256 and 512 nodes per panel.\\
+Adaptive Gauss--Kronrod & Panels limit the principal cubic phase variation;
+stationary points of $tk^3+xk$ are inserted; the residual complex amplitude is
+integrated adaptively after a separately implemented cusp substitution.\\\bottomrule
+\end{tabular}\end{center}
+\takeaway{Across twelve pointwise comparisons, the maximum relative complex-field
+difference is \texttt{\ResearchQuadError}. No adaptive integration warnings were
+recorded. Expanding frequency truncation from 12 to 14 Gaussian standard deviations
+changes values by at most \texttt{\ResearchQuadTail} relatively.}
+For each of the four earlier Gaussian-family cases, we keep its refined $t=256$
+peak coordinates and evaluate the field there at $256,512,1024$. The 512-node
+Gauss--Legendre values agree with the adaptive calculation. For two cases at
+$1024$, changing from 256 to 512 nodes changes the field by about $10^{-7}$
+relatively, showing why integration order needs checking as time increases.
+
+\textbf{What has advanced.} We have verified a scaling identity, completed a
+controlled frequency sweep with follow-ups for every initially flagged point,
+compared cancellation inputs, tested a family of concentrated inputs, and checked
+a second integration implementation at later times.
+
+\textbf{What has not advanced yet.} Global peak searches at $512$ and $1024$
+have not been performed. Their locations can move, so the pointwise comparisons
+cannot extend the decay curves. The new screens remain numerical consistency
+checks, not certified bounds on a continuum supremum. No measured fluid data or
+full nonlinear water-wave simulation is added in this batch.
+
+\textbf{Research connection.} Frequency targeting is motivated by Ben-Artzi,
+Koch and Saut, \href{https://doi.org/10.1081/PDE-120025491}{\emph{Dispersion Estimates
+for Third Order Equations in Two Dimensions}} (2003). Stationary-point-aware
+integration is motivated by Huybrechs, Kuijlaars and Lejon,
+\href{https://arxiv.org/abs/1806.06549}{\emph{A Numerical Method for Oscillatory
+Integrals with Coalescing Saddle Points}} (2019), and Gibbs, Hewett and Huybrechs,
+\href{https://arxiv.org/abs/2307.07261}{\emph{Numerical evaluation of oscillatory
+integrals via automated steepest descent contour deformation}} (2024).
+Our adaptive method is a simpler comparison calculation; it does not implement
+their published algorithms or claim their error guarantees.
+
+\textbf{Reproduce.} Run \texttt{research\_experiments.py} with arguments
+\texttt{scaling}, \texttt{sweep}, \texttt{quadrature}, and \texttt{identity}; then
+run \texttt{refine\_research\_flags.py} and \texttt{report/make\_research\_report.py}.
+Case-level checkpoints, configurations and summaries are in
+\texttt{results/research\_experiments/}. \par The annotated reading note is \texttt{research/literature\_review.md}.

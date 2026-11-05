@@ -1,0 +1,82 @@
+\section{Implementation order and what this review verifies}
+\label{sec:implementation}
+
+\paragraph{First deliverable: a reproducible numerical population.}
+Add a separate research generator, array-aware validation, immutable
+initial-group manifests and spectral coarsening. Store source/array hashes,
+the exact model ID, epsilon, coordinates, generation seeds and
+qualification records. Exercise an interrupted/resumed small generation
+run. Existing data can supply controls, but cannot substitute for the
+new distribution or a frozen test split.
+
+\paragraph{Second deliverable: one honest operator comparison.}
+Add the differentiable RHS adapter and a distance-conditioned FNO.
+Use a small declared architecture, for example four Fourier blocks of
+width 32 or 64 with smooth activation; choose only a few mode/width
+settings on validation. Start with the 48-group pilot and the
+supervised objective. Add the full residual to the same backbone and
+verify the six ordinary PINN diagnostic cases. Store best and last
+checkpoints, optimizer state, random-generator state, normalization,
+training groups and code versions. Check that resumed optimization
+reproduces the uninterrupted run within the declared determinism
+tolerance. Never select the best test seed or hide failed runs.
+
+\paragraph{Third deliverable: a qualified behavior comparison.}
+Only after the pilot passes, enlarge the dataset and evaluate the
+locked long-distance panel. Publish per-case errors, event definitions,
+unresolved cases, horizon limits and matched-accuracy costs.
+A useful result may be that physics improves data efficiency but adds
+inference-independent training cost, that rollout training helps only
+a subset of inputs, or that the spectral solver remains the better
+computational choice. The experiment is designed to distinguish these
+outcomes rather than presume a neural advantage.
+
+\paragraph{Existence remains a separate mathematical task.}
+The relevant computational question is whether the selected initial
+data continue to exhibit resolved bounded derivatives over the tested
+distance. An all-distance smoothness claim needs a local theory and
+continuation criterion for this exact formulation, followed by the
+necessary uniform bounds, or an appropriate validated a posteriori
+argument for a specified finite interval. Temporal whole-space Dysthe
+theory \cite{mps} does not automatically apply to this periodic spatial
+equation. The residual must be combined with the relevant stability,
+regularity and quadrature estimates \cite{mishra}; independent training
+and agreement of two solvers do not supply those estimates.
+A theorem project should begin with one trajectory and one short
+interval after the numerical pipeline is qualified.
+
+\paragraph{Checks actually executed for this report.}
+The accompanying \texttt{implementation\_checks.py} independently
+evaluates smooth low-mode formulas in NumPy; it does not import or modify
+the active solver. All checks passed:
+\begin{center}
+\small
+\begin{tabular}{lr}
+\toprule
+Arithmetic check & Largest reported discrepancy\\
+\midrule
+Fourier-origin reconstruction & $2.90\times10^{-16}$\\
+Linear plane-wave phase & $1.35\times10^{-15}$\\
+Linear semigroup composition & $2.35\times10^{-16}$\\
+RHS phase/translation equivariance & $6.12\times10^{-13}$\\
+Real/imaginary versus complex RHS & $2.08\times10^{-13}$\\
+Action directional balance & $3.49\times10^{-16}$\\
+Modified momentum directional balance & $7.46\times10^{-16}$\\
+Centered finite-difference modulation matrix & $1.00\times10^{-10}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The matrix check spans 21 combinations of $\epsilon=0,.025,.05$ and
+integer modes $-3,\ldots,3$ at $a=.8$. Its discrepancy is consistent
+with the finite-difference truncation scale. Omitting the grid-origin
+correction yields a relative field error of about $.709$ on the
+deterministic test field. The JSON record contains individual cases,
+scales, tolerances and software versions; the table combines distinct
+error types and is not an accuracy ranking.
+
+These checks support implementation of the proposed formulas. They
+do not complete T0 for a future learning backend or T1 for a new
+trajectory. No fresh long-distance integrations, trained-model
+comparisons, physical experiments or existence certificates are
+reported. Historical run evidence and new arithmetic checks are
+kept distinct throughout.

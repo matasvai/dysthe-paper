@@ -1,0 +1,208 @@
+\section{Implementations that answer the comparison}
+\label{sec:learning}
+
+The first comparison should change the training objective while keeping
+the representation fixed.  Use $\epsilon=.025$ and $L=160$, and let
+$F_\epsilon$ denote the right-hand side of \eqref{eq:baseline}.
+An ordinary PINN approximates one solution after its initial condition
+has been fixed.  An operator accepts an initial \emph{function} and
+predicts its evolution.  Training a coordinate network on several
+different initial fields without an input identifying the field does not
+define that operator.
+
+The original FNO learns through Fourier multipliers, pointwise channel
+maps and nonlinearities; its demonstrations include Burgers, Darcy and
+Navier--Stokes \cite[\S\S3--5]{fno}.  PINO adds physics objectives and
+distinguishes operator training from later optimization for one input
+\cite[\S3]{pino}.  The construction below is our proposed adaptation to
+spatial water-wave Dysthe.  Neither paper establishes its performance
+for this equation.
+
+\subsection{One distance-conditioned Fourier backbone}
+
+Let $s\in[0,\Delta]$ be distance within a short propagation slab and
+$k_m=2\pi m/L$.  Define the known linear propagator by
+\[
+ \widehat{S_su}_m=e^{ik_m^2s}\widehat u_m,
+\]
+which solves $v_s=-iv_{\tau\tau}$.  Use the common ansatz
+\begin{equation}
+ G_\theta(u,\epsilon,s)=S_su+sC_\theta(u,\epsilon,s).
+ \label{eq:conditioned-fno}
+\end{equation}
+Here $C_\theta$ is a 1D FNO correction, with a declared final Fourier
+representation.  It receives the full initial envelope, the distance
+$s$, and, if retained as a channel, the fixed value $\epsilon$.
+Broadcast scalar conditioning across the profile grid or use a smooth
+conditioning map.  Fourier transforms act only in $\tau$; automatic
+differentiation acts in $s$.  Propagation distance is not periodic.
+Use smooth activations and initially double precision for derivative
+and residual checks.
+
+Concretely, lift the input channels to features $z_0$ and use blocks
+\[
+z_{\ell+1}=\sigma\!\left(W_\ell z_\ell+
+\F_\tau^{-1}\!\left[R_\ell(k)\F_\tau z_\ell\right]+b_\ell\right).
+\]
+Here $W_\ell$ mixes channels pointwise, $R_\ell(k)$ mixes Fourier
+channels on a chosen finite set of learned modes, and $\sigma$ is
+a smooth pointwise nonlinearity. A final channel map and declared
+Fourier projection produce the two components of $C_\theta$.
+
+This ansatz enforces $G_\theta(u,\epsilon,0)=u$ for the supplied
+representation and supplies the correct linear phase.  The learned
+correction can nevertheless be wrong: the linear control must verify
+its behavior.  Setting $\epsilon=0$ retains the cubic NLS term and is
+not an isolated linear test.  The same lifting, Fourier layers,
+conditioning, projection and precision must be used in the supervised
+and physics-informed versions.  Architecture changes belong to later
+ablations, once this comparison has passed the numerical controls.
+
+Represent $u$ by its real and imaginary parts.  Do not impose
+$\widehat u_{-m}=\overline{\widehat u_m}$ on the complex envelope.
+Real-valued feature channels have their own Hermitian symmetry, which
+does not imply that restriction on $u$.  Use an endpoint-excluded grid
+$\tau_j=\tau_{\min}+jL/N$, $0\leq j<N$, and document whether stored
+Fourier coefficients use $e^{ik_m\tau}$ or
+$e^{ik_m(\tau-\tau_{\min})}$.  Mixing these conventions introduces a
+mode-dependent phase error.  Keep FFT normalization, mode ordering and
+the Nyquist treatment consistent with the reference solver.
+
+Fit normalization scales using training data alone.  A common scale for
+both complex channels preserves the meaning of phase rotations.
+Decode to the physical nondimensional envelope before evaluating
+$F_\epsilon$; if normalized variables are used directly, transform
+every coefficient and derivative consistently.  Per-input normalization
+to unit amplitude discards nonlinear strength unless that amplitude is
+also supplied and restored.  Raw absolute position is unnecessary for
+this translation-invariant periodic equation.  Test translation and
+constant-phase equivariance; a generic two-channel network does not
+automatically have the latter symmetry.
+
+\subsection{A full residual requires a whole profile}
+
+For a differentiable reconstructed output $v=G_\theta(u,\epsilon,s)$,
+define
+\begin{equation}
+ r_\theta(u,s)=\partial_s v-F_\epsilon(v).
+ \label{eq:operator-residual}
+\end{equation}
+At each sampled $s$, evaluate a complete periodic slice.  Compute
+$\rho=|v|^2$ and $\D\rho$ using the multiplier $|k_m|$, with zero
+mean mode, and form all derivative nonlinearities.  Sparse independent
+points in $(s,\tau)$ cannot determine this nonlocal term.  Automatic
+differentiation through the Fourier evaluation allows training, but
+does not remove the need to resolve the profile quadrature.
+
+Declare the continuum reconstruction of grid outputs.  A convenient
+choice is an explicit final Fourier projection to $|m|\leq K_{\rm out}$,
+with the input represented in the same space.  Report its initial
+projection error and refine $K_{\rm out}$.  This final bandwidth is
+distinct from the number of learned modes in each FNO layer: skip
+paths and pointwise nonlinearities can generate higher frequencies
+\cite[\S3 and Appendix E]{pino}\cite[\S\S3--4]{stability}.
+For this explicitly truncated output, the cubic right-hand side can
+reach $3K_{\rm out}$.  A uniform quadrature with $Q>6K_{\rm out}$
+resolves the full residual and its squared spatial $L^2$ norm, up to
+floating-point error.  Retain these discarded nonlinear modes in the
+loss; projecting the residual back to the output band tests only a
+Galerkin system.  This bound does not de-alias arbitrary internal neural
+nonlinearities.  Refine the network evaluation grid separately.
+
+For an endpoint-only FNO, a finite difference or an RK defect in
+distance measures a discrete update.  It is not
+\eqref{eq:operator-residual} without a specified differentiable
+reconstruction.  Equation~\eqref{eq:conditioned-fno} supplies that
+distance dependence; Fourier differentiation then refers to the
+declared profile reconstruction, not an unspecified off-grid network.
+
+\subsection{Matched losses and repeated prediction}
+
+Write $\norm{f}_{2,L}^2=L^{-1}\int_{\TT}|f(\tau)|^2\dd\tau$.
+Let $u^{\rm ref}(s;u)$ be the qualified reference starting from $u$,
+and choose fixed positive scales $U_*,R_*$ from training information.
+For a rollout, set
+\[
+ \widetilde u_0=u,\qquad
+ \widetilde u_j=G_\theta(\widetilde u_{j-1},\epsilon,\Delta),
+ \quad 1\leq j\leq J.
+\]
+A common objective is
+\begin{align}
+ \mathcal J_{\rm data}
+ &=\mathbb E_{u,s}
+   \frac{\norm{G_\theta(u,\epsilon,s)-u^{\rm ref}(s;u)}_{2,L}^2}{U_*^2},
+ \notag\\
+ \mathcal J_{\rm PDE}
+ &=\mathbb E_{u,s}\frac{\norm{r_\theta(u,s)}_{2,L}^2}{R_*^2},
+ \notag\\
+ \mathcal J_{\rm roll}
+ &=\mathbb E_u\frac1J\sum_{j=1}^J
+   \frac{\norm{\widetilde u_j-u^{\rm ref}(j\Delta;u)}_{2,L}^2}{U_*^2},
+ \notag\\
+ \mathcal J
+ &=\mathcal J_{\rm data}+\lambda_r\mathcal J_{\rm PDE}
+   +\lambda_q\mathcal J_{\rm roll}.
+ \label{eq:operator-loss}
+\end{align}
+The expectations denote empirical sampling over training inputs and
+distances; $J$ is a short rollout length.  Set $\lambda_r=0$ for the
+supervised FNO and $\lambda_r>0$ for the physics-informed version,
+with otherwise matched settings.  Declare the weights, optimizer,
+budget and selection rule.  Residual distances should include points
+independent of labeled snapshots.  Begin by qualifying single-slab
+predictions, then introduce the same rollout objective in both models.
+A physics-only operator is a separate experiment, not the primary
+comparison.
+
+One-step accuracy does not control inputs produced by the model itself.
+Brandstetter et al. train on such inputs using a two-step pushforward
+with gradients stopped through the first step \cite[\S3.1]{pushforward}.
+Test this as a named alternative to differentiating through the short
+rollout in \eqref{eq:operator-loss}; do not conflate the two procedures.
+At evaluation, use predicted endpoints and never reset to the reference.
+Spectral filtering or bounded weights can reduce numerical sensitivity
+\cite[\S4]{stability}, but global contraction is not an appropriate
+default for modulationally unstable dynamics.  Qualification must
+retain the reference sideband growth and phase evolution, rather than
+merely produce bounded or visually smooth trajectories.
+
+\subsection{Where a PINN or DeepONet adds information}
+
+Use an ordinary PINN first as a per-input diagnostic: on one short slab,
+represent $v_\theta(s,\tau)$ periodically, enforce its initial value,
+and minimize the full residual.  Its training cost is incurred for
+each input.  A sequential PINN carries its learned endpoint into the
+next slab; supplying a reference endpoint instead changes the experiment.
+Published failure studies support testing short intervals and explicit
+optimization controls \cite[\S5]{failures}.  Causal residual weighting
+prioritizes earlier parts of an interval during training
+\cite[\S3]{causal}; its weights are optimization diagnostics, not
+solution-error certificates.  These findings motivate the proposed
+slab strategy but do not guarantee it for Dysthe.
+
+After the shared-backbone comparison passes, an optional
+function-conditioned spectral DeepONet can test another representation.
+An encoder receives the initial Fourier coefficients; a smooth
+distance-conditioned decoder returns complex coefficients
+$a_m(s;u)$, giving
+\[
+ v_\theta(s,\tau;u)=\sum_{|m|\leq K_{\rm out}}
+ a_m(s;u)e^{ik_m(\tau-\tau_{\min})}.
+\]
+Hard initial coefficients and the full residual remain applicable.
+This is a proposed spectral variant of the branch/trunk idea
+\cite{deeponet}; physics-informed DeepONet has demonstrated learning
+across initial functions on other PDEs \cite{pideeponet}.
+Neither universality nor those experiments establish optimization
+success or generalization to arbitrary water-wave inputs.
+
+Final comparisons use unseen initial realizations, independent profile
+grids and distances, raw complex errors, derivative norms, and full
+residuals.  Check unweighted residuals even if training uses causal or
+adaptive weights.  Keep phase/translation-aligned errors secondary.
+Defer test-time weight adaptation: PINO explicitly permits it
+\cite[\S3.2]{pino}, but it would mix reusable inference with a new
+optimization solve.  If later introduced, report its added cost and
+accuracy separately.  The implementation described here is a proposal;
+no trained model or long-distance accuracy result is asserted.

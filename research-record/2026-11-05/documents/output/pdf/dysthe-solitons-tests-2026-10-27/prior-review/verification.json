@@ -1,0 +1,49 @@
+{
+  "review_date": "2026-10-27",
+  "created_at_utc": "2026-10-27T15:42:50.779920+00:00",
+  "model_id": "water-wave-dysthe-spatial-v1",
+  "report_pages": 12,
+  "compiled_with": "pdfLaTeX, TeX Live 2023, repeated for cross references",
+  "unresolved_references": false,
+  "layout_warnings": false,
+  "all_12_pages_rendered_and_visually_inspected": true,
+  "final_changed_pages_reinspected": [
+    2,
+    4,
+    7
+  ],
+  "pdf_fonts_all_embedded": true,
+  "embedded_raster_images": 0,
+  "included_figures": "2 vector PDF figures generated from archived CSV/JSON data",
+  "projection_recalculated_from_archived_spectral_powers": true,
+  "projection_max_absolute_discrepancy": 5.551115123125783e-17,
+  "fresh_exact_published_software_tests_passed": 39,
+  "scientific_campaign_rerun": false,
+  "hpc_job_submitted": false,
+  "new_numerical_result": "Fourier projection floors on checksum-verified historical solitary profile",
+  "limitations": [
+    "No cluster filesystem inspected",
+    "No completed A100 science results found in inspected remote branches",
+    "Schober-Islas 2025 source inspected at publisher abstract level only",
+    "Preprint assumptions inspected but proofs not independently formalized",
+    "Finite-distance numerical measurements do not prove global regularity or orbital stability"
+  ],
+  "sha256": {
+    "review.tex": "00f00edca7aef0ee8de2b5b21eda001e0d35a487b86838dd4f787cef578d151d",
+    "royden-report.sty": "cb1d0cade75d47a5de899ef991ef5cb98ce6dc19d7d8626e751c4fefe0fd2b84",
+    "make_figures.py": "0542902551ef4bc44724757664bb671735a34cd5f2f37c59a5f5338cd6a36366",
+    "README.txt": "2c6857285efcd35e32183e6aa46f52ee34ffc09376a9cc62e3ac8a27b4b33b51",
+    "review.pdf": "55df3e2eb3eceba9e55e2e41b0ec2c4e816acb7283ffaff764fad79b6ef11326",
+    "figures/cpu-comparison.pdf": "bc807d7ce4e9bac7369f8135e9e80cc44ab74ebb3ef5413c95579595ac6fafa0",
+    "figures/projection-floor.pdf": "1bfa182d8d8399e7fb8b6495ebaf9a7f8166f36aec79aedf9173f0c1f3563eac",
+    "data/cpu-errors.csv": "61dd26f5ef69f981361d8bea483ac83d271a0499b563732ea22001c104144c8f",
+    "data/long-distance-config.json": "b9ae0899ac39c12d695fe5e61b3dd2281962a1ef482b777f4f375abb9adcec5c",
+    "data/projection-audit.json": "9e4f99897e41a09e566429b770a12c589b323a6543de0b308272f22db4fd58f2",
+    "data/projection-spectrum.csv": "f97ee6d5363ca0efb442198729102dcce5db75279ab63c8c1ecc5c39317aa158",
+    "data/published-suite.log": "9ddceb8a16e805ff625d8d52573feae85a1af89848935ca884253ea85789186b",
+    "data/remote-audit.json": "3e69f686bd9e7f7a9f37eb9f0a34f9a529afdf8915ee7711e5f741f57e122908",
+    "data/workflow-summary.json": "348dccceadd612ca3546b9f1f96ffddedbca21a885a181dacf3026d57fc15b10"
+  },
+  "clean_source_package_rebuild_passed": true,
+  "clean_rebuild_pdf_text_matches_verified_report": true
+}

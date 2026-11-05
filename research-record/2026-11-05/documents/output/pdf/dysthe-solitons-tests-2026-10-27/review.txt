@@ -1,0 +1,690 @@
+               Dysthe Solitary Waves and the Published Tests
+                            Literature review and computational audit
+
+                     27 October 2026; revised after the cluster-results push
+
+
+                                                 Abstract
+         The defensible research target is to determine which resolved water-wave Dysthe solitary
+     profiles remain close to their symmetry orbits over a measured propagation interval, and whether
+     neural approximations reproduce that behavior. Two September 2026 preprints refine the
+     theoretical context, but neither supplies an orbital-stability theorem for the implemented periodic
+     free-surface model. The newly pushed cluster snapshot reports qualified periodic references
+     through ξ = 64, but none of 24 evaluated neural fits passes the combined ξ = 4 gates; 12 random-
+     field fits have execution errors. Detailed reference and failure records remain unpublished. A
+     fresh projection audit shows that copying the generic-packet neural cutoff to the solitary-wave
+     domain would impose a 66.1% relative H 2 error before optimization. This report distinguishes
+     literature results, published measurements, local historical evidence and proposed tests.
+
+
+1    The question and the exact equation
+The project’s original question is whether solutions remain smooth over increasing propagation
+distance. Solitary waves provide a controlled family with which to investigate this question, but
+existence of one traveling profile does not establish global existence for arbitrary initial data.
+   The active model evolves a scaled complex free-surface envelope u(ξ, τ ) in downstream distance
+ξ, with retarded-time coordinate τ :
+
+                         uξ = F (u) = − iuτ τ − i|u|2 u
+                                                                                                           (1.1)
+                                        − ϵ 8|u|2 uτ + 2u2 uτ + 2iu|Dτ |(|u|2 ) .
+                                                                                 
+
+
+This is the spatial Fedele–Dutykh free-surface convention [1]. Its model identifier is water-wave-
+dysthe-spatial-v1. The Fourier multiplier of |Dτ | is |k| and that of ∂τ is ik; thus H∂τ = |Dτ |.
+The potential-envelope equation, a temporal equation, and a two-dimensional model are different
+contracts. Their results cannot be imported by name alone.
+
+Definition 1.1. A traveling solitary envelope on the line has the form
+
+                      u(ξ, τ ) = e−iµξ Q(τ − sξ),        Q(z) −→ 0     as |z| −→ ∞.                        (1.2)
+
+The profile satisfies F (Q) + iµQ + sQ′ = 0. A large periodic box approximates this setting only
+after a separate domain-sensitivity check.
+                                                              √        √
+   At ϵ = 0 and s = 0, the focusing NLS seed is Q0 (z) = 2µ sech( µz), µ > 0. At nonzero
+ϵ it is generally only an initial guess. Both the complex phase and shape must satisfy the full
+Dysthe profile equation. The solitary object is an envelope of many carrier crests, rather than one
+permanently isolated surface crest.
+
+
+                                                     1
+2    What the current literature establishes
+Direct numerical precedent. Fedele and Dutykh constructed spatial Dysthe traveling waves
+with a Petviashvili iteration and studied their collisions numerically [1]. Their observed inelastic
+interactions are an established benchmark, not a new discovery to claim from this project. Con-
+vergence of that profile iteration is not dynamical stability. Earlier perturbative work by Akylas
+described how higher-order modulation changes an initially NLS-like solitary envelope, including
+amplitude and speed adjustments in the studied regime [2]. This motivates comparing an exact
+NLS inlet with a corrected Dysthe profile.
+
+A 2026 existence result, with a coefficient restriction. Esfahani, Kairzhan and Karazym’s
+preprint, revised 21 September 2026, proves parameter-dependent traveling-wave existence and
+nonexistence for a general nonlocal derivative NLS family [3]. In their convention,
+
+                     iut − uxx − b|u|2 u + iα|u|2 ux + iβu2 ūx + γu∂x H(|u|2 ) = 0.
+
+Matching (1.1) gives
+                                     (b, α, β, γ) = (1, 8ϵ, 2ϵ, −2ϵ).
+Their main existence theorems assume γ ≥ 0; their other negative-γ existence regime requires
+a vanishing reduced quintic coefficient, whereas ours is B = −35ϵ2 /4. Hence those results do
+not directly prove existence for this branch. They also explicitly leave stability and instability
+unaddressed. This is a useful analytical framework, not a certificate for the current solver.
+
+A sharper 2026 obstruction to NLS-type integrability. Sutherland and Yim’s 19 September
+2026 preprint computes resonant six-wave scattering in Hamiltonian Dysthe models [4]. Its spatial
+free-surface case is connected to our coefficients by the Fedele–Dutykh gauge transformation,
+including the induced quintic term. Under its stated formal-functional and regularity assumptions,
+the result excludes an infinite conserved hierarchy with independent regular C 3 quadratic leading
+symbols beyond span{1, k, k 2 }. It does not exclude every conceivable notion of integrability, solitary
+profiles, or stable propagation. The analysis uses continuous Fourier variables on the line; it is not a
+periodic-box stability theorem. Both 2026 papers are preprints, not verified journal publications in
+the records inspected.
+
+Coherent events are broader than exact solitary waves. Schober and Islas’s 2025 study
+uses Floquet spectra to examine soliton-like rogue events in conservative and dissipative higher-order
+NLS settings [5]. Its publisher abstract was accessible; its full text was not inspected here. Tikan
+et al. connect random narrowband water-wave fields, coherent-pulse signatures and nonlinear
+dispersion measurements with NLS/Dysthe/Euler comparisons [6]. These support later random-
+input diagnostics, not a claim that every large peak is a soliton. The supplied 2026 Schober–Islas
+preprint concerns weak viscosity and mean-flow damping [7]; such terms require a separately
+versioned extension, and are not part of (1.1).
+
+
+
+
+                                                    2
+3     Four claims that must remain separate
+    1. Profile existence: a nontrivial Q solves the traveling-wave equation. A small computed
+       residual is numerical evidence; an existence theorem needs an analytical or validated numerical
+       argument.
+    2. Spectral stability: the correct linearized evolution has no growing modes in a specified
+       function space. A finite matrix calculation must be checked against resolution and domain
+       changes.
+    3. Finite-distance robustness: selected small perturbations stay close to the traveling-wave
+       orbit over the tested interval. This can be measured with resolved simulations.
+    4. Global orbital stability or global regularity: a uniform statement for all sufficiently
+       small perturbations, or continuation for general data at arbitrary distance. The present tests
+       do not establish either statement.
+   The phrase soliton is used variably in this literature. Here, “solitary wave” describes a persistent
+localized traveling profile; “integrable soliton” additionally invokes the special scattering structure of
+an integrable model. Nonintegrability does not imply that every solitary wave is unstable. Likewise,
+a transient focusing event or a breather need not be a traveling profile.
+   The small-data global well-posedness and scattering theorem of Mosincat, Pilod and Saut concerns
+a Dysthe equation on R2 [8]. Its dimensional and evolution setting differs from this one-coordinate
+periodic spatial solver. It cannot be presented as a theorem covering our solitary profiles or arbitrary
+large-amplitude data. No directly applicable orbital-stability theorem for the exact implemented
+model was found in the sources reviewed; this is a literature search conclusion, not a proof that no
+such result exists.
+
+3.1    What “long term” means operationally
+There is no universal terminal value of ξ, amplitude or H 2 norm that establishes long-term stability.
+Record the actual interval together with natural propagation scales. With A0 = ∥u(0)∥∞ , the
+current campaign uses
+                                            Nnl (Ξ) = A20 Ξ
+as an initial-peak nonlinear-distance convention. For a traveling wave also record |µ|Ξ/(2π) phase
+cycles and the shift sΞ relative to its width. For the stored solitary profile, A0 = 1.958116: the
+completed Ξ = 0.1 check covers 0.3834 nonlinear lengths, whereas the proposed Ξ = 20 study would
+cover 76.68. This is a meaningful increase in scope, not an existing result.
+   In the model normalization, ξ = ϵ2 k0 X and τ = ϵ(2k0 X − ω0 T ). Thus physical distance is
+X = ξ/(ϵ2 k0 ) once the carrier is specified. The approximation need not remain physically accurate
+at arbitrarily large X, even if its numerical solution stays smooth. Track effective steepness and
+spectral bandwidth; use water-wave experiments or higher-fidelity water-wave models for physical
+validation.
+
+
+
+
+                                                    3
+4     Audit of the pushed tests and recorded results
+The inspected remote workstream is codex/long-distance-a100, at commit
+                             723883f27a6b3489bfc36f55d9d15b52e8635ad0.
+
+This new push adds 29 result files to the previously reviewed code commit c04b44ba. It includes
+a gpu2 cluster snapshot as well as the earlier CPU results. The 39-test software check remains
+applicable to the unchanged source; it is distinct from the scientific accuracy gates. The new
+snapshot and its limits are examined below. The earlier report’s statement that no cluster results
+were published is superseded by this revision.
+
+4.1    The CPU pilot supports slabs, with limited scope
+The completed pilot used 18 initial fields: six each of packets, modulated backgrounds and smooth
+random Fourier fields. Twelve trained the operators; three validated and three tested them. PINNs
+were fitted separately per inlet. Two optimization seeds give six test case–seed pairs, but only three
+independent test fields. All methods used a small budget; FNO rollout and a per-inlet PINN solve
+have different inference tasks and must not be treated as identical services.
+
+                    Method             L2 (%)    H 1 (%)           Peak (%)                      Pairs passing
+                    Global PINN          1.995     3.041                                 0.936            2/6
+                    NLS-warm PINN        2.074     3.560                                 1.285            3/6
+                    Four-slab PINN       0.963     1.881                                 1.089            6/6
+                    FNO                 58.739    58.843                                32.698            0/6
+                    PINO                56.617    56.833                                34.592            0/6
+
+Table 1: Published CPU measurements: worst saved-station relative errors through ξ = 2. Gates
+were 1% complex L2 , 5% H 1 and 5% peak error. No phase or translation alignment was applied.
+Source: archived data/cpu-errors.csv.
+
+
+                      CPU pilot through ξ = 2                                                 Error growth with distance
+
+       Slab PINN        0.96                                                            102
+                                                             Worst test L 2 error (%)
+
+
+
+
+      Global PINN              1.99
+                                                                                                                     FNO
+NLS-warm PINN                  2.07                                                     101                          PINO
+                                                                                                                     Slab PINN
+
+             FNO                                   58.74
+
+
+            PINO                                   56.62                                100
+
+
+                      100             101              102                                         1      2         3        4
+                                            2
+                     Worst test relative L error (%)                                               Propagation distance ξ
+
+
+Figure 1: Replot of recorded CPU results. The slab PINN was fitted over each interval; the operators
+were rolled out beyond their short training windows. These are neither solitary-wave tests nor A100
+measurements.
+
+
+                                                   4
+4.2    What the existing results imply for method selection
+The slab PINN is the most promising tested neural method for the current per-inlet task. It is
+not yet the fastest solver. Recorded median fitting time was about 1.26 seconds per inlet, versus
+about 0.0294 seconds for a coarse numerical solve through ξ = 2. The latter had worst test H 1
+error about 4.62 × 10−7 . These preliminary CPU timings were not an isolated, matched-accuracy
+benchmark; some training overlapped and setup/audit costs were excluded. They do not establish
+neural speedup.
+   The trained FNO and PINO are not reliable long-distance predictors: neither passed all test
+gates even through ξ = 0.5. Their ξ = 4 errors exceeded 100%. Twelve operator-training inlets
+and a small budget are insufficient to draw a general conclusion about FNO, but these particular
+checkpoints should not be promoted as a solver. NLS warm-starting also failed to improve the
+aggregate PINN result under this budget.
+   Three numerical validation fields were independently refined through ξ = 16; recorded sampled
+H 2 norms remained finite, with maximum approximately 4.224. These are finite-distance periodic
+observations. The new cluster snapshot extends the recorded numerical coverage below; neither set
+establishes solitary-wave stability or continuum existence.
+
+4.3    The pushed long-distance campaign is a sound staged design
+  Stage               Distances ξ         Purpose and required observation
+  Reference           4, 8, 16, 32, 64    Independently refine grid and step; track H 2 , spectral tails,
+                                          action and the NLS control. Stop an unresolved inlet.
+  Slab PINN           4, 8, 16            Require saved-station complex L2 ≤ 1%, H 1 , H 2 ≤ 5% and
+                                          peak error ≤ 5%. Stop later fits after failure.
+  Sensitivity         4, 8, 16            Check signed response with perturbation halving and inde-
+                                          pendent reference refinements; 1% response agreement.
+  Packet domain       4, 8, 16, 32, 64    Compare the same analytic localized inlet on two periods;
+                                          require initial agreement and 1% H 1 domain agreement.
+
+The production design has six validation and six test inlets across three families, with neural seeds
+11, 29 and 47. Each PINN is fitted anew; the 4/8/16 horizon fits retrain early slabs independently.
+Training-reserved inputs are not used to train an FNO in this campaign. A100 access therefore
+scales the selected per-inlet experiment; it does not already implement operator generalization.
+    The published tiny workflow completed 24 case/stage tasks. One PINN failed its accuracy gate
+at ξ = 0.2, both packet-domain tests failed their coarse-domain criteria, and four domain tests were
+correctly marked inapplicable. All six reference and sensitivity checks completed. These retained
+failures are useful: workflow completion is not “all scientific gates passed.” Replaying completed
+fits preserved 180 artifact hashes; this is CPU reuse evidence, not CUDA restart equivalence.
+Allocation-specific CUDA checks remain essential.
+
+
+
+
+                                                  5
+4.4                        Newly published cluster results: the actual outcomes
+The new results/long-distance-gpu2-2026-10-26 snapshot changes the evidence status. Its
+configuration matches the production design. Its manifest identifies source commit c04b44ba; all
+eight recorded source hashes match the previously tested pinned sources. All 28 published metadata
+files match their manifest hashes and byte lengths; the manifest is the 29th file.
+
+   Stage                                            Recorded result in the new summary
+   Periodic reference                               12/12 qualified through ξ = 64.
+   Numerical sensitivity                            12/12 qualified through ξ = 16.
+   Packet domain                                    Four pass ξ = 4, fail ξ = 8; eight nonpackets inapplicable.
+   PINN accuracy                                    0/24 evaluated packet/sideband fits qualify through ξ = 4.
+   PINN execution                                   12 random-field fits: execution errors, no accuracy results.
+   Later PINN horizons                              No evaluated ξ = 8 or 16 results; campaign incomplete.
+
+   Each validation/test split has 12 of 18 requested case–seed pairs evaluated, representing four of
+six independent inlets. Both evaluated families are represented, but the random family is absent.
+The following are therefore incomplete-subset statistics; failed executions cannot be counted as
+accurate predictions or omitted from the coverage statement.
+
+                                         Split/statistic           L2 (%)      H 1 (%)       H 2 (%)          Peak (%)
+                                         Validation worst           1.968          5.826      30.741             1.383
+                                         Validation median          1.347          3.419      14.681             0.820
+                                         Test worst                 1.577          4.130      22.115             1.498
+                                         Test median                0.934          2.968      14.900             0.669
+                                         Acceptance gate            1.000          5.000       5.000             5.000
+
+Table 2: Recorded interval errors through ξ = 4. Medians are across the 12 evaluated case–seed
+maxima in each split, not across all requested inputs. Detailed H 2 traces were not included in the
+pushed snapshot.
+
+
+                                  Validation             Test                              6.15
+                           6
+      Worst error / gate
+
+
+
+
+                                                                                                       4.42
+                           4
+
+
+                                 1.97
+                           2                 1.58
+                                                            1.17
+                                                                        0.83
+                                                                                                                         0.28   0.30
+                           0
+                                        L2                         H1                             H2                Peak amplitude
+
+
+Figure 2: Worst reported errors divided by their acceptance thresholds. A value above one fails
+that metric. The derivative-sensitive H 2 error is the largest violation; no successful long-distance
+neural result is established.
+
+
+
+
+                                                                               6
+4.5   What the new results mean for the research goal
+Derivative accuracy is the decisive new issue. Eleven of the 24 evaluated fits pass the
+earlier CPU pilot’s L2 , H 1 and peak criteria, including all six evaluated test-sideband fits. Their
+individual sampled_interval_pass flags are true because that older flag excludes H 2 . All 24 fail
+the long-distance gate that includes H 2 ; for those eleven, the extra derivative criterion causes
+rejection. Use the full campaign status, not the older flag, when reporting success. Initial gate
+violations occur between ξ = 0.30 and 1.10, although each evaluated fit was trained through 4.
+   This is directly relevant to the smoothness objective: a good envelope or peak prediction can
+conceal inaccurate derivatives. An H 2 error of 22.1% is an approximation error relative to the
+reference, not a 22.1% growth in the true norm and not evidence of a singularity. Its cause cannot
+be inferred from aggregate errors alone. Inspect per-mode error and residuals to distinguish spurious
+high-frequency content, truncation, phase drift and optimization error. The earlier CPU result and
+this run differ in inlets, horizon, network, bandwidth, budget and acceptance criteria; the change
+cannot be attributed to GPU execution.
+
+Periodic qualification and isolated packets have different limits. The summary records
+reference qualification through 64, but all packet domain checks fail at 8. Thus the recorded periodic
+numerical evidence extends much farther than the declared doubled-domain agreement test, which
+passes only through 4. This is not a whole-line certificate. The detailed records are needed to
+distinguish finite-box interaction from failed refinement. Likewise, sensitivity qualification through
+16 is not a bound on the size of amplification: it says the prescribed response comparisons passed.
+The actual norms, amplification curves and qualification margins are not in the uploaded summary.
+
+Execution and provenance limits. All 24 completed PINN records include positive GPU
+allocations, with reported peak allocated tensor memory 94,955,520 bytes (90.56 MiB). Their
+median recorded optimization time is 62.61 seconds (range 47.63–67.44). This is not total device
+memory or a matched CPU/GPU speed comparison. CUDA 12.8 and PyTorch 2.10.0+cu128 are
+recorded. The exact GPU model, node and scheduler allocation are not in the published records;
+the declared gpu2 campaign targets A100 hardware. Job and runtime-lock files are only hash-listed.
+The random-fit exception logs are absent, so neither memory exhaustion nor an optimizer failure
+can be asserted as their cause.
+
+Next decision. Retrieve the detailed numerical result.json files, the PINN H 2 traces and
+tasks/pinn-024.json through pinn-035.json before diagnosing the missing random fits. Use
+validation cases to test shorter slabs, resolved bandwidth and optimization settings under controlled
+budgets. Do not automatically extend failed fits to larger distances. Freeze any selected repair
+before evaluation on a new untouched test set. These generic-wave results inform the learning
+method; they still do not test solitary-wave stability.
+
+
+
+
+                                                  7
+5     The solitary-wave implementation and a new resolution audit
+The local solitary-wave code computes a conjugate-reflection-symmetric profile, then propagates it
+without enforcing that symmetry. A historical smoke at ϵ = 0.025, µ = 2, s = 0, L = 160, N = 4096
+reached only ξ = 0.1. Its full profile residual was 2.03 × 10−11 and unperturbed final relative complex
+L2 error was 7.09 × 10−11 . Its field checksum was verified against the stored report. This checks
+consistency over a short interval.
+   The standalone solitary files and their refinement configuration are local, untracked work, absent
+from the audited pushed tree. Their loader still depends on a historical profile file/sidecar even in
+recompute mode. The long-distance cluster campaign uses generic inlets, not solved solitary profiles.
+No completed refined long-distance solitary study, real-linear stability spectrum, or solitary-specific
+PINN/FNO result was found.
+
+5.1   Fourier representation can defeat the test before training
+On a periodic grid of length L, let km = 2πm/L and Q
+                                                   b m = FFT(Q)m /N . Define
+
+
+                                                  |m|>K (1 + km ) |Qm |
+                                                P             2 r b 2
+                                 pr (K) = 2
+                                                                          .                      (5.1)
+                                                    m (1 + km ) |Qm |
+                                                            2 r b 2
+                                                  P
+
+
+Since Fourier modes are orthogonal in these discrete H r norms, every approximation supported in
+|m| ≤ K has relative error at least pr (K). This statement follows by splitting its squared error into
+retained and discarded Fourier modes. Phase and translation alignment preserve the support and
+cannot eliminate this floor.
+
+                            K     kmax          p0 (%)      p1 (%)        p2 (%)
+                            48    1.885          19.146      38.520      66.086
+                            96    3.770           2.989      10.074      27.467
+                           192    7.540         0.08096     0.50049     2.44868
+                           256   10.053        0.007532    0.060796    0.386883
+                           384   15.080       0.0000664   0.0007879   0.0073469
+
+Table 3: New calculation on the stored L = 160 Dysthe profile; not a new propagation or neural-
+training experiment. The same-grid NLS seed also has a 59.77% H 2 floor at K = 48. Data and
+source hashes accompany the report.
+
+   The published neural cutoff K = 48 belongs to L = 40, where kmax = 7.540. Copying the integer
+cutoff to L = 160 reduces physical bandwidth by a factor of four. The failure above is therefore a
+proposed-transfer problem, not an error in the original generic-packet results.
+
+
+
+
+                                                      8
+Unavoidable relative error (%)    102
+
+                                  101                                                                           5% H 2 field gate
+
+                                  100                                                            0.5% proposed projection budget
+
+                                 10−1
+
+                                 10−2
+
+                                 10−3
+                                             L2        H1              H2
+                                 10−4
+
+                                        48        96                  192             256                                   384
+                                                        Retained Fourier cutoff K on a period L = 160
+
+
+Figure 3: A lower bound on attainable errors for a strictly projected output. The 0.5% line is a
+proposed allocation of one tenth of the 5% H 2 field budget to inlet projection, not an existence
+criterion.
+
+   For this profile, K = 256 is a reasonable first field-accuracy trial under that projection budget,
+with at least 513 complex Fourier coefficients and an adequate sampling grid. A choice such as
+N = 1024 represents the profile band; full cubic residual quadrature needs more points, for example
+Qquad = 2048. For a trigonometric output of band K, the cubic RHS has band at most 3K;
+Qquad > 6K resolves its squared norm without Fourier aliasing. Audit with a larger quadrature and
+finer distance sampling. This is a starting design, not a measured memory requirement or sufficient
+accuracy guarantee for all profiles.
+
+5.2                                Two additional measurement gaps
+The present solitary alignment minimizes L2 distance, not H 1 distance. An H 1 orbit diagnostic must
+be added and verified before reporting it. Also, its perturbation coefficient multiplies a localized
+amplitude/phase factor; it is not itself the H 1 norm of the perturbation. Record the actual inlet
+norm or normalize directions. The generic long-distance sensitivity implementation already uses
+normalized directions, but that is a separate test.
+
+Proposition 5.1 (Error in a signed neural response). For δ > 0, let wδ = (u+ − u− )/(2δ) and
+eδ = (u
+w          e− )/(2δ), with all four fields in H 1 . Then
+      e+ − u
+
+                                                                        e+ − u+ ∥H 1 + ∥u
+                                                                       ∥u               e− − u− ∥H 1
+                                                   ∥w
+                                                    e δ − wδ ∥ H 1 ≤                                 .
+                                                                                     2δ
+Proof. Subtract the two responses and apply the triangle inequality in H 1 .
+
+   Thus a 1% field gate does not ensure accuracy for a perturbation of size 10−3 . Separately
+optimized PINNs may differ primarily because of fitting error. Test the response against the refined
+numerical response directly and report its error floor. A proposed 10% response gate needs an
+absolute fallback when the response is tiny; it is stricter information than passing the field gates.
+
+
+
+
+                                                                             9
+6    A staged solitary-wave experiment with explicit decisions
+The following extension is proposed, not already present in the pushed campaign. It begins with
+the existing µ = 2, s = 0 branch and ϵ = 0.025, 0.05. Broaden the branch only after the first cases
+qualify. Avoid claiming novelty for solitary-wave construction or collision inelasticity alone; both
+have established precedents.
+
+S1. Construct and qualify the profile. Goal: distinguish an actual Dysthe traveling solution
+from an NLS guess. Continue from ϵ = 0 and evaluate the full complex traveling residual on an
+oversampled grid. Refine profile grid and domain separately; recompute instead of padding. Record
+residual, projection floors, spectral and boundary tails, peak and mean flow. The local residual gate
+is 10−6 ; require refinement agreement below the perturbation response. Failure means unresolved,
+not absent. The analytic NLS control is exact on the line; its periodic-box use needs domain checks.
+Refine propagation step h/2 separately in S2.
+
+S2. Measure persistence and perturbation response. Goal: distinguish shape deformation
+from position and phase drift. Start with an unperturbed control and signed localized amplitude,
+phase and odd-amplitude perturbations. Normalize or report their actual H 1 sizes. Use sizes 10−3
+and 5 × 10−4 , and checkpoints such as Ξ = 1, 2, 4, 8, 20, subject to reference/domain qualification.
+Save densely enough to resolve focusing and transient growth; add samples when a peak is missed.
+The evolved control measures numerical drift. The local plan saves only 21 stations through 20;
+increase sampling before interpreting event timing.
+
+S3. Connect growth to a linearized mechanism. Goal: test whether observed perturbation
+growth agrees with a converged linear instability. In the moving/rotating frame the operator is
+real-linear:
+                                 Av = DF (Q)v + iµv + s∂τ v.
+It includes variations through complex conjugation and the nonlocal mean flow. Verify the approxi-
+mate neutral directions iQ and Q′ , then refine grid and domain and compare any positive growth
+rate with nonlinear propagation while the perturbation remains small. Purely imaginary computed
+eigenvalues do not prove nonlinear stability; transient growth and unresolved spectrum remain
+possible. This operator is not currently implemented.
+
+S4. Test a neural method on already qualified cases. Goal: determine whether the selected
+slab PINN reproduces the numerical wave’s drift, deformation and radiation. Set the Fourier cutoff
+from the profile and propagated spectral tails, rather than copying K = 48. Retain the original field
+gates, add phase/position observables, and apply a separate response gate before making sensitivity
+claims. Compare a shorter slab and higher bandwidth at matched, recorded optimization cost.
+Preserve every failed case and seed.
+
+S5. Collisions and emergence, after S1–S4. Goal: reproduce known interactions before
+testing learned predictions. Compare separated Dysthe profiles with NLS at matched relative phase,
+separation and speed; measure outgoing profiles and radiation with box refinement. Motion in
+retarded time is not counterpropagation of physical carriers. Later, fit generic-packet peaks to
+the qualified branch and check traveling residual and lifetime. This does not establish a universal
+soliton-resolution conjecture.
+
+
+
+                                                 10
+7     What to measure and what counts as success
+For v sampled on the periodic grid, use the consistent norms
+
+                                   ∥v∥2H r = L       (1 + km ) |vbm |2 ,   r = 0, 1, 2.
+                                                 X
+                                                           2 r
+                                                 m
+
+For a fixed branch profile define the proposed orbit distance
+
+                                                          ∥u − eiθ Q( · − a )∥H 1
+                                       d1 (u, Q) = inf                            .                          (7.1)
+                                                      θ,a        ∥Q∥H 1
+
+The branch parameters and amplitude of Q stay fixed during this fit. The symmetry-orbit viewpoint
+is standard in solitary-wave stability theory [9], but that theory’s assumptions are not automatically
+verified here.
+
+    Observable                        Interpretation and safeguard
+    Raw complex error                 Tests actual prediction, retaining phase and arrival error. Use alongside
+                                      aligned error, never replace it by amplitude-only error.
+    d1 , fitted phase/shift           Measures deformation modulo symmetry; report phase and position
+                                      separately so a wrong speed cannot be hidden by alignment.
+    Peak, width, spectral mean        Test coherent-wave amplitude, spreading and carrier shift. Specify how
+                                      width and frequency are estimated and unwrap position.
+    Radiation measure                 Report both fixed-window tail action and fitted-profile remainder. They
+                                      are diagnostic definitions, not a unique nonlinear decomposition.
+    H 1 , H 2 and spectral tails      Check derivative growth and whether higher modes remain resolved.
+                                      Finite Fourier outputs are smooth by construction.
+    Correct invariants                Monitor action and the model’s modified invariants. Conservation alone
+                                      cannot establish accuracy or a coercive regularity bound.
+    Sensitivity amplification         Normalize initial perturbations, retain signs and check δ/2. A few
+                                      directions do not bound the full evolution operator.
+
+    Define an observed persistence distance as the last saved station such that all preceding saved
+orbit errors are below a predeclared tolerance (for example d1 ≤ 0.05) and all numerical/domain
+checks pass. Report a wave that passes at the final station as “persists through Ξ”; the lifetime is
+right-censored, not infinite. A 5% threshold is an experimental choice, not a stability theorem or a
+universal water-wave validity boundary.
+    Numerical evidence for a loss of regularity would require growth that survives independent
+grid/step/domain refinement and increasing spectral bandwidth. A rising tail at the cutoff usually
+first establishes under-resolution. Distinguish that from optimization failure, boundary return and
+physical-model breakdown. Failure to observe growth likewise does not prove global smoothness.
+
+
+
+
+                                                             11
+8     How PINNs and FNOs should be used here
+8.1   Slab PINN: a separately fitted solution on successive intervals
+A slab PINN solves [ξj , ξj+1 ], passes its predicted endpoint to the next slab, and repeats. The
+current implementation uses a network in ξ that outputs complex Fourier coefficients in τ ; this
+enforces periodicity and permits complete-slice evaluation of |Dτ |(|u|2 ). It does not sample the
+nonlocal term from disconnected points. Numerical labels are reserved for auditing; slab endpoints
+must not be reset to the reference during evaluation.
+   Sequence training has methodological support in PINN failure-mode work [10]. Wang et al.’s
+causal weighting is a related but distinct algorithm [11]: sequential slabs alone are not their specific
+residual weighting rule. Any added weighting should be a separately tested ablation. Residual
+minimization measures equation fit over the fitted interval, not forecast generalization or an existence
+certificate.
+   For solitary waves, first compare the existing spectral correction against a known moving/rotating
+reference representation, both with the same inlet and full residual. A moving frame may re-
+duce phase/translation learning burden, but it must not freeze amplitude or suppress admissible
+perturbations. The benefit is a hypothesis to measure, not an established Dysthe result.
+
+8.2   FNO: learn across initial functions, not one profile
+FNO learns an operator from a family of functions [12]; duplicating one profile with many snapshots
+does not provide many independent inlets. A useful new dataset would span qualified branch
+parameters, global phase, translations, and controlled amplitude/phase/radiative perturbations,
+then include generic packet controls. Keep all snapshots, augmentations, signed perturbations and
+refinements of a parent inlet in one train/validation/test group.
+   Compare the same architecture trained with data loss against a PINO residual augmentation
+[13], using equal data, seeds and recorded cost. Freeze the choice on validation fields before test
+inspection. Evaluate short-step accuracy and autonomous rollout without reference resets. Separate
+interpolation within the sampled branch from held-out amplitude/steepness ranges. More epochs
+alone are not a supported remedy for the existing pilot failures.
+   An ordinary FNO’s latent Fourier cutoff does not by itself strictly limit its output, because
+local nonlinear layers can create higher frequencies. The projection floor in Section 5 applies to
+the explicit output projector used in this project’s spectral models. Record latent modes, output
+cutoff and grid separately. Phase/translation augmentation tests physical symmetries but should
+not inflate the independent test count.
+
+8.3   Priority and cost
+Run reference qualification and the slab PINN extension first. Treat FNO recovery as a separate
+controlled operator study. On A100, record data generation, optimization, validation, checkpoint
+I/O, evaluation and peak memory; compare total cost at matched measured accuracy against the
+Fourier solver. A cached neural forward pass is not the cost of obtaining a new per-inlet PINN
+solution.
+
+
+
+
+                                                  12
+9     Recommended research claim and verification record
+The near-term question is:
+
+      For a specified family of resolved spatial free-surface Dysthe solitary waves, how do
+      perturbation growth, phase/position drift and radiation depend on steepness and propa-
+      gation distance, and which of these behaviors can a slab PINN or an operator model
+      reproduce within a measured error budget?
+
+This can produce useful numerical evidence without promising a global existence proof. A subsequent
+proof project could study small-ϵ continuation from NLS or validated a-posteriori existence, but
+would need explicit function spaces, kernel removal, nonlocal estimates and validated inverse/tail
+bounds. Neither a converged iteration nor an ML residual supplies these ingredients.
+
+Immediate changes justified by this review. Make the solitary workflow self-contained; add
+H 1 orbit fitting and normalized perturbation reporting; select bandwidth from projection/refinement
+evidence; increase event sampling; and keep response accuracy separate from field accuracy. The
+real-linear spectral operator is a later explicit implementation task. The report does not claim these
+proposed changes have been implemented or pushed.
+
+Evidence inspected. The audit checked remote branch identities, the CPU-only CI record,
+published configs/results, local solitary source and the stored smoke checksum. Scientific CPU science
+trajectories were not rerun. New calculations covered Fourier projection and aggregate consistency.
+The exact published source passed all 39 software tests, including bounded training/restart checks,
+plus scope and artifact validation; see data/remote-audit.json. The new results commit changes
+no source. Its metadata were downloaded and hash-checked. No HPC job was submitted by this
+review and no cluster filesystem inspected. Detailed qualification, raw trajectories and failure
+logs are reported at the manifest’s source location. NLS methodology is not relabeled as Dysthe
+validation.
+
+Reproducible report package. review.tex, royden-report.sty, the three vector PDF figures,
+make_figures.py, and archived data are self-contained. Spectral powers reproduce (5.1); the JSON
+records the source NPZ checksum. verification.json records pdfLaTeX compilation and rendered-
+page checks. Preprint assumptions were inspected; proofs were not independently formalized.
+
+Reviewed source identities.
+    • Experiment source: c04b44ba6459cac6f216e3a59de4fac78e3b55d7.
+    • Results publication: 723883f27a6b3489bfc36f55d9d15b52e8635ad0.
+    • Core dependency: a47a42321475feb6bc55031f4b752419f4b7fda9.
+    • Learning dependency: db7274f8cfe959cf187351f56b3dd4bf89f0e9b4.
+Historical solitary evidence remains distinct from those published commits. Its source NPZ has
+SHA256
+                  63e8636ed53c3183c6f5c2abb246ed4e62d0a97499c0f7029f104de198e21123.
+
+
+
+
+                                                 13
+References
+ [1] F. Fedele and D. Dutykh, Hamiltonian description and traveling waves of the spatial Dysthe equations,
+     preprint 2011, version 3, 12 April 2012. https://arxiv.org/abs/1110.3605v3.
+
+ [2] T. R. Akylas, Higher-order modulation effects on solitary wave envelopes in deep water, Journal of Fluid
+     Mechanics 198 (1989), 387–397. https://doi.org/10.1017/S0022112089000182.
+
+ [3] A. Esfahani, A. Kairzhan and M. Karazym, Traveling waves for nonlocal derivative nonlinear Schrödinger
+     equations: a variational characterization, preprint, version 4, 21 September 2026. https://arxiv.org/
+     abs/2603.22482v4.
+
+ [4] A. J. Sutherland and S. C. Yim, Six-wave scattering in Hamiltonian Dysthe equations: Euler matching
+     and integrability obstructions, preprint, version 1, 19 September 2026. https://arxiv.org/abs/2609.
+     23175v1.
+
+ [5] C. M. Schober and A. Islas, Soliton-like rogue wave dynamics in dissipative higher-order nonlinear
+     Schrödinger models: a Floquet spectral perspective, Studies in Applied Mathematics 155(6) (2025), e70150.
+     Publisher abstract inspected. https://doi.org/10.1111/sapm.70150.
+
+ [6] A. Tikan et al., Nonlinear dispersion relation in integrable turbulence, Scientific Reports 12 (2022),
+     10386. https://doi.org/10.1038/s41598-022-14209-7.
+
+ [7] C. M. Schober and A. Islas, Higher-order extensions of weakly viscous Dysthe theory and a phase-lag
+     model for nonlinear mean-flow damping, preprint, version 1, 5 August 2026. https://arxiv.org/abs/
+     2608.04473v1.
+
+ [8] R. Mosincat, D. Pilod and J.-C. Saut, Global well-posedness and scattering for the Dysthe equation in
+     L2 (R2 ), preprint (2020). https://arxiv.org/abs/2007.01613.
+
+ [9] M. Grillakis, J. Shatah and W. Strauss, Stability theory of solitary waves in the presence of symme-
+     try, I, Journal of Functional Analysis 74 (1987), 160–197. https://doi.org/10.1016/0022-1236(87)
+     90044-9.
+
+[10] A. S. Krishnapriyan et al., Characterizing possible failure modes in physics-informed neural networks,
+     NeurIPS 34 (2021), 26548–26560. https://arxiv.org/abs/2109.01050.
+
+[11] S. Wang, S. Sankaran and P. Perdikaris, Respecting causality for training physics-informed neural
+     networks, Computer Methods in Applied Mechanics and Engineering 421 (2024), 116813. https:
+     //doi.org/10.1016/j.cma.2024.116813.
+
+[12] Z. Li et al., Fourier neural operator for parametric partial differential equations, ICLR (2021); preprint
+     first posted 2020. https://arxiv.org/abs/2010.08895.
+
+[13] Z. Li et al., Physics-informed neural operator for learning partial differential equations, ACM/IMS
+     Journal of Data Science (2024); preprint first posted 2021. https://doi.org/10.1145/3648506.
+
+
+
+
+                                                     14
+

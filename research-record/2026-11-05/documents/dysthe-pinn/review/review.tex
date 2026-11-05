@@ -1,0 +1,122 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,booktabs}
+\title{Scientific Review and Acceptance Plan for a PINN of Equation (1.27)}
+\author{}
+\date{16 September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+The useful next step is a short-propagation benchmark of the full nonlinear optical equation (1.27), with a Fourier reference and a physics-informed neural network solving the same initial-boundary-value problem. The existing optical Fourier branch is reusable and its signs agree with the source equation and its explicit Fourier symbol. The prior linear decay curves and one-coordinate water-wave profiles are not training truth for this equation. This review records executed solver checks, proposed acceptance gates, and a sequence suitable for later cluster training. No PINN convergence or cluster-training result is claimed here.
+\end{abstract}
+\section{Scope and exact target}
+The sole target is equation (1.27) of Mosincat, Pilod and Saut's supplied manuscript:
+\begin{equation}\label{eq:target}
+iE_t+(1-i\epsilon_1\partial_z)(E_{xx}+E_{yy})-E_{zz}
+-i\epsilon_2 E_{zzz}+|E|^2E+i\epsilon_1\partial_z(|E|^2E)=0.
+\end{equation}
+Here $t$ is the renamed optical propagation coordinate, $(x,y)$ are transverse coordinates, and $z$ is retarded time. The intended whole-space problem has a field localized in all three profile coordinates. A finite periodic box is a computational approximation requiring a separate box-size check.
+
+An internal source inconsistency must not change the target: the mixed-derivative sign printed in (1.32) differs from (1.27). Equation (6.6), which explicitly gives the Fourier symbol of (1.27), agrees with (1.27) and the existing optical implementation. We therefore pin the implementation to (1.27) and (6.6). The manuscript's Theorem 5.1 is a local well-posedness theorem under its stated parameter conditions; Section 7 lists small-data scattering and global behavior among open questions. A measured nonlinear peak curve is not a test of an already established universal nonlinear $t^{-7/6}$ bound.
+
+\section{Independent sign and conservation audit}
+With forward Fourier transform $\widehat E(k)=\int e^{-ik\cdot x}E(x)\,dx$, put
+\begin{align}
+\omega(k)&=(1+\epsilon_1 k_z)(k_x^2+k_y^2)-k_z^2+\epsilon_2 k_z^3,\\
+\partial_t\widehat E&=-i\omega(k)\widehat E+i(1-\epsilon_1k_z)\widehat{|E|^2E}.
+\end{align}
+The nonlinear multiplier is $1-\epsilon_1k_z$. Replacing $\partial_z(|E|^2E)$ by $|E|^2E_z$ would omit part of the equation.
+
+A useful automatic-differentiation check writes $E=a+ib$, $p=(a^2+b^2)a$, $q=(a^2+b^2)b$. Its real and imaginary residuals must be
+\begin{align}
+R_a={}&-b_t+\Delta_\perp a+\epsilon_1\partial_z\Delta_\perp b-a_{zz}
++\epsilon_2 b_{zzz}+p-\epsilon_1 q_z,\\
+R_b={}&a_t+\Delta_\perp b-\epsilon_1\partial_z\Delta_\perp a-b_{zz}
+-\epsilon_2 a_{zzz}+q+\epsilon_1 p_z.
+\end{align}
+An exact full-equation periodic solution is
+\begin{equation}
+E=Ae^{i(k\cdot x-\Omega t)},\qquad
+\Omega=\omega(k)-(1-\epsilon_1k_z)|A|^2.
+\end{equation}
+Choose all components of $k$ nonzero; a spatially constant or stripe control does not exercise all derivatives. Plane waves serve as operator checks, not localized whole-space decay inputs.
+
+For smooth decaying or periodic fields, action
+\begin{equation}M(t)=\int |E(t,x,y,z)|^2\,dx\,dy\,dz\end{equation}
+is conserved. All linear multipliers in the evolution are imaginary. With $\rho=|E|^2$, the only nontrivial nonlinear contribution is
+\begin{equation}
+-2\epsilon_1\operatorname{Re}\int\overline E\partial_z(\rho E)
+=-3\epsilon_1\int\rho\rho_z
+=-\tfrac32\epsilon_1\int\partial_z(\rho^2)=0.
+\end{equation}
+Action is a necessary diagnostic, not a sufficient accuracy certificate. A wrong-phase field can conserve it exactly. Do not import the water-wave solver's energy and momentum formulas into this optical model.
+
+\section{What existing work is reusable}
+The optical branch of \texttt{nonlinear/solver.py} uses cubic Fourier projection with each retained mode strictly below $N_j/4$, a real-frequency linear multiplier, and fourth-order integrating-factor Runge--Kutta stepping. Reuse the optical branch, FFT convention, projection, and action/spectral-edge diagnostics after extracting them into an equation-specific module. The stripe experiment previously checked through $t=4$ provides supporting numerical experience. Its unresolved $t=8$ output cannot become reference truth, and the stripe is not a fully localized three-coordinate pulse.
+
+The existing six unit tests were rerun successfully. Several concern a different equation or an exact stripe reduction, so six passes alone do not certify the full three-coordinate nonlinearity. Additional independent checks executed during this review used $\epsilon_1=0.13$, $\epsilon_2=0.21$, $k=(1,2,-1)$, $A=0.6$, and hence $\Omega=2.7332$:
+\begin{center}
+\begin{tabular}{lr}\toprule
+Check & Measured result\\\midrule
+Relative full nonlinear plane-wave RHS error & $1.36\times10^{-14}$\\
+Propagation error, $T=0.2$, $h=0.02$ & $4.01\times10^{-11}$\\
+Propagation error, $T=0.2$, $h=0.01$ & $2.51\times10^{-12}$\\
+Propagation error, $T=0.2$, $h=0.005$ & $1.57\times10^{-13}$\\
+Successive error reduction factors & $16.00$, $15.95$\\
+Nonseparable optical action derivative & $-1.92\times10^{-16}$\\\bottomrule
+\end{tabular}
+\end{center}
+These are executed reference-solver checks, not neural-network results. Their numerical record is \texttt{independent\_solver\_checks.json}.
+
+\section{Implemented first periodic experiment}
+The delivered framework uses a finite trigonometric packet rather than the initially proposed periodized Gaussian:
+\begin{equation}
+E_0(x,y,z)=Ae^{i\phi}\prod_{j=1}^3
+\left[\frac{1+\cos(2\pi x_j/L_j)}{2}\right]^p
+=Ae^{i\phi}\prod_{j=1}^3\cos^{2p}(\pi x_j/L_j).
+\end{equation}
+The benchmark configuration has $A=0.3$, $\phi=0$, $p=3$, $L_x=L_y=L_z=12$, $T=0.5$, and the physical coefficient pair below. The initial field varies in all coordinates and has a central concentration that vanishes at the cell faces. It is globally smooth and periodic, not a single localized whole-space field. Its exact Fourier support obeys $|m_j|\leq p$. Consequently the strict cubic cutoff preserves the initial condition when $N_j>4p$, a condition enforced by configuration validation. The NumPy reference and PyTorch PINN use the same formula, and reference generation records the relative initial projection error. This avoids the initial-data mismatch that could arise from a truncated Gaussian.
+
+The configured $32^3$ reference, step $0.001$, and eleven snapshots are starting values, not a certificate of reference accuracy. Grid and time-step refinements at this fixed period compare the same initial-boundary-value problem. The pilot is an experiment on a three-dimensional torus. In particular, increasing $L_j$ while keeping $p$ fixed changes the physical packet width and is \emph{not} a domain-convergence test. Whole-space validation remains pending. It requires a fixed localized seed with a documented periodization recipe across boxes, or an explicitly quantified initial-data discrepancy as box sizes change; merely preserving the central peak is insufficient. No domain acceptance gate is claimed passed by this framework.
+
+The physical pair is approximately $(0.00832,0.00499)$. Both higher-order terms remain present even if their contributions are small. Analytic operator tests are required to establish their correctness because a small total field error at small coefficients could conceal their omission. The packet and its amplitude are computational choices, not an experimental reproduction.
+
+\section{Physical coefficients and limits of calibration}
+Zozulya and Diddams's source model gives
+\begin{equation}
+\epsilon_1=\frac{1}{\omega_0\tau},\qquad
+\epsilon_2=\frac{k'''(\omega_0)}{3k''(\omega_0)\tau},\qquad
+l_D=\frac{2\tau^2}{|k''|},\qquad l_\perp=\sqrt{\frac{l_D}{2k}}.
+\end{equation}
+For their normal-dispersion silica parameters, wavelength $800$ nm, $k''=360\,\mathrm{fs}^2/\mathrm{cm}$, $k'''=275\,\mathrm{fs}^3/\mathrm{cm}$, a $90$ fs intensity-FWHM sech pulse has $\tau=90/[2\operatorname{arcosh}\sqrt2]\approx51.1$ fs and gives the pair above. These formulas were checked against the source's model and normalization discussion. The source includes delayed Raman response; equation (1.27) sets that contribution to zero. Specifying these two coefficients does not calibrate beam width or amplitude, and our trigonometric benchmark is not the source's sech pulse. A physically calibrated packet requires its own duration convention. For fixed material and carrier frequency the coefficients vary together with $1/\tau$; independent coefficient sampling is a mathematical parameter study. [Source: A. A. Zozulya and S. A. Diddams, \emph{Dynamics of self-focused femtosecond laser pulses in the near and far fields}, Optics Express 4 (1999), pp. 336--343; \texttt{https://tf.nist.gov/general/pdf/2968.pdf}.]
+
+\section{PINN design that is worth testing}
+Use a real-valued network with outputs $(a,b)$ and smooth activations; third derivatives make nonsmooth activations inappropriate. Nondimensionalize coordinates explicitly and retain every chain-rule factor. Periodic sine/cosine features can enforce spatial periodicity, including derivatives, by construction. If boundaries are imposed by loss instead, matching only the field is not enough for a third-order operator: include normal derivatives through order two as appropriate and validate mixed derivatives.
+
+The implemented pilot enforces the initial condition and periodicity through its architecture, $E_\theta=E_0+(t/T)N_\theta$, with periodic spatial features. It therefore trains an equation-residual objective without initial-condition or boundary penalties and uses no reference observations in training. Report the real and imaginary residual components and their normalization, because a single aggregate loss can hide failure. A future hybrid model using reference observations must be labeled as such; the held-out test field must never be reused for training or model selection. Action penalties can help but are not a replacement for the equation or field validation. Start in double precision and small collocation batches, because third derivatives in four coordinates can consume substantial GPU memory. Record precision explicitly; lower-precision acceleration should be accepted only after derivative and solution comparisons.
+
+The implemented sampler is uniform in the space--propagation box, with an independently seeded residual-validation sample. Uniform volume sampling can devote too many points to weak exterior field. If training reveals this failure, a later improvement is to mix reproducible uniform samples with samples near the evolving pulse or high-residual regions, retaining an independent evaluation grid and pulse-focused diagnostics. A weak field is an especially dangerous false solution: it has a small absolute PDE residual and can create spurious decay. Initial data, absolute peak agreement, relative field errors, and mass drift are essential defenses.
+
+\section{Acceptance gates before interpreting output}
+The following are proposed research gates, not guarantees and not already passed by a PINN. Reference tolerances must be appreciably tighter than the proposed PINN tolerance.
+\begin{enumerate}
+\item Operator gate: pass exact full nonlinear plane-wave residual tests, nonlinear derivative product-rule checks, periodic derivative checks and optical mass-derivative checks. Verify normalized-coordinate chain rules.
+\item Reference gate: target relative complex-field discrepancies below $10^{-3}$ and peak discrepancies below $5\times10^{-3}$ under independent grid and step refinements at all saved times. A separate whole-space approximation would additionally require valid box refinements of a fixed localized input, which the current trigonometric pilot does not provide. Record spectral-edge occupation, boundary-shell action and initial projection error. A small spectral tail alone cannot pass the gate.
+\item PINN field gate: target relative complex $L^2$ error below $10^{-2}$ and relative envelope-peak error below $2\times10^{-2}$ at every held-out saved time. Evaluate peaks on a sufficiently fine common grid and refine around maxima. Do not align away phase or translation errors in the primary metric.
+\item Diagnostic gate: target relative action drift below $10^{-2}$. Report width, centroid, phase-sensitive error, pointwise magnitude error and all PDE residual components on independent points. Mask phase comparisons where reference magnitude is below a declared threshold. No universal residual threshold is meaningful without its amplitude and derivative scaling.
+\item Reproducibility gate: train at least three seeds under a fixed budget, report all of them, and archive configuration, seed, git revision, checkpoint, losses, metrics, wall time, GPU model and peak memory. Report failures, not only the best-looking run.
+\end{enumerate}
+When a gate fails, label the experiment inconclusive and preserve its output. Do not fit a decay exponent to a failed neural prediction. No presently proposed gate proves convergence on the whole space or as $t\to\infty$.
+
+\section{Checkpoint and evaluation semantics in the delivered code}
+The reviewed files are \texttt{src/dysthe\_pinn/physics.py}, \texttt{model.py}, \texttt{reference.py}, \texttt{training.py}, \texttt{evaluation.py} and \texttt{configs/benchmark.json}. Training saves network and optimizer states, random-number-generator states, configuration and environment in a checkpoint. It rejects incompatible resume configurations while allowing an increased target step count and runtime-device change. Such support makes interrupted jobs recoverable; it does not establish identical floating-point trajectories across different hardware. Treat any supplied checkpoint as trusted input to the framework's deserializer.
+
+Evaluation checks the equation, coefficients, initial condition and domain against reference metadata, then measures unaligned complex-field, peak and action discrepancies on held-out grids. It labels reference convergence as unestablished by that comparison. These are appropriate semantics: neither successful program completion nor low residual means a scientifically accepted solution. The current reference-comparison action metric must be distinguished from temporal action drift of the PINN. The latter compares each prediction to its own initial integral; both quantities should be reported for the proposed action gate. Sampled maxima remain grid-dependent and should be refined before interpreting a peak decay curve.
+
+The present framework's independent residual-validation sample is a training monitor; the field comparison is a separate evaluation. If repeated field evaluations guide architecture selection, reserve a further final test set or declare the selection use. The code is an executable pilot, not an automated proof that the review's acceptance gates have passed. Reference refinements, multiple training seeds, residual-component reporting and a complete acceptance decision still require executed experiments and explicit reporting.
+
+\section{Cluster order and the report to produce}
+First run operator tests and a small infrastructure smoke test; the smoke test must be labeled as such. Next generate and validate the fixed-period reference. Then perform a single-window PINN benchmark with three seeds, using the implemented equation-only objective. A hybrid-data objective is a later optional comparison, not a present capability claim. Only after field-level acceptance should the interval increase through consecutive windows. At window boundaries report field and derivative continuity and accumulated error against an independently evolved reference; a local window pass does not reset global error.
+
+Keep parameter inference and parameter-dependent surrogates out of the first training objective. The first report should state the equation, coordinates, coefficients, initial condition, boundary approximation, all loss terms and sample distributions, architecture, precision, budget, reference refinements, and acceptance outcomes. Its figures should include common-scale magnitude slices, complex-field error slices, peak/action histories, component losses, and seed variability. Train/evaluation separation and run provenance belong next to the results. A successful short-time PINN is a useful solver benchmark; it does not establish asymptotic decay, a soliton, a speed advantage over FFT evolution, or agreement with measured optics.
+\end{document}

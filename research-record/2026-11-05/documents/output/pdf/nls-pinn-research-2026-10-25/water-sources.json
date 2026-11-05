@@ -1,0 +1,139 @@
+{
+  "ehlers2024": {
+    "title": "Data Assimilation and Parameter Identification for Water Waves Using the Nonlinear Schrödinger Equation and Physics-Informed Neural Networks",
+    "authors": ["Svenja Ehlers", "Niklas A. Wagner", "Annamaria Scherzl", "Marco Klein", "Norbert Hoffmann", "Merten Stender"],
+    "year": 2024,
+    "date": "2024-10-01",
+    "venue": "Fluids 9(10), 231",
+    "doi": "10.3390/fluids9100231",
+    "url": "https://doi.org/10.3390/fluids9100231",
+    "access_level": "Published primary record and publisher/institutional full text inspected; author manuscript at https://arxiv.org/html/2401.03708v1 also inspected. Institutional published PDF: https://tore.tuhh.de/dspace-cris-server/api/core/bitstreams/d014f972-c436-476d-861a-737bc0434adc/content .",
+    "evidence": [
+      "Hydrodynamic NLS PINN reconstruction on 630 synthetic HOS wave-tank samples; observations at x=3 and 6 m, withheld test gauges at x=4 and 5 m.",
+      "Learning carrier frequency/wavenumber alongside the field reduced reported mean SSP from 0.204 to 0.186, reported as an 8.82 percent improvement."
+    ],
+    "limitations": [
+      "Synthetic measurements; no laboratory experiment in this paper. Broader spectra and higher steepness remained difficult.",
+      "Effective coefficient fitting does not itself establish physical parameter identifiability or a correct nonlinear dispersion relation.",
+      "No independent reproduction was performed in this literature review."
+    ],
+    "explicit_future_work": [
+      "Published Conclusions explicitly suggest Dysthe/MNLSE residuals and the broader-bandwidth MNLSE.",
+      "Other stated directions include varying gauge separation, deriving a nonlinear dispersion relation from fitted parameters, and using real wave measurements.",
+      "Fully nonlinear potential-flow PINNs are also proposed, but subsequent 2025 work has already pursued that direction."
+    ],
+    "code_url": null
+  },
+  "ehlers2025": {
+    "title": "Physics-informed neural networks for phase-resolved data assimilation and prediction of nonlinear ocean waves",
+    "authors": ["Svenja Ehlers", "Norbert Hoffmann", "Tianning Tang", "Adrian H. Callaghan", "Rui Cao", "Enrique M. Padilla", "Yuxin Fang", "Merten Stender"],
+    "year": 2025,
+    "date": "2025-09-02",
+    "venue": "Physical Review Fluids 10, 094901",
+    "doi": "10.1103/ytyy-pvys",
+    "url": "https://journals.aps.org/prfluids/abstract/10.1103/ytyy-pvys",
+    "access_level": "APS publisher metadata/abstract inspected; detailed method/results/outlook inspected in the full author manuscript https://arxiv.org/html/2501.08430v1 . Publisher full article requires access.",
+    "evidence": [
+      "Two coupled potential-flow PINNs represent free-surface elevation and velocity potential, with Fourier features, hard measurement constraints and ReLoBRaLo loss balancing.",
+      "Author manuscript reports laboratory flume reconstruction SSP=0.049, and an example forecasting approximately one peak period beyond four observed snapshots."
+    ],
+    "limitations": [
+      "This is potential-flow work, not a Dysthe PINN implementation.",
+      "Forecast accuracy declines beyond the assimilation interval; inferred laboratory velocity potential lacks independently measured ground truth.",
+      "The manuscript HTML's generated August 2026 header is not the journal publication date."
+    ],
+    "explicit_future_work": [
+      "Faster training, multi-GPU optimization, pretraining with fine-tuning, and physics-informed neural operators.",
+      "Directional wave fields, variable bathymetry and related engineering applications. Directional/bathymetric extensions are outside the approved project baseline.",
+      "The generic PINO suggestion is already pursued by the subsequent wavepino paper."
+    ],
+    "code_url": null
+  },
+  "wavepino": {
+    "title": "Bridging ocean wave physics and deep learning: Physics-informed neural operators for nonlinear wavefield reconstruction in real-time",
+    "authors": ["Svenja Ehlers", "Merten Stender", "Norbert Hoffmann"],
+    "year": 2025,
+    "date": "2025-10-07",
+    "venue": "Physics of Fluids 37(10), 107119",
+    "doi": "10.1063/5.0294655",
+    "url": "https://doi.org/10.1063/5.0294655",
+    "access_level": "Publisher metadata and abstract inspected at https://pubs.aip.org/aip/pof/article/37/10/107119/3366763/Bridging-ocean-wave-physics-and-deep-learning ; detailed results and outlook inspected in full author manuscript https://arxiv.org/html/2508.03315v1 . Public author repository inspected; not executed.",
+    "evidence": [
+      "FNO-based PINO constrained by potential-flow free-surface boundary conditions; synthetic HOS data, split into 634 training, 211 validation and 211 test cases.",
+      "Five buoy time series or radar snapshots plus one calibration buoy; author manuscript reports mean SSP 0.1035 and 0.1341, respectively.",
+      "A representative reconstructed sample takes 0.014 seconds after training; this is inference latency, not total cost."
+    ],
+    "limitations": [
+      "Demonstrated on synthetic long-crested unidirectional wave fields, not deployed multidirectional ocean observations.",
+      "PINO constraints are potential flow, not the approved spatial Dysthe equation. Generic sparse-wave PINO reconstruction is therefore already occupied novelty.",
+      "Detailed manuscript numbers were not independently reproduced."
+    ],
+    "explicit_future_work": [
+      "Extension to multidirectional 2D+t fields, with increased computational requirements and possible parallelization."
+    ],
+    "code_url": "https://github.com/svenjahlrs/PINO-for-wave-data-assimilation"
+  },
+  "hosdata": {
+    "title": "Data to train a physics-informed neural operator for ocean wave reconstruction",
+    "authors": ["Svenja Ehlers"],
+    "year": 2026,
+    "date": "2026-04-08",
+    "venue": "Zenodo, version 1, dataset",
+    "doi": "10.5281/zenodo.19473989",
+    "url": "https://zenodo.org/records/19473989",
+    "access_level": "Public author-deposited primary dataset record inspected; 3.2 GB file not downloaded or validated.",
+    "evidence": [
+      "Public dataset_1056_samples_HOS_ele_pot_inte.npz, approximately 3.2 GB, linked to DOI 10.1063/5.0294655 and the author code repository.",
+      "Record provides MD5 8fbd489997c22c86f373e56f5f85c691."
+    ],
+    "limitations": [
+      "HOS provenance must be preserved; these arrays are not Dysthe solutions.",
+      "Using a subset for Dysthe validation requires a documented elevation-to-envelope observation map and a justified physical-validity filter.",
+      "The dataset record's related-journal year does not supersede the publisher's verified 2025 article date."
+    ],
+    "explicit_future_work": [],
+    "code_url": "https://github.com/svenjahlrs/PINO-for-wave-data-assimilation"
+  },
+  "extreme2026": {
+    "title": "Geometry-Agnostic Data-Driven Discovery of Extreme Scenarios",
+    "authors": ["Angeline Hu", "Ava K. Tse", "Kaitlyn S. Yasumura", "Luciana Sarabia", "Malcolm Yeung", "Kavin K. Prasanna", "Kai Wong", "William Hammond", "Ioannis G. Keverkidis", "Shengkai Li", "Trung V. Phan"],
+    "year": 2026,
+    "date": "2026-10-20",
+    "venue": "arXiv:2610.28487v1, preprint",
+    "doi": "10.48550/arXiv.2610.28487",
+    "url": "https://arxiv.org/abs/2610.28487",
+    "access_level": "Primary arXiv metadata and abstract inspected; not full-text reviewed or independently reproduced. Author spelling retained as listed in that primary record.",
+    "evidence": [
+      "Two-stage learned dynamics and physics-informed neural search; abstract describes Duffing/homoclinic, stationary NLS/Townes and Liouville examples."
+    ],
+    "limitations": [
+      "Recent preprint; not evidence of a validated Dysthe predictor or sparse water-wave reconstruction method.",
+      "Rogue waves and singularities are prospective applications, not demonstrated Dysthe results in the inspected abstract."
+    ],
+    "explicit_future_work": [
+      "Abstract proposes other coherent structures, including rogue waves, compactons, peakons and potentially singularities."
+    ],
+    "code_url": null
+  },
+  "fedele": {
+    "title": "Hamiltonian description and traveling waves of the spatial Dysthe equations",
+    "authors": ["Francesco Fedele", "Denys Dutykh"],
+    "year": 2012,
+    "date": "2012-04-12",
+    "venue": "arXiv:1110.3605v3, research report; first submitted 17 October 2011",
+    "doi": "10.48550/arXiv.1110.3605",
+    "url": "https://arxiv.org/abs/1110.3605",
+    "access_level": "Primary arXiv record verified; current local model contract and corresponding solver source inspected for the adopted equation convention.",
+    "evidence": [
+      "Gauge transformation reveals a Hamiltonian formulation and invariants for spatial Dysthe equations; numerical traveling waves and inelastic collisions are studied.",
+      "Local approved free-surface contract cites equation (1.3), coefficient tuple (a,h,c,e,f)=(1,1,8,2,2), with a nonlocal |D_tau| mean-flow derivative."
+    ],
+    "limitations": [
+      "This source is not a PINN study. Its numerical traveling waves do not establish nonlinear stability or integrability.",
+      "The free-surface envelope is noncanonical; generic NLS Hamiltonian constraints require careful transformation and boundary conventions.",
+      "The metadata here describes this exact arXiv research report, not an assumed journal publication under a similar title."
+    ],
+    "explicit_future_work": [],
+    "code_url": null
+  }
+}

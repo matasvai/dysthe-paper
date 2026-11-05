@@ -1,0 +1,93 @@
+\section{Readiness exercises and worked answers}
+\label{sec:exercises}
+Attempt the exercises before reading the answers. They test the prerequisites
+and the important transitions in the paper, rather than recall of terminology.
+
+\subsection{Exercises}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+\item For $\zeta=Be^{i\theta}+\mathrm{c.c.}$ with
+$B=0.04e^{i\pi/3}\,\mathrm{m}$, write the real surface and its crest amplitude.
+\item A carrier has wavelength $8\,\mathrm{m}$ and crest amplitude
+$0.12\,\mathrm{m}$. Calculate steepness and distinguish it from wave height.
+\item Starting with $F=z-\zeta(x,y,t)$, derive the kinematic condition.
+\item Substitute a deep-water mode into the two linear surface conditions
+to derive $\omega_0^2=gk_0$. Explain the choice of vertical exponential.
+\item Derive $c_g=c_p/2$, and explain which speed a wave crest follows.
+\item If $A=\varepsilon\alpha(\varepsilon(x-t/2),\varepsilon^2t)$,
+calculate $A_t,A_x$, and $A_t+A_x/2$.
+\item Find the mean and first-harmonic coefficients of
+$(Be^{i\theta}+B^*e^{-i\theta})^2$ and of its cube.
+\item For $I=I_0+I_1\cos(\kappa x)$, solve the mean half-space problem
+and verify its surface current and zero-mode response.
+\item In NLS, take $A_0=0.10$ and $\mu=0$. Find the cutoff, maximizing
+modulation wavenumber, and maximum growth rate.
+\item A mode has $\Omega=0.08+0.004i$ in carrier units. Write its time
+dependence and dimensional growth rate in terms of $\omega_0$.
+\item Starting from \eqref{eq:dysthe-det}, obtain the completed-square
+root and identify the formally sixth-order contribution.
+\item Differentiate the longitudinal Dysthe growth radicand. Show that
+the maximizing positive wavenumber is $2A_0-3A_0^2+O(A_0^3)$.
+\item NLS predicts maximum growth on $\lambda^2-2\mu^2=4A_0^2$.
+Why are its arbitrarily large wavevectors not justified predictions?
+\item A source changes from temporal potential envelope $A(x,y,t)$ to
+spatial free-surface envelope $u(\xi,\tau)$. List the conventions that
+must be checked before comparing coefficients.
+\end{enumerate}
+
+\subsection{Answers}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+\item $\zeta=0.08\cos(\theta+\pi/3)\,\mathrm{m}$. The crest amplitude
+is $0.08\,\mathrm{m}$, and the leading wave height is $0.16\,\mathrm{m}$.
+\item $k_0=2\pi/8\approx0.7854\,\mathrm{m}^{-1}$, hence
+$k_0a\approx0.0942$. Wave height is approximately $0.24\,\mathrm{m}$;
+steepness is dimensionless.
+\item $DF/Dt=-\zeta_t-\phi_x\zeta_x-\phi_y\zeta_y+\phi_z=0$.
+Rearrange to get \eqref{eq:kinematic}, evaluated at $z=\zeta$.
+\item Laplace's equation gives vertical factors $e^{\pm k_0z}$.
+Only $e^{k_0z}$ decays into the fluid. The boundary equations are
+$-i\omega_0D=k_0C$ and $-i\omega_0C=-gD$; combining them yields
+$\omega_0^2=gk_0$.
+\item $\omega'(k)=\sqrt{g}/(2\sqrt{k})$, whereas
+$\omega(k)/k=\sqrt{g}/\sqrt{k}$. A crest follows $c_p$;
+the narrowband group follows $c_g$.
+\item With $X=\varepsilon(x-t/2)$ and $T=\varepsilon^2t$,
+$A_t=-\varepsilon^2\alpha_X/2+\varepsilon^3\alpha_T$ and
+$A_x=\varepsilon^2\alpha_X$. Their transport combination is
+$\varepsilon^3\alpha_T$.
+\item The square's mean is $2|B|^2$ and its first harmonic is zero.
+The cube's mean is zero and its $e^{i\theta}$ coefficient is $3|B|^2B$.
+The remaining cube terms are at phases $\pm3\theta$ and the conjugate
+first harmonic.
+\item $\Ph=-I_1e^{\kappa z}\sin(\kappa x)$.
+Then $\Ph_z=-\kappa I_1e^{\kappa z}\sin(\kappa x)$ equals $I_x$
+at $z=0$, and $\Ph_x=-\kappa I_1\cos(\kappa x)$ at the surface.
+$I_0$ contributes no forcing or induced derivative.
+\item $\lambda_c=2\sqrt2(0.10)\approx0.2828$,
+$\lambda_M=0.20$, and $\gamma_M=0.005$.
+These are dimensionless modulation values, not carrier values.
+\item The factor is $e^{-0.08it}e^{0.004t}$.
+Since $t=\omega_0t_{\rm dim}$, dimensional growth rate is
+$0.004\omega_0$ and the amplitude e-folding time is
+$1/(0.004\omega_0)$.
+\item Let $q=\Ps$ and $b=\lambda A_0^2$.
+$(q-5b/4)(q-7b/4)=(q-3b/2)^2-b^2/16$.
+Moving the last term gives \eqref{eq:exact-root-truncated}.
+$b^2/16$ is sixth order because $b=O(\varepsilon^3)$.
+\item Set $s=A_0$. For the nonzero stationary point,
+$\lambda^2+6s^2\lambda-4s^2=0$.
+The positive root is $-3s^2+2s\sqrt{1+9s^2/4}$,
+which expands to $2s-3s^2+O(s^3)$.
+\item Large $\sqrt{\lambda^2+\mu^2}$ violates the slow modulation
+and narrowband assumptions used to truncate the dispersion relation.
+A polynomial approximation must not be extrapolated outside its scaling.
+\item Check the physical envelope, its amplitude normalization, carrier
+phase convention, evolution coordinate, retarded coordinate, asymptotic
+ordering, Fourier/Hilbert sign, and which mean-field terms were eliminated.
+Equality at NLS order does not establish fourth-order equality.
+\end{enumerate}
+
+If you can work Exercises~3--12 and explain the answers to 13--14, the
+main derivation and stability calculation should be accessible. If a
+specific line remains difficult, refer to its printed equation number;
+the paper map identifies the relevant prerequisite.
+\clearpage

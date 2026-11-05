@@ -1,0 +1,39 @@
+\section{Reproducibility and handoff}\label{sec:repro}
+\subsection{What is included}
+The editable report source includes all plotted data, vector PDF figures, plotting scripts, the equation audit and references. The separate proof-of-concept archive includes the CPU solver, tests, configurations, exact MI check, result summaries, failed-gate records, checksums, portable plot arrays and cluster instructions. Full reference arrays remain in the local experiment directory; compact arrays in the archive are explicitly visualization-only and must not be used as replacement numerical references.
+
+\begin{center}\small
+\begin{tabular}{p{.34\linewidth}p{.57\linewidth}}\toprule
+File or directory & Purpose \\\midrule
+\texttt{run.py}, \texttt{test\_run.py} & Temporal solver and ten exact/algebraic/convergence tests \\
+\texttt{mi\_check.py} & Independent growth and phase control \\
+\texttt{primary-results.json} & Six primary cases with explicit per-case provenance \\
+\texttt{verification.json} & Runtime, source and array checksums, recorded checks \\
+\texttt{results*/summary.json} & Coarse, refined and high-resolution outcomes, including failures \\
+\texttt{portable-primary/} & Compact display arrays and full-grid diagnostic summaries \\
+\texttt{cluster/README.md} & CPU reference and separate pinned spatial A100 instructions \\
+\texttt{experiment-plan.json} & Staged test purposes, metrics and implementation status \\\bottomrule
+\end{tabular}
+\end{center}
+In a prepared Python environment, the basic CPU sequence is:
+\begin{verbatim}
+python -m pip install -r requirements.txt
+python -m unittest -v test_run.py
+python run.py --config config-refined.json --output fresh-refined
+python run.py --config config-audit.json --output fresh-audit
+\end{verbatim}
+Use a new output directory when changing source or configuration. The identity check intentionally rejects mismatched cached results. The cluster handoff gives the two-epsilon CPU array and the more expensive time-step stress repair. It uses the supplied \texttt{med} CPU partition; it does not require an A100. Site paths and allocation details must be supplied locally.
+
+\subsection{Existing spatial revisions and evidence status}
+The A100 handoff targets the published repair branch \texttt{codex/pinn-h2-rerun} and these revisions:
+\begin{center}\small
+\begin{tabular}{ll}\toprule
+Repository & Revision prefix \\\midrule
+\texttt{dysthe-experiments} & \texttt{f53afd9e8538} \\
+\texttt{dysthe-learning} & \texttt{bdfe60e571e9} \\
+\texttt{dysthe-core} & \texttt{a47a42321475} \\\bottomrule
+\end{tabular}
+\end{center}
+Full commit identifiers and launch commands are in the handoff. The local spatial evidence analysis checked 60 raw-array, summary and selected-checkpoint hashes. This report reanalyses recorded CPU data; it does not claim new PINN training, repaired GPU accuracy or a completed FNO comparison. A job's successful exit is not the same as passing its scientific error gates.
+
+\textbf{For the meeting.} Present the checked temporal focusing examples, the time-step artifact, the finite-mode representation limit and the paired spatial conditioning result. Ask for agreement on the exact target equation and the first finite-time validation window. These are actionable findings even while the repaired cluster campaign is pending.

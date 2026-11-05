@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-25",
+  "pages": 18,
+  "compiler": "pdfLaTeX",
+  "compile_warnings": [],
+  "embedded_raster_images": 0,
+  "characters_outside_check_bounds": [],
+  "visual_inspection": "All 18 rendered pages inspected at 110 dpi; final changed figure page inspected again.",
+  "figure": "One vector PDF workflow diagram; all fonts embedded (pdffonts verified).",
+  "portable_source_build": "Passed in isolated directory; extracted PDF text identical.",
+  "builtin_compiler_limitation": "Tectonic bundle uncached and could not be retrieved; system pdfLaTeX succeeded.",
+  "scientific_review": "Independent reviews of equation, MI matrix, centroid identity, plane-wave phase and test design; minor wording corrected.",
+  "new_numerical_evidence": "Only independent arithmetic checks; no new evolution or training campaign.",
+  "pdf_sha256": "6c0c7c14810ed47d78f495aac496d6e86a6c8fa035add9985abd6b6c7cd04a40",
+  "source_manifest_sha256": "363ae4b88b0f4ed5a961dcb8e968535f6349acfab85dc5dae37370b0a6ed410a"
+}

@@ -1,0 +1,134 @@
+{
+  "status": "pass",
+  "gate": "provisional fixed-period engineering screen",
+  "thresholds": {
+    "relative_l2": 0.001,
+    "relative_peak_error": 0.005
+  },
+  "comparisons": {
+    "grid": {
+      "rows": [
+        {
+          "t": 0.0,
+          "relative_l2": 3.5110059487502207e-16,
+          "relative_peak_error": 5.551115123125782e-16
+        },
+        {
+          "t": 0.05,
+          "relative_l2": 9.137315416485254e-07,
+          "relative_peak_error": 1.8392499921230674e-07
+        },
+        {
+          "t": 0.1,
+          "relative_l2": 1.7058417675555846e-06,
+          "relative_peak_error": 7.096430725569137e-07
+        },
+        {
+          "t": 0.15,
+          "relative_l2": 2.2712526381083322e-06,
+          "relative_peak_error": 1.4681264653432679e-06
+        },
+        {
+          "t": 0.2,
+          "relative_l2": 2.54094370674104e-06,
+          "relative_peak_error": 2.2725691601643735e-06
+        },
+        {
+          "t": 0.25,
+          "relative_l2": 2.5027827646861485e-06,
+          "relative_peak_error": 2.970172782371477e-06
+        },
+        {
+          "t": 0.3,
+          "relative_l2": 2.2191247352728663e-06,
+          "relative_peak_error": 3.5249060172087356e-06
+        },
+        {
+          "t": 0.35000000000000003,
+          "relative_l2": 1.8401243058473808e-06,
+          "relative_peak_error": 3.95834524522824e-06
+        },
+        {
+          "t": 0.4,
+          "relative_l2": 1.5955287990342597e-06,
+          "relative_peak_error": 4.234861088621386e-06
+        },
+        {
+          "t": 0.45,
+          "relative_l2": 1.6433905746929914e-06,
+          "relative_peak_error": 4.238831194329268e-06
+        },
+        {
+          "t": 0.5,
+          "relative_l2": 1.8610655853855368e-06,
+          "relative_peak_error": 3.870674180412955e-06
+        }
+      ],
+      "max_relative_l2": 2.54094370674104e-06,
+      "max_relative_peak_error": 4.238831194329268e-06
+    },
+    "time_on_fine_grid": {
+      "rows": [
+        {
+          "t": 0.0,
+          "relative_l2": 0.0,
+          "relative_peak_error": 0.0
+        },
+        {
+          "t": 0.05,
+          "relative_l2": 3.2554735276534766e-15,
+          "relative_peak_error": 3.7043165889792067e-16
+        },
+        {
+          "t": 0.1,
+          "relative_l2": 6.648168737817995e-15,
+          "relative_peak_error": 7.430153364952787e-16
+        },
+        {
+          "t": 0.15,
+          "relative_l2": 9.739995572253822e-15,
+          "relative_peak_error": 1.3065986642750544e-15
+        },
+        {
+          "t": 0.2,
+          "relative_l2": 1.2846206351387165e-14,
+          "relative_peak_error": 1.5034706278157499e-15
+        },
+        {
+          "t": 0.25,
+          "relative_l2": 1.637609700869005e-14,
+          "relative_peak_error": 2.275138256126072e-15
+        },
+        {
+          "t": 0.3,
+          "relative_l2": 1.9417263318612023e-14,
+          "relative_peak_error": 1.9165110881636642e-15
+        },
+        {
+          "t": 0.35000000000000003,
+          "relative_l2": 2.2718841914810147e-14,
+          "relative_peak_error": 2.135249777898516e-15
+        },
+        {
+          "t": 0.4,
+          "relative_l2": 2.556138109795927e-14,
+          "relative_peak_error": 1.7729368213931405e-15
+        },
+        {
+          "t": 0.45,
+          "relative_l2": 2.9082774211579834e-14,
+          "relative_peak_error": 1.80269356931855e-15
+        },
+        {
+          "t": 0.5,
+          "relative_l2": 3.2337560700796344e-14,
+          "relative_peak_error": 1.6323370271242198e-15
+        }
+      ],
+      "max_relative_l2": 3.2337560700796344e-14,
+      "max_relative_peak_error": 2.275138256126072e-15
+    }
+  },
+  "recommended_reference": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/runs/benchmark-reference/grid_dt/reference.npz",
+  "qualification": "No domain enlargement, continuum supremum certification, or whole-space claim. Reference pass does not imply PINN pass."
+}

@@ -1,0 +1,39 @@
+{
+  "checked_on": "2026-10-30",
+  "vector_only": true,
+  "font_subsets_embedded": true,
+  "rendered_and_visually_inspected": true,
+  "preview_scale_pixels": 1400,
+  "portable_csv_only_reproduction_passed": true,
+  "source_primary_snapshot_matches_final_audit": true,
+  "artifacts": [
+    {
+      "path": "make_temporal_bandwidth_figure.py",
+      "sha256": "7e32820857d246c2b92d6431f1204bf2bf1ba70939d115f13afbf6aa21d8bd57"
+    },
+    {
+      "path": "data/temporal-projection-floors.csv",
+      "sha256": "636b13b4be32f6b6ebfe1c40aa4440c7e335ed1e4e1ba405669256ba0856fff0"
+    },
+    {
+      "path": "data/temporal-carrier-band-fractions.csv",
+      "sha256": "8b3ca144fd2e0831618690e1a954c22478870ce5a7c54762533b080bcecf8c53"
+    },
+    {
+      "path": "data/temporal-bandwidth-primary-snapshot.json",
+      "sha256": "dce3a8adf1ee852b901bfec3d9eb61d06d426079164b65036f7c01adb29ce56c"
+    },
+    {
+      "path": "data/temporal-bandwidth-verification.json",
+      "sha256": "06fcd13593b565524f2df197f5ba23b444599d7b6de6faea9210f522779c67e1"
+    },
+    {
+      "path": "data/temporal-bandwidth-figure-summary.json",
+      "sha256": "4796a022107a7a6fd5dac8b06fb2bf815aeeea375617f9e0adee4415ce1bb442"
+    },
+    {
+      "path": "figures/temporal-representation-bandwidth.pdf",
+      "sha256": "30956a5edbdf83e5651830676f48a0c5475c02f0cf1071095b72e10e84598629"
+    }
+  ]
+}

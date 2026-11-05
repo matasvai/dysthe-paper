@@ -1,0 +1,163 @@
+\section{Which long-distance behavior is worth predicting?}
+\label{sec:physics}
+
+The scientific target is the evolution of a complex wave envelope, including
+its phase, modulation and transfer between Fourier modes. A useful learned
+model should preserve these features for unseen initial packets over a
+declared propagation interval. Agreement with the same Dysthe equation tests
+the surrogate; agreement with measured water waves tests the physical model.
+These are separate comparisons.
+
+\subsection{Modulation, focusing and recurrence}
+
+Dysthe's 1979 calculation identifies induced mean flow as a central
+correction to modulation-instability predictions \cite{dysthe1979}.
+It motivates measuring early sideband growth and the onset of nonlinear
+exchange. Its temporal potential-envelope formulas must not be substituted
+directly into the present spatial free-surface equation. Instead, use the
+linearization of \eqref{eq:baseline} and compare small perturbations of a
+carrier at several modulation frequencies, amplitudes and relative phases.
+A growing perturbation is evidence of instability of that carrier, not
+evidence of wave breaking or loss of smoothness.
+
+Localized packets offer a complementary test. Lo and Mei studied asymmetric
+leaning and splitting, together with unequal sideband growth, using a
+higher-order envelope model and comparisons with experiments \cite{lomei}.
+For Gaussian and sech-like initial packets, measure maximum amplification,
+the distance and profile location of that maximum, packet asymmetry and
+spectral broadening. Varying width, chirp and amplitude tests distinct
+interactions between dispersion and nonlinearity. A small average field
+error can still hide an incorrect focusing distance or an underestimated
+peak, so these observables require separate error measures.
+
+Recurrence tests a longer sequence of transfers from carrier to sidebands
+and back. Armaroli, Brunetti and Kasparian compare full surface-envelope
+HONLS evolution with a three-mode reduction and distinguish recurrence
+classes through relative phase \cite{recurrence}. Their reduction is useful
+as a cheap comparator only while omitted modes remain small; their
+normalization requires an explicit conversion before quantitative reuse.
+Measure carrier depletion, sideband imbalance, recurrence distance and
+the complex field at return. A recurrence defect may minimize over a constant
+phase and a profile translation, but both fitted shifts and the unaligned
+error should also be reported. Repeated maxima alone do not establish a
+breather or accurate recurrence.
+
+Two-packet interactions provide an optional harder test. Fedele and Dutykh
+numerically observe radiation and changed profiles after spatial-Dysthe
+collisions, contrasting with their NLS control \cite{fedele}. Compare the
+joint evolution with separately propagated packets and quantify outgoing
+shape, phase, displacement and radiation. The comparison must resolve the
+small interaction signal and account for overlap; a subtraction artifact
+is not emitted radiation, and a collision calculation is not a proof of
+nonintegrability.
+
+\subsection{Spectral centroid and spectral peak are different observables}
+
+For the Fourier convention
+$u(\xi,\tau)=\sum_n\widehat u_n(\xi)e^{ik_n\tau}$,
+$k_n=2\pi n/L$, define
+\[
+ \overline k=\frac{\sum_n k_n\abs{\widehat u_n}^2}
+                     {\sum_n\abs{\widehat u_n}^2},
+ \qquad
+ k_{\mathrm{peak}}\in\operatorname*{arg\,max}_{k_n}
+                         \abs{\widehat u_n}^2.
+\]
+The centroid averages all modes; the peak can jump when two modal powers
+cross. Armaroli et al. show why a temporary mean upshift can coexist with
+a peak downshift \cite{recurrence}. Neither statistic should substitute for
+the other.
+
+The following identities are derived directly for our selected baseline.
+All integrals below are over the periodic profile circle $\TT$ of length $L$.
+
+\begin{proposition}[Centroid constraint for the continuum equation]
+\label{prop:centroid}
+Let $u$ be a sufficiently smooth periodic solution of \eqref{eq:baseline}
+with real $\epsilon$, and define
+\[
+ A=\int_{\TT}|u|^2\,\dd\tau,\qquad
+ P=\operatorname{Im}\int_{\TT}\overline u\,u_\tau\,\dd\tau,\qquad
+ Q=\int_{\TT}|u|^4\,\dd\tau.
+\]
+Then $A$ and $P-\epsilon Q$ are constant. If $A>0$, then
+\begin{equation}
+ \overline k(\xi)-\overline k(0)
+ =\frac{\epsilon}{A}\bigl(Q(\xi)-Q(0)\bigr).
+ \label{eq:centroid-constraint}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Set $\rho=|u|^2$ and
+$J=\operatorname{Im}\int_{\TT}\overline u^{\,2}u_\tau^2\,\dd\tau$.
+Differentiation and periodic integration by parts give
+\[
+ A'=-10\epsilon\int_{\TT}\rho\rho_\tau\,\dd\tau=0,
+ \qquad P'=-4\epsilon J,\qquad Q'=-4J.
+\]
+The mean-flow contribution to $P'$ vanishes because
+$\int_{\TT}\rho_\tau\D\rho\,\dd\tau=0$: $\D$ is self-adjoint,
+commutes with $\partial_\tau$, and preserves real functions.
+Thus $(P-\epsilon Q)'=0$. Parseval's identity gives
+$\overline k=P/A$, proving \eqref{eq:centroid-constraint}.
+\end{proof}
+
+This relation links centroid motion to changes in concentration; it does
+not prescribe a universal direction of drift. It is a continuum diagnostic,
+so compare a computed violation with the refined solver's own defect.
+Projection and time discretization can affect invariant preservation.
+
+Here $k$ is an \emph{envelope} frequency conjugate to $\tau$. With the stated
+carrier convention $e^{i(x-t)}$ and $\tau=\epsilon(2x-t)$, a mode has
+physical angular frequency $\omega_0(1+\epsilon k)$ in the positive-carrier
+band. Changing the Fourier or carrier convention changes this translation.
+The full reconstructed surface includes bound harmonics; its spectral mean
+need not equal the first-harmonic envelope statistic.
+
+\subsection{What a long calculation can and cannot show}
+
+Long propagation means large $\xi$. Packet width and modulation bandwidth
+are distinct diagnostics; chirp can broaden the spectrum. The carrier
+remains a deep-water wave in this model. Moreover,
+$\xi=\epsilon^2 k_0X$ means that the same dimensionless distance corresponds
+to different physical distances $X$ when steepness varies.
+
+Periodicity also changes the interpretation of long runs. Since $A$ is
+conserved,
+\begin{equation}
+ \norm{u(\xi,\cdot)}_{L^\infty(\TT)}
+ \geq\sqrt{A/L}.
+ \label{eq:periodic-floor}
+\end{equation}
+Indeed, $A\leq L\norm{u}_{L^\infty}^2$. A fixed periodic box therefore
+cannot demonstrate decay of a nonzero packet to zero. Radiation can return
+through the boundary; localized-packet conclusions require domain checks
+and examination of the exterior field.
+
+Track maximum effective steepness and occupied bandwidth as well as
+numerical resolution. For a conservative pilot screen, one could require
+$\epsilon\max|u|\leq.1$ and $\epsilon k_{95}\leq.1$, where $k_{95}$
+is the smallest nonnegative cutoff containing $95\%$ of the envelope
+action in $|k|\leq k_{95}$. Record the full tails as well. These proposed
+screening numbers do not certify asymptotic validity and must be
+reconsidered for a measured wave population. Trulsen and Dysthe's
+broader-band extension illustrates
+that relaxing bandwidth restrictions requires a changed model
+\cite{broadband}. No universal amplitude cutoff or indefinitely valid
+propagation distance follows from a successful envelope computation.
+
+Physical long-distance comparisons need further care. Carter and Govan
+derive a viscous Dysthe model and compare downshift observables with tank
+data \cite{viscous}. A later comparison across four experiments finds that
+model performance depends on the observable and initial sideband seeding;
+no model captures every measured evolution \cite{experiments}.
+Transverse modulation can also transfer energy and affect downshift in a
+wide tank \cite{transverse}. The present inviscid, one-profile equation
+does not represent dissipation, transverse evolution or breaking.
+
+Finally, accurate finite-distance fields and bounded sampled derivatives
+support a resolved computational observation. They do not establish global
+smooth existence. A small training residual does not establish that either:
+causal PINN training addresses optimization and information propagation
+\cite{causal}, while existence and uniform error certification require
+additional mathematical estimates.

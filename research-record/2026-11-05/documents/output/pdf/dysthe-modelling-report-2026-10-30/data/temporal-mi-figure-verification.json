@@ -1,0 +1,23 @@
+{
+  "figure": "figures/temporal-mi-check.pdf",
+  "sha256": "124277e68ddf9c589fa43e1ea24130f537e4b89e53da1f5d42ba8f1a0dd09293",
+  "vector_only": true,
+  "font_subsets_embedded": true,
+  "rendered_and_visually_inspected": true,
+  "render_scale_pixels": 1400,
+  "check": "Growth and phase drift checked independently against exact retained-model eigenvalues; nonlinear RHS checked against fourfold zero-padded evaluation.",
+  "wrong_variant_negative_controls": [
+    {
+      "epsilon": 0.05,
+      "literal_solver_against_c1p5_phase_rate_error": 0.012566370615725516,
+      "phase_test_rejects_wrong_variant": true,
+      "exact_growth_rates_identical": true
+    },
+    {
+      "epsilon": 0.1,
+      "literal_solver_against_c1p5_phase_rate_error": 0.02513274123041253,
+      "phase_test_rejects_wrong_variant": true,
+      "exact_growth_rates_identical": true
+    }
+  ]
+}

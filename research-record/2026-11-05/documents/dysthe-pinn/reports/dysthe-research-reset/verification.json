@@ -1,0 +1,46 @@
+{
+  "date": "2026-09-24",
+  "pdf_pages": 10,
+  "visually_inspected_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "vector_figure_count": 4,
+  "pdf_raster_image_count": 0,
+  "latex_warnings": 0,
+  "undefined_references": false,
+  "source_hashes_verified": 76,
+  "restricted_checks_after_followup": 40,
+  "extended_checks_after_followup": 8,
+  "fresh_tests": {
+    "original_nonlinear_unittests": 6,
+    "nested_optical_physics_resume_late_window_pytests": 12,
+    "optical_cross_implementation": {
+      "rhs_relative_difference": 8.4463e-18,
+      "step_relative_difference": 3.1905e-20
+    }
+  },
+  "independent_reviews": [
+    "linear inventory and scaling",
+    "nonlinear inventory and interpretation",
+    "literature scope and next-step rationale"
+  ],
+  "new_heavy_simulations": false,
+  "new_training": false,
+  "pdf_sha256": "382f408980d0268ab80a04eb9c2dd394b528c612261561127d4dc506d2d6a417",
+  "limitations": [
+    "Experimental results are archived observations, not full reruns.",
+    "Numerical screens are not rigorous error bounds.",
+    "No optical held-out initial-field study or laboratory validation."
+  ],
+  "portable_archive_compile_passed": true,
+  "portable_compile_text_matches_final": true
+}

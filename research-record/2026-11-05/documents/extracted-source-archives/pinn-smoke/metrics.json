@@ -1,0 +1,125 @@
+{
+  "checkpoint_path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/runs/local-smoke/checkpoint.pt",
+  "reference_path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/runs/local-reference/grid_dt/reference.npz",
+  "checkpoint_sha256": "d8a79a57564d8920f9791b08734253f25498edc48df53fb79538f10bf9e1a808",
+  "reference_sha256": "acaa75206deda798c19a1a9b985b1d312eff665d784ef70eccabce00fec0f213",
+  "max_pinn_relative_mass_drift": 0.11828231009745054,
+  "max_reference_relative_mass_drift": 3.2124589401426532e-15,
+  "equation": "Dysthe3D-1.27",
+  "checkpoint_step": 5,
+  "config": {
+    "equation": "Dysthe3D-1.27",
+    "seed": 20260916,
+    "dtype": "float64",
+    "device": "cpu",
+    "deterministic": true,
+    "cpu_threads": 1,
+    "physics": {
+      "epsilon1": 0.00831834509,
+      "epsilon2": 0.00498719622
+    },
+    "domain": {
+      "T": 0.1,
+      "lengths": [
+        12.0,
+        12.0,
+        12.0
+      ]
+    },
+    "initial": {
+      "amplitude": 0.3,
+      "power": 2,
+      "phase": 0.0
+    },
+    "network": {
+      "width": 16,
+      "depth": 2,
+      "harmonics": 2
+    },
+    "training": {
+      "steps": 5,
+      "batch_size": 16,
+      "validation_points": 32,
+      "learning_rate": 0.001,
+      "log_every": 1,
+      "checkpoint_every": 5,
+      "gradient_clip": 100.0
+    },
+    "reference": {
+      "shape": [
+        16,
+        16,
+        16
+      ],
+      "dt": 0.002,
+      "snapshots": 5
+    }
+  },
+  "rows": [
+    {
+      "t": 0.0,
+      "relative_l2": 2.5482448189468617e-16,
+      "relative_peak_error": 1.850371707708594e-16,
+      "mass_relative_error": 0.0,
+      "peak_pred": 0.3,
+      "peak_ref": 0.30000000000000004,
+      "mass_pred": 3.179512023925782,
+      "mass_ref": 3.179512023925782,
+      "pinn_relative_mass_drift": 0.0,
+      "reference_relative_mass_drift": 0.0
+    },
+    {
+      "t": 0.025,
+      "relative_l2": 0.08564227932915039,
+      "relative_peak_error": 0.01902706409124937,
+      "mass_relative_error": 0.039076213350617096,
+      "peak_pred": 0.2942653082417282,
+      "peak_ref": 0.2999729120652321,
+      "mass_pred": 3.055268733728009,
+      "mass_ref": 3.1795120239257852,
+      "pinn_relative_mass_drift": -0.03907621335061616,
+      "reference_relative_mass_drift": 9.777048948260248e-16
+    },
+    {
+      "t": 0.05,
+      "relative_l2": 0.1707622010006865,
+      "relative_peak_error": 0.036242442049012266,
+      "mass_relative_error": 0.07287392153061732,
+      "peak_pred": 0.28902281560745957,
+      "peak_ref": 0.29989162027630806,
+      "mass_pred": 2.9478085141885666,
+      "mass_ref": 3.179512023925789,
+      "pinn_relative_mass_drift": -0.07287392153061538,
+      "reference_relative_mass_drift": 2.095081917484339e-15
+    },
+    {
+      "t": 0.075,
+      "relative_l2": 0.2569563745851466,
+      "relative_peak_error": 0.05191581022820966,
+      "mass_relative_error": 0.1000714249090796,
+      "peak_pred": 0.28419396397874375,
+      "peak_ref": 0.29975604175737913,
+      "mass_pred": 2.8613337251759847,
+      "mass_ref": 3.17951202392579,
+      "pinn_relative_mass_drift": -0.10007142490907733,
+      "reference_relative_mass_drift": 2.5140983009812068e-15
+    },
+    {
+      "t": 0.1,
+      "relative_l2": 0.34532530961149954,
+      "relative_peak_error": 0.06749635660165428,
+      "mass_relative_error": 0.11828231009745338,
+      "peak_pred": 0.27934642555353,
+      "peak_ref": 0.2995660419464969,
+      "mass_pred": 2.80343199675322,
+      "mass_ref": 3.1795120239257924,
+      "pinn_relative_mass_drift": -0.11828231009745054,
+      "reference_relative_mass_drift": 3.2124589401426532e-15
+    }
+  ],
+  "max_relative_l2": 0.34532530961149954,
+  "max_relative_peak_error": 0.06749635660165428,
+  "max_mass_relative_error": 0.11828231009745338,
+  "reference_convergence_status": "not_established_by_this_comparison",
+  "qualification": "Sampled-grid comparison; candidate reference must be refined in time and space. No long-time decay or physical-validation claim."
+}

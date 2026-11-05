@@ -1,0 +1,2 @@
+# Preserve original formatting in byte-verified historical snapshots.
+research-record/2026-11-05/documents/** -whitespace

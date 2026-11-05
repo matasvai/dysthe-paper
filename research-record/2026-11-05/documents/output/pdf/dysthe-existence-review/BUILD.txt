@@ -1,0 +1,27 @@
+Dysthe Evolution: Numerical Evidence and Existence
+Review date: 23 October 2026
+
+Build from this directory:
+  pdflatex -interaction=nonstopmode -halt-on-error review.tex
+  pdflatex -interaction=nonstopmode -halt-on-error review.tex
+
+Required: pdfLaTeX, standard AMS/LaTeX packages, lmodern, microtype.
+The bibliography is included in review.tex.
+Supporting LaTeX files: methods.tex, existence.tex, royden-report.sty.
+Figure: figures/phase_lag_response.pdf (vector).
+The source uses relative references and can be moved to another directory.
+
+Reproduce the independent algebra and Fourier identity checks:
+  python3 review_checks.py
+Required Python packages: numpy, matplotlib; sympy for optional symbolic checks.
+These checks regenerate review_checks.json and the figure PDF.
+They do not integrate a new PDE trajectory, train a PINN, or certify existence.
+
+The supplied paper PDFs were reviewed in place and are not redistributed.
+The main findings are specific to the supplied 2026 version 1.
+Existing trajectory metrics in the report were read from local records.
+Fresh unit-test results and all verification limits are stated in the report.
+
+The app's built-in LaTeX compiler could not obtain its uncached Tectonic
+bundle. System pdfLaTeX is used for the delivered PDF; live editor compilation
+may still be unavailable. See verification.json for final PDF checks.

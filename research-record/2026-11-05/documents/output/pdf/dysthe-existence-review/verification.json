@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-23",
+  "pdf_pages": 12,
+  "compiler": "system pdfLaTeX; two successful final passes",
+  "built_in_compiler": "unavailable: uncached Tectonic bundle could not be retrieved",
+  "visual_review": "All 12 pages inspected as raster renders. Final changed pages 11 and 12 inspected again.",
+  "latex_warning_lines": [],
+  "word_boxes_outside_checked_margins": [],
+  "fonts_embedded": true,
+  "figure_vector_no_embedded_raster_images": true,
+  "independent_math_review": "Dispersion coefficients, mass balances, finite Galerkin global existence, Q>6K residual quadrature and contraction certificate reviewed independently.",
+  "identity_checks": "review_checks.json; includes exact symbolic one-dimensional quartic dispersion expansion",
+  "limitations": [
+    "No full nonlinear fifth-order rederivation",
+    "Existing trajectory records not rerun",
+    "No trained PINN or new continuation campaign",
+    "No infinite-dimensional existence certificate",
+    "Four HTTP tests blocked by sandbox socket permissions"
+  ],
+  "pdf_sha256": "5e8bb8654d80a4aa9f1624fef356ffc27fb0698e751df402ed4db86009feda8f"
+}

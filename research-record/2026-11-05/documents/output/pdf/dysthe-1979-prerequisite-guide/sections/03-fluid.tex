@@ -1,0 +1,123 @@
+\section{The fluid problem behind the envelope equation}
+\label{sec:fluid}
+\subsection{Why Laplace's equation governs the fluid interior}
+Let $\boldsymbol{u}=(u,v,w)$ denote velocity. Incompressibility is
+$\nabla\cdot\boldsymbol{u}=0$; irrotationality is
+$\nabla\times\boldsymbol{u}=0$. For a smooth flow in a simply connected
+domain, the latter permits $\boldsymbol{u}=\nabla\phi$. Therefore
+\begin{equation}\label{eq:laplace}
+ \nabla^2\phi=0,\qquad z<\zeta(x,y,t).
+\end{equation}
+This is (2.1). It is a constraint at each time, not a wave equation in the
+fluid interior. Time evolution enters through the surface conditions.
+
+\subsection{Kinematic condition: the surface moves with the water}
+Write the surface as $F=z-\zeta(x,y,t)=0$. A surface fluid particle must
+remain there, so $DF/Dt=F_t+\boldsymbol{u}\cdot\nabla F=0$. Thus
+\begin{equation}\label{eq:kinematic}
+ \zeta_t+\phi_x\zeta_x+\phi_y\zeta_y=\phi_z,
+ \qquad z=\zeta.
+\end{equation}
+The left side includes horizontal advection of a sloping surface.
+$\zeta_t=\phi_z$ alone is the linearized condition.
+
+\subsection{Dynamic condition: atmospheric pressure at the surface}
+Integration of the inviscid potential-flow momentum equation gives
+\[
+ \phi_t+\frac12|\nabla\phi|^2+\frac p\rho+gz=C(t).
+\]
+An additive time-dependent change to $\phi$ absorbs $C(t)$. Subtract
+constant atmospheric pressure and restrict to the surface:
+\begin{equation}\label{eq:bernoulli}
+ \phi_t+\frac12|\nabla\phi|^2+g\zeta=0,
+ \qquad z=\zeta.
+\end{equation}
+This is Bernoulli's equation. Inviscid does not mean linear:
+$|\nabla\phi|^2$ remains.
+
+Dysthe's (2.2) differentiates Bernoulli along a surface fluid particle.
+For smooth $f$, $Df/Dt=f_t+\nabla\phi\cdot\nabla f$.
+Using the particle's vertical velocity $\phi_z$ gives
+\begin{equation}\label{eq:dysthe-dynamic}
+ \phi_{tt}+g\phi_z+\partial_t|\nabla\phi|^2
+ +\frac12\nabla\phi\cdot\nabla|\nabla\phi|^2=0,
+ \qquad z=\zeta.
+\end{equation}
+Differentiation of $\phi_t$ contributes
+$\nabla\phi\cdot\nabla\phi_t$; differentiation of
+$\tfrac12|\nabla\phi|^2$ contributes another equal term. Together they
+give $\partial_t|\nabla\phi|^2$, explaining its coefficient in (2.2).
+
+\subsection{Why expand the boundary condition about $z=0$?}
+For smooth $f$ and small $\zeta$,
+\begin{equation}\label{eq:boundary-taylor}
+ f(x,y,\zeta,t)=f(x,y,0,t)+\zeta f_z(x,y,0,t)
+ +\frac12\zeta^2 f_{zz}(x,y,0,t)+\cdots.
+\end{equation}
+This moves the equations to a fixed plane while retaining the effects of
+surface displacement as extra terms. It does not flatten the actual wave.
+
+In (2.4), $L=\partial_t^2+g\partial_z$. Taylor expansion of
+\eqref{eq:dysthe-dynamic} gives
+\[
+ L\phi+\zeta L\phi_z+\partial_t|\nabla\phi|^2+Q=0,
+ \qquad z=0,
+\]
+where the retained remainder is
+\[
+ Q=\frac12\zeta^2L\phi_{zz}
+ +\frac12\nabla\phi\cdot\nabla|\nabla\phi|^2
+ +\zeta\partial_{zt}|\nabla\phi|^2.
+\]
+These pieces come from another Taylor term, the cubic material derivative,
+and the Taylor correction to the quadratic velocity term.
+
+The expanded kinematic condition (2.5) is
+\[
+ \zeta_t-\phi_z+\nabla_h\cdot(\zeta\nabla_h\phi)
+ +\nabla_h\cdot\left(\frac12\zeta^2\nabla_h\phi_z\right)=0,
+ \qquad z=0,
+\]
+at the indicated order, where $\nabla_h=(\partial_x,\partial_y,0)$.
+For example, its quadratic terms are initially
+$\nabla_h\phi\cdot\nabla_h\zeta-\zeta\phi_{zz}$.
+Since $-\phi_{zz}=\nabla_h^2\phi$, their sum becomes
+$\nabla_h\cdot(\zeta\nabla_h\phi)$. The divergence form is an algebraic
+reorganization, not an extra hypothesis.
+
+\subsection{A first nonlinear calculation: the second Stokes harmonic}
+A \emph{Stokes wavetrain} is a periodic travelling solution of the nonlinear
+water-wave equations. Its surface is not exactly sinusoidal. Here is a short
+calculation showing how a bound harmonic enters.
+
+Suppress $y$ and let $\theta=k_0x-\omega_0t$, with
+$\omega_0^2=gk_0$. The leading real potential is
+\[
+ \phi_1=\frac{a\omega_0}{k_0}e^{k_0z}\sin\theta.
+\]
+Through second order, try a bound elevation harmonic
+$\zeta=a\cos\theta+C\cos(2\theta)$ and no second potential harmonic.
+Expand Bernoulli at $z=0$. Its second-order part is
+\[
+ -ga^2k_0\cos^2\theta+\frac12a^2\omega_0^2
+                         +gC\cos(2\theta)=0.
+\]
+Since $\cos^2\theta=(1+\cos2\theta)/2$, this gives
+\begin{equation}\label{eq:stokes-second}
+ C=\frac12k_0a^2,\qquad
+ \zeta=a\cos\theta+\frac12k_0a^2\cos(2\theta)+\cdots.
+\end{equation}
+The kinematic condition independently gives
+$2\omega_0C=k_0\omega_0a^2$, the same result. At a crest both elevation
+terms are positive, while at a trough the second term is still positive;
+the profile has sharper crests and flatter troughs. The harmonic oscillates
+at $2\omega_0$, whereas a free linear mode of wavenumber $2k_0$ has
+frequency $\sqrt2\omega_0$. It is therefore forced by the carrier,
+not an independent linear wave. This simple calculation illustrates
+the Stokes comparison mentioned immediately after (2.13).
+
+\paperlink{Read (2.1)--(2.5), printed pp.~106--107.
+Connect each equation to incompressibility, surface motion, or pressure.}
+\checkpoint{Derive \eqref{eq:kinematic} from $DF/Dt=0$ and identify
+which terms disappear upon linearization.}
+\clearpage

@@ -1,0 +1,239 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=.75in]{geometry}
+\usepackage{amsmath,amssymb,graphicx,booktabs,xcolor,hyperref,fancyhdr}
+\definecolor{navy}{HTML}{18384B}\definecolor{teal}{HTML}{168F9A}\definecolor{pale}{HTML}{EAF4F4}
+\hypersetup{colorlinks=true,urlcolor=teal,linkcolor=teal,pdftitle={Two views of dispersive wave packets: a mock report}}
+\pagestyle{fancy}\fancyhf{}\lhead{\small\color{navy}DISPERSIVE WAVE PACKETS}\rhead{\small\color{teal}Mock report / September 2026}\cfoot{\thepage}
+\setlength{\headheight}{14pt}\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\newcommand{\pic}[1]{\begin{center}\includegraphics[width=\linewidth]{#1}\end{center}}
+\newcommand{\callout}[1]{\par\smallskip\colorbox{pale}{\parbox{.96\linewidth}{\vspace{5pt}#1\vspace{5pt}}}\par\smallskip}
+\newcommand{\tagline}[1]{{\color{teal}\bfseries #1}\par}
+\DeclareMathSizes{9}{10}{7}{7}\DeclareMathSizes{10}{10}{7}{7}\DeclareFontShape{OT1}{cmr}{bx}{n}{<->cmbx10}{}
+\input{selected_packet_values.tex}
+\begin{document}
+\thispagestyle{empty}
+\tagline{MOCK RESEARCH REPORT / SELECTED REVIEW FIGURES 5--8}
+{\color{navy}\Huge Two views of dispersive\\[3pt] wave packets}\par
+{\large A random envelope and a pair of overlapping packets in three spatial dimensions}\par
+\vspace{6pt}
+\textbf{Abstract.} We compare two artificial initial fields evolved by the same
+homogeneous cubic dispersive operator: a seeded random packet and a pair of
+phase-offset Gaussian packets. Three-dimensional level surfaces and planar slices
+show how their shapes change between $t=0$ and $8$. Both sampled envelope peaks
+fall, although their relative reductions differ. A supplementary time series
+separates this visible spreading from the fractionally weighted diagnostic in the
+proposed decay inequality. The results are finite-grid observations and support
+an exploratory comparison; they do not identify an asymptotic exponent.
+\pic{../output/figure_review/05_random_seed_33_volumes.png}
+\textbf{Figure 5. Random seed 33: the envelope as a volume.} These are surfaces
+of $|u|=0.3\max|u|$, using the full sampled maximum separately at each time.
+All axes are spatial coordinates, and every panel uses the same $[-24,24]^3$
+viewing cube. The magnitude is represented by the surface threshold, not by a
+vertical elevation axis. The numerical maxima appear above the panels.
+
+The initially compact central region becomes elongated and asymmetric. The
+geometry changes while the sampled maximum drops from approximately $0.00377$
+to $0.00149$. Because the threshold also falls, the growing visible region cannot
+be interpreted as an increase of amplitude or as a quantitative measure of volume.
+\callout{\textbf{Main observation.} The two selected fields illustrate different
+routes to a lower peak: deformation of a random envelope and overlap of two
+phase-offset packets. Their figures describe shape; the diagnostic comparison
+on page 5 measures amplitude and its relation to the decay question.}
+\vfill
+{\small Dimensionless linear canonical model associated with the supplied Dysthe
+research manuscript. Figure numbers 5--8 retain their identifiers from the review
+collection. This draft is organized for discussion and figure selection.}
+
+\newpage
+\tagline{CASE A / LOOKING INSIDE A RANDOM ENVELOPE}
+\section*{From a compact magnitude profile to an asymmetric packet}
+The first input combines twelve complex plane waves under a Gaussian window:
+\[
+ f_{33}(X)=\frac{e^{-|X|^2/18}}{Z_{33}\sqrt{12}}
+ \sum_{j=1}^{12}e^{i(q_j\cdot X+\phi_j)},\qquad X=(x,y,z).
+\]
+The wavevectors are sampled from independent centered normal components with
+standard deviation $0.25$; phases are uniform on $[0,2\pi)$. NumPy seed 33 fixes
+the realization. The positive constant $Z_{33}$ normalizes the sampled $L^1$ norm
+to one. This is one reproducible realization, not a statistical ensemble average.
+\pic{../output/figure_review/06_random_seed_33_slices_and_waves.png}
+\textbf{Figure 6. Random seed 33: amplitude and oscillations.} Top panels show
+$|u(x,0,z,t)|$. Their shared color scale divides by the largest displayed slice
+magnitude across the three times. Bottom panels show the centerline envelope
+$\pm|u(x,0,0,t)|$ and the illustrative carrier reconstruction
+$\operatorname{Re}\{u(x,0,0,t)e^{3ix}\}$, divided by the same constant.
+
+The fixed color scale makes the reduction of the bright central region visible.
+The later slices also reveal weaker oscillatory structure away from the center.
+Those lower-amplitude features are largely absent from the 30\% level surfaces
+in Figure 5: a slice and a level surface answer different questions.
+
+The dark oscillations remain inside the positive and negative envelope. Their
+locations depend on the phase of the complex solution as well as on the added
+carrier. The complex centerline is Fourier-interpolated from spacing $0.75$ to
+$0.125$ for drawing; this makes the reconstruction smooth without adding simulated
+Fourier modes. The carrier wavenumber 3 is an illustrative choice.
+\callout{\textbf{Reading the magnitude.} It is dimensionless envelope amplitude,
+not velocity. Neither these oscillations nor the 3D level surfaces represent a
+calibrated water elevation. A physical surface reconstruction would require a
+specified water-wave model and physical scales.}
+
+\newpage
+\tagline{CASE B / TWO PACKETS WITH A RELATIVE PHASE}
+\section*{Overlap changes the combined shape}
+The second input is deliberately simpler than the random realization:
+\[
+ f_{\rm pair}(X)=\frac{1}{Z_{\rm pair}}
+ \left[e^{-((x+5)^2+y^2+z^2)/18}
+       +0.7i\,e^{-((x-5)^2+y^2+z^2)/18}\right].
+\]
+The packet centers begin at $x=-5$ and $x=5$. Each has width 3; the second has
+relative amplitude $0.7$ and a phase offset of $\pi/2$. As before, $Z_{\rm pair}$
+is chosen using the grid quadrature so that the initial $L^1$ norm is one.
+\pic{../output/figure_review/07_two_interfering_packets_volumes.png}
+\textbf{Figure 7. Two packets: evolving 3D level surfaces.} The same 30\%-of-current-peak
+rule and spatial viewing cube are used as in Figure 5. The separated initial
+regions develop an overlapping, asymmetric shape. The plots show thresholded
+magnitude geometry; they do not track individual fluid parcels.
+
+The sampled peak decreases from $0.00143$ to $0.000844$, a smaller relative drop
+than for the random packet over the same interval. Both inputs have $L^1=1$, but
+they have different initial peaks, $L^2$ norms, and spectra. Equal $L^1$ normalization
+therefore does not make their initial pointwise amplitudes equal.
+
+\textbf{Why phase matters even in a linear model.} Let $u_1$ and $u_2$ denote the
+evolved, normalized components, including the factor $0.7i$ in $u_2$. Linearity gives
+\[
+ u=u_1+u_2,\qquad
+ |u|^2=|u_1|^2+|u_2|^2+2\operatorname{Re}(u_1\overline{u_2}).
+\]
+The last term is interference. Initially the Gaussian components have a quadrature
+phase offset, so that term vanishes. Their subsequent complex evolution can make
+it nonzero. The overlapping magnitude thus need not be the sum of the two separate
+magnitudes.
+\callout{\textbf{Interpretation.} This is linear superposition with interference.
+The apparent joining of level surfaces is not evidence of nonlinear attraction,
+soliton interaction, or irreversible merger.}
+
+\newpage
+\tagline{CASE B / CONNECTING THE VOLUME TO THE WAVE TRACE}
+\section*{The slice explains what the level surface leaves out}
+The planar and centerline views show the same two-packet computation from a more
+familiar perspective. The two initial amplitude peaks become less distinct as
+their evolved fields overlap, while the carrier oscillations remain visible.
+\pic{../output/figure_review/08_two_interfering_packets_slices_and_waves.png}
+\textbf{Figure 8. Two packets: fixed-scale slices and carrier reconstruction.}
+The conventions are identical to Figure 6, but the normalization divisor is
+computed separately for this case. Colors can be compared across times within
+this figure; they cannot be used for an absolute amplitude comparison with
+Figure 6. The printed full-volume peaks and the table on page 5 provide that comparison.
+
+The upper panels retain the weaker structures below the threshold used in Figure 7.
+The bottom row displays $\pm|u|$ as an outline rather than as an additional physical
+wave. The dark curve combines the simulated phase with the illustrative carrier;
+its crests are not numerical grid markers or tracked particles.
+
+\textbf{What the comparison reveals.} The random realization begins with a more
+concentrated peak and loses a larger fraction of that peak. The two-packet profile
+spreads and overlaps while retaining a broader region of visible amplitude.
+These differences persist despite identical evolution rules and initial $L^1$
+normalization. Initial phase and spectral content are therefore essential parts
+of the experiment definition.
+
+\textbf{What the comparison cannot decide.} The figures do not determine a
+universal decay constant, establish monotonicity for arbitrary data, or predict
+which profile will have the larger compensated ratio at much later times. A
+centerline may also miss an off-axis maximum. The following diagnostics therefore
+search the entire simulated volume rather than one selected slice.
+\callout{\textbf{A useful pairing for the final report.} Figures 5 and 7 establish
+the three-dimensional geometry. Figures 6 and 8 explain the amplitude and phase
+behind that geometry. Keeping each volume next to its companion slice avoids
+asking one visualization to communicate both shape and decay.}
+
+\newpage
+\tagline{SUPPLEMENT / CONNECTING THE FIGURES TO THE DECAY QUESTION}
+\section*{A falling envelope peak is only one diagnostic}
+For the same two inputs and the same grid, we evaluate 17 times from 0 to 8.
+The weighted field and compensated ratio are
+\[
+ W(t)=|D_x|^{1/2}S(t)f,\qquad
+ R(t;f)=\frac{t^{7/6}\|W(t)\|_\infty}{\|f\|_1}.
+\]
+These are different from the unweighted envelope magnitudes shown in Figures 5--8.
+The ratio is displayed only for $t>0$.
+\pic{../results/selected_packets/comparison.pdf}
+\textbf{Figure S1. Same inputs, four complementary measurements.} Maxima are
+sampled over the full periodic volume. The upper right panel removes the difference
+in initial peak height. The lower right panel measures the quantity associated
+with the manuscript's $\alpha=1/2$, $p=\infty$ bound.
+\begin{center}\small\begin{tabular}{lrrrr}\toprule
+Input & Peak at 0 & Peak at 8 & Peak reduction & $R(8)$\\\midrule
+\SelectedRows\bottomrule\end{tabular}\end{center}
+\callout{\textbf{The relevant distinction.} A decreasing unweighted peak can
+coexist with an increasing compensated ratio. The proposed inequality asks
+whether $R(t;f)$ stays below an input-independent constant, not whether every
+finite curve decreases.}
+All curves on this page are measurements on one finite grid. Their purpose is to
+connect the selected visuals to the research question; they are not a new
+convergence study or an asymptotic fit.
+
+\newpage
+\tagline{METHODS, RELIABILITY AND CONTEXT}
+\section*{What was computed, and how to use this draft}
+\textbf{Evolution.} We work directly in the homogeneous canonical coordinates of
+the supplied manuscript, with
+\[
+ \widehat u(k,t)=e^{itw(k)}\widehat f(k),\qquad
+ w(k)=k_x^3-3k_x(k_y^2+k_z^2).
+\]
+Equivalently, $u_t+u_{xxx}-3u_{xyy}-3u_{xzz}=0$. The Fourier convention is
+$\widehat f(k)=\int f(X)e^{-ik\cdot X}\,dX$. This is the linear propagator used
+in the homogeneous weighted estimate; it is not the full nonlinear Dysthe equation.
+
+\begin{center}\begin{tabular}{ll}\toprule
+Setting & Value\\\midrule
+Computational domain & Periodic cube $[-72,72)^3$\\
+Grid & $192^3$, spacing $0.75$\\
+Displayed region & $[-24,24]^3$; slices at $y=0$\\
+Snapshot times & $0,4,8$\\
+Supplementary time series & $0,0.5,\ldots,8$\\
+Arithmetic & Torch CPU, complex128\\
+Initial normalization & Discrete $L^1=1$ for each input\\
+Time evolution & Exact Fourier phase for retained modes\\\bottomrule
+\end{tabular}\end{center}
+\textbf{Checks and their limits.} The new diagnostic series reproduces the three
+selected snapshot times. Integrated squared magnitude is conserved to numerical
+precision: the relative $L^2$ changes are below $10^{-11}$. Conservation checks
+consistency but cannot establish an accurate whole-space maximum or detect every
+phase error. No separate domain enlargement or mesh refinement was performed for
+this selected-packet series.
+
+At $t=8$, the maximum sampled amplitude on the displayed cube's boundary is
+approximately 16.4\% of the full peak for seed 33 and 6.0\% for the two-packet case.
+Thus the 30\% surfaces do not touch that sampled boundary, but weaker tails are
+cropped from view. This is a display check, not a test of the computational boundary.
+The strong $t=256$ audit in the larger project applies to other Gaussian-based
+inputs and must not be transferred to these two cases.
+
+\textbf{Research context.} The supplied manuscript by Mosincat, Pilod and Saut,
+\emph{On Third Order Nonlinear Schr\"odinger Equations} (January 22, 2026),
+Section 6, provides the canonical symbols and weighted estimates. Its proof-phase
+convention is used here. Ben-Artzi, Koch and Saut's
+\href{https://doi.org/10.1081/PDE-120025491}{two-dimensional cubic dispersion study}
+(2003) motivates attention to spectral geometry. For a physical free-surface model,
+Guyenne, Kairzhan and Sulem's
+\href{https://arxiv.org/abs/2108.10822}{Hamiltonian Dysthe study} (2022) offers
+surface reconstruction and Euler comparisons; its fluid domain has two horizontal
+surface coordinates, unlike the three independent coordinates here.
+
+\textbf{Suggested scientific follow-up.} First compare domain and grid changes
+for these exact two recipes and the weighted peaks. Then extend their observation
+window while tracking the global candidate maximum. Repeating seed 33 with more
+seeds would support an ensemble comparison; one realization cannot characterize
+random initial data in general.
+
+\begingroup\raggedright\textbf{Reproduction.} Run \path{make_figure_review.py} for the selected figures.
+Run \path{report/selected_packet_diagnostics.py} for Figure S1, its table, and the
+JSON records in \path{results/selected_packets/}. Compile
+\path{report/selected_packets_mock.tex} to rebuild this draft.\par\endgroup
+\end{document}

@@ -1,0 +1,80 @@
+{
+  "raissi": {
+    "title": "Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations",
+    "authors": [
+      "Maziar Raissi",
+      "Paris Perdikaris",
+      "George Em Karniadakis"
+    ],
+    "year": 2019,
+    "date": null,
+    "venue": "Journal of Computational Physics 378, 686–707",
+    "doi": "10.1016/j.jcp.2018.10.045",
+    "url": "https://doi.org/10.1016/j.jcp.2018.10.045",
+    "access_level": "Publisher primary record inspected by the lead researcher during this review",
+    "evidence": "Foundational forward/inverse PINN framework with a direct nonlinear Schrodinger benchmark.",
+    "limitations": "Foundational proof of concept; not a modern best-method benchmark or Dysthe validation.",
+    "explicit_future_work": null,
+    "code_url": null
+  },
+  "alejo": {
+    "title": "Error bounds for Physics Informed Neural Networks in Nonlinear Schrödinger equations placed on unbounded domains",
+    "authors": [
+      "Miguel Á. Alejo",
+      "Lucrezia Cossetti",
+      "Luca Fanelli",
+      "Claudio Muñoz",
+      "Nicolás Valenzuela"
+    ],
+    "year": 2025,
+    "date": "2025-06-26",
+    "venue": "arXiv:2409.17938v3, preprint; first submitted 2024",
+    "doi": "10.48550/arXiv.2409.17938",
+    "url": "https://arxiv.org/abs/2409.17938",
+    "access_level": "Primary arXiv metadata and full manuscript inspected by the lead researcher during this review",
+    "evidence": "NLS-specific PINN error bounds on unbounded domains under stated analytical and integration hypotheses.",
+    "limitations": "Preprint version revised June 2025, first submitted September 2024. Hypotheses and norms must be retained; not a ready-made certificate for derivative/nonlocal Dysthe.",
+    "explicit_future_work": null,
+    "code_url": null
+  },
+  "eiras": {
+    "title": "Efficient Error Certification for Physics-Informed Neural Networks",
+    "authors": [
+      "Francisco Eiras",
+      "Adel Bibi",
+      "Rudy R. Bunel",
+      "Krishnamurthy Dj Dvijotham",
+      "Philip Torr",
+      "M. Pawan Kumar"
+    ],
+    "year": 2024,
+    "date": null,
+    "venue": "Proceedings of the 41st International Conference on Machine Learning, PMLR 235, 12318–12347",
+    "doi": null,
+    "url": "https://proceedings.mlr.press/v235/eiras24a.html",
+    "access_level": "Primary proceedings metadata and full manuscript inspected by the lead researcher during this review",
+    "evidence": "Computes verified worst-case PINN residual bounds over domains using neural-network verification techniques.",
+    "limitations": "Residual certification and solution-error certification are distinct; stability and boundary/initial information are still required. No Dysthe-specific guarantee established here.",
+    "explicit_future_work": null,
+    "code_url": null
+  },
+  "grossmann": {
+    "title": "Can physics-informed neural networks beat the finite element method?",
+    "authors": [
+      "Tamara G. Grossmann",
+      "Urszula Julia Komorowska",
+      "Jonas Latz",
+      "Carola-Bibiane Schönlieb"
+    ],
+    "year": 2024,
+    "date": "2024-05-23",
+    "venue": "IMA Journal of Applied Mathematics 89(1), 143–174",
+    "doi": "10.1093/imamat/hxae011",
+    "url": "https://doi.org/10.1093/imamat/hxae011",
+    "access_level": "Primary publisher metadata and abstract inspected; author institutional publication record corroborates volume and page range",
+    "evidence": "Systematic cost/accuracy comparison for Poisson, Allen-Cahn and semilinear Schrodinger problems. Studied PINNs did not outperform FEM in total solution time and accuracy; some evaluation timings favored PINNs.",
+    "limitations": "Evidence for the compared implementations and tasks, not a theorem excluding gains by newer methods or inverse/operator workflows.",
+    "explicit_future_work": null,
+    "code_url": null
+  }
+}

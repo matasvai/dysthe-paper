@@ -1,0 +1,24 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\title{Observation of Equation (1.27) on $1024\leq t\leq2048$}
+\author{}\date{}
+\begin{document}\maketitle
+The current reference experiment evolves the original initial-value problem from $t=0$ to $t=2048$, with the original coefficients, packet, and periodic box. It saves 257 three-coordinate complex-field frames between $t=1024$ and $t=2048$, inclusive, at spacing $4$. Scalar peak, integrated squared-magnitude, and spectral-edge diagnostics are recorded every unit of propagation. The numerical integration step remains $0.01$: output spacing is not the time step used by the solver.
+
+The $64^3$ integrating-factor RK4 candidate requires 204,800 steps. Saved field data occupy approximately $1.0$ GiB before metadata and additional checkpoint copies; total process memory and disk requirements are larger. The Slurm script requests 16 GiB of host memory and one day. A previous 100-step local timing suggests approximately 3.7 hours for integration, excluding the larger output and checkpoint overhead; cluster performance can differ substantially.
+
+The wider observation interval can show multiple rises and falls of the peak. It does not require more evolution than the earlier proposed $2048$--$2049$ interval. Frames every four units may miss fast structural changes, although the scalar diagnostics are more frequent. Refining output sampling later is distinct from refining the integration step or spatial grid.
+
+After canceling the old job by its job number, pull the revised repository and submit from its root:
+\begin{verbatim}
+git pull
+source .venv/bin/activate
+sbatch --partition=YOUR_PARTITION \
+  --export=ALL,WINDOW_START=1024,WINDOW_END=2048,SNAPSHOTS=257,REFERENCE_DIR=runs/late-window-1024-2048 \
+  cluster/late_window.slurm
+\end{verbatim}
+The long export line above may be wrapped visually by the editor but must remain a single shell argument. The script defaults to the same settings, so the export option can be omitted in a clean environment. Configurable settings are WINDOW\_START, WINDOW\_END, SNAPSHOTS, DT, GRID, REFERENCE\_DIR, and WALL\_SECONDS. Use a new directory when changing the experiment settings. Matching submissions resume automatically from the checkpoint; a lock prevents simultaneous writers.
+
+The status in \texttt{summary.json} distinguishes a paused run, a diagnostic failure, and a completed but unvalidated candidate. No PINN is trained by this job. The earlier peak-refinement failure is unresolved, and short-time agreement or mass conservation cannot certify accumulated error at these horizons. Independent full-trajectory grid and time refinements remain necessary. A periodic-box trajectory does not by itself establish a whole-space decay inequality.
+\end{document}

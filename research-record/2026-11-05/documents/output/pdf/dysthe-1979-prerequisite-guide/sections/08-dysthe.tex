@@ -1,0 +1,109 @@
+\section{Reading the fourth-order envelope equation}
+\label{sec:dysthe}
+\subsection{The equation in the paper's convention}
+At $z=0$, Dysthe (2.19) is
+\begin{align}
+ 2i\left(A_t+\frac12A_x\right)
+ +\frac12A_{yy}-\frac14A_{xx}-A|A|^2
+ &= -\frac{i}{8}(6A_{xyy}-A_{xxx})\notag\\
+ &\quad+\frac{3i}{2}A(AA_x^*-A^*A_x)
+       +\frac i2|A|^2A_x\notag\\
+ &\quad+A(\Ph_x-i\Ph_z).
+ \label{eq:dysthe-full}
+\end{align}
+Subscripts denote partial derivatives and $A_x^*=\partial_x(A^*)$.
+The mean field obeys \eqref{eq:mean-full}, or its consistently reduced
+version \eqref{eq:mean-bc}. The right side is fourth order under
+Section~\ref{sec:asymptotics}'s ordering. The left side is the NLS balance.
+
+\begin{center}
+\begin{tabular}{@{}p{.34\linewidth}p{.59\linewidth}@{}}
+\toprule Term & Role\\\midrule
+$2i(A_t+A_x/2)$ & Envelope change following the group.\\
+$A_{yy}/2-A_{xx}/4$ & Leading transverse and longitudinal dispersion.\\
+$-A|A|^2$ & Leading nonlinear phase shift.\\
+$-i(6A_{xyy}-A_{xxx})/8$ & Next Taylor terms of linear dispersion.\\
+$\tfrac{3i}{2}A(AA_x^*-A^*A_x)+\tfrac i2|A|^2A_x$
+& Nonlinear effects involving envelope gradients.\\
+$A(\Ph_x-i\Ph_z)$ & Coupling to the induced mean response.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The combination $AA_x^*-A^*A_x$ is imaginary. If $A=Re^{i\psi}$ with
+$R>0$, it equals $-2iR^2\psi_x$. Its role therefore involves a local phase
+gradient. The term $\partial_x|A|^2$ instead measures amplitude variation.
+These structures need not have the same effect even though both are slow.
+
+\subsection{An algebraic evolution form of the printed equation}
+Divide \eqref{eq:dysthe-full} by $2i$, move the right side to the left,
+and use $\Ph_z=(|A|^2)_x$. At the retained order this gives
+\begin{align}
+ A_t+\frac12A_x+\frac i8A_{xx}-\frac i4A_{yy}
+ +\frac i2|A|^2A
+ &-\frac1{16}A_{xxx}+\frac38A_{xyy}\notag\\
+ &+|A|^2A_x-\frac14A^2A_x^*
+ +\frac i2A\Ph_x=0.
+ \label{eq:dysthe-evolution}
+\end{align}
+The coefficient change in the gradient terms uses the vertical mean-flow
+boundary condition. For example,
+$\tfrac12A\Ph_z=\tfrac12|A|^2A_x+\tfrac12A^2A_x^*$.
+This is why comparing partially reduced equations can make coefficients
+appear inconsistent. Always record which mean-field terms have been eliminated.
+
+For a longitudinal profile, \eqref{eq:hilbert} turns the last term into
+$-\tfrac i2A|D_x|(|A|^2)$ in this temporal potential-envelope convention.
+Other variables and spatial evolution conventions can have different signs
+and coefficients. The original paper and the later spatial free-surface
+model are compared separately in Appendix~\ref{sec:project}.
+
+\subsection{A source-consistency issue to recognize}
+\label{sec:source-consistency}
+There is an apparent coefficient inconsistency in the supplied scan.
+Taken literally, the printed plus sign in front of
+$i|A|^2A_x/2$ in (2.19) gives the evolution form
+\eqref{eq:dysthe-evolution}. Linearizing it gives
+\[
+ P_1u+\frac34A_0^2u_x+P_2v=0,\qquad
+ P_1v+\frac54A_0^2v_x-P_2u+A_0^2u=-\frac12\Ph_x.
+\]
+In contrast, the paper's printed (3.2), after using
+$\Ph_z=2A_0^2u_x$, has $5A_0^2u_x/4$; its (3.3) has
+$7A_0^2v_x/4$. Changing the displayed $+i|A|^2A_x/2$ to a minus
+would produce those two coefficients. This is an algebraic consistency
+observation about the supplied scan; no publisher erratum has been verified.
+The literal intermediate (2.17) also does not reproduce all the gradient
+coefficients of (2.19); see Appendix~\ref{sec:reduction}.
+
+For learning the main stability argument, the next section starts explicitly
+from the printed linearized system (3.2)--(3.3), which does reproduce
+(3.6)--(3.13). We preserve (2.19) as printed rather than silently editing
+it. You should not conclude that a failure to match these particular
+coefficients is a gap in your prerequisite knowledge. Nor should this guide
+be used as an unqualified numerical implementation specification.
+
+\subsection{What the simplified system in the conclusion means}
+Dysthe (4.1)--(4.3) keeps just NLS and the horizontal current:
+\begin{equation}\label{eq:simplified}
+ 2i\left(A_t+\frac12A_x\right)
+ +\frac12A_{yy}-\frac14A_{xx}
+ =A(|A|^2+\Ph_x),
+\end{equation}
+with \eqref{eq:mean-bc}. It captures the leading improvement in the
+\emph{growth-rate and instability-band} calculations emphasized in the
+paper. It is not an equality between complete fourth-order dynamics.
+
+In particular, the full equation also shifts the real perturbation
+frequency by terms containing $\lambda A_0^2$ and third powers of
+modulation wavenumber. Those terms matter for phase or transport even
+when they do not change the growth rate at the retained order. Calling
+the mean current dominant is a statement about the particular stability
+observables being studied, not about every possible wave-packet calculation.
+
+\paperlink{Read (2.19), p.~109, using the table above. Compare it with
+the explicitly simplified system on p.~113.}
+\checkpoint{Derive \eqref{eq:dysthe-evolution} from the printed
+\eqref{eq:dysthe-full}. Then compare its linearization with the
+source-consistency note, rather than assuming every printed line agrees.}
+\clearpage

@@ -1,0 +1,13 @@
+{
+  "model_id": "water-wave-dysthe-spatial-v1",
+  "global_limitations": "Three validation inlets, optimizer seed 11, CPU fitting over all displayed distances. No unseen-distance forecast, generalization claim, A100 repaired-result claim, or existence/stability proof.",
+  "norm_formula": "E_s(xi) = [sum_m (1+k_m^2)^s |FFT(pred-reference)_m|^2 / sum_m (1+k_m^2)^s |FFT(reference)_m|^2]^(1/2), k_m=2*pi*m/40. Prediction is Fourier interpolated in original complex64 to N=1024. All modes retained.",
+  "figures": {
+    "spatial-pinn-error-growth.pdf": "Raw complex H2 errors at all 81 saved stations, without phase or translation alignment; 5% H2 gate shown. Eight slabs of length 0.5, 400 Adam updates per slab, K=48. Paired inputs and optimizer seed; conditioned output corrections scaled by (1+k^2)^(-1).",
+    "spatial-pinn-profiles-xi4.pdf": "Endpoint envelope magnitude, real part, and pointwise absolute complex error divided by reference peak. Insets magnify a window of half-width 1.5 around the reference peak. No alignment or smoothing.",
+    "spatial-pinn-phase-curvature.pdf": "Endpoint signed phase error arg(pred*conj(reference)) is displayed only where both amplitudes exceed 5% of their respective maxima. Curvature panel is 100*|d_tau^2(pred-reference)| / RMS_tau(|d_tau^2 reference|), retaining all points. Curvature-only normalization differs from full H2; values can exceed 100%.",
+    "spatial-pinn-mode-error.pdf": "Endpoint modewise (1+k^2)^2 |FFT(error)|^2 normalized by total reference H2 energy. Positive/negative mode powers are added; display zoom |m|<=64, full 1024-mode data retained in CSV. Shaded band 25..48; dotted cutoff at retained correction mode48. No error filtering.",
+    "spatial-pinn-recorded-cost.pdf": "Recorded CPU fitting seconds for equal update budgets. One timing per configuration, no uncertainty estimate or matched-accuracy speedup claim; does not include a benchmark against the numerical solver.",
+    "spatial-pinn-residual-audit.pdf": "Full spatial PDE residual RMS divided by inlet RHS RMS on independent audit slices, one value per fitted slab. These are residual ratios, not solution error bounds."
+  }
+}

@@ -1,0 +1,1435 @@
+{
+  "purpose": "Independent arithmetic checks supporting a water-wave operator-learning implementation review",
+  "not_claimed": [
+    "trained-model accuracy",
+    "long-distance trajectories",
+    "numerical refinement qualification",
+    "global existence",
+    "nonlinear stability"
+  ],
+  "implementation": "Independent NumPy formulas; no active repository imports",
+  "python_version": "3.14.7",
+  "numpy_version": "2.4.2",
+  "grid": {
+    "n": 256,
+    "length": 6.283185307179586,
+    "origin": "-L/2",
+    "maximum_input_mode": 5,
+    "maximum_exact_cubic_output_mode_bound": 15
+  },
+  "input_coefficients": {
+    "-4": [
+      0.07,
+      0.02
+    ],
+    "-1": [
+      0.22,
+      -0.09
+    ],
+    "0": [
+      0.6,
+      0.13
+    ],
+    "2": [
+      -0.18,
+      0.08
+    ],
+    "5": [
+      0.04,
+      -0.05
+    ]
+  },
+  "origin_round_trip": {
+    "coefficient_relative_error": 3.3399033704402707e-16,
+    "reconstruction_relative_error": 2.896102712100023e-16,
+    "wrong_origin_reconstruction_relative_error": 0.7094520837492921,
+    "correct_formula": "a_m=exp(i*k_m*L/2)*FFT(u)_m/N for exp(i*k_m*tau)"
+  },
+  "linear_flow": {
+    "linear_symbol": "+i*k^2",
+    "flow_multiplier": "exp(+i*h*k^2)",
+    "max_plane_wave_relative_error": 1.3480580302182305e-15,
+    "semigroup_relative_error": 2.352802621151689e-16,
+    "generator_central_difference_relative_error": 8.953642002694976e-11,
+    "generator_difference_increment": 1e-06
+  },
+  "equivariance": {
+    "phase_radians": 0.43,
+    "translation": 0.37,
+    "records": [
+      {
+        "epsilon": 0.0,
+        "phase_relative_error": 5.948751582679598e-13,
+        "translation_relative_error": 5.810621201122947e-13
+      },
+      {
+        "epsilon": 0.025,
+        "phase_relative_error": 6.036132850617055e-13,
+        "translation_relative_error": 5.892940887684153e-13
+      },
+      {
+        "epsilon": 0.05,
+        "phase_relative_error": 6.117736413414296e-13,
+        "translation_relative_error": 5.969435343451406e-13
+      }
+    ]
+  },
+  "real_imaginary_rhs": [
+    {
+      "epsilon": 0.0,
+      "relative_error": 2.029147085730655e-13
+    },
+    {
+      "epsilon": 0.025,
+      "relative_error": 2.0579527657640805e-13
+    },
+    {
+      "epsilon": 0.05,
+      "relative_error": 2.0847518004988365e-13
+    }
+  ],
+  "directional_balances": {
+    "definitions": {
+      "mass": "integral |u|^2",
+      "P": "integral Im(conj(u)*u_tau)",
+      "Q": "integral |u|^4",
+      "modified_momentum": "2*(P-epsilon*Q)"
+    },
+    "expected": "mass'=0 and P'=epsilon*Q' for the full continuum RHS",
+    "records": [
+      {
+        "epsilon": 0.0,
+        "mass_directional_rate": 3.487868498008632e-16,
+        "P_directional_rate": 1.307950686753237e-16,
+        "Q_directional_rate": 0.40774756183683314,
+        "P_minus_epsilon_Q_directional_rate": 1.307950686753237e-16,
+        "P_integration_by_parts_discrepancy": 1.9619260301298554e-16,
+        "finite_difference_increment": 1e-05,
+        "P_directional_finite_difference": 0.0,
+        "Q_directional_finite_difference": 0.40774756129291484,
+        "P_directional_finite_difference_discrepancy": 1.307950686753237e-16,
+        "Q_directional_finite_difference_discrepancy": 5.439182992894587e-10
+      },
+      {
+        "epsilon": 0.025,
+        "mass_directional_rate": 0.0,
+        "P_directional_rate": 0.01019368904592128,
+        "Q_directional_rate": 0.4077475618368327,
+        "P_minus_epsilon_Q_directional_rate": 4.614364446098307e-16,
+        "P_integration_by_parts_discrepancy": 5.672545766444159e-16,
+        "finite_difference_increment": 1e-05,
+        "P_directional_finite_difference": 0.010193689049808885,
+        "Q_directional_finite_difference": 0.40774756130401707,
+        "P_directional_finite_difference_discrepancy": 3.8876055152847755e-12,
+        "Q_directional_finite_difference_discrepancy": 5.328156249539973e-10
+      },
+      {
+        "epsilon": 0.05,
+        "mass_directional_rate": 0.0,
+        "P_directional_rate": 0.020387378091842382,
+        "Q_directional_rate": 0.4077475618368327,
+        "P_minus_epsilon_Q_directional_rate": 7.4593109467002705e-16,
+        "P_integration_by_parts_discrepancy": 7.389922007661198e-16,
+        "finite_difference_increment": 1e-05,
+        "P_directional_finite_difference": 0.02038737808990332,
+        "Q_directional_finite_difference": 0.4077475613151193,
+        "P_directional_finite_difference_discrepancy": 1.939063493106019e-12,
+        "Q_directional_finite_difference_discrepancy": 5.217133947077457e-10
+      }
+    ]
+  },
+  "modulational_jacobian": {
+    "method": "Centered differences of F(a+w)+i*a^2*(a+w), using p=cos(k*tau) and q=cos(k*tau) separately",
+    "linearization_convention": "u=exp(-i*a^2*xi)*(a+w), w=p+i*q with real p and q",
+    "matrix_comparison": "[[-10i*epsilon*a^2*k,-k^2],[k^2-2a^2-4epsilon*a^2*|k|,-6i*epsilon*a^2*k]]",
+    "finite_difference_increment": 1e-05,
+    "number_of_cases": 21,
+    "maximum_matrix_entry_absolute_discrepancy": 9.999986271989543e-11,
+    "records": [
+      {
+        "epsilon": 0.0,
+        "amplitude": 0.8,
+        "mode": -3,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              -2.1619995512643693e-16,
+              5.391110195299801e-16
+            ],
+            [
+              -8.999999999925002,
+              -8.524020646175944e-16
+            ]
+          ],
+          [
+            [
+              7.719999999922322,
+              4.2646441933117357e-16
+            ],
+            [
+              0.0,
+              -0.0
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -9.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              7.72,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 7.767742005288453e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            -8.881784197001252e-16,
+            8.335466393593219
+          ],
+          [
+            6.661338147750939e-16,
+            -8.335466393593217
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.0,
+        "amplitude": 0.8,
+        "mode": -2,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              -1.1298112146912896e-17,
+              4.822437821557342e-16
+            ],
+            [
+              -3.9999999999249995,
+              -5.941775259198996e-17
+            ]
+          ],
+          [
+            [
+              2.719999999923276,
+              -1.7351856680195106e-16
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -4.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              2.7199999999999998,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 7.672396051836198e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            0.0,
+            3.2984845004166834
+          ],
+          [
+            -1.1102230246251565e-16,
+            -3.2984845004166834
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.0,
+        "amplitude": 0.8,
+        "mode": -1,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              -2.5721489580464525e-17,
+              4.03670962285436e-17
+            ],
+            [
+              -0.9999999999250002,
+              -2.6341612579018773e-17
+            ]
+          ],
+          [
+            [
+              -0.28000000007423925,
+              8.50615772403629e-15
+            ],
+            [
+              0.0,
+              -0.0
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -1.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              -0.28000000000000025,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 7.499978416092753e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            -0.5291502622632245,
+            8.050777764891348e-15
+          ],
+          [
+            0.5291502622632246,
+            -8.010410668662807e-15
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.0,
+        "amplitude": 0.8,
+        "mode": 0,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              9.999986271989543e-11,
+              0.0
+            ]
+          ],
+          [
+            [
+              -1.2800000000978693,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              -0.0,
+              -0.0
+            ],
+            [
+              -0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              -1.2800000000000002,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.0
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 9.999986271989543e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            0.0,
+            1.131370073367919e-05
+          ],
+          [
+            0.0,
+            -1.131370073367919e-05
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.0,
+        "amplitude": 0.8,
+        "mode": 1,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              -2.57214895804519e-17,
+              -4.036709622864458e-17
+            ],
+            [
+              -0.9999999999250002,
+              -2.0595992663488352e-17
+            ]
+          ],
+          [
+            [
+              -0.2800000000742393,
+              -8.511019580076666e-15
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              -0.0,
+              -0.0
+            ],
+            [
+              -1.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              -0.28000000000000025,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.0
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 7.499978416092573e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            -0.5291502622632245,
+            -8.067790310093956e-15
+          ],
+          [
+            0.5291502622632246,
+            8.027423213865313e-15
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.0,
+        "amplitude": 0.8,
+        "mode": 2,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              -1.1298112146988625e-17,
+              -4.822437821556837e-16
+            ],
+            [
+              -3.999999999924999,
+              1.1914846075175018e-16
+            ]
+          ],
+          [
+            [
+              2.7199999999232762,
+              2.4528989947883126e-17
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              -0.0,
+              -0.0
+            ],
+            [
+              -4.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              2.7199999999999998,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.0
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 7.672351642895983e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            0.0,
+            -3.2984845004166834
+          ],
+          [
+            -1.1102230246251565e-16,
+            3.2984845004166834
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.0,
+        "amplitude": 0.8,
+        "mode": 3,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              -2.1619995512647477e-16,
+              -5.391110195298791e-16
+            ],
+            [
+              -8.999999999925,
+              1.8589607227583299e-16
+            ]
+          ],
+          [
+            [
+              7.719999999922322,
+              1.695735565841008e-16
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              -0.0,
+              -0.0
+            ],
+            [
+              -9.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              7.72,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.0
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 7.767742005189893e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            0.0,
+            -8.335466393593219
+          ],
+          [
+            0.0,
+            8.335466393593217
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.025,
+        "amplitude": 0.8,
+        "mode": -3,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              -2.3065241978228644e-16,
+              0.4800000000185166
+            ],
+            [
+              -8.9999999999175,
+              -9.288960019995227e-16
+            ]
+          ],
+          [
+            [
+              7.527999999915378,
+              1.762756607316296e-16
+            ],
+            [
+              -1.9664825324378337e-17,
+              0.2880000000184799
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              0.0,
+              0.4800000000000001
+            ],
+            [
+              -9.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              7.528,
+              0.0
+            ],
+            [
+              0.0,
+              0.2880000000000001
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 8.462119893711303e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            0.0,
+            8.615720111794491
+          ],
+          [
+            2.220446049250313e-16,
+            -7.847720111757494
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.025,
+        "amplitude": 0.8,
+        "mode": -2,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              -1.2833382682659077e-17,
+              0.32000000001237194
+            ],
+            [
+              -3.9999999999199995,
+              -2.7016749896973707e-16
+            ]
+          ],
+          [
+            [
+              2.5919999999186683,
+              -9.327012463278299e-17
+            ],
+            [
+              1.498821208833439e-17,
+              0.19200000001257145
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              0.0,
+              0.32000000000000006
+            ],
+            [
+              -4.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              2.5919999999999996,
+              0.0
+            ],
+            [
+              0.0,
+              0.19200000000000006
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 8.133138607041364e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            0.0,
+            3.476573861836991
+          ],
+          [
+            -2.220446049250313e-16,
+            -2.964573861812047
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.025,
+        "amplitude": 0.8,
+        "mode": -1,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              -3.259874887230584e-17,
+              0.1600000000061721
+            ],
+            [
+              -0.9999999999225002,
+              3.540045445585934e-18
+            ]
+          ],
+          [
+            [
+              -0.3440000000768867,
+              8.505536996418346e-15
+            ],
+            [
+              -7.78919427080705e-18,
+              0.09600000000602345
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              0.0,
+              0.16000000000000003
+            ],
+            [
+              -1.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              -0.34400000000000025,
+              0.0
+            ],
+            [
+              0.0,
+              0.09600000000000003
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 7.749978436777389e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            -0.5856415286249963,
+            0.1280000000061051
+          ],
+          [
+            0.5856415286249961,
+            0.12800000000609052
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.025,
+        "amplitude": 0.8,
+        "mode": 0,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              9.999986271989543e-11,
+              0.0
+            ]
+          ],
+          [
+            [
+              -1.2800000000978693,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              -0.0,
+              -0.0
+            ],
+            [
+              -0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              -1.2800000000000002,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.0
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 9.999986271989543e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            0.0,
+            1.131370073367919e-05
+          ],
+          [
+            0.0,
+            -1.131370073367919e-05
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.025,
+        "amplitude": 0.8,
+        "mode": 1,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              -2.7010212108032438e-17,
+              -0.1600000000061721
+            ],
+            [
+              -0.9999999999225003,
+              -3.2645669567999666e-17
+            ]
+          ],
+          [
+            [
+              -0.3440000000768867,
+              -8.502697244200677e-15
+            ],
+            [
+              -1.1671436386577871e-18,
+              -0.09600000000602345
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              -0.0,
+              -0.16000000000000003
+            ],
+            [
+              -1.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              -0.34400000000000025,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.09600000000000003
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 7.749967334547823e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            -0.5856415286249963,
+            -0.12800000000610512
+          ],
+          [
+            0.5856415286249961,
+            -0.12800000000609052
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.025,
+        "amplitude": 0.8,
+        "mode": 2,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              -6.619522792416954e-18,
+              -0.32000000001237194
+            ],
+            [
+              -3.999999999919999,
+              1.1088098264122973e-16
+            ]
+          ],
+          [
+            [
+              2.5919999999186683,
+              4.389544283354224e-17
+            ],
+            [
+              2.446393782394287e-18,
+              -0.19200000001257145
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              -0.0,
+              -0.32000000000000006
+            ],
+            [
+              -4.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              2.5919999999999996,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.19200000000000006
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 8.133138607037202e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            0.0,
+            -3.4765738618369904
+          ],
+          [
+            -1.1102230246251565e-16,
+            2.964573861812047
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.025,
+        "amplitude": 0.8,
+        "mode": 3,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              -2.235523319218855e-16,
+              -0.48000000001851667
+            ],
+            [
+              -8.9999999999175,
+              3.217791317716767e-16
+            ]
+          ],
+          [
+            [
+              7.527999999915379,
+              8.477333418433221e-17
+            ],
+            [
+              4.842046905465855e-19,
+              -0.2880000000184799
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              -0.0,
+              -0.4800000000000001
+            ],
+            [
+              -9.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              7.528,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.2880000000000001
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 8.46203107585522e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            0.0,
+            -8.615720111794491
+          ],
+          [
+            2.220446049250313e-16,
+            7.847720111757495
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.05,
+        "amplitude": 0.8,
+        "mode": -3,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              -2.576585353939047e-16,
+              0.9600000000370328
+            ],
+            [
+              -8.999999999909999,
+              -8.954735548208699e-16
+            ]
+          ],
+          [
+            [
+              7.335999999907997,
+              3.5412153418310815e-16
+            ],
+            [
+              -3.55625722022684e-17,
+              0.5760000000371936
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              0.0,
+              0.9600000000000002
+            ],
+            [
+              -9.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              7.335999999999999,
+              0.0
+            ],
+            [
+              0.0,
+              0.5760000000000002
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 9.200284978373868e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            -8.881784197001252e-16,
+            8.895783461628081
+          ],
+          [
+            4.440892098500626e-16,
+            -7.359783461553855
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.05,
+        "amplitude": 0.8,
+        "mode": -2,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              3.6796789526778675e-18,
+              0.6400000000247433
+            ],
+            [
+              -3.999999999914999,
+              -2.077345769843511e-17
+            ]
+          ],
+          [
+            [
+              2.4639999999128026,
+              -1.3021682463576374e-17
+            ],
+            [
+              1.2629189416903841e-17,
+              0.3840000000252455
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              0.0,
+              0.6400000000000001
+            ],
+            [
+              -4.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              2.4639999999999995,
+              0.0
+            ],
+            [
+              0.0,
+              0.3840000000000001
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 8.719691635406076e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            0.0,
+            3.6540350092891654
+          ],
+          [
+            -2.220446049250313e-16,
+            -2.6300350092391773
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.05,
+        "amplitude": 0.8,
+        "mode": -1,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              -4.2257380412207635e-17,
+              0.3200000000123441
+            ],
+            [
+              -0.9999999999200003,
+              -2.77149953159522e-18
+            ]
+          ],
+          [
+            [
+              -0.40800000007868514,
+              8.493070835963119e-15
+            ],
+            [
+              -6.985562221782843e-18,
+              0.19200000001248896
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              0.0,
+              0.32000000000000006
+            ],
+            [
+              -1.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              -0.40800000000000025,
+              0.0
+            ],
+            [
+              0.0,
+              0.19200000000000006
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 7.999967355232233e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            -0.6355344208192462,
+            0.2560000000124232
+          ],
+          [
+            0.635534420819246,
+            0.25600000001240986
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.05,
+        "amplitude": 0.8,
+        "mode": 0,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              9.999986271989543e-11,
+              0.0
+            ]
+          ],
+          [
+            [
+              -1.2800000000978693,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              -0.0,
+              -0.0
+            ],
+            [
+              -0.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              -1.2800000000000002,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.0
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 9.999986271989543e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            0.0,
+            1.131370073367919e-05
+          ],
+          [
+            0.0,
+            -1.131370073367919e-05
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.05,
+        "amplitude": 0.8,
+        "mode": 1,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              -2.5151196256572567e-17,
+              -0.32000000001234413
+            ],
+            [
+              -0.9999999999200003,
+              -2.210992894119961e-17
+            ]
+          ],
+          [
+            [
+              -0.4080000000786851,
+              -8.513402656451806e-15
+            ],
+            [
+              -5.995638013370908e-19,
+              -0.19200000001248899
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              -0.0,
+              -0.32000000000000006
+            ],
+            [
+              -1.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              -0.40800000000000025,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.19200000000000006
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 7.999967355232534e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            -0.6355344208192462,
+            -0.25600000001242323
+          ],
+          [
+            0.6355344208192458,
+            -0.25600000001240986
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.05,
+        "amplitude": 0.8,
+        "mode": 2,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              -1.1018707960728113e-18,
+              -0.6400000000247433
+            ],
+            [
+              -3.9999999999149995,
+              1.4511422969214065e-16
+            ]
+          ],
+          [
+            [
+              2.4639999999128026,
+              2.553166011666606e-17
+            ],
+            [
+              4.459106695797614e-18,
+              -0.3840000000252454
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              -0.0,
+              -0.6400000000000001
+            ],
+            [
+              -4.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              2.4639999999999995,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.3840000000000001
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 8.719691635406353e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            0.0,
+            -3.6540350092891654
+          ],
+          [
+            0.0,
+            2.6300350092391773
+          ]
+        ]
+      },
+      {
+        "epsilon": 0.05,
+        "amplitude": 0.8,
+        "mode": 3,
+        "background_defect": 0.0,
+        "measured_matrix_real_imag": [
+          [
+            [
+              -2.4358276274749234e-16,
+              -0.9600000000370328
+            ],
+            [
+              -8.999999999909999,
+              2.558390050651122e-16
+            ]
+          ],
+          [
+            [
+              7.335999999907997,
+              8.410720036943126e-17
+            ],
+            [
+              -2.067356701862248e-18,
+              -0.5760000000371935
+            ]
+          ]
+        ],
+        "comparison_matrix_real_imag": [
+          [
+            [
+              -0.0,
+              -0.9600000000000002
+            ],
+            [
+              -9.0,
+              0.0
+            ]
+          ],
+          [
+            [
+              7.335999999999999,
+              0.0
+            ],
+            [
+              -0.0,
+              -0.5760000000000002
+            ]
+          ]
+        ],
+        "maximum_entry_absolute_discrepancy": 9.200284978309562e-11,
+        "measured_eigenvalues_real_imag": [
+          [
+            0.0,
+            -8.895783461628081
+          ],
+          [
+            -4.440892098500626e-16,
+            7.359783461553856
+          ]
+        ]
+      }
+    ],
+    "interpretation": "Arithmetic validation of the real-linear Fourier Jacobian. Its eigenvalues describe linearized sidebands, not nonlinear stability or global existence."
+  },
+  "passed": true,
+  "elapsed_seconds": 0.016563470999699348
+}

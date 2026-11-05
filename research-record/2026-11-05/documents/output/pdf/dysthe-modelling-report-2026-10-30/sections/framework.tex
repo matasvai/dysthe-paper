@@ -1,0 +1,59 @@
+\section{A practical research programme}\label{sec:programme}
+\subsection{First ensure that the neural trial space can represent the target}
+The old spatial $K=48$ architecture must not be copied unchanged into the temporal $T=16$ task. For a candidate cutoff $K$, compute the best possible Fourier approximation floor
+\begin{equation}
+ F_{K,2}=\max_{T\in\mathcal T}
+ \frac{\norm{(I-P_K)u_{\rm ref}(T)}_{H^2}}{\norm{u_{\rm ref}(T)}_{H^2}}.
+ \label{eq:floor}
+\end{equation}
+It bounds the error of every prediction supported on these modes, regardless of training. At $\epsilon=0.05$, $K=48$ floors through $T=16$ are $42.6\%$, $48.5\%$ and $59.9\%$ for packet, wavetrain and random data. Thus a 5\% neural gate is unattainable in this trial space. Even $K=128$ leaves a roughly 31\% random-profile floor. By $T=4$, all six primary cases instead reach a floor below 5\% using at most $K=16$ among tested cutoffs. Begin on shorter intervals and choose a projection budget strictly below the final error gate.
+\IfFileExists{figures/temporal-representation-bandwidth.pdf}{\fig{temporal-representation-bandwidth}{.72}{Representation and physical-band diagnostics for temporal trajectories. Fourier projection floors are measured from reference fields before choosing a neural architecture. A diagnostic threshold $\epsilon|k|\ge0.5$ identifies short modulation scales; it is not a universal validity boundary.}}{}
+Narrowband asymptotics require modulation wavenumbers small relative to the carrier. Little wave action outside that regime can dominate $H^2$; numerical convergence alone does not establish physical validity. Report both action and derivative-weighted fractions.
+
+\subsection{What a temporal PINN transfer would require}
+Retain the slab construction, replace its linear flow and complete nonlinear residual by \eqref{eq:scaled}, and enforce its explicit model ID. Differentiate in $T$ with automatic differentiation and in $s$ with Fourier multipliers. Compute the density and nonlocal multiplier on a sufficiently padded full spatial grid at every residual time; random isolated space--time points do not by themselves evaluate the nonlocal term. Test Torch and reference RHS parity, plane-wave phase, MI drift and zero-$\epsilon$ agreement before training.
+
+Start at $T\le4$, then $8$, extending only after reference and representation checks pass. Use matched scaled/unscaled fits and a finer independent residual grid. This temporal neural transfer is specified here but has \emph{not} been implemented or trained by the present CPU proof of concept.
+\clearpage
+\subsection{Test purposes, controls and decisions}
+\small
+\begin{longtable}{p{.15\linewidth}p{.29\linewidth}p{.28\linewidth}p{.17\linewidth}}
+\toprule Test & Scientific purpose & Control and measurement & Decision \\\midrule\endhead
+Equation audit & Resolve signs, variables and mean flow & Plane-wave frequency, Fourier symbol, complex MI eigenvalue & Must pass before training \\
+Reference refinement & Separate dynamics from discretization & Double grid; halve step independently; $H^0,H^1,H^2$, action, tails & Stop or refine failed intervals \\
+Packet box size & Distinguish isolated-packet behaviour from periodic interaction & Double $L,N$ at fixed spacing; matched initial spectrum & Qualify domain claim only through tested time \\
+Representation audit & Avoid impossible neural accuracy targets & Compute $F_{K,2}$ using qualified reference & Choose $K$ with floor well below error budget \\
+Slab PINN ablation & Test conditioning, including derivative fidelity & Same inputs and budgets; $w_m=1$ vs $(1+k_m^2)^{-1}$; 3 seeds & Extend only when full gates pass \\
+Input sensitivity & Quantify finite-time amplification of data differences & Paired bandlimited perturbations at $10^{-4},10^{-3},10^{-2}$; 5 directions & Separate physical sensitivity from model error \\
+FNO whole-profile test & Learn a reusable solution operator across data & Entire profiles and all their time windows kept in one split & Compare held-out rollout errors and full costs \\
+Later-time extension & Test accumulated error and repeated focusing & No reference resets; evaluation at 4,8,16,32 only when qualified & Report first failed interval; do not infer blow-up \\
+\bottomrule
+\end{longtable}\normalsize
+These are sequential tests, not a promise that every horizon will succeed. The first four are inexpensive CPU prerequisites. The existing spatial PINN ablation is the most evidence-supported neural next step; an operator-learning campaign should follow once reference quality and bandwidth are established.
+
+\subsection{A bounded initial-data ensemble}
+A feasible first operator pilot is 16 training, 4 validation and 8 test profiles per family: 48/12/24 trajectories total. These are proposed sample counts, not a statistical power calculation. For example, vary packet peak in $[0.6,0.85]$, width in $[2.5,4]$ and chirp in $[-0.08,0.08]$; vary carrier peak in $[0.6,0.8]$, modulation depth in $[0.02,0.08]$ and mode 3--6; vary saved random Fourier coefficients with bounded peak and bandwidth. Use separate fixed seeds for each split. A new random realization is a new profile, not a new time slice of a training profile.
+
+Do not silently omit hard or unresolved profiles from a purported generalization result. Record numerical-label exclusions and the resulting domain of the dataset. Evaluate different initial phases and translations as symmetry checks, but keep augmented copies of the same base profile in the same split. Start with one temporal formulation and a fixed period; a different $c$ or model ID is a separate experiment.
+\clearpage
+\subsection{FNO implementation and a fair comparison}
+An FNO is intended to learn a map over a family of inputs \cite{fno}; the existing per-inlet PINN is not such an operator. A practical temporal map is
+\[
+ \mathcal G_\theta:(\operatorname{Re}u_j,\operatorname{Im}u_j,\epsilon,\Delta T)
+       \longmapsto u_{j+1}.
+\]
+Use real and imaginary channels with constant parameter channels, periodic Fourier layers and a residual update around the exact linear flow. Keep normalization fixed from training data. A starting architecture of four Fourier blocks, width 64 and a validated mode count is an engineering choice to tune on validation data, not a scientifically established optimum. The output grid and Fourier blocks must be audited against \eqref{eq:floor}; the block's low-mode count alone does not define the output bandwidth when local layers generate higher modes.
+
+Train with complex-field error and a declared derivative-sensitive loss, for example $L^2$ plus normalized $H^1/H^2$ terms, and short multi-step rollout loss. Include the unweighted-loss baseline to isolate the effect. A physics residual penalty is an optional later ablation; it requires the same full nonlocal evaluation and does not turn residual minimization into an existence proof.
+
+\textbf{Evaluation protocol.} Freeze architecture and checkpoints using validation profiles. Evaluate untouched test profiles under both one-step prediction and autonomous rollout, where each predicted state becomes the next input. Report per-family medians, worst cases, failure counts, peak timing/amplitude errors, complex phase error, $E_0,E_1,E_2$, action drift, spectrum and sensitivity gain. Report a defined valid horizon, such as the first saved station at which any primary gate fails. A low teacher-forced one-step error cannot establish a good autonomous rollout.
+
+Compare the FNO with the numerical solver at \emph{matched accuracy}, including label generation and training. If $C_{\rm setup}$ is reference generation plus training cost, $C_{\rm num}$ is numerical cost per requested trajectory and $C_{\rm infer}$ is model inference cost, the simple amortization estimate is
+\[
+ n_{\rm break-even}=\frac{C_{\rm setup}}{C_{\rm num}-C_{\rm infer}}
+ \quad\text{only if }C_{\rm num}>C_{\rm infer}.
+\]
+Use measured common-hardware costs and include failed trials. For three profiles, a fast Fourier solver is likely the useful production baseline; no neural speed advantage is established here. A reusable operator becomes scientifically useful if many held-out queries meet derivative and peak requirements at an acceptable total cost. Inverse inference from sparse observations is a plausible later use of PINNs \cite{raissi}, but it would require a new noise/identifiability experiment rather than being claimed from these forward fits.
+
+\subsection{A100 sequence while training is pending}
+The supplied cluster handoff pins the existing \emph{spatial} repair revision. Run its smoke configuration first, then the conditioned check and matched unconditioned control using new output directories. Compare three seeds before extending the interval. Use one A100 per task initially; independent profiles or seeds can form an array. Multi-GPU training is unnecessary until a measured memory or throughput bottleneck justifies it. The new temporal reference solver is CPU-based and has a separate \texttt{med} array launcher. No cluster job was submitted as part of this report.

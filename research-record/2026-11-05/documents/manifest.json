@@ -1,0 +1,3703 @@
+{
+  "archive_date": "2026-11-05",
+  "purpose": "Byte-preserved research documents and explicitly requested unrelated project-chat artifacts. Original claims can be superseded; consult the dated research and chat catalogues for current status.",
+  "source_root": "/home/matasvai/Documents/Projects/Dysthe",
+  "policy": {
+    "max_file_bytes": 5000000,
+    "raw_arrays_checkpoints_zip_files": "omitted from Git; provenance retained separately",
+    "third_party_papers": "not copied",
+    "new_scientific_validation": false,
+    "report_source_edits": false,
+    "unrelated_project_chats": "Cavitation worked solution included by explicit user request to cover unrelated chats. Other unrelated filesystem files and resumes remain excluded."
+  },
+  "files": [
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/a100-reference-preflight.json",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/a100-reference-preflight.json",
+      "bytes": 232629,
+      "sha256": "12e538342f34fb74367ed31e19441a860b0c8a097e03b0e860e9a1c79c9c15cf",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/audit.json",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/audit.json",
+      "bytes": 184564,
+      "sha256": "885f591f2bbfb9b0899df4b09adf777346d11d2a35082857f5d9ec521c0c6697",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/config.json",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/config.json",
+      "bytes": 774,
+      "sha256": "f3713cd4163a4d5ecd4ac2b04c370a1a15f625e26c2538367ba81aad2f2dc22f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/data/aggregate-errors.csv",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/data/aggregate-errors.csv",
+      "bytes": 7510,
+      "sha256": "61dd26f5ef69f981361d8bea483ac83d271a0499b563732ea22001c104144c8f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/data/case-errors.csv",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/data/case-errors.csv",
+      "bytes": 37031,
+      "sha256": "07ccb9c90d94d24350ed7d23f141489bcf44c8a3d5b9cf9f34efe35700626d86",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/data/case-errors.json",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/data/case-errors.json",
+      "bytes": 97264,
+      "sha256": "fc644ff22c207504ce1a1690205f5fa7722df161ca54550618ebeeb4c2d806f8",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/data/numerical-regularity.csv",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/data/numerical-regularity.csv",
+      "bytes": 18625,
+      "sha256": "837e1fde9afc5a9322f015103d9bfb3d8d28aa06398c2cfd820239a5d3c5f884",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/data/station-errors.csv",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/data/station-errors.csv",
+      "bytes": 274054,
+      "sha256": "ca45abfe6f646d5ba796a43c64d0b91b9511f62f44e891d86e558b7050b97ae2",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/data/station-errors.json",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/data/station-errors.json",
+      "bytes": 606110,
+      "sha256": "067793e1dbd73c9e568ecf14869ba855b72bf5c326223416223e61ec99c9a2e3",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/data/timings.json",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/data/timings.json",
+      "bytes": 26142,
+      "sha256": "350d990901b134a8e030c957a99f21bcb8d5cbe3cbd7505b4e39a85aa87bd313",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/environment-cpu.json",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/environment-cpu.json",
+      "bytes": 295,
+      "sha256": "16841cb2762241c02af7dc4b60c39fc6f40e5e878bb6afefda84de1bd755b9dc",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/figures/method-errors-xi2.pdf",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/figures/method-errors-xi2.pdf",
+      "bytes": 21245,
+      "sha256": "1397392b13f0f4049548bd6302962a1977102e41ca2ca9b403322811b55a9ba3",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/figures/numerical-regularity.pdf",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/figures/numerical-regularity.pdf",
+      "bytes": 19919,
+      "sha256": "967ecd0336b4d1466f936e5a902a43768ddf8b56168a5c8296439d5439168dfb",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/figures/operator-growth.pdf",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/figures/operator-growth.pdf",
+      "bytes": 20388,
+      "sha256": "09a76f01c1bca7dc4c361961544493f5430a5d454c9ea6fb94d7f0ee85bd496a",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/long-numerical-diagnostics.json",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/long-numerical-diagnostics.json",
+      "bytes": 40874,
+      "sha256": "f79148a8e74d53542c9b3f7af3e566e35c4c3d602b0e56ab6710ae2e6ecb9477",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/long-refinement.json",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/long-refinement.json",
+      "bytes": 33961,
+      "sha256": "eda2621ebd592734c1b15f47a95513ac6b17eb3ad998e95cdb9830166e1a0523",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/manifest.json",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/manifest.json",
+      "bytes": 89712,
+      "sha256": "7d461daed8ca22fd0abe590ca1256a9156e96696c646ee32706a7bef411cc87b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/pinn-table.tex",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/pinn-table.tex",
+      "bytes": 149,
+      "sha256": "c2281609ea0c2dec2c76f045a8ec45ad04b7b7454c310046c2e6eee133c768cb",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/protocol.json",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/protocol.json",
+      "bytes": 1709,
+      "sha256": "0b17c62fb183b981a04ff9f38f408a05d50296b78992126eaaa39b7bb52feb0c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/regularity-diagnostics.json",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/regularity-diagnostics.json",
+      "bytes": 17125,
+      "sha256": "a22431b3f49d47809c35ec46be756925527b4c6b1434d779ce7366e51bbd6bef",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/report.pdf",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/report.pdf",
+      "bytes": 364853,
+      "sha256": "f48c0a258528cadf7c3b0fcfeb6b0f3e7066f8178296c628d5507efbf57b77d0",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/report.tex",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/report.tex",
+      "bytes": 18226,
+      "sha256": "697ed8497039f97385bb77d0bfa64be85df0ada077b4033a8252413ce348b78b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/restart-verification.json",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/restart-verification.json",
+      "bytes": 9513,
+      "sha256": "bd28b8f91096faf28dbab8e90af27b6408191623288eb0a148aef110db11328f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/royden-report.sty",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/royden-report.sty",
+      "bytes": 1256,
+      "sha256": "cb1d0cade75d47a5de899ef991ef5cb98ce6dc19d7d8626e751c4fefe0fd2b84",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/sensitivity.json",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/sensitivity.json",
+      "bytes": 61578,
+      "sha256": "e8740b565bb6a779c178557f488f07ea663173810792f2823cbf4cf3c7d33a8a",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/training.json",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/training.json",
+      "bytes": 140881,
+      "sha256": "b8f3cc562b07cb9e02068471d627dc91678bf7707464836bb595f3e2f47350ac",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-experiments/results/cpu-pilot-2026-10-26/verification.json",
+      "target": "dysthe-experiments/results/cpu-pilot-2026-10-26/verification.json",
+      "bytes": 669,
+      "sha256": "5669a3f890b26e65372f1682d08e1a464dc60244ab7c009b532d579b53cb1fdf",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/output/pdf/dysthe-project-overview.pdf",
+      "target": "dysthe-pinn/output/pdf/dysthe-project-overview.pdf",
+      "bytes": 90419,
+      "sha256": "206dbfb62f73ea958bced149d822c60f694ede5c2af2347e7e687e3fa7996964",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/output/pdf/dysthe-research-reset.pdf",
+      "target": "dysthe-pinn/output/pdf/dysthe-research-reset.pdf",
+      "bytes": 171478,
+      "sha256": "382f408980d0268ab80a04eb9c2dd394b528c612261561127d4dc506d2d6a417",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/breathing-preview/envelope-method.json",
+      "target": "dysthe-pinn/reports/breathing-preview/envelope-method.json",
+      "bytes": 20105,
+      "sha256": "2478f253ca1165313c7ef72f758a1b9b4169d028bedf449548d14162e9450efe",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/breathing-preview/peak_envelopes.png",
+      "target": "dysthe-pinn/reports/breathing-preview/peak_envelopes.png",
+      "bytes": 522519,
+      "sha256": "8ecbe79fce4f78eaffea954d561ac9752f3c738a5a6d3f1139e73201e6674988",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/breathing-preview/report.tex",
+      "target": "dysthe-pinn/reports/breathing-preview/report.tex",
+      "bytes": 755,
+      "sha256": "4100b4fa765064b13b2e0fd59073c7c996b7f0588dca686b21ab6e069cfb787f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-project-overview/README.md",
+      "target": "dysthe-pinn/reports/dysthe-project-overview/README.md",
+      "bytes": 3541,
+      "sha256": "64bf880b0cc8cc4a6875153e76f0aaa6c5f3332a7b78f71a8f69895d80efb0cf",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-project-overview/build_figures.py",
+      "target": "dysthe-pinn/reports/dysthe-project-overview/build_figures.py",
+      "bytes": 3781,
+      "sha256": "5139fa1e9c83599cce324ffefa21c23d41dba0d4129de6f1ea7edb934fe74eae",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-project-overview/collect_evidence.py",
+      "target": "dysthe-pinn/reports/dysthe-project-overview/collect_evidence.py",
+      "bytes": 5115,
+      "sha256": "5fe4b79110617c7c028c4218ec42de2669bc22494e51ba6a55bcc52158438564",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-project-overview/figures/learning.pdf",
+      "target": "dysthe-pinn/reports/dysthe-project-overview/figures/learning.pdf",
+      "bytes": 10595,
+      "sha256": "83b61355d087402c21ad273cf0a22dffc4e69d2086cb7f4e7875daa873dec589",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-project-overview/figures/spreading.pdf",
+      "target": "dysthe-pinn/reports/dysthe-project-overview/figures/spreading.pdf",
+      "bytes": 13897,
+      "sha256": "54d9a4ad1ed2d0de2848a8df7431403ad37aec32cc4ccd687eaf9a5c4e5030ea",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-project-overview/figures/tradeoff.pdf",
+      "target": "dysthe-pinn/reports/dysthe-project-overview/figures/tradeoff.pdf",
+      "bytes": 13402,
+      "sha256": "00f67b123c1822ea86bfcec21b01c18356511dd06400ba4e80a44efcc4a987ce",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-project-overview/figures/unevenness.pdf",
+      "target": "dysthe-pinn/reports/dysthe-project-overview/figures/unevenness.pdf",
+      "bytes": 11433,
+      "sha256": "8aae85a9dd1d7f5219040e95fe33134284def8ecf72e43e28f6939b51a14e340",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-project-overview/overview_data.json",
+      "target": "dysthe-pinn/reports/dysthe-project-overview/overview_data.json",
+      "bytes": 9984,
+      "sha256": "3eda0f4995e523c5c0f1a3fa5e01c4ce5cad50e8c16ca40918f2cffd7825b024",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-project-overview/report.tex",
+      "target": "dysthe-pinn/reports/dysthe-project-overview/report.tex",
+      "bytes": 17049,
+      "sha256": "2527f76b510b90cf02cf8516095fd15e0d41704a4d32f8d9fd36e6eff7e5aacd",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-project-overview/royden-report.sty",
+      "target": "dysthe-pinn/reports/dysthe-project-overview/royden-report.sty",
+      "bytes": 1256,
+      "sha256": "cb1d0cade75d47a5de899ef991ef5cb98ce6dc19d7d8626e751c4fefe0fd2b84",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-project-overview/verification.json",
+      "target": "dysthe-pinn/reports/dysthe-project-overview/verification.json",
+      "bytes": 1654,
+      "sha256": "6c7bd57c4acac7fb086a9de6a69cfb112b47ae863fad18f11c3f5f45c27f98c2",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-research-reset/README.md",
+      "target": "dysthe-pinn/reports/dysthe-research-reset/README.md",
+      "bytes": 3023,
+      "sha256": "9c82de1913cfc3cbfc6a038dc78b6576564eac11f0c75fc2a6a30b987fe47416",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-research-reset/audit-notes.md",
+      "target": "dysthe-pinn/reports/dysthe-research-reset/audit-notes.md",
+      "bytes": 10001,
+      "sha256": "d1149d7beb96efa1bef08517294ed5ad70c4abc042e2d1769adfdd0337fe38e4",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-research-reset/build_figures.py",
+      "target": "dysthe-pinn/reports/dysthe-research-reset/build_figures.py",
+      "bytes": 2864,
+      "sha256": "ac07dbc0cd12dfcdaa3465ce5303a34a61142dd293a805e9f1e1a58cc4c1e473",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-research-reset/check_solver_agreement.py",
+      "target": "dysthe-pinn/reports/dysthe-research-reset/check_solver_agreement.py",
+      "bytes": 1934,
+      "sha256": "d3ab2392553614498e356bd6cffc84ae4a715b5a918495c4168ff49a4765a8ab",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-research-reset/collect_evidence.py",
+      "target": "dysthe-pinn/reports/dysthe-research-reset/collect_evidence.py",
+      "bytes": 4507,
+      "sha256": "22df3d160f8e557232d352803ca569ad99b0c0a32906e8259d3c65978d3f5d3a",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-research-reset/evidence.json",
+      "target": "dysthe-pinn/reports/dysthe-research-reset/evidence.json",
+      "bytes": 166765,
+      "sha256": "8dc1181806fd052f97ffd569f24de909e42ebf2e2bfd095544a6a23058ff1e51",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-research-reset/figures/periodic_peak.pdf",
+      "target": "dysthe-pinn/reports/dysthe-research-reset/figures/periodic_peak.pdf",
+      "bytes": 27248,
+      "sha256": "aa3fb69dc7df6c0cb74df14491e37c15a9deb0293aa86dcdcac099b98635dab4",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-research-reset/figures/pinn_errors.pdf",
+      "target": "dysthe-pinn/reports/dysthe-research-reset/figures/pinn_errors.pdf",
+      "bytes": 13951,
+      "sha256": "306c2d9a74c32debe39e639414811991302d998f780044b1c895f5bc4a8cf8f6",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-research-reset/figures/restricted_decay.pdf",
+      "target": "dysthe-pinn/reports/dysthe-research-reset/figures/restricted_decay.pdf",
+      "bytes": 23053,
+      "sha256": "56001590e7cf56528f8ddff97957358635d617536ab01bcb4405d2e68616f773",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-research-reset/figures/stripe_growth.pdf",
+      "target": "dysthe-pinn/reports/dysthe-research-reset/figures/stripe_growth.pdf",
+      "bytes": 12280,
+      "sha256": "f51565b5c2a641d190a0b3cc7b923670c02138c8571856adbd5081e8af6aad74",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-research-reset/report.tex",
+      "target": "dysthe-pinn/reports/dysthe-research-reset/report.tex",
+      "bytes": 30202,
+      "sha256": "a671e88e84cf91b3498d3141ee3a3224be6b81d1c14e5a07eba16ac2fa6cd9a1",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-research-reset/royden-report.sty",
+      "target": "dysthe-pinn/reports/dysthe-research-reset/royden-report.sty",
+      "bytes": 1256,
+      "sha256": "cb1d0cade75d47a5de899ef991ef5cb98ce6dc19d7d8626e751c4fefe0fd2b84",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/dysthe-research-reset/verification.json",
+      "target": "dysthe-pinn/reports/dysthe-research-reset/verification.json",
+      "bytes": 1257,
+      "sha256": "f58cd9ad8358b0df57639f3506e2c73c4fa438cf5a9c18cc2ba3e40e7f682f6c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/build_preview_addition.py",
+      "target": "dysthe-pinn/reports/late-window-review/build_preview_addition.py",
+      "bytes": 7326,
+      "sha256": "472d08fbca87eb5258b9036b0e8ec5574990aa76786aefa239d7423dc6e23f34",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/build_review.py",
+      "target": "dysthe-pinn/reports/late-window-review/build_review.py",
+      "bytes": 20701,
+      "sha256": "9299f950add9f1865327f58e2b415e24299593b6575144679e6bd8525f799f16",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/diagnostics.png",
+      "target": "dysthe-pinn/reports/late-window-review/diagnostics.png",
+      "bytes": 93699,
+      "sha256": "769b70683a4b7ce9816df63440dd63444be4ac5008a7dc132117d3c56b150b36",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/fit.png",
+      "target": "dysthe-pinn/reports/late-window-review/fit.png",
+      "bytes": 245554,
+      "sha256": "24ff97ceaece8b05095679ac6c085c0e03f38ccd453cd70ddacefeea7030359f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/fit_oscillations.py",
+      "target": "dysthe-pinn/reports/late-window-review/fit_oscillations.py",
+      "bytes": 4799,
+      "sha256": "5cdee5db326c63e4d1c7a59fe998b5948f34b36db3fe2aa157cdc6e121821520",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/oscillation-fit.json",
+      "target": "dysthe-pinn/reports/late-window-review/oscillation-fit.json",
+      "bytes": 1294,
+      "sha256": "e9ae221da741d8dabd4d96cd93f5e9bd61b42f723e8c4e105f95aaadf6b65fc9",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/oscillation_fit.png",
+      "target": "dysthe-pinn/reports/late-window-review/oscillation_fit.png",
+      "bytes": 321454,
+      "sha256": "aa8ab13b0a86036d2b430c2df526e01e3db17f97fcce03e1351ec9d965ab48c4",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/oscillation_fit.tex",
+      "target": "dysthe-pinn/reports/late-window-review/oscillation_fit.tex",
+      "bytes": 2055,
+      "sha256": "0567d3f237aa494344554032886765e84272728218fd7cf72b826aca6dea0a2f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/parameter_background.tex",
+      "target": "dysthe-pinn/reports/late-window-review/parameter_background.tex",
+      "bytes": 3255,
+      "sha256": "569e0295cedd1447475afbaaca7746121c6f2fdd3671d85780cfb87418c75577",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/peak_envelopes.png",
+      "target": "dysthe-pinn/reports/late-window-review/peak_envelopes.png",
+      "bytes": 522519,
+      "sha256": "8ecbe79fce4f78eaffea954d561ac9752f3c738a5a6d3f1139e73201e6674988",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/peak_envelopes.tex",
+      "target": "dysthe-pinn/reports/late-window-review/peak_envelopes.tex",
+      "bytes": 1291,
+      "sha256": "06442ba3aece5249ae8ad2d6013956a9331164d07a197defbd53c9d16ed13470",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/peak_history.png",
+      "target": "dysthe-pinn/reports/late-window-review/peak_history.png",
+      "bytes": 386282,
+      "sha256": "f5eb0921879257487324ab6feebe43eadebcdc53218acd483173b19c26c1e26b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/pinn_structure.png",
+      "target": "dysthe-pinn/reports/late-window-review/pinn_structure.png",
+      "bytes": 152575,
+      "sha256": "59f3330111c294213ff629ce132da5e85a416f4bd50eec503aaa86381571c048",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/preview-statistics.json",
+      "target": "dysthe-pinn/reports/late-window-review/preview-statistics.json",
+      "bytes": 365,
+      "sha256": "11af47e6e731e3f8b9e13b08046e81b2d2e0fb085b654d91f321cb8bdebe0231",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/preview_addition.tex",
+      "target": "dysthe-pinn/reports/late-window-review/preview_addition.tex",
+      "bytes": 3851,
+      "sha256": "656f8901bdc3572b5929409e4a81aa7ad795abee91d872b9b324f3ef00566167",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/preview_milestones.png",
+      "target": "dysthe-pinn/reports/late-window-review/preview_milestones.png",
+      "bytes": 236704,
+      "sha256": "d50a195b42575534fe80cae473a4f80cdda06797f1a44711fc2ef6251c4b25dc",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/preview_results.png",
+      "target": "dysthe-pinn/reports/late-window-review/preview_results.png",
+      "bytes": 332395,
+      "sha256": "fd800acfef095fb7c998874175a5d2f852389a92e1e493255a1baff370290521",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/report.pdf",
+      "target": "dysthe-pinn/reports/late-window-review/report.pdf",
+      "bytes": 2190383,
+      "sha256": "1248446bc70df40faa0213ce239c5623873e5a4b009ecb4d444c077581c7aaf6",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/report.tex",
+      "target": "dysthe-pinn/reports/late-window-review/report.tex",
+      "bytes": 16529,
+      "sha256": "1437e3f334496099a915f2e1a7590f1dfca03d5bdd6b1fc401b9aa08c8e99b99",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/review-statistics.json",
+      "target": "dysthe-pinn/reports/late-window-review/review-statistics.json",
+      "bytes": 1725,
+      "sha256": "64f5fbb5fffd244f962cc4c3deeb7f5c07482bde9f3c221d936b33b838349c83",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/settings.json",
+      "target": "dysthe-pinn/reports/late-window-review/settings.json",
+      "bytes": 1084,
+      "sha256": "f7a2bab36b60d528c52c8c38607c6c61d6497a56cfba83094a6747c8863d1269",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late-window-review/summary.json",
+      "target": "dysthe-pinn/reports/late-window-review/summary.json",
+      "bytes": 471093,
+      "sha256": "c810a721925cba1e49625afb1836ba1079a6b0837f263380470e767d2a93b5d7",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late_window_1024_2048.tex",
+      "target": "dysthe-pinn/reports/late_window_1024_2048.tex",
+      "bytes": 2811,
+      "sha256": "d2a9366dcbe0ea71813387680ee3bbd17541cc2ec60b6d1af97002ab0452571b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late_window_2048_2049.tex",
+      "target": "dysthe-pinn/reports/late_window_2048_2049.tex",
+      "bytes": 4129,
+      "sha256": "8f12f75e752525e10306df9cf2028716bf4c56ea279dc79b6007ed857c1a74c2",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/reports/late_window_5000_5001.tex",
+      "target": "dysthe-pinn/reports/late_window_5000_5001.tex",
+      "bytes": 4129,
+      "sha256": "95a2725cdf8f26d4a8cef37a3906669f3919b1a50c636087f765786badae55ca",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/review/benchmark_reference_audit.json",
+      "target": "dysthe-pinn/review/benchmark_reference_audit.json",
+      "bytes": 3959,
+      "sha256": "b44b6fd02b28e76345d47a018d412968497eb107c772ec9e32df7afc1f579053",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/review/independent_solver_checks.json",
+      "target": "dysthe-pinn/review/independent_solver_checks.json",
+      "bytes": 737,
+      "sha256": "3f13b3cb1610a69856c83694e42f0899203521c3a1dc7887e39ddc7f16f2eae4",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/review/review.json",
+      "target": "dysthe-pinn/review/review.json",
+      "bytes": 4662,
+      "sha256": "24ac4450df7e87da868b8e7ef9976d73d4e576261bcd572ac9354caca6c5c500",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "dysthe-pinn/review/review.tex",
+      "target": "dysthe-pinn/review/review.tex",
+      "bytes": 16649,
+      "sha256": "ed04c1a99ae6427bffc67cbbdb15b0668132b4000416c0acc682253f1864a8c7",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "/home/matasvai/Documents/Codex/2026-10-16/task/stage1/report/controls.tex",
+      "target": "external-stage-one-2026-10-16/report/controls.tex",
+      "bytes": 2875,
+      "sha256": "3c2badfc0bd504e3e19014ed2013a8b0caf59d3724fd47b0e69e90c39c8c42ae",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "/home/matasvai/Documents/Codex/2026-10-16/task/stage1/report/figures/controls.pdf",
+      "target": "external-stage-one-2026-10-16/report/figures/controls.pdf",
+      "bytes": 23710,
+      "sha256": "8fa5509560ef4c45dc1031066fc8435f9b5f45fe73b33193034fd54c133579d1",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "/home/matasvai/Documents/Codex/2026-10-16/task/stage1/report/figures/controls.png",
+      "target": "external-stage-one-2026-10-16/report/figures/controls.png",
+      "bytes": 93062,
+      "sha256": "4fbb17fa72b4e1a611eed59bcf351fa405ff268709f89e7e8668168912042f29",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "/home/matasvai/Documents/Codex/2026-10-16/task/stage1/report/figures/convergence.pdf",
+      "target": "external-stage-one-2026-10-16/report/figures/convergence.pdf",
+      "bytes": 24300,
+      "sha256": "2d8f4d889cf94bef7eb2a4af39d08d520fdf6988eb9b0a17e981207b47c73d48",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "/home/matasvai/Documents/Codex/2026-10-16/task/stage1/report/figures/convergence.png",
+      "target": "external-stage-one-2026-10-16/report/figures/convergence.png",
+      "bytes": 70275,
+      "sha256": "b88eb568e85f0968cbafc2f9411db508769097420cfe3b1f66dcc9dbafedfd6f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "/home/matasvai/Documents/Codex/2026-10-16/task/stage1/report/figures/shape-and-drift.pdf",
+      "target": "external-stage-one-2026-10-16/report/figures/shape-and-drift.pdf",
+      "bytes": 54807,
+      "sha256": "b093f994b6a4c5f3f12be7f8e3a88d2187a98b37e9c18ee4c5fbbebfb8c5f32f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "/home/matasvai/Documents/Codex/2026-10-16/task/stage1/report/figures/shape-and-drift.png",
+      "target": "external-stage-one-2026-10-16/report/figures/shape-and-drift.png",
+      "bytes": 59016,
+      "sha256": "15cfd36653fd300368a99e70d8c093c647bad0053b3950603047682466dc2ad2",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "/home/matasvai/Documents/Codex/2026-10-16/task/stage1/report/report.pdf",
+      "target": "external-stage-one-2026-10-16/report/report.pdf",
+      "bytes": 421037,
+      "sha256": "28633da01c6c5cd8573ba5af515d68da04331e14aa7ce3cc61176037b3ca485c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "/home/matasvai/Documents/Codex/2026-10-16/task/stage1/report/report.tex",
+      "target": "external-stage-one-2026-10-16/report/report.tex",
+      "bytes": 8757,
+      "sha256": "35f960b20e00a7d90816072508877c20933f2870602fad2538b500dbc356ca8d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "/home/matasvai/Documents/Codex/2026-10-16/task/stage1/report/results.tex",
+      "target": "external-stage-one-2026-10-16/report/results.tex",
+      "bytes": 7383,
+      "sha256": "35b23eb55e2647155ec040099eca78eaad53321626120cdcc13f1b098a84e10c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "/home/matasvai/Documents/Codex/2026-10-16/task/stage1/report/royden-report.sty",
+      "target": "external-stage-one-2026-10-16/report/royden-report.sty",
+      "bytes": 1256,
+      "sha256": "cb1d0cade75d47a5de899ef991ef5cb98ce6dc19d7d8626e751c4fefe0fd2b84",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "/home/matasvai/Documents/Codex/2026-10-16/task/stage1/results/decision.json",
+      "target": "external-stage-one-2026-10-16/results/decision.json",
+      "bytes": 1716,
+      "sha256": "85aafd3e4849c9d399f6267e60e97c98f54547b1a3339b8fb043d714ea92387c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/pinn_smoke_report_latex.zip::config.json",
+      "target": "extracted-source-archives/pinn-smoke/config.json",
+      "bytes": 757,
+      "sha256": "000733f80f4409dd1785613e16c5fd9a89ac72df2a036a4e8a9570092ea0e1a5",
+      "selection": "source archive member; content unchanged"
+    },
+    {
+      "source": "output/pdf/pinn_smoke_report_latex.zip::environment.json",
+      "target": "extracted-source-archives/pinn-smoke/environment.json",
+      "bytes": 105,
+      "sha256": "e098691aa1848f1b6c61f568e8c12bcc9b1db06c76c58fc39ddd83f461b7ceae",
+      "selection": "source archive member; content unchanged"
+    },
+    {
+      "source": "output/pdf/pinn_smoke_report_latex.zip::errors.png",
+      "target": "extracted-source-archives/pinn-smoke/errors.png",
+      "bytes": 114603,
+      "sha256": "42dedd87bc98dc820aba879fb80fb8a97267b43ca418c747d1fdef232ea58936",
+      "selection": "source archive member; content unchanged"
+    },
+    {
+      "source": "output/pdf/pinn_smoke_report_latex.zip::metrics.json",
+      "target": "extracted-source-archives/pinn-smoke/metrics.json",
+      "bytes": 3979,
+      "sha256": "62cbb66254c525dbfcd23d3eb74f3e300b649812aca73f8caf8d05d6a2ec347e",
+      "selection": "source archive member; content unchanged"
+    },
+    {
+      "source": "output/pdf/pinn_smoke_report_latex.zip::reference-audit.json",
+      "target": "extracted-source-archives/pinn-smoke/reference-audit.json",
+      "bytes": 2210,
+      "sha256": "57f53017f4d56d6b8b073a2179d7ad6d647d1f6e558200c88af562da4eecc055",
+      "selection": "source archive member; content unchanged"
+    },
+    {
+      "source": "output/pdf/pinn_smoke_report_latex.zip::report.tex",
+      "target": "extracted-source-archives/pinn-smoke/report.tex",
+      "bytes": 3889,
+      "sha256": "b2191fa287dd7651a4a586136ffefda0b62edca92d4ce4e605822e7d593633b2",
+      "selection": "source archive member; content unchanged"
+    },
+    {
+      "source": "output/pdf/pinn_smoke_report_latex.zip::report_manifest.json",
+      "target": "extracted-source-archives/pinn-smoke/report_manifest.json",
+      "bytes": 186,
+      "sha256": "b53b536409bcaaabff2fff32541ee9cad6cdc074722017c8f5d02898747f55d9",
+      "selection": "source archive member; content unchanged"
+    },
+    {
+      "source": "output/pdf/pinn_smoke_report_latex.zip::slices.png",
+      "target": "extracted-source-archives/pinn-smoke/slices.png",
+      "bytes": 76907,
+      "sha256": "3f2e73765ba46ec550bb87be26677b53eeb6b935462552626ea608c58ed734f7",
+      "selection": "source archive member; content unchanged"
+    },
+    {
+      "source": "output/beginners_guide/build.py",
+      "target": "output/beginners_guide/build.py",
+      "bytes": 12928,
+      "sha256": "0c9e91665b1234086aee5cc5f8418357e897eec81acba41f3e215e358f8b20ba",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/beginners_guide/convert_to_latex.py",
+      "target": "output/beginners_guide/convert_to_latex.py",
+      "bytes": 1259,
+      "sha256": "417ba9b8b96d0e8eaad5f3db921ec865def5f56feae1185fd2f41c220416903b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/beginners_guide/envelope_and_phase.png",
+      "target": "output/beginners_guide/envelope_and_phase.png",
+      "bytes": 175851,
+      "sha256": "cc96dd77ab9395bbd7af33fee4edffba4835b4be1780ffe788b19092d4912887",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/beginners_guide/guide.md",
+      "target": "output/beginners_guide/guide.md",
+      "bytes": 8883,
+      "sha256": "ef2e3ceb2a18baeb09839c1e81313a60cddc17873fe2596da3430e0bbccde273",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/beginners_guide/guide.pdf",
+      "target": "output/beginners_guide/guide.pdf",
+      "bytes": 253872,
+      "sha256": "6db6f958b5bbc9b37b74716372ad68469d33402b78520dd33b913954e2f10c4d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/beginners_guide/guide.tex",
+      "target": "output/beginners_guide/guide.tex",
+      "bytes": 10002,
+      "sha256": "45ff5f25fccc2516b85a904d4bd0843f464e5f8401c3f0877f96a1f95a92c76a",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/beginners_guide/normalization.png",
+      "target": "output/beginners_guide/normalization.png",
+      "bytes": 82445,
+      "sha256": "c9aa54e37ad03d4a4f344c33cace3a17b3cd97b27ed446c210d9b577bc7f3a21",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/01-envelope-carrier.pdf",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/01-envelope-carrier.pdf",
+      "bytes": 41009,
+      "sha256": "1856a8c26281628332ffb6d94272cd5b02450fc6669c158d02fc5ce7373b4bda",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/01-envelope-carrier.png",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/01-envelope-carrier.png",
+      "bytes": 179834,
+      "sha256": "ddf361b157ba5ddcda8b58ffca1afda3a0f98116273137941bf85553d0162024",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/02-space-time-packet.pdf",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/02-space-time-packet.pdf",
+      "bytes": 475276,
+      "sha256": "08635a23527fb7ee7583d6dc8efc643b5b8f505beedcdf3984faba70ec5be697",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/02-space-time-packet.png",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/02-space-time-packet.png",
+      "bytes": 318522,
+      "sha256": "f2a18505450937ef79b2f16574fb9484cbbd7bac539df4c764c0aac5170c8f34",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/03-three-inputs.pdf",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/03-three-inputs.pdf",
+      "bytes": 997605,
+      "sha256": "43027dd623866b0757a09953d181ef8a035babf94a19dd29b5618993dc881e87",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/03-three-inputs.png",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/03-three-inputs.png",
+      "bytes": 452518,
+      "sha256": "8f4ca7d21b1043d260b469450f9bfe718d1a33daf6ef8b123e8a19fd4d1be46b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/04-matched-snapshots.pdf",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/04-matched-snapshots.pdf",
+      "bytes": 203812,
+      "sha256": "59a435a81e9fd8d5be651adba391e6b94899a29a8d173af503d85c1c8fe53053",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/04-matched-snapshots.png",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/04-matched-snapshots.png",
+      "bytes": 451624,
+      "sha256": "de0053b86dbfde2d78024d99e5cb4816f3cc9248ce70d3806a3612494bc77337",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/05-position-and-fourier.pdf",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/05-position-and-fourier.pdf",
+      "bytes": 2299175,
+      "sha256": "a41e52c10f73a75deac866c9054382976f82cc1d45d10707eb30555dd1b433e3",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/05-position-and-fourier.png",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/05-position-and-fourier.png",
+      "bytes": 128947,
+      "sha256": "3516d5f0f7830e4108d5baecb4b24ddc7809274605df7c108c4114639559b71b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/06-ordinary-peak.pdf",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/06-ordinary-peak.pdf",
+      "bytes": 27021,
+      "sha256": "363732904d1305e88f8111ed39e7f5ba6a2f3889bb1e0ce700f4e1edf3176934",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/06-ordinary-peak.png",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/06-ordinary-peak.png",
+      "bytes": 98686,
+      "sha256": "cfebf1128357d0535f1389e88a12064d1c4bce79f4fb9019662e374fe0295962",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/07-gaussian-near-zero.pdf",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/07-gaussian-near-zero.pdf",
+      "bytes": 39761,
+      "sha256": "4b37eb5efb8c7754323a236259466f3bc27b8a79c1e0ebed84d717b3f1136a6e",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/07-gaussian-near-zero.png",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/07-gaussian-near-zero.png",
+      "bytes": 227163,
+      "sha256": "bcc6c0724e8c27a139522df41aa9f8ba04186cf3311037d9e305ed3e84cef9a3",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/08-near-zero-times.pdf",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/08-near-zero-times.pdf",
+      "bytes": 23252,
+      "sha256": "742da181a51fc3c1b1262826995137de7254998b0dd69b13f9134a923a1a8081",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/08-near-zero-times.png",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/08-near-zero-times.png",
+      "bytes": 126404,
+      "sha256": "4e8bff239d6ea77d1fee636c8ed52b9f4f321902e63e6f2dfafd87d89a9e779f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/09-linear-to-1024.pdf",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/09-linear-to-1024.pdf",
+      "bytes": 19824,
+      "sha256": "6ce067c100cad19043410c26609b2691cda47ff12c4c38475a2d784b4b0d6cc8",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/09-linear-to-1024.png",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/figures/09-linear-to-1024.png",
+      "bytes": 88606,
+      "sha256": "90dd4b0d4b8c9d5c36105dd115fabab9b5f5060b6c70d427819ded6a6bf2c0af",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/main.pdf",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/main.pdf",
+      "bytes": 4385982,
+      "sha256": "b0ef7888ac03a3b33e8f04e1344fa557d247f3e4ba7715ed35a2859261de3311",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/main.tex",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/main.tex",
+      "bytes": 10531,
+      "sha256": "aa55eed42b2c6d7e98b35d0b85b0c2f2ec53914a53db141a3ea670b98f820359",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/dysthe-nonlinear-visuals-2026-10-30/report/royden-report.sty",
+      "target": "output/dysthe-nonlinear-visuals-2026-10-30/report/royden-report.sty",
+      "bytes": 1256,
+      "sha256": "cb1d0cade75d47a5de899ef991ef5cb98ce6dc19d7d8626e751c4fefe0fd2b84",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/figure_explanations/figure_explanations.pdf",
+      "target": "output/figure_explanations/figure_explanations.pdf",
+      "bytes": 2045939,
+      "sha256": "9ddae146c94a084e39e660c5325fbffecf474890efe5ee64794fd65b6dc2aea2",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/figure_explanations/figure_explanations.tex",
+      "target": "output/figure_explanations/figure_explanations.tex",
+      "bytes": 25017,
+      "sha256": "aef122bc2bf136e5b6154bff961a30fcf4d925582d163de418eb7e7ff3400227",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/figure_explanations/figures/envelope_and_phase.png",
+      "target": "output/figure_explanations/figures/envelope_and_phase.png",
+      "bytes": 175851,
+      "sha256": "cc96dd77ab9395bbd7af33fee4edffba4835b4be1780ffe788b19092d4912887",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/figure_explanations/figures/interference_control.png",
+      "target": "output/figure_explanations/figures/interference_control.png",
+      "bytes": 462505,
+      "sha256": "13be8ba94ca83b8125840bb6aaec11e2ed495ce19663eebd4a525337884846cf",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/figure_explanations/figures/level_surfaces.png",
+      "target": "output/figure_explanations/figures/level_surfaces.png",
+      "bytes": 385065,
+      "sha256": "93d0984e5116efb290b6272d4d58663da9494cad69b381e5bf826694330e0616",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/figure_explanations/figures/moving_preview.png",
+      "target": "output/figure_explanations/figures/moving_preview.png",
+      "bytes": 81550,
+      "sha256": "664866d1b64768de170c61197b80b616c61e659c5065d6ccd12a7577a99697c9",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/figure_explanations/figures/normalization.png",
+      "target": "output/figure_explanations/figures/normalization.png",
+      "bytes": 82445,
+      "sha256": "c9aa54e37ad03d4a4f344c33cace3a17b3cd97b27ed446c210d9b577bc7f3a21",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/figure_explanations/figures/phase_surface.png",
+      "target": "output/figure_explanations/figures/phase_surface.png",
+      "bytes": 677744,
+      "sha256": "291f87e13e56b3179465689a9977c04fc1c5d4f89eb92dac5f3c415f95e64f29",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/figure_explanations/figures/space_time.png",
+      "target": "output/figure_explanations/figures/space_time.png",
+      "bytes": 323057,
+      "sha256": "4916c3b1dc32e7c44c56973e3567b2b5411ac217cf275e40c2cedee5de734582",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/figure_review/05_random_seed_33_volumes.png",
+      "target": "output/figure_review/05_random_seed_33_volumes.png",
+      "bytes": 336865,
+      "sha256": "0dac0b5715d995dd8acbb02b7b9034d14375598c5a534135c41df5d7e2e14994",
+      "selection": "referenced LaTeX dependency"
+    },
+    {
+      "source": "output/figure_review/06_random_seed_33_slices_and_waves.png",
+      "target": "output/figure_review/06_random_seed_33_slices_and_waves.png",
+      "bytes": 258493,
+      "sha256": "18abd65177091c8e98fb97a9a59535fd5c20898dae307e4aa64cee805e36b742",
+      "selection": "referenced LaTeX dependency"
+    },
+    {
+      "source": "output/figure_review/07_two_interfering_packets_volumes.png",
+      "target": "output/figure_review/07_two_interfering_packets_volumes.png",
+      "bytes": 385065,
+      "sha256": "93d0984e5116efb290b6272d4d58663da9494cad69b381e5bf826694330e0616",
+      "selection": "referenced LaTeX dependency"
+    },
+    {
+      "source": "output/figure_review/08_two_interfering_packets_slices_and_waves.png",
+      "target": "output/figure_review/08_two_interfering_packets_slices_and_waves.png",
+      "bytes": 318764,
+      "sha256": "493c95b04c4b175a3ca0ab15513ee2fc36c1bd0e4d1e3f7647aa09f601d477ad",
+      "selection": "referenced LaTeX dependency"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/README.md",
+      "target": "output/latex/dysthe_formal_checkpoint/README.md",
+      "bytes": 973,
+      "sha256": "284032e37b8873a5f8ad508e305799ab35233aeddccad51a01cf92df91d232b0",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/05_random_seed_33_volumes.png",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/05_random_seed_33_volumes.png",
+      "bytes": 336865,
+      "sha256": "0dac0b5715d995dd8acbb02b7b9034d14375598c5a534135c41df5d7e2e14994",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/06_random_seed_33_slices_and_waves.png",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/06_random_seed_33_slices_and_waves.png",
+      "bytes": 258493,
+      "sha256": "18abd65177091c8e98fb97a9a59535fd5c20898dae307e4aa64cee805e36b742",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/07_two_interfering_packets_volumes.png",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/07_two_interfering_packets_volumes.png",
+      "bytes": 385065,
+      "sha256": "93d0984e5116efb290b6272d4d58663da9494cad69b381e5bf826694330e0616",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/08_two_interfering_packets_slices_and_waves.png",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/08_two_interfering_packets_slices_and_waves.png",
+      "bytes": 318764,
+      "sha256": "493c95b04c4b175a3ca0ab15513ee2fc36c1bd0e4d1e3f7647aa09f601d477ad",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/comparison.pdf",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/comparison.pdf",
+      "bytes": 22585,
+      "sha256": "9fc621939991cb2aefc98cb1a1ed417ff387a69e3739022033f8e3518421687d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/decay_256.pdf",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/decay_256.pdf",
+      "bytes": 20065,
+      "sha256": "b9d68386453f9c322f83fab796b82f6478d2be39a9fecbb46bd3582daf0c8af9",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/envelope_explanation.pdf",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/envelope_explanation.pdf",
+      "bytes": 82011,
+      "sha256": "78b5d52f38bf7a6c3ca2cef89ff4c350b8c1d0737c6798d8d30f0fa6180c9587",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/families_clear.pdf",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/families_clear.pdf",
+      "bytes": 23923,
+      "sha256": "84ce9c2e45fbcf6988304e78d93d4336e80ce3accddcf804f37cb04cb83cbfa2",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/generic.pdf",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/generic.pdf",
+      "bytes": 19081,
+      "sha256": "14610e62735ecd335d1b7f934d201eb3d4c6958719f7c531634c14e5db9b227a",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/peak_decay.pdf",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/peak_decay.pdf",
+      "bytes": 18692,
+      "sha256": "d2693c8a79f987a3a5a4e2b7163db46e468f9bfe4e6376baa89b7709f1c0f7f5",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/refined_clear.pdf",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/refined_clear.pdf",
+      "bytes": 24323,
+      "sha256": "3faaa8dd125ce9e12b3c0b14c4c3577a5b55a820247d360b13343bed28d5e31c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/reliability.pdf",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/reliability.pdf",
+      "bytes": 15655,
+      "sha256": "c376f9bab90bbbeead25502cd799584c6561b926190cadb56ac3b1bdd701ef5d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/research_cancellation.pdf",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/research_cancellation.pdf",
+      "bytes": 16325,
+      "sha256": "2a84aad1b1a60a868b25d74123e1a164701053a99fe2384eba26eb485bd5760d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/research_quadrature.pdf",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/research_quadrature.pdf",
+      "bytes": 20967,
+      "sha256": "eb7b66c977a360bcfd5858b6fce481d70ccf9f98e48b8220af5f5dcf0a6798d1",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/research_scaling.pdf",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/research_scaling.pdf",
+      "bytes": 17929,
+      "sha256": "7f3f3efbb83e5e1cfb3418f9c7b09f81dc069a24afcd06f892784693ec0298a3",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/research_sweep.pdf",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/research_sweep.pdf",
+      "bytes": 21775,
+      "sha256": "1030b90b75a5c1d1d2a08365295ae261a7337a44337fff65c6d23dc700080862",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/slices.pdf",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/slices.pdf",
+      "bytes": 32139,
+      "sha256": "63289c94fbb096b88f3a96cbfad64431fe082877e8f60965052746fa8520588c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/water_packet.pdf",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/water_packet.pdf",
+      "bytes": 81000,
+      "sha256": "f28038db3cd7e8c0e48c85ec2b959cde8e04718ab8201b0c084fa8421660ce0a",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/weighted_comparison.pdf",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/weighted_comparison.pdf",
+      "bytes": 32154,
+      "sha256": "6b282a3bb1a8a85030fac844ff593873024525001182604c5e4269a28d6f1bbf",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/figures/widths.pdf",
+      "target": "output/latex/dysthe_formal_checkpoint/figures/widths.pdf",
+      "bytes": 15321,
+      "sha256": "ba0c8d0fcc1ff54ff6bc990896e6c483e5a6e726bf787430db04d9b3d3914afa",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/formal_report.pdf",
+      "target": "output/latex/dysthe_formal_checkpoint/formal_report.pdf",
+      "bytes": 1733974,
+      "sha256": "78496b450ed385b6db730636a941ff8d565a2ea655576aeaa955313d465b0316",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/latex/dysthe_formal_checkpoint/formal_report.tex",
+      "target": "output/latex/dysthe_formal_checkpoint/formal_report.tex",
+      "bytes": 78525,
+      "sha256": "2405894290bce97c30d29b9e7a967c1caa4a83ef724a4745a10eafe0030be29a",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/cavitation-worked-solution.pdf",
+      "target": "output/pdf/cavitation-worked-solution.pdf",
+      "bytes": 145789,
+      "sha256": "cfbf0a8c1007f7d26a476bff0d2092b6d721a23bc6b96e38faa530da3691c387",
+      "selection": "Explicitly requested unrelated project-chat artifact: cavitation worked solution"
+    },
+    {
+      "source": "output/pdf/cavitation-worked-solution/cavitation-worked-solution.tex",
+      "target": "output/pdf/cavitation-worked-solution/cavitation-worked-solution.tex",
+      "bytes": 3018,
+      "sha256": "f826767bfab549aa6c223a2f384ff911b69417ac1a5fd0afa9ded8b825701f68",
+      "selection": "Explicitly requested unrelated project-chat artifact: cavitation worked solution"
+    },
+    {
+      "source": "output/pdf/cavitation-worked-solution/royden-report.sty",
+      "target": "output/pdf/cavitation-worked-solution/royden-report.sty",
+      "bytes": 1256,
+      "sha256": "cb1d0cade75d47a5de899ef991ef5cb98ce6dc19d7d8626e751c4fefe0fd2b84",
+      "selection": "Explicitly requested unrelated project-chat artifact: cavitation worked solution"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide.pdf",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide.pdf",
+      "bytes": 464670,
+      "sha256": "0112caec751ef187e5f02b6ef2e0069dd54fda4ca8520dd4a8d00406d30de923",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/README.md",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/README.md",
+      "bytes": 3107,
+      "sha256": "22e003d9129c1756c2f42fc7afec7fefa37a416bb0c78d46cddeff0c43477db1",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/figures/asymptotic-comparison.pdf",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/figures/asymptotic-comparison.pdf",
+      "bytes": 21044,
+      "sha256": "2302ca3cca706a2ec3ab24457039d6fbde99dbc07a120ff878b86d00699093e9",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/figures/carrier-envelope.pdf",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/figures/carrier-envelope.pdf",
+      "bytes": 23828,
+      "sha256": "2a445a9a5ab603837341d94a1181b9506f72c390eb4a078b5552462514be8087",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/figures/longitudinal-growth.pdf",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/figures/longitudinal-growth.pdf",
+      "bytes": 16198,
+      "sha256": "36c08ad28ace59183f9c88133b43dd25944408cb63c24f68f68d64d8b743e1be",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/figures/mean-flow.pdf",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/figures/mean-flow.pdf",
+      "bytes": 24099,
+      "sha256": "73fae27675a25588d0069fd1189823f4b7fab505b579b6b832dc3be970a398b1",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/guide.pdf",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/guide.pdf",
+      "bytes": 464670,
+      "sha256": "0112caec751ef187e5f02b6ef2e0069dd54fda4ca8520dd4a8d00406d30de923",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/guide.tex",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/guide.tex",
+      "bytes": 2908,
+      "sha256": "bfb35fa8ff0b28e516a3f7dfc96974f2619fea3c1ebc7999aedcf29bff2d0e1f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/make_figures.py",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/make_figures.py",
+      "bytes": 3172,
+      "sha256": "4ca14dc11baff8d85c7e65d3a3b9708fc16d691548b9183277f0104ab39f4490",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/royden-report.sty",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/royden-report.sty",
+      "bytes": 1256,
+      "sha256": "cb1d0cade75d47a5de899ef991ef5cb98ce6dc19d7d8626e751c4fefe0fd2b84",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/sections/01-orientation.tex",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/sections/01-orientation.tex",
+      "bytes": 5007,
+      "sha256": "3e4f8cbb187da295026484eeb2fa177a9d22a5a3199e11c350234c5cf699e5c4",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/sections/02-waves.tex",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/sections/02-waves.tex",
+      "bytes": 4310,
+      "sha256": "9e9fe24b2c777407d016171fc49ebe6cc161301533f7db1af6d1b1caa5b7a0c2",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/sections/03-fluid.tex",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/sections/03-fluid.tex",
+      "bytes": 5149,
+      "sha256": "50e433b13b167f15e8e0dc63bd5d748a75c81f5b5951fc969b6d7206391ae628",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/sections/04-dispersion.tex",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/sections/04-dispersion.tex",
+      "bytes": 4378,
+      "sha256": "c1bed8618dedee9c1acbc69eb4c91fb5394cd9c3f8775d45f0205ddde0acb98f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/sections/05-asymptotics.tex",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/sections/05-asymptotics.tex",
+      "bytes": 4460,
+      "sha256": "2fe9c3e16955a375ba38eaeba32ef11ebee03ba39d3b7abd4705af671b918814",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/sections/06-nls.tex",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/sections/06-nls.tex",
+      "bytes": 5341,
+      "sha256": "278d3ee8573db30f259cf89bb740981db215fdb87d42f3751dced3949c2ba020",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/sections/07-mean-flow.tex",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/sections/07-mean-flow.tex",
+      "bytes": 5300,
+      "sha256": "bb8a594ff60193165b441fb6d6c38aa7fa28b7b45f8c727934a0a61f16b3693c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/sections/08-dysthe.tex",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/sections/08-dysthe.tex",
+      "bytes": 5098,
+      "sha256": "10c176e6d98e67c19ae64e2afae933168517b92ed79d45a0a2865a002b3a2946",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/sections/09-stability.tex",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/sections/09-stability.tex",
+      "bytes": 8860,
+      "sha256": "d839a37fcc7243c1edb83104708645df4955078f6543f279937f0f7967fa94b7",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/sections/10-whitham-reading.tex",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/sections/10-whitham-reading.tex",
+      "bytes": 7326,
+      "sha256": "edac62a21482d49815f040cd73e0bb40bf55c2debff1869f12d6b6669ee5bf57",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/sections/11-exercises.tex",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/sections/11-exercises.tex",
+      "bytes": 5011,
+      "sha256": "cc0f42e6d5fc5526698431f4395d03e2afe427720fd66a93c18c36a598ce6f15",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/sections/12-derivation-details.tex",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/sections/12-derivation-details.tex",
+      "bytes": 4256,
+      "sha256": "405c1307775b677fbc545ee38762310b57f172af2983e9c4aab32ce5b67273f0",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/sections/13-project-connection.tex",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/sections/13-project-connection.tex",
+      "bytes": 2370,
+      "sha256": "131dc01bea4e84a46c365a5f756b1445f7375e5d747343cf5dbc3493e26c4737",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-1979-prerequisite-guide/verification.json",
+      "target": "output/pdf/dysthe-1979-prerequisite-guide/verification.json",
+      "bytes": 2117,
+      "sha256": "be5ec4f15e7d9a41d5e9de1ac8e0464e4ff4263c63276f1eb697da894ef5f2fe",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-cpu-pilot-2026-10-26.pdf",
+      "target": "output/pdf/dysthe-cpu-pilot-2026-10-26.pdf",
+      "bytes": 364853,
+      "sha256": "f48c0a258528cadf7c3b0fcfeb6b0f3e7066f8178296c628d5507efbf57b77d0",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-existence-review.pdf",
+      "target": "output/pdf/dysthe-existence-review.pdf",
+      "bytes": 390956,
+      "sha256": "5e8bb8654d80a4aa9f1624fef356ffc27fb0698e751df402ed4db86009feda8f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-existence-review/BUILD.txt",
+      "target": "output/pdf/dysthe-existence-review/BUILD.txt",
+      "bytes": 1367,
+      "sha256": "f7a9445b8f0ff31097d565e5125884152159df054f67d41773bb1ebc98bd02f6",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-existence-review/existence.tex",
+      "target": "output/pdf/dysthe-existence-review/existence.tex",
+      "bytes": 8474,
+      "sha256": "65cbd74d725e252b36f100fd31dbf09a6f9c49a01a52763fdd9d781e90dc58ab",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-existence-review/figures/phase_lag_response.pdf",
+      "target": "output/pdf/dysthe-existence-review/figures/phase_lag_response.pdf",
+      "bytes": 27595,
+      "sha256": "14e9215525979f221b73e16c8f032b2216d01cfb0ef9094852ce06955670718b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-existence-review/methods.tex",
+      "target": "output/pdf/dysthe-existence-review/methods.tex",
+      "bytes": 10247,
+      "sha256": "277ccfe3352bbf94c7e38d7a5e129651c959b768eab50c03be4f5693dc4d7c60",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-existence-review/review.pdf",
+      "target": "output/pdf/dysthe-existence-review/review.pdf",
+      "bytes": 390956,
+      "sha256": "5e8bb8654d80a4aa9f1624fef356ffc27fb0698e751df402ed4db86009feda8f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-existence-review/review.tex",
+      "target": "output/pdf/dysthe-existence-review/review.tex",
+      "bytes": 18002,
+      "sha256": "ffa777261790eac3b722bda0b98ea141b4155db446d434adc1971e42ece8b323",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-existence-review/review_checks.json",
+      "target": "output/pdf/dysthe-existence-review/review_checks.json",
+      "bytes": 7333,
+      "sha256": "20e945e60c04fc506003f3688e432f1a55538cfe457a797ca25051e61cc82b95",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-existence-review/review_checks.py",
+      "target": "output/pdf/dysthe-existence-review/review_checks.py",
+      "bytes": 12195,
+      "sha256": "479226a8a08e6cf6f7da4f839837d25591a1e3dfb2b9462a951636d7d0f2c51e",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-existence-review/royden-report.sty",
+      "target": "output/pdf/dysthe-existence-review/royden-report.sty",
+      "bytes": 1256,
+      "sha256": "cb1d0cade75d47a5de899ef991ef5cb98ce6dc19d7d8626e751c4fefe0fd2b84",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-existence-review/source-notes/2608.04473v1.txt",
+      "target": "output/pdf/dysthe-existence-review/source-notes/2608.04473v1.txt",
+      "bytes": 74014,
+      "sha256": "01da176fbd1b72527cd8e8991ce8301a1cac0d886910386b920304f4ded45906",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-existence-review/source-notes/dysthe1979.txt",
+      "target": "output/pdf/dysthe-existence-review/source-notes/dysthe1979.txt",
+      "bytes": 24537,
+      "sha256": "22ba3ba2a222cae67da3c7518906516d6a494729779ce4aa98a4c288055811a1",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-existence-review/source_manifest.json",
+      "target": "output/pdf/dysthe-existence-review/source_manifest.json",
+      "bytes": 4754,
+      "sha256": "0befe284035da749ef5efda879b8d2c9e47d553afb504fa1f8656439960b370b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-existence-review/verification.json",
+      "target": "output/pdf/dysthe-existence-review/verification.json",
+      "bytes": 1120,
+      "sha256": "4110d30ad8d1055082070c1419d5af7bacf6f436671392f2bb4a5244331c1db4",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30.pdf",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30.pdf",
+      "bytes": 1947575,
+      "sha256": "64abddb57d1497296e14e59147a7e5738e5a4086d875c74744ce454b61499751",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/README.txt",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/README.txt",
+      "bytes": 1730,
+      "sha256": "b378dc8c31ce2953a7d1a4d5a8b923653d8be3ac95c7ac5155341438c0844c3a",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/experiment-plan.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/experiment-plan.json",
+      "bytes": 4726,
+      "sha256": "3e378867553b03cbbada5eaabf016da73c92692fcff2ef4c130c9f72468ace59",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/handoff-check.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/handoff-check.json",
+      "bytes": 562,
+      "sha256": "96a1fbaed81824639f1bdf29a3a6100af8cb83b27ae55e4116cdde14b498d800",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/original-equation-audit.md",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/original-equation-audit.md",
+      "bytes": 14443,
+      "sha256": "78ce64b49df46dfa24fead8f58816e3a571b4db71f1cc540d4882c6e69c6d344",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/primary-results.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/primary-results.json",
+      "bytes": 472756,
+      "sha256": "dce3a8adf1ee852b901bfec3d9eb61d06d426079164b65036f7c01adb29ce56c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/representation-windows.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/representation-windows.json",
+      "bytes": 36977,
+      "sha256": "a2210e9f7103dd52f58a2d098370ebe280314fb2ea85cb3eedf7b668945db3fe",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/rerun-verification.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/rerun-verification.json",
+      "bytes": 1252,
+      "sha256": "2abbc275d5de080241abad13f5043af4f8e9046475819ecb08bc8e7e72eae2f3",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-figure-descriptions.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-figure-descriptions.json",
+      "bytes": 2164,
+      "sha256": "d894148514c44cd0ee009cdb24a03e11d577bc965e8dd5c64c3ecea9c8e989c0",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-figure-render-verification.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-figure-render-verification.json",
+      "bytes": 3751,
+      "sha256": "0cd4a66159311af85a08f3a7e4507dd744c407c21c4a93260784064edbd0e4f8",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-costs.csv",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-costs.csv",
+      "bytes": 428,
+      "sha256": "2ac113babee2ab288faa205f6d01513d786a2265e15f532938bd740a2d71feda",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-endpoint-diagnostics.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-endpoint-diagnostics.json",
+      "bytes": 3626,
+      "sha256": "de27228efd8c7369ead8610025cf818bb3ca2221088bb2ebb94a46ac0250be6a",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-phase-curvature.csv",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-phase-curvature.csv",
+      "bytes": 494926,
+      "sha256": "3f9c31886b229af05beff354efaae3c57d4b2ea5d04342864a3f6975f50ec682",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-phase-summary.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-phase-summary.json",
+      "bytes": 1727,
+      "sha256": "998bed4f572adc8faedc3358e4bd6e8cb21b61f2cf62a6df117549417768ff4e",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-residuals.csv",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-residuals.csv",
+      "bytes": 2681,
+      "sha256": "7bb85963e21efb08a1fd5f30b1f441b15e6ae1f851c1e75c83a34e2203c0e0d2",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-stations.csv",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-stations.csv",
+      "bytes": 57948,
+      "sha256": "1761054cd9cf7986299e651f41f532c5ab157a67383eb7093a2a5db4e8ec2c16",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-verification.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-verification.json",
+      "bytes": 14696,
+      "sha256": "f0a4f10812fafd40e9268e2976f13de35d398761b6e6cc0ad819b825a6451846",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-xi4-profiles.csv",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-xi4-profiles.csv",
+      "bytes": 339075,
+      "sha256": "16629477fa5ed8596b880192f396d73ba5ea04de3cb675f202cd23c840cd03ef",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-xi4-spectrum.csv",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/spatial-pinn-xi4-spectrum.csv",
+      "bytes": 427610,
+      "sha256": "7c057efac2d042d3b3a2f83edc91a8b3475689e94a6f3a49e44ff121ee694c9e",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-bandwidth-figure-summary.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-bandwidth-figure-summary.json",
+      "bytes": 1520,
+      "sha256": "4796a022107a7a6fd5dac8b06fb2bf815aeeea375617f9e0adee4415ce1bb442",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-bandwidth-primary-snapshot.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-bandwidth-primary-snapshot.json",
+      "bytes": 472756,
+      "sha256": "dce3a8adf1ee852b901bfec3d9eb61d06d426079164b65036f7c01adb29ce56c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-bandwidth-render-verification.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-bandwidth-render-verification.json",
+      "bytes": 1369,
+      "sha256": "8b067e32a3d2ed61e4129513ccb642eee82f274521a05685332c7c10bc9444e8",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-bandwidth-verification.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-bandwidth-verification.json",
+      "bytes": 3352,
+      "sha256": "06fcd13593b565524f2df197f5ba23b444599d7b6de6faea9210f522779c67e1",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-carrier-band-fractions.csv",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-carrier-band-fractions.csv",
+      "bytes": 52372,
+      "sha256": "8b3ca144fd2e0831618690e1a954c22478870ce5a7c54762533b080bcecf8c53",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-mi-check.csv",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-mi-check.csv",
+      "bytes": 125844,
+      "sha256": "5beeda1549af0f4a57e8e04a45bd2e2179f78c88e3cb7511bbe64813f99835bc",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-mi-check.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-mi-check.json",
+      "bytes": 14293,
+      "sha256": "04840b94dc2e825c53b447ef99de761d59c6752fc0f3e3fdc52dd3aee36735b5",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-mi-figure-verification.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-mi-figure-verification.json",
+      "bytes": 869,
+      "sha256": "2f2c0d9dc872b774c3b6c5b965a2d45742437857c8cf641a7350bb29aacd3936",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-projection-floors.csv",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal-projection-floors.csv",
+      "bytes": 134723,
+      "sha256": "636b13b4be32f6b6ebfe1c40aa4440c7e335ed1e4e1ba405669256ba0856fff0",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal/domain-checks.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal/domain-checks.json",
+      "bytes": 32607,
+      "sha256": "ee29280fe4ea68927535baa498d49c90618dbba2483557b3e5b1f21d11d06c5f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal/manifest.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal/manifest.json",
+      "bytes": 10638,
+      "sha256": "9b287cabbd33a90531eed62fa06f6280dbbc76363605007311d28b129962c95c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal/report-numbers.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal/report-numbers.json",
+      "bytes": 1568,
+      "sha256": "6f81dda4240b2a63dbdeae46d0d6649d9a71e10d2e27cd4161ae4e0736660540",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal/results-audit-summary.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal/results-audit-summary.json",
+      "bytes": 1831724,
+      "sha256": "4e935f8a3f597d086071d80074d712702b2b5c7278421ee735bf5bfef5231a45",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal/results-summary.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal/results-summary.json",
+      "bytes": 2721387,
+      "sha256": "31dd8af841626369853eeecf3da59a00d087e9bc9579b0243ee7d1009635a988",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/verification.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/data/verification.json",
+      "bytes": 10013,
+      "sha256": "df15ad8659034e8a0d3f29509facaf0fe4df5063c6955c98f3d89b1064c7cf56",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/spatial-pinn-error-growth.pdf",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/spatial-pinn-error-growth.pdf",
+      "bytes": 24446,
+      "sha256": "46364c0e0887cd4012d2eea2167be41cf8b7cb7e36a0787ae697b5f9fc93d550",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/spatial-pinn-mode-error.pdf",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/spatial-pinn-mode-error.pdf",
+      "bytes": 27594,
+      "sha256": "d2376328599a8b2bbb9d086420acc6f20adc9ab8d1e93cb6b362729561755c8c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/spatial-pinn-phase-curvature.pdf",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/spatial-pinn-phase-curvature.pdf",
+      "bytes": 55235,
+      "sha256": "143aeacb9a468c17f79c252de42004d73825878932548b3a6fe7601b50129df3",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/spatial-pinn-profiles-xi4.pdf",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/spatial-pinn-profiles-xi4.pdf",
+      "bytes": 61469,
+      "sha256": "bf4d733363a16e29c36b4aa53b1493b3f9d38e6ddb017ca56061e9f860e8c3bb",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/spatial-pinn-recorded-cost.pdf",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/spatial-pinn-recorded-cost.pdf",
+      "bytes": 18539,
+      "sha256": "8a67332af3c1ac0f0d6e5fe14496b533a8ecc7a14c990a49dc1a037aed722429",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/spatial-pinn-residual-audit.pdf",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/spatial-pinn-residual-audit.pdf",
+      "bytes": 21220,
+      "sha256": "101df304f470bf58ab946aa96ac8c69a018784f482f3218270a00ba1830cedd1",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-evolution.pdf",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-evolution.pdf",
+      "bytes": 1229584,
+      "sha256": "80af8e748bf5e24d19e1d05f1904e4481c49ad01253a1fa4fa652fbc19493192",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-evolution.png",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-evolution.png",
+      "bytes": 59222,
+      "sha256": "cbe68662be349110a38197df95177505f1df8e8ff8d5ed9f67226055da58a1d7",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-gates.pdf",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-gates.pdf",
+      "bytes": 24923,
+      "sha256": "97501551443441e4d894d1ba560fe1f6e2b684f9aac65ed53527cabe50d79c15",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-gates.png",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-gates.png",
+      "bytes": 68539,
+      "sha256": "3fb9caaefb0887c20fe10ff78709e47e8ba89c055d26ebd80fe23fdcea45ff39",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-initial-profiles.pdf",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-initial-profiles.pdf",
+      "bytes": 25159,
+      "sha256": "7cfe3cd29bee60909f2d855fe464d919131f9c2ae0c2aad23ebae24761325aeb",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-initial-profiles.png",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-initial-profiles.png",
+      "bytes": 44654,
+      "sha256": "cef4ae9c5dc4c5ccaf1c464808c6c0607b0202f0f7e49f506c81f91db4ecfa5e",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-mi-check.pdf",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-mi-check.pdf",
+      "bytes": 27372,
+      "sha256": "124277e68ddf9c589fa43e1ea24130f537e4b89e53da1f5d42ba8f1a0dd09293",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-model-differences.pdf",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-model-differences.pdf",
+      "bytes": 27828,
+      "sha256": "fd6d91a171559e57b3831d97a769ece1a3c569ddac23f75d8b6703f0a99b224d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-model-differences.png",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-model-differences.png",
+      "bytes": 57999,
+      "sha256": "ff473091c6b238d89befa9f72424850a10f87f5a81686b62334b309adf1761f6",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-observables.pdf",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-observables.pdf",
+      "bytes": 31834,
+      "sha256": "42e2229a498cb664e3f5c7975a422596c97871c5829afa51dadda5d559227464",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-observables.png",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-observables.png",
+      "bytes": 103487,
+      "sha256": "2307996c3ad313a098a5517ac62796b5d7388ef990eec1619f6e71cac46fe093",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-refinement.pdf",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-refinement.pdf",
+      "bytes": 26414,
+      "sha256": "616a1910b16c37ae45d31deefd72fc1d19d702794009447bd2bddc35b0bfa54d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-refinement.png",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-refinement.png",
+      "bytes": 77901,
+      "sha256": "05809bd0365b0d5e54640d78f5f7a897107bdb8459a61e52a0b33ad2c65360b5",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-representation-bandwidth.pdf",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/figures/temporal-representation-bandwidth.pdf",
+      "bytes": 24506,
+      "sha256": "30956a5edbdf83e5651830676f48a0c5475c02f0cf1071095b72e10e84598629",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/main.pdf",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/main.pdf",
+      "bytes": 1947575,
+      "sha256": "64abddb57d1497296e14e59147a7e5738e5a4086d875c74744ce454b61499751",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/main.tex",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/main.tex",
+      "bytes": 3845,
+      "sha256": "dd9b7ed07c879ea65e7c63dd4cf0c324da1fb10fedf9a650f55c52625a673242",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/make_spatial_figures.py",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/make_spatial_figures.py",
+      "bytes": 18854,
+      "sha256": "7a7c8fca9dd8b4dbdc2f2ffb4a0f85b8a76a89a44d70fbfc6c698d092cceee30",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/make_temporal_bandwidth_figure.py",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/make_temporal_bandwidth_figure.py",
+      "bytes": 10316,
+      "sha256": "7e32820857d246c2b92d6431f1204bf2bf1ba70939d115f13afbf6aa21d8bd57",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/make_temporal_figures.py",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/make_temporal_figures.py",
+      "bytes": 8321,
+      "sha256": "96fec88592687eab75b1d78f45ee53f3ec8ac6251910b2f434c2d7c9ddffc916",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/royden-report.sty",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/royden-report.sty",
+      "bytes": 1256,
+      "sha256": "cb1d0cade75d47a5de899ef991ef5cb98ce6dc19d7d8626e751c4fefe0fd2b84",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/sections/analysis.tex",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/sections/analysis.tex",
+      "bytes": 6139,
+      "sha256": "3055e73f213a21e37892643977c7b188d9dee7ceaa4ae542df6fcc37ac683f59",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/sections/framework.tex",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/sections/framework.tex",
+      "bytes": 9072,
+      "sha256": "d5fbeceb34f8a83814fb6808c1d88079bf77385beea56cd60472ab57cffd78a8",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/sections/model.tex",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/sections/model.tex",
+      "bytes": 6339,
+      "sha256": "6933d469607e8002f7eca555ebd005e699ab41b0877782a6c06ed5323f2b4bce",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/sections/numerics.tex",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/sections/numerics.tex",
+      "bytes": 8788,
+      "sha256": "bc2603f11f536645543aaba19b979eca7eae002761ab26b4d7ab7d4044dce5fb",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/sections/pinn.tex",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/sections/pinn.tex",
+      "bytes": 5127,
+      "sha256": "fd7324c04d7f014ee6f289ae81bbab08e12f7ddcb22f64e8691c5232619e4d6b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/sections/references.tex",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/sections/references.tex",
+      "bytes": 3645,
+      "sha256": "396f5920dd6b308d49b402d312cef32fdf6011539a48da39c0e1c834a19e9ece",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/sections/reproducibility.tex",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/sections/reproducibility.tex",
+      "bytes": 3309,
+      "sha256": "52faa850071b20c70b207f137dbe46e8d971466aa5595e07f6994d1f59bf3aa2",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/verification-report.json",
+      "target": "output/pdf/dysthe-modelling-report-2026-10-30/verification-report.json",
+      "bytes": 995,
+      "sha256": "e2ce8f1062ffdd730e4569e08ab904b1168c3753f7f6dcf658950751dca50c8a",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-nonlinear-visual-gallery-2026-10-30.pdf",
+      "target": "output/pdf/dysthe-nonlinear-visual-gallery-2026-10-30.pdf",
+      "bytes": 4385982,
+      "sha256": "b0ef7888ac03a3b33e8f04e1344fa557d247f3e4ba7715ed35a2859261de3311",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review.pdf",
+      "target": "output/pdf/dysthe-operator-learning-review.pdf",
+      "bytes": 429100,
+      "sha256": "6c0c7c14810ed47d78f495aac496d6e86a6c8fa035add9985abd6b6c7cd04a40",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review/BUILD.txt",
+      "target": "output/pdf/dysthe-operator-learning-review/BUILD.txt",
+      "bytes": 1750,
+      "sha256": "f879fa86cf958b595281c741cb7d484e01e6262419d285d9a22a640f75d2fbb4",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review/comparison_design.pdf",
+      "target": "output/pdf/dysthe-operator-learning-review/comparison_design.pdf",
+      "bytes": 14046,
+      "sha256": "f8f1b11d4e0038270bc506e42db01bc1c7383aaa2c6a45813b3765386e44a392",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review/data.tex",
+      "target": "output/pdf/dysthe-operator-learning-review/data.tex",
+      "bytes": 7362,
+      "sha256": "4bb85d15a90ee4a4a53392316476b7b00976a8af9403dacb1e8f7459918380a3",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review/implementation.tex",
+      "target": "output/pdf/dysthe-operator-learning-review/implementation.tex",
+      "bytes": 4380,
+      "sha256": "4ce52c06393658d5ca1cda13e9af00bffeb3a354e4cb2546065eee60f6088004",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review/implementation_checks.json",
+      "target": "output/pdf/dysthe-operator-learning-review/implementation_checks.json",
+      "bytes": 32228,
+      "sha256": "f92fbfb98b4e774fb2453143ebc489a6cca517827ed56b7464d1ff1603d5ed46",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review/implementation_checks.py",
+      "target": "output/pdf/dysthe-operator-learning-review/implementation_checks.py",
+      "bytes": 12717,
+      "sha256": "1976c32b2a31f24f3585263c906d9200ffd0f9ad1b9164e2001d516175b67847",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review/learning.tex",
+      "target": "output/pdf/dysthe-operator-learning-review/learning.tex",
+      "bytes": 10490,
+      "sha256": "bbc97df1b35e6d61b61be53147a7ec7acb0808fc8f16a7aaa72a57116ada3e4b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review/make_figure.py",
+      "target": "output/pdf/dysthe-operator-learning-review/make_figure.py",
+      "bytes": 1407,
+      "sha256": "8a508e4659d413b4e9178f68c2e4a2b85e166a06493e61e9bc64d3d737653fdc",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review/physics.tex",
+      "target": "output/pdf/dysthe-operator-learning-review/physics.tex",
+      "bytes": 8243,
+      "sha256": "d6df9cddb242c9a79eb452b21089e25a6e633bcb9cf70433fd6d8e44a08437bc",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review/references.tex",
+      "target": "output/pdf/dysthe-operator-learning-review/references.tex",
+      "bytes": 5920,
+      "sha256": "65d8b0803c37a361904af9712c865ed63a217777bbf305791edd66fbbd743cc6",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review/review.pdf",
+      "target": "output/pdf/dysthe-operator-learning-review/review.pdf",
+      "bytes": 429100,
+      "sha256": "6c0c7c14810ed47d78f495aac496d6e86a6c8fa035add9985abd6b6c7cd04a40",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review/review.tex",
+      "target": "output/pdf/dysthe-operator-learning-review/review.tex",
+      "bytes": 11357,
+      "sha256": "4a0f824e01a1d3d90db33e80a439dc982c805aa5f488585bbbe106e139f43ec5",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review/review.txt",
+      "target": "output/pdf/dysthe-operator-learning-review/review.txt",
+      "bytes": 62446,
+      "sha256": "e92a12224c94fb409bf0e57182a3941c7e756a602c71ad146e04f1aa4445da7d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review/royden-report.sty",
+      "target": "output/pdf/dysthe-operator-learning-review/royden-report.sty",
+      "bytes": 1256,
+      "sha256": "cb1d0cade75d47a5de899ef991ef5cb98ce6dc19d7d8626e751c4fefe0fd2b84",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review/source_manifest.json",
+      "target": "output/pdf/dysthe-operator-learning-review/source_manifest.json",
+      "bytes": 5252,
+      "sha256": "363ae4b88b0f4ed5a961dcb8e968535f6349acfab85dc5dae37370b0a6ed410a",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review/tests.tex",
+      "target": "output/pdf/dysthe-operator-learning-review/tests.tex",
+      "bytes": 13958,
+      "sha256": "f2e5131a4903cdb9e324b22572b30f7e8a40b425aff739ed57f8a88cf19e50ba",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-operator-learning-review/verification.json",
+      "target": "output/pdf/dysthe-operator-learning-review/verification.json",
+      "bytes": 1007,
+      "sha256": "8e9dc04402aece41eab5607d7151864855c2236728a673f37f34ac3a5d628033",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27.pdf",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27.pdf",
+      "bytes": 460696,
+      "sha256": "5d0ca5b7195ce43e51e25a085937b17bd51a90292189e35abd643f9bad7ff0a6",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/README.txt",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/README.txt",
+      "bytes": 2759,
+      "sha256": "e7eaaff37f063de41b620bd68ca29c04a2cc7bacd24e42d747fa18b3da84f015",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/cpu-errors.csv",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/cpu-errors.csv",
+      "bytes": 7510,
+      "sha256": "61dd26f5ef69f981361d8bea483ac83d271a0499b563732ea22001c104144c8f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu-old-gates-audit.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu-old-gates-audit.json",
+      "bytes": 10391,
+      "sha256": "5f929c73f1a69f5c1c453e7ed78eed65f53b50e299f7513eda4a0808f8d963c9",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu-provenance-audit.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu-provenance-audit.json",
+      "bytes": 18416,
+      "sha256": "65811be6aceb58fdd4c85840dc9a148fb0294142ff0e851db0dd3e03476195b0",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu-science-audit.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu-science-audit.json",
+      "bytes": 4328,
+      "sha256": "b11c082716db0095c0da5220dbaeaf8115338236a573f8c923b3815db38757ad",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/cases.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/cases.json",
+      "bytes": 278443,
+      "sha256": "ee75ef2972e1feadd31a9472f581077a1605e76151bd477c3b8d1cff65baa819",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/config.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/config.json",
+      "bytes": 1844,
+      "sha256": "b9ae0899ac39c12d695fe5e61b3dd2281962a1ef482b777f4f375abb9adcec5c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/identity.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/identity.json",
+      "bytes": 3037,
+      "sha256": "eff12f4c9c78dc9c28e5d34aa731bcce2b3102879a3e98233688029e4e2589d6",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/manifest.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/manifest.json",
+      "bytes": 312953,
+      "sha256": "0dee9ea70497f45714be049c708b2a991936d98f59cf966fef92b5109878631f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-008/seed-11/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-008/seed-11/xi-4/pinn-summary.json",
+      "bytes": 10289,
+      "sha256": "8556819c27d3f18adc1e7b6ca92012fcdeea7aa469a7fd1a41f9024ff90b7273",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-008/seed-29/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-008/seed-29/xi-4/pinn-summary.json",
+      "bytes": 10257,
+      "sha256": "8a2e63d63a885e9d990c12ec5ee38632dd6015eb34eb62f7f5f3a42cf4f06d0d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-008/seed-47/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-008/seed-47/xi-4/pinn-summary.json",
+      "bytes": 10272,
+      "sha256": "2757370d4bcd787fae262e75a72beaba2f9561feed38097285b647620c4c5864",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-009/seed-11/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-009/seed-11/xi-4/pinn-summary.json",
+      "bytes": 10351,
+      "sha256": "04a826b0d2c73f5b278ce7471c0a89cca6507b32bf4689c90d2ab8b5c0609027",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-009/seed-29/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-009/seed-29/xi-4/pinn-summary.json",
+      "bytes": 10358,
+      "sha256": "9866d18b441c3c3a3d04b2b8c16f986f89ad11aba694d822e9b96acb19e22460",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-009/seed-47/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-009/seed-47/xi-4/pinn-summary.json",
+      "bytes": 10347,
+      "sha256": "cccd70bfe2d3a57d6d04e6564f62896f1cb94ec2012039c5738d667864fbcb36",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-010/seed-11/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-010/seed-11/xi-4/pinn-summary.json",
+      "bytes": 10321,
+      "sha256": "c46ffc862fe743b1512e0de8ac43dc59e8bb8e41b406558c09e3771e840b5ad1",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-010/seed-29/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-010/seed-29/xi-4/pinn-summary.json",
+      "bytes": 10316,
+      "sha256": "6e3304f43ab4023373513f4b52634903f271b5e29ffe37cd08b057be77e81b72",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-010/seed-47/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-010/seed-47/xi-4/pinn-summary.json",
+      "bytes": 10319,
+      "sha256": "7329a845f2dd4bc257e75f62822b25f894443b3ea0d1f5183fd18fe7d67bd167",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-011/seed-11/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-011/seed-11/xi-4/pinn-summary.json",
+      "bytes": 10305,
+      "sha256": "5384c805c4aa0d10078f8668b308bd8c528208c0c1960346c721773653711323",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-011/seed-29/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-011/seed-29/xi-4/pinn-summary.json",
+      "bytes": 10307,
+      "sha256": "63a82decad6c625d6711d96b304eefea708ced3d052880225fd68964b2bbc8b2",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-011/seed-47/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/packet-011/seed-47/xi-4/pinn-summary.json",
+      "bytes": 10299,
+      "sha256": "698301d7505f6bc97c5baa9822b4abbfd87ef3424d02c7c44f54c28dc19f9a54",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-008/seed-11/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-008/seed-11/xi-4/pinn-summary.json",
+      "bytes": 10380,
+      "sha256": "d7a7cf5a5abf6cee3887a512b256682d551aa733a67a828906fdcb073eb316c7",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-008/seed-29/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-008/seed-29/xi-4/pinn-summary.json",
+      "bytes": 10384,
+      "sha256": "99ee8fa605f47c2a2e58244dbf93970a4b1b61faa5904e4d79dae87d750b60e7",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-008/seed-47/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-008/seed-47/xi-4/pinn-summary.json",
+      "bytes": 10379,
+      "sha256": "cae4d859e925d78c18d0c4ef2f14ba804a278501c9b086de26a6fe2fec803df0",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-009/seed-11/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-009/seed-11/xi-4/pinn-summary.json",
+      "bytes": 10338,
+      "sha256": "4aab430ee2c5ec728baf764d124f02c1f2dd5bc4232bdb8771b7143cfd548f3f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-009/seed-29/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-009/seed-29/xi-4/pinn-summary.json",
+      "bytes": 10334,
+      "sha256": "6a6eebd291dac516cf3f8489b14db1f6fe0ea082cb907ea5e1176a2e2b2d63e4",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-009/seed-47/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-009/seed-47/xi-4/pinn-summary.json",
+      "bytes": 10349,
+      "sha256": "9299f58312d6e4b669f6f3e8e88b916d01b4ed060f0ad34af634e26dd9ca0d20",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-010/seed-11/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-010/seed-11/xi-4/pinn-summary.json",
+      "bytes": 10349,
+      "sha256": "acccad2dbf956ed1e21a3c23cec450086c4a61f87eac1bfe43ea6e53514ffc73",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-010/seed-29/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-010/seed-29/xi-4/pinn-summary.json",
+      "bytes": 10337,
+      "sha256": "357a6bb92e51360983dd1d5b3be530ee2841f61892e8bcfe3788a1a6e6d6fbaf",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-010/seed-47/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-010/seed-47/xi-4/pinn-summary.json",
+      "bytes": 10340,
+      "sha256": "6a2954fad2706b00efe6708306c32aab50c4604865172cd3bc558d29edebd5c4",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-011/seed-11/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-011/seed-11/xi-4/pinn-summary.json",
+      "bytes": 10349,
+      "sha256": "d7ba8536c4f331fbcf93ea24c5fb0dee35e95fb04e53df9961113d29575fb7ed",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-011/seed-29/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-011/seed-29/xi-4/pinn-summary.json",
+      "bytes": 10336,
+      "sha256": "24258a5c90e32138197339347c780c1c06ffce5e573408e530599eb85bfba197",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-011/seed-47/xi-4/pinn-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/pinn/sideband-011/seed-47/xi-4/pinn-summary.json",
+      "bytes": 10326,
+      "sha256": "1bbc6777a8ca142d5b50adad1d062b443b78b41043cff14c0047d031155c8cec",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/gpu2-snapshot/summary.json",
+      "bytes": 37886,
+      "sha256": "c92031f8e905740e2bae49b40fcef30133f61f1289b3bbb3eae6bf1241b7c50f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/long-distance-config.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/long-distance-config.json",
+      "bytes": 1844,
+      "sha256": "b9ae0899ac39c12d695fe5e61b3dd2281962a1ef482b777f4f375abb9adcec5c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/projection-audit.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/projection-audit.json",
+      "bytes": 3548,
+      "sha256": "9e4f99897e41a09e566429b770a12c589b323a6543de0b308272f22db4fd58f2",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/projection-spectrum.csv",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/projection-spectrum.csv",
+      "bytes": 284653,
+      "sha256": "f97ee6d5363ca0efb442198729102dcce5db75279ab63c8c1ecc5c39317aa158",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/remote-audit.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/remote-audit.json",
+      "bytes": 9145,
+      "sha256": "3e69f686bd9e7f7a9f37eb9f0a34f9a529afdf8915ee7711e5f741f57e122908",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/data/workflow-summary.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/data/workflow-summary.json",
+      "bytes": 12814,
+      "sha256": "348dccceadd612ca3546b9f1f96ffddedbca21a885a181dacf3026d57fc15b10",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/figures/cpu-comparison.pdf",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/figures/cpu-comparison.pdf",
+      "bytes": 23761,
+      "sha256": "5ec0ed501203340ba2cc9099fc6105f073d24150967c41a65d7bc1bbe2b02842",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/figures/gpu-gates.pdf",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/figures/gpu-gates.pdf",
+      "bytes": 19054,
+      "sha256": "84f2247871d341e4e09e458ca032c8fac10ae3bfafd868ae35a7a83087ba7647",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/figures/projection-floor.pdf",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/figures/projection-floor.pdf",
+      "bytes": 22925,
+      "sha256": "738d148aab45bdb00475d352d0efc198ad7ddabcc45605efaad95714c455f45c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/make_figures.py",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/make_figures.py",
+      "bytes": 4205,
+      "sha256": "d44be1c64b4bc41faee9225e238b8aa8efd0a6704292bbe37a5eb25535293e25",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/prior-review/review.pdf",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/prior-review/review.pdf",
+      "bytes": 436926,
+      "sha256": "55df3e2eb3eceba9e55e2e41b0ec2c4e816acb7283ffaff764fad79b6ef11326",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/prior-review/review.tex",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/prior-review/review.tex",
+      "bytes": 35556,
+      "sha256": "00f00edca7aef0ee8de2b5b21eda001e0d35a487b86838dd4f787cef578d151d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/prior-review/verification.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/prior-review/verification.json",
+      "bytes": 2788,
+      "sha256": "3cf082dc378a77e59a78d547d029d990d99a821741603febbeef56fb7fcfc893",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/review.pdf",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/review.pdf",
+      "bytes": 460696,
+      "sha256": "5d0ca5b7195ce43e51e25a085937b17bd51a90292189e35abd643f9bad7ff0a6",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/review.tex",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/review.tex",
+      "bytes": 41209,
+      "sha256": "ed9e013fe00fe1ca5c68b90af6678cf1525337d1ea2076dfdb62455e72e9cfcf",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/review.txt",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/review.txt",
+      "bytes": 44972,
+      "sha256": "ecd14b7d197606066e4f7358a395982c0ede409842af17c7a66b5f04fc3b2448",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/royden-report.sty",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/royden-report.sty",
+      "bytes": 1256,
+      "sha256": "cb1d0cade75d47a5de899ef991ef5cb98ce6dc19d7d8626e751c4fefe0fd2b84",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe-solitons-tests-2026-10-27/verification.json",
+      "target": "output/pdf/dysthe-solitons-tests-2026-10-27/verification.json",
+      "bytes": 7317,
+      "sha256": "2cdb214a47d8e03da0b81305ffc29f5692a83642c1e1a7659598f3320612fb95",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe_checkpoint_2026-09-10.pdf",
+      "target": "output/pdf/dysthe_checkpoint_2026-09-10.pdf",
+      "bytes": 1756275,
+      "sha256": "6c7045e4d57ea40248e8049a068cbe41d7667ed00963181eac661c4045a85fd6",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe_formal_checkpoint.pdf",
+      "target": "output/pdf/dysthe_formal_checkpoint.pdf",
+      "bytes": 1733974,
+      "sha256": "78496b450ed385b6db730636a941ff8d565a2ea655576aeaa955313d465b0316",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe_research_meeting.pdf",
+      "target": "output/pdf/dysthe_research_meeting.pdf",
+      "bytes": 1748008,
+      "sha256": "381d4dc725782810d5a0fbc470cc6484f746b2140ce4fab42bff1a3a3ab93d5c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/dysthe_visual_study.pdf",
+      "target": "output/pdf/dysthe_visual_study.pdf",
+      "bytes": 688601,
+      "sha256": "3cca5aface2e8d298358b45c73a716473076e5463ed2cbd357dc88880d85baf0",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/late_window_1024_2048_technical_review.pdf",
+      "target": "output/pdf/late_window_1024_2048_technical_review.pdf",
+      "bytes": 2190383,
+      "sha256": "1248446bc70df40faa0213ce239c5623873e5a4b009ecb4d444c077581c7aaf6",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25.pdf",
+      "target": "output/pdf/nls-pinn-research-2026-10-25.pdf",
+      "bytes": 415037,
+      "sha256": "9d6627a45edb58671d430d3163b985a25fa903004ba6f85b8298afbbdf3c09d1",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/README.txt",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/README.txt",
+      "bytes": 1996,
+      "sha256": "b15056e7b3c64cbe0e430962865b8d626591af566af711f89eab08d373739d63",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/figures/experiment-design.pdf",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/figures/experiment-design.pdf",
+      "bytes": 16255,
+      "sha256": "959250560e0782ce6d000364b1cc35fc8c4e4ad4f1b8d932d3603fb3001f24ba",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/figures/phase-drift.pdf",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/figures/phase-drift.pdf",
+      "bytes": 20534,
+      "sha256": "e6c27383cbf3bee296b6482b1dfae7889faa817486734a94390fa1828bd793dd",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/make_figures.py",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/make_figures.py",
+      "bytes": 7297,
+      "sha256": "45281707e259ed1b5cbfb1b3f0735aab9aa85f755eb07f67f5c7e8ed5494ceb1",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/method-sources.json",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/method-sources.json",
+      "bytes": 13876,
+      "sha256": "298f848b3f1d210e068e4c9b568c49a7a925884380125d0ffc176fe1287c43b2",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/nls-sources.json",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/nls-sources.json",
+      "bytes": 12804,
+      "sha256": "4a1d5203a26761fa3a0d63a508a783c263ed6e801d16c8250783ef3a0d40e554",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/references.bib",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/references.bib",
+      "bytes": 12203,
+      "sha256": "6174233821aed1f4912878a14f6d98834aa0260abe5ea5f98bedf0418d1f6ac7",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/references.tex",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/references.tex",
+      "bytes": 9655,
+      "sha256": "e1e9f642bd019c08a1bcdc112e4840391ac68183e0214a39864fcb7e4cb90a13",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/report.pdf",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/report.pdf",
+      "bytes": 415037,
+      "sha256": "9d6627a45edb58671d430d3163b985a25fa903004ba6f85b8298afbbdf3c09d1",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/report.tex",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/report.tex",
+      "bytes": 2004,
+      "sha256": "6031056189ee01610a9eb737fe96f882b7d1e745304e6752206bab2c46cf4956",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/root-sources.json",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/root-sources.json",
+      "bytes": 3890,
+      "sha256": "7859959a453a23038d08c55a3a84ddf8071ff709e3ac08f0c807233fb664cba2",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/royden-report.sty",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/royden-report.sty",
+      "bytes": 1256,
+      "sha256": "cb1d0cade75d47a5de899ef991ef5cb98ce6dc19d7d8626e751c4fefe0fd2b84",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/sections/01-overview.tex",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/sections/01-overview.tex",
+      "bytes": 3875,
+      "sha256": "2c1f2f08f106d3dc4a657364bcd756a7092222b83d0f17062874a0a542e98f0c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/sections/02-mathematics.tex",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/sections/02-mathematics.tex",
+      "bytes": 9535,
+      "sha256": "a7301d26dd57aab471d77871a16fdbc6d89c12d02faf81c9bd34e8f302ce5a33",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/sections/03-literature.tex",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/sections/03-literature.tex",
+      "bytes": 14050,
+      "sha256": "79806cd0293ee37c01fdede38062924c3a569adaf4146e70637d1a6218559c3a",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/sections/04-questions.tex",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/sections/04-questions.tex",
+      "bytes": 11432,
+      "sha256": "af68df0cb22f026e4b73cc104efd966f1cca3e4e2eff6fba83b539ef7ff9cee1",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/sections/05-protocol.tex",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/sections/05-protocol.tex",
+      "bytes": 11536,
+      "sha256": "12b2c24d928d332088ae4ce047aa940749c59a917de4ed933e2067373d10d690",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/sources.json",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/sources.json",
+      "bytes": 36410,
+      "sha256": "63066a14634d348a9634d0716741cf289435f4bafc44b44f824716734e614958",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/verification.json",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/verification.json",
+      "bytes": 1715,
+      "sha256": "7f06614e7633667e9c3739c6b4df9badad2fb412ed00579082105ece4bb25b88",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nls-pinn-research-2026-10-25/water-sources.json",
+      "target": "output/pdf/nls-pinn-research-2026-10-25/water-sources.json",
+      "bytes": 9510,
+      "sha256": "5dc7e874b84483aa3efae922207808c49d0e7519f5c883dc14cbca2aaaa36415",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/nonlinear_solitary_wave_report.pdf",
+      "target": "output/pdf/nonlinear_solitary_wave_report.pdf",
+      "bytes": 729757,
+      "sha256": "72408c61dc68fdb3832b4f7d2713945fa1119642f1cd463def7677d46455c6c2",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/pinn_framework_smoke_report.pdf",
+      "target": "output/pdf/pinn_framework_smoke_report.pdf",
+      "bytes": 202458,
+      "sha256": "cf5bbe5225344a2ab30289fba9e7262b806d66384c063cf335e4f46c270d3cc0",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/pinn_full_training_evaluation.pdf",
+      "target": "output/pdf/pinn_full_training_evaluation.pdf",
+      "bytes": 263543,
+      "sha256": "40e9547e7aa4a57f91047bbb4ef750e92280dbf36c09f6716cc071fb8ade0297",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/restricted_input_decay_and_practical_model.pdf",
+      "target": "output/pdf/restricted_input_decay_and_practical_model.pdf",
+      "bytes": 422056,
+      "sha256": "3773b1714281b84bfe7bb1134f4e4df50139552eba165674ccee6c9b13677100",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/selected_packets_mock.pdf",
+      "target": "output/pdf/selected_packets_mock.pdf",
+      "bytes": 1266123,
+      "sha256": "c35aae13247b49348b3bccc7b69880c5670fec16756b2f8b8c639e64311c1aa9",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/wave_figure_explanations.pdf",
+      "target": "output/pdf/wave_figure_explanations.pdf",
+      "bytes": 2045939,
+      "sha256": "9ddae146c94a084e39e660c5325fbffecf474890efe5ee64794fd65b6dc2aea2",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pdf/wave_visualizations_beginners_guide.pdf",
+      "target": "output/pdf/wave_visualizations_beginners_guide.pdf",
+      "bytes": 253872,
+      "sha256": "6db6f958b5bbc9b37b74716372ad68469d33402b78520dd33b913954e2f10c4d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pinn_full_evaluation/errors.png",
+      "target": "output/pinn_full_evaluation/errors.png",
+      "bytes": 125140,
+      "sha256": "73a8ac9da7ee273e92877eac98a5bc01a623a3e70dd835b35e8d09566ab7397f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pinn_full_evaluation/metrics.json",
+      "target": "output/pinn_full_evaluation/metrics.json",
+      "bytes": 6759,
+      "sha256": "945c2e2cd358c7ce3a2e565bad0d7288086dc1ecacd9205dbff6da885364e49f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pinn_full_evaluation/reference-audit.json",
+      "target": "output/pinn_full_evaluation/reference-audit.json",
+      "bytes": 3929,
+      "sha256": "5b1e8ff9ee1cdaf3fe3e72f626c8476f3ea02ee3ceb1b8a52786f34409d2b9bd",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pinn_full_evaluation/report.pdf",
+      "target": "output/pinn_full_evaluation/report.pdf",
+      "bytes": 263543,
+      "sha256": "40e9547e7aa4a57f91047bbb4ef750e92280dbf36c09f6716cc071fb8ade0297",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pinn_full_evaluation/report.tex",
+      "target": "output/pinn_full_evaluation/report.tex",
+      "bytes": 7329,
+      "sha256": "2cf9800b989c2a3cc548dcba3c7c06701e5a76666752c8d008f4c5c47784f6ec",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pinn_full_evaluation/slices.png",
+      "target": "output/pinn_full_evaluation/slices.png",
+      "bytes": 112764,
+      "sha256": "ae80c19f52c5cf5a1908ce68999bb5aa1760a5121b40031c08992f6c630cc9f7",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pinn_full_evaluation/training-metrics.jsonl",
+      "target": "output/pinn_full_evaluation/training-metrics.jsonl",
+      "bytes": 47958,
+      "sha256": "445e9b321eeee6918df44e550e42fda4cf0a9ce283ca42b31cb519e52182f90d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/pinn_full_evaluation/training-summary.json",
+      "target": "output/pinn_full_evaluation/training-summary.json",
+      "bytes": 1583,
+      "sha256": "9bfda78b0dbc537d12a8092c24f03df413a0fe95c3f7bace4e89e039a520f7db",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/restricted_decay/cancellation.png",
+      "target": "output/restricted_decay/cancellation.png",
+      "bytes": 122108,
+      "sha256": "0e0a6398f2eb4cb68152169118f0960e5b3ce8a5eb69f21b533297684f3732fc",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/restricted_decay/gap.png",
+      "target": "output/restricted_decay/gap.png",
+      "bytes": 120482,
+      "sha256": "c50fa77d8be4516f2a4199e8c4cbdb5bfac49a82be952a3f60c1fc7a9a7d0c2e",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/restricted_decay/inputs.png",
+      "target": "output/restricted_decay/inputs.png",
+      "bytes": 155632,
+      "sha256": "07384adedcef33a08739e9c16a6254d1e43309240afa2583c1084783a4ab32de",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/restricted_decay/restricted_decay.pdf",
+      "target": "output/restricted_decay/restricted_decay.pdf",
+      "bytes": 422056,
+      "sha256": "3773b1714281b84bfe7bb1134f4e4df50139552eba165674ccee6c9b13677100",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/restricted_decay/restricted_decay.tex",
+      "target": "output/restricted_decay/restricted_decay.tex",
+      "bytes": 18168,
+      "sha256": "1dafef2615414b3cfe831579c75ea861136e240e6a075317e6bd2d81ac38ca64",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/restricted_decay/table.tex",
+      "target": "output/restricted_decay/table.tex",
+      "bytes": 425,
+      "sha256": "5e174563ec7260cf17745e216ee0122228bdc0656d4ff849e39951639b58662e",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/small-simulator-review-20261016/report/figures/envelopes.pdf",
+      "target": "output/small-simulator-review-20261016/report/figures/envelopes.pdf",
+      "bytes": 183437,
+      "sha256": "a46fb7563648b5634c62dc2af15380995b9d22677496eef878d6c4830f9ad7ab",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/small-simulator-review-20261016/report/figures/envelopes.png",
+      "target": "output/small-simulator-review-20261016/report/figures/envelopes.png",
+      "bytes": 85611,
+      "sha256": "627e0f4f4d8aac9a4e4939bdd9965fb744a0e04291dd708eb26bca77db1ac54f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/small-simulator-review-20261016/report/figures/metrics.pdf",
+      "target": "output/small-simulator-review-20261016/report/figures/metrics.pdf",
+      "bytes": 28190,
+      "sha256": "298ddbdce2fc886595644fcf68946ce89cf40f92e99d232f2c0d4b03a71a88a8",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/small-simulator-review-20261016/report/figures/metrics.png",
+      "target": "output/small-simulator-review-20261016/report/figures/metrics.png",
+      "bytes": 119196,
+      "sha256": "438766f8f373c7dd2c4268dffb50fb3884dd50ac5285c2436c3917beae768373",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/small-simulator-review-20261016/report/report.pdf",
+      "target": "output/small-simulator-review-20261016/report/report.pdf",
+      "bytes": 428199,
+      "sha256": "03eb11a56819432d6bc37f8c6f5601c1de28def3a2886e554c2bfc212eef1dcf",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/small-simulator-review-20261016/report/report.tex",
+      "target": "output/small-simulator-review-20261016/report/report.tex",
+      "bytes": 6523,
+      "sha256": "e2e45b67726aedeef05553504748ee0f1a2f930ab11619b765379923ce09ce8c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/small-simulator-review-20261016/report/royden-report.sty",
+      "target": "output/small-simulator-review-20261016/report/royden-report.sty",
+      "bytes": 1256,
+      "sha256": "cb1d0cade75d47a5de899ef991ef5cb98ce6dc19d7d8626e751c4fefe0fd2b84",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "output/small-simulator-review-20261016/report/values.tex",
+      "target": "output/small-simulator-review-20261016/report/values.tex",
+      "bytes": 1301,
+      "sha256": "f3b17ebf9de98a26a5bc6e8f7d02e41b1e439a6c5e8548f799a9b02f0d388d8a",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/build_checkpoint.py",
+      "target": "report/build_checkpoint.py",
+      "bytes": 7811,
+      "sha256": "b23ec88ddd540039e39c8c92eae59f70ac6a18e182838dc2dc89d5e4524b39b3",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/build_formal_report.py",
+      "target": "report/build_formal_report.py",
+      "bytes": 15907,
+      "sha256": "9d12bcd21bec17bd0c0c08f3df57346c1225caf94bfdcbe23dd45ec2c177c073",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/build_meeting_report.py",
+      "target": "report/build_meeting_report.py",
+      "bytes": 19212,
+      "sha256": "32581365510ed8cbf473062e207e4befee84c8aa75b0240efe3cf04b5ecfe7f0",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/build_restricted_report.py",
+      "target": "report/build_restricted_report.py",
+      "bytes": 3617,
+      "sha256": "0cf9ff58ac433b0d1922c8513f824dbadf1cac50ea66190d472664525167a64b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/build_unified.py",
+      "target": "report/build_unified.py",
+      "bytes": 14085,
+      "sha256": "7e2d5ad63c27e6877defc9cb429a05b34d419c2fe04e38ced0e1a7b54ae63e83",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/checkpoint_2026_09_10.pdf",
+      "target": "report/checkpoint_2026_09_10.pdf",
+      "bytes": 1756275,
+      "sha256": "6c7045e4d57ea40248e8049a068cbe41d7667ed00963181eac661c4045a85fd6",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/checkpoint_2026_09_10.tex",
+      "target": "report/checkpoint_2026_09_10.tex",
+      "bytes": 72659,
+      "sha256": "6bb0b4aa6fcbd121bb8e4da1fc3650dae954eda48e5e65f1c4586a13b8a3e40e",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/computed_values.tex",
+      "target": "report/computed_values.tex",
+      "bytes": 1282,
+      "sha256": "038835b6366d56a1d3a8fc843053cd2b56620bdcbd2dbaef260558981d25e0bc",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/decay_refinement.pdf",
+      "target": "report/decay_refinement.pdf",
+      "bytes": 142383,
+      "sha256": "d503dd397adcd62e69c56670ba608a8aba4f04950e2bd1299f10cd0ad51d918b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/decay_refinement.tex",
+      "target": "report/decay_refinement.tex",
+      "bytes": 6580,
+      "sha256": "fcacaee2a2421672686e45f49b3fb8cee730883304115cef0eb45485c199bd13",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/dysthe_report.pdf",
+      "target": "report/dysthe_report.pdf",
+      "bytes": 306659,
+      "sha256": "4f5ccfd4b8101fe3d23e1d3e73745e305a7b2fb7133d6f1e94b091ceefabe7e8",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/dysthe_report.tex",
+      "target": "report/dysthe_report.tex",
+      "bytes": 14126,
+      "sha256": "e5c494e5a13d560e342d6850412ddbbf073451d0ae4e8b60964a4a255a067edc",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/figures/envelope_explanation.pdf",
+      "target": "report/figures/envelope_explanation.pdf",
+      "bytes": 82011,
+      "sha256": "78b5d52f38bf7a6c3ca2cef89ff4c350b8c1d0737c6798d8d30f0fa6180c9587",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/figures/generic.pdf",
+      "target": "report/figures/generic.pdf",
+      "bytes": 19081,
+      "sha256": "14610e62735ecd335d1b7f934d201eb3d4c6958719f7c531634c14e5db9b227a",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/figures/peak_decay.pdf",
+      "target": "report/figures/peak_decay.pdf",
+      "bytes": 18692,
+      "sha256": "d2693c8a79f987a3a5a4e2b7163db46e468f9bfe4e6376baa89b7709f1c0f7f5",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/figures/slices.pdf",
+      "target": "report/figures/slices.pdf",
+      "bytes": 32139,
+      "sha256": "63289c94fbb096b88f3a96cbfad64431fe082877e8f60965052746fa8520588c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/figures/water_packet.pdf",
+      "target": "report/figures/water_packet.pdf",
+      "bytes": 81000,
+      "sha256": "f28038db3cd7e8c0e48c85ec2b959cde8e04718ab8201b0c084fa8421660ce0a",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/figures/water_packet.png",
+      "target": "report/figures/water_packet.png",
+      "bytes": 349436,
+      "sha256": "c342efa2f729710e6c0afa694771e36dd4b32162397408bfef5ff8cc3add0f8e",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/figures/widths.pdf",
+      "target": "report/figures/widths.pdf",
+      "bytes": 15321,
+      "sha256": "ba0c8d0fcc1ff54ff6bc990896e6c483e5a6e726bf787430db04d9b3d3914afa",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/formal_report.pdf",
+      "target": "report/formal_report.pdf",
+      "bytes": 1734128,
+      "sha256": "ee47392b1524ff5f417bc6f9d086afbf39a81cbbf7f15dc7a04e5f8964afcc0b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/formal_report.tex",
+      "target": "report/formal_report.tex",
+      "bytes": 74856,
+      "sha256": "d82880e18a147de99dddeda5c852100b3e0780d46f1335802d0c7f9040bc2399",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/long_time_section.tex",
+      "target": "report/long_time_section.tex",
+      "bytes": 4428,
+      "sha256": "0278e0d9e2ff222bc64869e5bd8464e3a579c788f06142259ff1516f7a017fbd",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/long_time_values.tex",
+      "target": "report/long_time_values.tex",
+      "bytes": 356,
+      "sha256": "a9d067d4eb8fea89b836db2762b5e95c754d224fd7bdbf01b1044e863afdee89",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/make_envelope.py",
+      "target": "report/make_envelope.py",
+      "bytes": 1672,
+      "sha256": "e8c4847655093a45cac128e8a31bee803ad4d033f656cb730db341c292384354",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/make_long_time_tables.py",
+      "target": "report/make_long_time_tables.py",
+      "bytes": 1200,
+      "sha256": "d41edd05dc9726a0f2473ea419de992e6edb0a3c6e2e4a0d580ef4ea73045b7d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/make_refinement_tables.py",
+      "target": "report/make_refinement_tables.py",
+      "bytes": 2159,
+      "sha256": "b7701826bc7ccb0efb96ef73a2aee558fa41780a0cccce659d94cdb3a585ca79",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/make_research_report.py",
+      "target": "report/make_research_report.py",
+      "bytes": 7743,
+      "sha256": "e641885d50bf245c9125702321a681d832b8509c2ec4480080684869f6d50629",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/make_spatial_tables.py",
+      "target": "report/make_spatial_tables.py",
+      "bytes": 4243,
+      "sha256": "2dff96c453689c37046f5b1e2a5302603fec672adbb6e785edbfd3f59db14de4",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/make_tables.py",
+      "target": "report/make_tables.py",
+      "bytes": 1630,
+      "sha256": "6a203d9d09a68a605d46dea88183038f97f12a0eac644b89e10a2c3c9b50325c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/make_visual_gallery.py",
+      "target": "report/make_visual_gallery.py",
+      "bytes": 6461,
+      "sha256": "4fbc0089c09edceccbbe4107a0abf2d7c943b6e5b7ae0d8f8d2b32141ce7f869",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/make_water_packet.py",
+      "target": "report/make_water_packet.py",
+      "bytes": 2475,
+      "sha256": "3c64792efa0f4c59683cefc1059f60463d7cfd4a895978a8796693a2e94f7d18",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/meeting_report.pdf",
+      "target": "report/meeting_report.pdf",
+      "bytes": 1748008,
+      "sha256": "381d4dc725782810d5a0fbc470cc6484f746b2140ce4fab42bff1a3a3ab93d5c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/meeting_report.tex",
+      "target": "report/meeting_report.tex",
+      "bytes": 66349,
+      "sha256": "e26c46ef048a5ee4b099dd9455346127178b87ac8a185c9f2cb563e425b0ef54",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/collision_profiles.pdf",
+      "target": "report/nonlinear_figures/collision_profiles.pdf",
+      "bytes": 22166,
+      "sha256": "2222c3c131baa7009a93d4cfa8df19bd189abe29622bdcb73009c019f25a8179",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/collision_profiles.png",
+      "target": "report/nonlinear_figures/collision_profiles.png",
+      "bytes": 122846,
+      "sha256": "f8eef5bbbef75e6cee8e4e01a66bf0ca6735e1938b4abf3d3c7f3aaeaee76847",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/collisions.pdf",
+      "target": "report/nonlinear_figures/collisions.pdf",
+      "bytes": 108098,
+      "sha256": "b67c886736922c6ace7e46aaaa479c1d14fd3926c14c172e7c5940116d1dd227",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/collisions.png",
+      "target": "report/nonlinear_figures/collisions.png",
+      "bytes": 290330,
+      "sha256": "63dc92dc003ac40371936908d9fc01ec3737cbec262e746a0b61cd211fd65856",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/convergence_branch.pdf",
+      "target": "report/nonlinear_figures/convergence_branch.pdf",
+      "bytes": 19004,
+      "sha256": "9870d4e233737e8c4a6efbacbc754255b896bd32646f2c4d711f9dd962b4cb9c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/convergence_branch.png",
+      "target": "report/nonlinear_figures/convergence_branch.png",
+      "bytes": 111341,
+      "sha256": "28688af2883ac5052bc5524e5579c4453498e83b68a45c47b969aecaf0b95c75",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/nls_balance.pdf",
+      "target": "report/nonlinear_figures/nls_balance.pdf",
+      "bytes": 18682,
+      "sha256": "693829d8e5b93a5e982a02ffa3f63c3332437c5ec07b5087e702da38b9574177",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/nls_balance.png",
+      "target": "report/nonlinear_figures/nls_balance.png",
+      "bytes": 97622,
+      "sha256": "f22895eeacb7f73b7b7d1f459accddc1191f5df22f5113b31233e69773c51501",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/perturbations.pdf",
+      "target": "report/nonlinear_figures/perturbations.pdf",
+      "bytes": 21694,
+      "sha256": "b3ca67b7bfd40d10f42fd65b7db34805ef6512804514c6b6868a480826d8b773",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/perturbations.png",
+      "target": "report/nonlinear_figures/perturbations.png",
+      "bytes": 170554,
+      "sha256": "34b10f4e04d7c26af8bf63f31ddae0f9b4cc947bce0271f9f8e3df19ef9af88f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/profiles.pdf",
+      "target": "report/nonlinear_figures/profiles.pdf",
+      "bytes": 18700,
+      "sha256": "6f197f3016b46c9633d3f7ecdeecae3b4c4d0cca6268669ae2f63196cfe7285b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/profiles.png",
+      "target": "report/nonlinear_figures/profiles.png",
+      "bytes": 148132,
+      "sha256": "54e8846e908eb04fdfdb0ee695a59792ab17f4603053fa8835587ae20de0665f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/propagation.pdf",
+      "target": "report/nonlinear_figures/propagation.pdf",
+      "bytes": 31546,
+      "sha256": "6b9ec548883fcd1844a343f3b45dee7958e80f72ea79268bf24d73429eec2aee",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/propagation.png",
+      "target": "report/nonlinear_figures/propagation.png",
+      "bytes": 131524,
+      "sha256": "4a78598980f7f7858978e83963768bd63dbadb9f5a2021fc585275c3fb85fa7f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/transverse_growth.pdf",
+      "target": "report/nonlinear_figures/transverse_growth.pdf",
+      "bytes": 18789,
+      "sha256": "7c0a4b4330fc8d0dc0c54a25be105733386d89f0c41c7f7d2ad8a0db3e95751d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/transverse_growth.png",
+      "target": "report/nonlinear_figures/transverse_growth.png",
+      "bytes": 98561,
+      "sha256": "f33c5ef1bc7de3df06f87f571adf8fb0cf539800aac9cb7d2658805ba0783c3b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/transverse_slices.pdf",
+      "target": "report/nonlinear_figures/transverse_slices.pdf",
+      "bytes": 33295,
+      "sha256": "46bef4ebbb4462db6541cf52d301584afde689cf67db3232d4a72601794f9038",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/transverse_slices.png",
+      "target": "report/nonlinear_figures/transverse_slices.png",
+      "bytes": 62933,
+      "sha256": "8df9442f044c7d45564c539947b03e663b10c1e9ce522d4bd48e6dba9259a0a4",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/water_reconstruction.pdf",
+      "target": "report/nonlinear_figures/water_reconstruction.pdf",
+      "bytes": 313764,
+      "sha256": "53d5edecc5ebcb5df5787f8dad3fed08940ecd8c897691c1b48fa4f839f5b080",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_figures/water_reconstruction.png",
+      "target": "report/nonlinear_figures/water_reconstruction.png",
+      "bytes": 277870,
+      "sha256": "b020fe5ee19cf2f984500098fe04bbddb60b97d981a0758bbccd740254a2c799",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_solitary_wave_report.pdf",
+      "target": "report/nonlinear_solitary_wave_report.pdf",
+      "bytes": 729757,
+      "sha256": "72408c61dc68fdb3832b4f7d2713945fa1119642f1cd463def7677d46455c6c2",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_solitary_wave_report.tex",
+      "target": "report/nonlinear_solitary_wave_report.tex",
+      "bytes": 56452,
+      "sha256": "6b80a51f61953cadf82b39c86ea06e9bb467fc906507cdd02d5718b5f38be818",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_tables.py",
+      "target": "report/nonlinear_tables.py",
+      "bytes": 3507,
+      "sha256": "51439add174db7b3f4ef882324979ec59117776bebf4d912541aaf8c882645de",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_tables/branches.tex",
+      "target": "report/nonlinear_tables/branches.tex",
+      "bytes": 863,
+      "sha256": "0fe89fb4ab3d8accbc96545ec3c6ccedaa496a962101d63bc1fd7dc9f84b8a9a",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_tables/collision.tex",
+      "target": "report/nonlinear_tables/collision.tex",
+      "bytes": 797,
+      "sha256": "4f826908a0e9a3466a726517098746f49325355a01b123b1f6198a32c0945145",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_tables/dysthe_time.tex",
+      "target": "report/nonlinear_tables/dysthe_time.tex",
+      "bytes": 313,
+      "sha256": "e7eecea35ca6d30574e6973f1c7e8f33ffc106945beb3512617c02293854789f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_tables/early.tex",
+      "target": "report/nonlinear_tables/early.tex",
+      "bytes": 513,
+      "sha256": "a1148558ffbada165c9a7fe3e0cae0c03ad793862dbc9f37e1aca9a0be7d0b2d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_tables/late.tex",
+      "target": "report/nonlinear_tables/late.tex",
+      "bytes": 538,
+      "sha256": "a2eb19b12176e8743b0c694e287db5edc4825a3b9674b05a1b32299a704184fa",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_tables/nls.tex",
+      "target": "report/nonlinear_tables/nls.tex",
+      "bytes": 700,
+      "sha256": "345e3ea77913e66ee5d45e6cfd2e8390334f8d494fa9c04525039ca52ddecd55",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_tables/perturb.tex",
+      "target": "report/nonlinear_tables/perturb.tex",
+      "bytes": 598,
+      "sha256": "ee4679df23983c0b361a829870e6d7f5f11501ced8d874a92e3b6519dc4a322d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_tables/profile_checks.tex",
+      "target": "report/nonlinear_tables/profile_checks.tex",
+      "bytes": 490,
+      "sha256": "9ffb8070491df56bc9be0fb0b205142859546efb81f12a5c0e9c013ac18509fc",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/nonlinear_tables/propagation.tex",
+      "target": "report/nonlinear_tables/propagation.tex",
+      "bytes": 1366,
+      "sha256": "c34deaa83f784a90e0ad6a26f725cca5d69ec123fffd6ebf5e41ab37c0e70a9d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/refinement_values.tex",
+      "target": "report/refinement_values.tex",
+      "bytes": 1051,
+      "sha256": "7f68620b060c91e08c71ab3218f10ab2d6374ea0419346fd06791523d93bdf9f",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/research_section.tex",
+      "target": "report/research_section.tex",
+      "bytes": 9148,
+      "sha256": "0f2ac7d7e27c24df12b74910369560c6eb0a1782e3a64c9f6fad47c926d13553",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/research_values.tex",
+      "target": "report/research_values.tex",
+      "bytes": 277,
+      "sha256": "38f376500d92d52c4fadd7151b843822cf1889e706c66084670c1caf7b53f80e",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/selected_packet_diagnostics.py",
+      "target": "report/selected_packet_diagnostics.py",
+      "bytes": 2776,
+      "sha256": "30503c58ad37c62724770953877103fc99b183ca515b747fdbba9dbac609ca01",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/selected_packet_values.tex",
+      "target": "report/selected_packet_values.tex",
+      "bytes": 145,
+      "sha256": "996505e18242adfa598f8e588de1f71c35a58672276831dbfdaa6ce02f3cfeb0",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/selected_packets_mock.pdf",
+      "target": "report/selected_packets_mock.pdf",
+      "bytes": 1266123,
+      "sha256": "c35aae13247b49348b3bccc7b69880c5670fec16756b2f8b8c639e64311c1aa9",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/selected_packets_mock.tex",
+      "target": "report/selected_packets_mock.tex",
+      "bytes": 14257,
+      "sha256": "66a4ccfb896b7cd4f3e3fe0251e5d080ee7f162ab73d4497ae7b015422d920d7",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/spatial_section.tex",
+      "target": "report/spatial_section.tex",
+      "bytes": 4011,
+      "sha256": "1f5d77403cf96cf1f54deeb68c3767e4c5c9e89ae1b8e9b77f6cc637999c9147",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/spatial_values.tex",
+      "target": "report/spatial_values.tex",
+      "bytes": 860,
+      "sha256": "4e07cdac4d73ae4ac96b7e33ae3e5e5b2dcbd6be343011e8c311e48b7c9d9356",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/summarize_extended_decay.py",
+      "target": "report/summarize_extended_decay.py",
+      "bytes": 8740,
+      "sha256": "2edfa85b4c5d0dd9724e92354d95c14d483db5feeb6bb6c1f7063d713c340648",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/unified_report.pdf",
+      "target": "report/unified_report.pdf",
+      "bytes": 688601,
+      "sha256": "3cca5aface2e8d298358b45c73a716473076e5463ed2cbd357dc88880d85baf0",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/unified_report.tex",
+      "target": "report/unified_report.tex",
+      "bytes": 27697,
+      "sha256": "0a31f566c34b9e40735debbb94939f61ef2a0afd047c7483dd2f4e0e856f20c1",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/gallery_manifest.json",
+      "target": "report/visuals/gallery_manifest.json",
+      "bytes": 1019,
+      "sha256": "6710846c97b3c032f98839c26db2ac801cc70b614cc4760c58c86ebeb78e695c",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/hero.pdf",
+      "target": "report/visuals/hero.pdf",
+      "bytes": 101672,
+      "sha256": "ed4b205271397f6820b52dcc4ce07579202d611acb13131bb85a67144dd0161b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/hero.png",
+      "target": "report/visuals/hero.png",
+      "bytes": 164844,
+      "sha256": "6d88075cfe1d5b1b7c60972b89a20d23850a0ea392193870a160fd169377b063",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/random_carriers.pdf",
+      "target": "report/visuals/random_carriers.pdf",
+      "bytes": 31988,
+      "sha256": "6e982f92fc9a8d5e06f4bc5480d216c8e74fdced04c6b3f7f6b0058a3605d9ac",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/random_carriers.png",
+      "target": "report/visuals/random_carriers.png",
+      "bytes": 219665,
+      "sha256": "5918310474d6e05c1413895d29884d747479f38ac9a5ab6bfe51f4b850ef8146",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/random_volumes.pdf",
+      "target": "report/visuals/random_volumes.pdf",
+      "bytes": 51183,
+      "sha256": "9bb8bbcb31b9006012e83db5171977490c4af478e6b2bad6cb5935e5a934ad07",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/random_volumes.png",
+      "target": "report/visuals/random_volumes.png",
+      "bytes": 289882,
+      "sha256": "40153cbaf6e6f977b6f11aa6d36d02502d62c6e61c8d69a6ba2e2fd762c7645b",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/reliability.pdf",
+      "target": "report/visuals/reliability.pdf",
+      "bytes": 15655,
+      "sha256": "c376f9bab90bbbeead25502cd799584c6561b926190cadb56ac3b1bdd701ef5d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/reliability.png",
+      "target": "report/visuals/reliability.png",
+      "bytes": 48004,
+      "sha256": "f722f0d9e491cc27feeb1295b06dd16c5d0035b935a57cf5305263d027b29cc3",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/research_cancellation.pdf",
+      "target": "report/visuals/research_cancellation.pdf",
+      "bytes": 16325,
+      "sha256": "2a84aad1b1a60a868b25d74123e1a164701053a99fe2384eba26eb485bd5760d",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/research_cancellation.png",
+      "target": "report/visuals/research_cancellation.png",
+      "bytes": 66485,
+      "sha256": "ce63b5a61f8ecebe4a74fe1c48a5525d972979cd5b3625a030243c3f72cc0b06",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/research_quadrature.pdf",
+      "target": "report/visuals/research_quadrature.pdf",
+      "bytes": 20967,
+      "sha256": "eb7b66c977a360bcfd5858b6fce481d70ccf9f98e48b8220af5f5dcf0a6798d1",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/research_quadrature.png",
+      "target": "report/visuals/research_quadrature.png",
+      "bytes": 126712,
+      "sha256": "d4e31dd6680a43ebe55c4fe252406d42774004e83e55f86bf14ec84f9d2d8ffa",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/research_scaling.pdf",
+      "target": "report/visuals/research_scaling.pdf",
+      "bytes": 17929,
+      "sha256": "7f3f3efbb83e5e1cfb3418f9c7b09f81dc069a24afcd06f892784693ec0298a3",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/research_scaling.png",
+      "target": "report/visuals/research_scaling.png",
+      "bytes": 78268,
+      "sha256": "4d082ad742292b452c023838679d73b36688d24cf24ab972f050ceeed834d757",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/research_sweep.pdf",
+      "target": "report/visuals/research_sweep.pdf",
+      "bytes": 21775,
+      "sha256": "1030b90b75a5c1d1d2a08365295ae261a7337a44337fff65c6d23dc700080862",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/research_sweep.png",
+      "target": "report/visuals/research_sweep.png",
+      "bytes": 102350,
+      "sha256": "79bf3b9f02422366ab37ea78866479fa8aa888bf331a5c64c27a60fe22aeffff",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/weighted_comparison.pdf",
+      "target": "report/visuals/weighted_comparison.pdf",
+      "bytes": 32154,
+      "sha256": "6b282a3bb1a8a85030fac844ff593873024525001182604c5e4269a28d6f1bbf",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "report/visuals/weighted_comparison.png",
+      "target": "report/visuals/weighted_comparison.png",
+      "bytes": 46237,
+      "sha256": "c0b33e832473b1e740cdec45525ae464c072d0302c7edffcecb4a7a779337cf6",
+      "selection": "selected report artifact"
+    },
+    {
+      "source": "results/decay_dataset/families_clear.pdf",
+      "target": "results/decay_dataset/families_clear.pdf",
+      "bytes": 23923,
+      "sha256": "84ce9c2e45fbcf6988304e78d93d4336e80ce3accddcf804f37cb04cb83cbfa2",
+      "selection": "referenced LaTeX dependency"
+    },
+    {
+      "source": "results/decay_dataset/refined_clear.pdf",
+      "target": "results/decay_dataset/refined_clear.pdf",
+      "bytes": 24323,
+      "sha256": "3faaa8dd125ce9e12b3c0b14c4c3577a5b55a820247d360b13343bed28d5e31c",
+      "selection": "referenced LaTeX dependency"
+    },
+    {
+      "source": "results/long_time/decay_256.pdf",
+      "target": "results/long_time/decay_256.pdf",
+      "bytes": 20065,
+      "sha256": "b9d68386453f9c322f83fab796b82f6478d2be39a9fecbb46bd3582daf0c8af9",
+      "selection": "referenced LaTeX dependency"
+    },
+    {
+      "source": "results/selected_packets/comparison.pdf",
+      "target": "results/selected_packets/comparison.pdf",
+      "bytes": 22585,
+      "sha256": "9fc621939991cb2aefc98cb1a1ed417ff387a69e3739022033f8e3518421687d",
+      "selection": "referenced LaTeX dependency"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "output/pdf/dysthe-modelling-report-2026-10-30/data/temporal/results-refined-summary.json",
+      "bytes": 5386027,
+      "sha256": "7ed13277630cc93d06a701e98d4b34f3dfded7ac3884d9d9f6d93c833148a54b",
+      "reason": "Exceeds repository 5 MB review limit"
+    }
+  ],
+  "dependency_audit": {
+    "method": "Static literal input/includegraphics/bibliography resolution with parent main-directory search; not recompilation of every historical report.",
+    "missing": [],
+    "macro_placeholders_skipped": [
+      {
+        "file": "report/long_time_section.tex",
+        "reference": "report/decay\\_refinement.tex"
+      },
+      {
+        "file": "report/unified_report.tex",
+        "reference": "#2"
+      },
+      {
+        "file": "report/unified_report.tex",
+        "reference": "unified\\_report.tex"
+      },
+      {
+        "file": "report/unified_report.tex",
+        "reference": "report/unified\\_report.tex"
+      },
+      {
+        "file": "report/selected_packets_mock.tex",
+        "reference": "#1"
+      },
+      {
+        "file": "report/meeting_report.tex",
+        "reference": "#2"
+      },
+      {
+        "file": "report/meeting_report.tex",
+        "reference": "meeting\\_report.tex"
+      },
+      {
+        "file": "report/meeting_report.tex",
+        "reference": "report/meeting\\_report.tex"
+      },
+      {
+        "file": "report/checkpoint_2026_09_10.tex",
+        "reference": "#2"
+      },
+      {
+        "file": "report/checkpoint_2026_09_10.tex",
+        "reference": "checkpoint\\_2026\\_09\\_10.tex"
+      },
+      {
+        "file": "report/checkpoint_2026_09_10.tex",
+        "reference": "report/checkpoint\\_2026\\_09\\_10.tex"
+      },
+      {
+        "file": "report/formal_report.tex",
+        "reference": "formal\\_report.tex"
+      },
+      {
+        "file": "report/nonlinear_solitary_wave_report.tex",
+        "reference": "nonlinear_figures/#1.pdf"
+      },
+      {
+        "file": "output/latex/dysthe_formal_checkpoint/formal_report.tex",
+        "reference": "formal\\_report.tex"
+      },
+      {
+        "file": "output/pdf/dysthe-modelling-report-2026-10-30/main.tex",
+        "reference": "figures/#1.pdf"
+      },
+      {
+        "file": "output/dysthe-nonlinear-visuals-2026-10-30/report/main.tex",
+        "reference": "figures/#1.pdf"
+      },
+      {
+        "file": "dysthe-pinn/reports/dysthe-research-reset/report.tex",
+        "reference": "figures/#1.pdf"
+      }
+    ],
+    "resolved_count": 298,
+    "textual_references_not_dependencies": [
+      {
+        "file": "report/dysthe_report.tex",
+        "command": "includegraphics",
+        "reference": "Dysthe3D-2.pdf",
+        "note": "Textual source citation/path only; not a LaTeX file dependency. Third-party supplied manuscript is intentionally not republished."
+      },
+      {
+        "file": "report/decay_refinement.tex",
+        "command": "includegraphics",
+        "reference": "Dysthe3D-2.pdf",
+        "note": "Textual source citation/path only; not a LaTeX file dependency. Third-party supplied manuscript is intentionally not republished."
+      },
+      {
+        "file": "report/unified_report.tex",
+        "command": "includegraphics",
+        "reference": "Dysthe3D-2.pdf",
+        "note": "Textual source citation/path only; not a LaTeX file dependency. Third-party supplied manuscript is intentionally not republished."
+      },
+      {
+        "file": "report/meeting_report.tex",
+        "command": "includegraphics",
+        "reference": "Dysthe3D-2.pdf",
+        "note": "Textual source citation/path only; not a LaTeX file dependency. Third-party supplied manuscript is intentionally not republished."
+      },
+      {
+        "file": "report/checkpoint_2026_09_10.tex",
+        "command": "includegraphics",
+        "reference": "Dysthe3D-2.pdf",
+        "note": "Textual source citation/path only; not a LaTeX file dependency. Third-party supplied manuscript is intentionally not republished."
+      },
+      {
+        "file": "report/formal_report.tex",
+        "command": "includegraphics",
+        "reference": "Dysthe3D-2.pdf",
+        "note": "Textual source citation/path only; not a LaTeX file dependency. Third-party supplied manuscript is intentionally not republished."
+      },
+      {
+        "file": "report/nonlinear_solitary_wave_report.tex",
+        "command": "includegraphics",
+        "reference": "Dysthe3D-2.pdf",
+        "note": "Textual source citation/path only; not a LaTeX file dependency. Third-party supplied manuscript is intentionally not republished."
+      },
+      {
+        "file": "output/latex/dysthe_formal_checkpoint/formal_report.tex",
+        "command": "includegraphics",
+        "reference": "Dysthe3D-2.pdf",
+        "note": "Textual source citation/path only; not a LaTeX file dependency. Third-party supplied manuscript is intentionally not republished."
+      },
+      {
+        "file": "output/small-simulator-review-20261016/report/report.tex",
+        "command": "includegraphics",
+        "reference": "stage2/review/dysthe-stage-one-reference.pdf",
+        "note": "Textual original project location only; the report itself is archived under external-stage-one-2026-10-16."
+      },
+      {
+        "file": "dysthe-pinn/reports/dysthe-research-reset/report.tex",
+        "command": "includegraphics",
+        "reference": "Dysthe3D-2.pdf",
+        "note": "Textual source citation/path only; not a LaTeX file dependency. Third-party supplied manuscript is intentionally not republished."
+      },
+      {
+        "file": "dysthe-pinn/reports/late-window-review/report.tex",
+        "command": "includegraphics",
+        "reference": "Dysthe3D-2.pdf",
+        "note": "Textual source citation/path only; not a LaTeX file dependency. Third-party supplied manuscript is intentionally not republished."
+      }
+    ],
+    "addition_note": "Cavitation source has no external figure/input dependencies and includes its style source. Historical late-window literal dependencies were already present in the initial archive; no new compilation is claimed."
+  },
+  "original_json_format_exceptions": []
+}

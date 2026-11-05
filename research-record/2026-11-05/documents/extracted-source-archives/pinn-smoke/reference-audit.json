@@ -1,0 +1,74 @@
+{
+  "status": "pass",
+  "gate": "provisional fixed-period engineering screen",
+  "thresholds": {
+    "relative_l2": 0.001,
+    "relative_peak_error": 0.005
+  },
+  "comparisons": {
+    "grid": {
+      "rows": [
+        {
+          "t": 0.0,
+          "relative_l2": 3.128936465724639e-16,
+          "relative_peak_error": 3.700743415417188e-16
+        },
+        {
+          "t": 0.025,
+          "relative_l2": 0.000101546776797499,
+          "relative_peak_error": 5.771746648521764e-06
+        },
+        {
+          "t": 0.05,
+          "relative_l2": 0.0002027926460357126,
+          "relative_peak_error": 2.2970928804245458e-05
+        },
+        {
+          "t": 0.07500000000000001,
+          "relative_l2": 0.00030343800970112934,
+          "relative_peak_error": 5.125238112502961e-05
+        },
+        {
+          "t": 0.1,
+          "relative_l2": 0.00040318589361886795,
+          "relative_peak_error": 9.00507745862158e-05
+        }
+      ],
+      "max_relative_l2": 0.00040318589361886795,
+      "max_relative_peak_error": 9.00507745862158e-05
+    },
+    "time_on_fine_grid": {
+      "rows": [
+        {
+          "t": 0.0,
+          "relative_l2": 0.0,
+          "relative_peak_error": 0.0
+        },
+        {
+          "t": 0.025,
+          "relative_l2": 9.154568134177283e-16,
+          "relative_peak_error": 3.7010775972456056e-16
+        },
+        {
+          "t": 0.05,
+          "relative_l2": 1.9627820471523336e-15,
+          "relative_peak_error": 7.404161700832066e-16
+        },
+        {
+          "t": 0.07500000000000001,
+          "relative_l2": 2.9934995303460637e-15,
+          "relative_peak_error": 1.1111265862561979e-15
+        },
+        {
+          "t": 0.1,
+          "relative_l2": 3.922127411775739e-15,
+          "relative_peak_error": 1.2971365382201953e-15
+        }
+      ],
+      "max_relative_l2": 3.922127411775739e-15,
+      "max_relative_peak_error": 1.2971365382201953e-15
+    }
+  },
+  "recommended_reference": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/runs/local-reference/grid_dt/reference.npz",
+  "qualification": "No domain enlargement, continuum supremum certification, or whole-space claim. Reference pass does not imply PINN pass."
+}

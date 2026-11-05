@@ -1,0 +1,35 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\title{An Observation Window at $5000\leq t\leq5001$}
+\author{}\date{}
+\begin{document}\maketitle
+\section{Meaning of the experiment}
+The target remains the full nonlinear equation (1.27), with the original synthetic initial condition, coefficients, and periodic box. The autonomous equation allows a local coordinate $s=t-5000$, but the correct local initial value is
+\[
+F(s,x,y,z)=E(5000+s,x,y,z),\qquad F(0,x,y,z)=E(5000,x,y,z).
+\]
+Putting the original trigonometric packet at $s=0$ would be a new initial-value problem, not the late evolution of that packet. The current implementation therefore evolves from $t=0$ to $t=5001$ and retains dense field snapshots only on the final interval. It does not skip the preceding evolution.
+\section{Implementation and computational cost}
+The candidate uses $64^3$ grid points and integrating-factor RK4 with $\Delta t=0.01$, giving 500,100 steps. The linear step factors are cached; the equation and time-stepping formula are unchanged. There are 101 saved complex-field snapshots at spacing $0.01$ on the observation interval. Scalar mass, peak, and spectral-edge diagnostics are recorded every 100 steps throughout the approach and at every saved frame. Progress is printed approximately every 30 seconds.
+
+An atomic checkpoint records the Fourier state, step number, observation frames already collected, diagnostics, and settings approximately every 60 seconds. The same output directory resumes the same calculation; incompatible settings are rejected and a process lock prevents concurrent writers. The default job requests 16 GiB of host memory and one day of execution. A wall-clock budget of 82,000 seconds pauses the calculation before that limit. A paused run must be submitted again with the same directory; a successful scheduler exit does not by itself mean the observation window is complete. If the partition has a shorter limit, reduce both the Slurm time allocation and the internal wall-clock budget accordingly.
+
+Neither a GPU nor a trained PINN is used here. The cluster launch command, from the repository root, is
+\begin{verbatim}
+git pull
+source .venv/bin/activate
+sbatch --partition=YOUR_PARTITION cluster/late_window.slurm
+\end{verbatim}
+The default output directory is
+\begin{verbatim}
+runs/late-window-5000-5001
+\end{verbatim}
+Inspect its \texttt{summary.json}. Status \texttt{paused} requests another submission; \texttt{completed\_unvalidated} means the requested fields were saved. Status \texttt{failed\_diagnostics} means a mass-drift or spectral-edge screen exceeded $0.001$ and the run stopped. Nonfinite fields raise an error and retain the last checkpoint. Checkpointing is discrete: an abrupt interruption may require replaying work since the last saved checkpoint.
+\section{Validation and limitations}
+A reduced-horizon test compares the late-window output with the corresponding slice of an uninterrupted full trajectory. It also pauses before and inside the observation interval and verifies exact agreement with the unpaused calculation. A separate test checks diagnostic failure and misaligned time rejection. These verify implementation, not accuracy at $t=5000$.
+
+The prior $T=8$ experiment failed the sampled peak-refinement screen. This direct late-window run is explicitly exploratory and does not override that failure. Conservation and finite values cannot establish phase accuracy accumulated over thousands of propagation units. Independent grid and time-step refinements must evolve the full preceding trajectory; refining only the final interval cannot remove errors in its starting state. Periodic recurrences also preclude identifying this calculation directly with whole-space decay.
+
+A later local PINN could learn $F(s)$ for $0\leq s\leq1$, using the evolved field as its initial data. The existing trigonometric hard-initial-condition network cannot do this unchanged; its initial-data representation and interface-error checks must be extended first. No late-window PINN training or long-time decay result is claimed here.
+\end{document}

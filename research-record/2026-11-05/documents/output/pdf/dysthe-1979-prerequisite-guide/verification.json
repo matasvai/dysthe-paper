@@ -1,0 +1,71 @@
+{
+  "guide_title": "Before Reading Dysthe (1979): A Prerequisite Guide",
+  "date": "2026-10-03",
+  "pages": 31,
+  "reader_background": "PDEs and linear algebra; water-wave and perturbation background taught from scratch",
+  "source_filename": "Dysthe-NoteModificationNonlinear-1979.pdf",
+  "source_sha256": "00ee2101e861cf46b85694d9d4738afaa6460c4a8ca56c4588efa7ea5b93e7a8",
+  "report_sha256": "0112caec751ef187e5f02b6ef2e0069dd54fda4ca8520dd4a8d00406d30de923",
+  "compiler": "pdfLaTeX / TeX Live 2023",
+  "built_in_compiler": "Failed to load uncached Tectonic bundle; live preview unverified",
+  "final_log_warnings": [],
+  "visual_review": {
+    "pages_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "method": "Poppler PNG render; page contact sheets and individual equation pages",
+    "clipping_or_overlap_observed": false
+  },
+  "figure_files": [
+    "asymptotic-comparison.pdf",
+    "carrier-envelope.pdf",
+    "longitudinal-growth.pdf",
+    "mean-flow.pdf"
+  ],
+  "figures_vector": "pdfimages -list reports zero raster images for all four figures",
+  "fonts": "pdffonts reports all embedded",
+  "mathematical_checks": [
+    "linear dispersion Taylor series through cubic order",
+    "mean-flow Fourier multiplier and cosine half-space solution",
+    "NLS and printed Dysthe stability determinants",
+    "completion of square and discarded sixth-order term",
+    "small-steepness growth and maximizing mode expansions",
+    "literal printed-coefficient consistency comparison"
+  ],
+  "limitations": [
+    "Formal asymptotics, not a rigorous approximation theorem",
+    "Apparent internal scan coefficient inconsistencies; no publisher erratum verified",
+    "Intermediate nonlinear Q products are explained structurally rather than all expanded",
+    "Paper reference data and experiments not independently rerun or digitized"
+  ]
+}

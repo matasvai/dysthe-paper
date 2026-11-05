@@ -1,0 +1,47 @@
+\section{Connection to the project's spatial free-surface model}
+\label{sec:project}
+This appendix identifies a later water-wave convention; it does not replace
+the original paper's formulation or change the project's approved model.
+
+The 1979 paper uses a temporal envelope, includes two horizontal modulation
+directions, and introduces $A$ through the velocity potential. A wave-tank
+experiment may instead prescribe a temporal profile at an upstream location
+and ask how it changes with propagation distance. This motivates a
+\emph{spatial} evolution formulation.
+
+Your current project contract identifies a one-coordinate free-surface
+envelope $u(\xi,\tau)$ with
+\begin{equation}\label{eq:spatial-model}
+ u_\xi=-iu_{\tau\tau}-i|u|^2u
+ -\varepsilon\left(8|u|^2u_\tau+2u^2u_\tau^*
+                  +2iu|D_\tau|(|u|^2)\right).
+\end{equation}
+Its contract follows the free-surface equation (1.3) in \cite{fedele}.
+Here $\xi$ is propagation distance and $\tau$ is retarded time along the
+profile. In that source's carrier-scaled coordinates,
+\[
+ B=\varepsilon u,\qquad
+ \tau=\varepsilon(2x-t),\qquad \xi=\varepsilon^2x.
+\]
+The companion potential-envelope equation has a different coefficient for
+the conjugate-gradient term. Equality of leading envelope magnitudes does
+not justify replacing one by the other at fourth order.
+
+The operator $|D_\tau|$ uses Fourier multiplier $|\kappa|$, with
+$e^{-i\kappa\tau}$ as the forward transform kernel and zero derivative
+response for the constant mode. It expresses an eliminated mean-flow
+response, just as the half-space solution did in Section~\ref{sec:mean}.
+It is not obtained by simply renaming the $x$ coordinate in (2.19).
+
+Two array axes $(\xi,\tau)$ describe an evolution coordinate and one
+profile coordinate. They do not represent the two horizontal modulation
+directions $(x,y)$ of the original stability problem. Comparing models
+requires tracking dependent variable, scaling, direction count,
+evolution variable, and nonlocal-operator convention.
+
+For learning this paper, retain its notation through the stability
+derivation. Afterwards, use this appendix to recognize why a later
+water-wave solver can contain related effects with different-looking
+coefficients. A numerical implementation should use its separately verified
+equation contract rather than this pedagogical transcription of the scan.
+\clearpage

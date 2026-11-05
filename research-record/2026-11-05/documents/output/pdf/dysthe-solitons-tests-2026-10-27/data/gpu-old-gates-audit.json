@@ -1,0 +1,356 @@
+{
+  "kind": "Independent reduction of 24 uploaded per-case PINN summaries",
+  "commit": "723883f27a6b3489bfc36f55d9d15b52e8635ad0",
+  "old_gate_definition": "At all81 sampledstations throughxi4, L2<=1%,H1<=5%,peak<=5%; doesnotinclude newH2gate",
+  "passed": 11,
+  "failed": 13,
+  "passes_by_split": {
+    "validation:fail": 7,
+    "test:fail": 6,
+    "validation:pass": 5,
+    "test:pass": 6
+  },
+  "interpretation": "All11 old-gate-passing fits are sideband inlets; all24 fail new combinedgates, so at least these11 are rejected by additional H2condition. The12 executionerrorrandomfits lackmeasurementsandarenotcounted.",
+  "training_seconds_median": 62.60702281631529,
+  "training_seconds_min": 47.63056456018239,
+  "training_seconds_max": 67.43625489808619,
+  "gpu_peak_allocated_bytes": 94955520,
+  "pairs": [
+    {
+      "path": "packet-008/seed-11/xi-4/pinn-summary.json",
+      "case_id": "packet-008",
+      "seed": 11,
+      "split": "validation",
+      "old_field_gates_pass": false,
+      "old_field_gates": {
+        "l2": 0.014067008777629906,
+        "h1": 0.04964588177779115,
+        "peak": 0.006300075078982197
+      },
+      "train_seconds": 55.01062959153205,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "packet-008/seed-29/xi-4/pinn-summary.json",
+      "case_id": "packet-008",
+      "seed": 29,
+      "split": "validation",
+      "old_field_gates_pass": false,
+      "old_field_gates": {
+        "l2": 0.016341722074494837,
+        "h1": 0.05660446967375467,
+        "peak": 0.009399102218343664
+      },
+      "train_seconds": 67.22222413495183,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "packet-008/seed-47/xi-4/pinn-summary.json",
+      "case_id": "packet-008",
+      "seed": 47,
+      "split": "validation",
+      "old_field_gates_pass": false,
+      "old_field_gates": {
+        "l2": 0.015402593051892914,
+        "h1": 0.058260846470379296,
+        "peak": 0.008169609335908429
+      },
+      "train_seconds": 56.65843782853335,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "packet-009/seed-11/xi-4/pinn-summary.json",
+      "case_id": "packet-009",
+      "seed": 11,
+      "split": "validation",
+      "old_field_gates_pass": false,
+      "old_field_gates": {
+        "l2": 0.015806824114955473,
+        "h1": 0.043064824128915664,
+        "peak": 0.013827729484728829
+      },
+      "train_seconds": 63.13016551081091,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "packet-009/seed-29/xi-4/pinn-summary.json",
+      "case_id": "packet-009",
+      "seed": 29,
+      "split": "validation",
+      "old_field_gates_pass": false,
+      "old_field_gates": {
+        "l2": 0.014180542945882805,
+        "h1": 0.043453860547590845,
+        "peak": 0.008223100872003215
+      },
+      "train_seconds": 47.63056456018239,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "packet-009/seed-47/xi-4/pinn-summary.json",
+      "case_id": "packet-009",
+      "seed": 47,
+      "split": "validation",
+      "old_field_gates_pass": false,
+      "old_field_gates": {
+        "l2": 0.012874153957429182,
+        "h1": 0.03805023268926819,
+        "peak": 0.005325442416563172
+      },
+      "train_seconds": 65.67410860490054,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "packet-010/seed-11/xi-4/pinn-summary.json",
+      "case_id": "packet-010",
+      "seed": 11,
+      "split": "test",
+      "old_field_gates_pass": false,
+      "old_field_gates": {
+        "l2": 0.01052090166576064,
+        "h1": 0.03536815929488171,
+        "peak": 0.003939030630842577
+      },
+      "train_seconds": 57.32974810991436,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "packet-010/seed-29/xi-4/pinn-summary.json",
+      "case_id": "packet-010",
+      "seed": 29,
+      "split": "test",
+      "old_field_gates_pass": false,
+      "old_field_gates": {
+        "l2": 0.011586090439826996,
+        "h1": 0.039364229389285195,
+        "peak": 0.004134694837931173
+      },
+      "train_seconds": 64.15344076231122,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "packet-010/seed-47/xi-4/pinn-summary.json",
+      "case_id": "packet-010",
+      "seed": 47,
+      "split": "test",
+      "old_field_gates_pass": false,
+      "old_field_gates": {
+        "l2": 0.015765930972724638,
+        "h1": 0.03792041218143791,
+        "peak": 0.005572274656147337
+      },
+      "train_seconds": 66.56681564636528,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "packet-011/seed-11/xi-4/pinn-summary.json",
+      "case_id": "packet-011",
+      "seed": 11,
+      "split": "test",
+      "old_field_gates_pass": false,
+      "old_field_gates": {
+        "l2": 0.011519824597390598,
+        "h1": 0.03786579890915726,
+        "peak": 0.005697807428137151
+      },
+      "train_seconds": 64.53315189573914,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "packet-011/seed-29/xi-4/pinn-summary.json",
+      "case_id": "packet-011",
+      "seed": 29,
+      "split": "test",
+      "old_field_gates_pass": false,
+      "old_field_gates": {
+        "l2": 0.012981384444609691,
+        "h1": 0.03959025149584376,
+        "peak": 0.005888778043654621
+      },
+      "train_seconds": 62.083880121819675,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "packet-011/seed-47/xi-4/pinn-summary.json",
+      "case_id": "packet-011",
+      "seed": 47,
+      "split": "test",
+      "old_field_gates_pass": false,
+      "old_field_gates": {
+        "l2": 0.01141889901510156,
+        "h1": 0.0413003135754998,
+        "peak": 0.0063839872702401
+      },
+      "train_seconds": 58.543360627256334,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "sideband-008/seed-11/xi-4/pinn-summary.json",
+      "case_id": "sideband-008",
+      "seed": 11,
+      "split": "validation",
+      "old_field_gates_pass": true,
+      "old_field_gates": {
+        "l2": 0.008987637675075008,
+        "h1": 0.024282201302449985,
+        "peak": 0.009117912548141066
+      },
+      "train_seconds": 64.5783929079771,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "sideband-008/seed-29/xi-4/pinn-summary.json",
+      "case_id": "sideband-008",
+      "seed": 29,
+      "split": "validation",
+      "old_field_gates_pass": true,
+      "old_field_gates": {
+        "l2": 0.007590288578125555,
+        "h1": 0.021813020347527263,
+        "peak": 0.008151356745158819
+      },
+      "train_seconds": 58.59754112735391,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "sideband-008/seed-47/xi-4/pinn-summary.json",
+      "case_id": "sideband-008",
+      "seed": 47,
+      "split": "validation",
+      "old_field_gates_pass": false,
+      "old_field_gates": {
+        "l2": 0.019684516682485383,
+        "h1": 0.030336332987624438,
+        "peak": 0.009781130847132113
+      },
+      "train_seconds": 60.76767237484455,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "sideband-009/seed-11/xi-4/pinn-summary.json",
+      "case_id": "sideband-009",
+      "seed": 11,
+      "split": "validation",
+      "old_field_gates_pass": true,
+      "old_field_gates": {
+        "l2": 0.006796797775974962,
+        "h1": 0.021397866076760357,
+        "peak": 0.006685822757196951
+      },
+      "train_seconds": 61.9446855308488,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "sideband-009/seed-29/xi-4/pinn-summary.json",
+      "case_id": "sideband-009",
+      "seed": 29,
+      "split": "validation",
+      "old_field_gates_pass": true,
+      "old_field_gates": {
+        "l2": 0.006197525316327661,
+        "h1": 0.022668595174446474,
+        "peak": 0.010138378795794177
+      },
+      "train_seconds": 64.45310297142714,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "sideband-009/seed-47/xi-4/pinn-summary.json",
+      "case_id": "sideband-009",
+      "seed": 47,
+      "split": "validation",
+      "old_field_gates_pass": true,
+      "old_field_gates": {
+        "l2": 0.00603455073035774,
+        "h1": 0.020459160509572936,
+        "peak": 0.005036412302087815
+      },
+      "train_seconds": 58.50584961473942,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "sideband-010/seed-11/xi-4/pinn-summary.json",
+      "case_id": "sideband-010",
+      "seed": 11,
+      "split": "test",
+      "old_field_gates_pass": true,
+      "old_field_gates": {
+        "l2": 0.005940677552598821,
+        "h1": 0.022540114690802127,
+        "peak": 0.009550487012289605
+      },
+      "train_seconds": 59.41387365106493,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "sideband-010/seed-29/xi-4/pinn-summary.json",
+      "case_id": "sideband-010",
+      "seed": 29,
+      "split": "test",
+      "old_field_gates_pass": true,
+      "old_field_gates": {
+        "l2": 0.00659738293429648,
+        "h1": 0.02100829527274222,
+        "peak": 0.007003704646744352
+      },
+      "train_seconds": 66.14924773480743,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "sideband-010/seed-47/xi-4/pinn-summary.json",
+      "case_id": "sideband-010",
+      "seed": 47,
+      "split": "test",
+      "old_field_gates_pass": true,
+      "old_field_gates": {
+        "l2": 0.006151461882237516,
+        "h1": 0.019340661143133986,
+        "peak": 0.009310502869483876
+      },
+      "train_seconds": 61.90078230574727,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "sideband-011/seed-11/xi-4/pinn-summary.json",
+      "case_id": "sideband-011",
+      "seed": 11,
+      "split": "test",
+      "old_field_gates_pass": true,
+      "old_field_gates": {
+        "l2": 0.007746399861873485,
+        "h1": 0.02399992240908635,
+        "peak": 0.014980297239688665
+      },
+      "train_seconds": 63.29031307902187,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "sideband-011/seed-29/xi-4/pinn-summary.json",
+      "case_id": "sideband-011",
+      "seed": 29,
+      "split": "test",
+      "old_field_gates_pass": true,
+      "old_field_gates": {
+        "l2": 0.00815942578725251,
+        "h1": 0.020453565684999665,
+        "peak": 0.012221723505540731
+      },
+      "train_seconds": 65.72166493907571,
+      "gpu_peak": 94955520
+    },
+    {
+      "path": "sideband-011/seed-47/xi-4/pinn-summary.json",
+      "case_id": "sideband-011",
+      "seed": 47,
+      "split": "test",
+      "old_field_gates_pass": true,
+      "old_field_gates": {
+        "l2": 0.006016879967513957,
+        "h1": 0.022442487855655526,
+        "peak": 0.008761897152784583
+      },
+      "train_seconds": 67.43625489808619,
+      "gpu_peak": 94955520
+    }
+  ]
+}

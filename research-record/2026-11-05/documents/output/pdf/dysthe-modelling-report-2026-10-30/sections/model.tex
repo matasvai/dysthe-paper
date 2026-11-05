@@ -1,0 +1,74 @@
+\section{The equation and its physical meaning}\label{sec:model}
+Dysthe's 1979 paper derives a fourth-order \emph{asymptotic envelope approximation} for weakly nonlinear, narrowband, deep-water gravity waves \cite{dysthe}. Fourth order refers to the steepness expansion, not to a fourth spatial derivative. Its complex envelope contains amplitude and phase; it does not resolve each carrier-wave crest. The original $A$ is a velocity-potential envelope, whereas the paper's $B$ denotes a surface-elevation envelope. These variables must not be interchanged silently.
+
+With the paper's dimensionless coordinates and $\rho=|A|^2$, the literal printed equation (2.19) is
+\begin{align}
+2\ii(A_t+\tfrac12A_x)+\tfrac12A_{yy}-\tfrac14A_{xx}-\rho A
+={}&-\tfrac{\ii}{8}(6A_{xyy}-A_{xxx})\notag\\
+&+\tfrac{3\ii}{2}A(A\overline{A}_x-\overline{A}A_x)
+ +\tfrac{\ii}{2}\rho A_x+A(\bar\phi_x-\ii\bar\phi_z).
+\label{eq:original}
+\end{align}
+Here $\bar\phi$ is the induced mean potential, not the complex conjugate of $A$. It is harmonic below the surface and decays at depth. At the retained order, the mean-flow boundary condition is $\bar\phi_z=\rho_x$ at $z=0$; neglect of the higher-order mean-elevation time derivative is part of the asymptotic reduction. For a longitudinal restriction ($\partial_y=0$), harmonic extension gives
+\[
+\widehat{\bar\phi}(k,z)=\ii\operatorname{sgn}(k)\widehat\rho(k)e^{|k|z},
+\qquad \bar\phi_x=-|D_x|\rho,
+\]
+with zero derivative at the zero Fourier mode. Substitution of \emph{both} boundary derivatives is needed to obtain the local derivative coefficients.
+
+\subsection{A documented coefficient ambiguity}
+Literal reduction of \eqref{eq:original} yields $c=1$ in
+\begin{equation}
+ A_t+\tfrac12A_x+\tfrac{\ii}{8}A_{xx}-\tfrac1{16}A_{xxx}
+ +\tfrac{\ii}{2}\rho A+c\rho A_x-\tfrac14A^2\overline A_x
+ -\tfrac{\ii}{2}A|D_x|\rho=0.\label{eq:temporal}
+\end{equation}
+However, the printed amplitude--phase equations in the paper's Section 3 require $c=3/2$. Reversing the sign of the displayed $\ii\rho A_x/2$ on the right of \eqref{eq:original} reconciles them. This is an algebraic observation; no authenticated erratum was verified. Later primary discussion of the potential-envelope conjugate term supports $c=3/2$ with the negative conjugate coefficient \cite{shemer,trulsen}.
+
+\textbf{Report convention.} The primary temporal numerical plots use $c=3/2$, labelled \emph{stability-consistent}. The literal $c=1$ equation remains a separately named comparator. Neither is silently substituted for the approved spatial model. The source audit in the bundle records equations, source pages and the limits of verification.
+
+\subsection{Computational variables and a distinct spatial problem}
+Set $A=\epsilon u$, $s=\epsilon(x-t/2)$ and $T=\epsilon^2t$. Then \eqref{eq:temporal} becomes
+\begin{equation}
+ u_T=-\tfrac{\ii}{8}u_{ss}-\tfrac{\ii}{2}|u|^2u
+ +\epsilon\left[\tfrac1{16}u_{sss}-c|u|^2u_s
+ +\tfrac14u^2\overline{u_s}+\tfrac{\ii}{2}u\D(|u|^2)\right].
+ \label{eq:scaled}
+\end{equation}
+This is a nonlinear, nonlocal temporal equation on a periodic interval of length $L=40$. Its data are initial \emph{spatial profiles} $u(s,0)$. It is a one-coordinate restriction, not a simulation of the full two-horizontal-coordinate original system.
+\clearpage
+The existing repository and the PINN evidence use the different spatial free-surface model \cite{fedele}
+\begin{equation}
+ u_\xi=-\ii u_{\tau\tau}-\ii|u|^2u
+ -\epsilon\left[8|u|^2u_\tau+2u^2\overline{u_\tau}
+                  +2\ii u|D_\tau|(|u|^2)\right].\label{eq:spatial}
+\end{equation}
+Here $\xi$ is propagation distance and $\tau$ is retarded time; its input is a wavemaker-type envelope trace. Different coefficients and evolution variables encode a different formulation. Equation \eqref{eq:spatial} is the active contract \texttt{water-wave-dysthe-spatial-v1}. New temporal files live in a separately versioned proof-of-concept directory; no active scope check was relaxed.
+
+\section{What later behaviour means}\label{sec:later}
+There is no universal final value that a Dysthe solution must attain. In the conservative periodic model, a wave need not settle to a steady profile. Relevant questions concern peak amplification, modulation growth, drift, phase, spectral broadening, repeated focusing and sensitivity to initial data. A visually localized pulse is not automatically a soliton, and a repeating amplitude pattern is not automatically recurrence of the complex field.
+
+For \eqref{eq:scaled}, define the nonlinear time scale using the initial peak $a_*=\max_s|u(s,0)|$:
+\begin{equation}
+ T_{\mathrm{nl}}=\frac{2}{a_*^2},\qquad
+ n_{\mathrm{nl}}=T/T_{\mathrm{nl}}.
+\end{equation}
+The cubic phase coefficient is $1/2$. For the selected profiles, $T=16$ is about $5.6$--$5.8$ such nonlinear times. This is a later finite-time window, not an asymptotic $T\to\infty$ study. In physical time, $T=\epsilon^2\omega_0t_{\mathrm{phys}}$; a carrier frequency is required before reporting seconds. Temporal $T$ must not be equated with spatial $\xi$.
+
+\begin{definition}[Recorded observables]
+For $k_m=2\pi m/L$ and $\widehat u_m=L^{-1}\int_0^L u(s)e^{-\ii k_ms}\,\rad s$, let
+\[
+ M=L\sum_m|\widehat u_m|^2,\qquad
+ \norm{u}_{H^j}^2=L\sum_m(1+k_m^2)^j|\widehat u_m|^2.
+\]
+The spectral centroid and bandwidth are
+\[\mu_k=\frac{\sum_m k_m|\widehat u_m|^2}{\sum_m|\widehat u_m|^2},\qquad\sigma_k^2=\frac{\sum_m(k_m-\mu_k)^2|\widehat u_m|^2}{\sum_m|\widehat u_m|^2}.\]
+\end{definition}
+We record $\max|u|$, $M$, $H^1$, $H^2$, $\mu_k$, $\sigma_k$, high-mode power and boundary action. The proxies $\epsilon\max|u|$ and $\epsilon\sigma_k$ indicate changing steepness and bandwidth. No universal cutoff is imposed as a validated physical criterion. A well-resolved envelope computation may still leave the narrowband, weak-steepness regime in which its derivation is credible.
+
+\textbf{Two different uses of $H^2$.} Growth of $\norm{u(T)}_{H^2}$ is a property of a trajectory. The prediction error
+\begin{equation}
+ E_j(T)=\frac{\norm{v(T)-u_{\rm ref}(T)}_{H^j}}{\norm{u_{\rm ref}(T)}_{H^j}}
+ \label{eq:error}
+\end{equation}
+is a property of an approximation relative to a reference. Large $E_2$ does not show a PDE singularity; bounded computed $H^2$ does not prove global smoothness. Neither norm is evaluated after phase or translation alignment unless explicitly stated.

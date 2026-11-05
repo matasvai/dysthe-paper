@@ -1,0 +1,107 @@
+\section{Linear deep-water waves and dispersion}
+\label{sec:dispersion}
+\subsection{Deriving the carrier dispersion relation}
+Linearize about a flat, resting surface and evaluate at $z=0$:
+\begin{equation}\label{eq:linear-bc}
+ \zeta_t=\phi_z,\qquad \phi_t=-g\zeta.
+\end{equation}
+Take one complex Fourier component
+\[
+ \phi=Ce^{k_0z}e^{i(k_0x-\omega_0t)},\qquad
+ \zeta=De^{i(k_0x-\omega_0t)}.
+\]
+Real fields include the conjugates. Laplace's equation holds because
+$\partial_x^2$ contributes $-k_0^2$ and $\partial_z^2$ contributes $+k_0^2$.
+$e^{k_0z}$ decays as $z\to-\infty$; the growing exponential is excluded.
+
+The surface conditions give
+\[
+ -i\omega_0D=k_0C,\qquad -i\omega_0C=-gD.
+\]
+Elimination yields
+\begin{equation}\label{eq:carrier-dispersion}
+ \boxed{\omega_0^2=gk_0.}
+\end{equation}
+This also verifies \eqref{eq:AB}. For two horizontal directions, replace
+$k_0$ by the horizontal wavevector's magnitude.
+
+\subsection{Phase velocity and group velocity}
+A crest has fixed phase $k_0x-\omega_0t$, so $c_p=\omega_0/k_0$.
+To find packet velocity, add two nearby waves:
+\begin{align*}
+ &\cos((k_0+q)x-(\omega_0+\delta\omega)t)
+ +\cos((k_0-q)x-(\omega_0-\delta\omega)t)\\
+ &\hspace{1cm}=2\cos(qx-\delta\omega t)\cos(k_0x-\omega_0t).
+\end{align*}
+The slow factor travels at $\delta\omega/q$, tending to
+$c_g=\omega'(k_0)$ in the narrowband limit. Thus
+\begin{equation}\label{eq:group-speed}
+ c_g=\frac{\omega_0}{2k_0}=\frac12c_p.
+\end{equation}
+Crests move through the group. The group is neither a particular crest nor
+a collection of the same fluid particles.
+
+$X=x-c_gt$ follows leading packet translation.
+$\partial_t+c_g\partial_x$ measures evolution in that moving frame;
+it is the transport derivative in (2.8).
+
+\subsection{Dispersion curvature gives relative phase evolution}
+For a nearby longitudinal wavenumber,
+\[
+ \omega(k_0+q)=\omega_0+c_gq+\tfrac12\omega''(k_0)q^2+\cdots,
+ \qquad \omega''(k_0)=-\frac{\omega_0}{4k_0^2}.
+\]
+The constant is carrier frequency, the linear term gives translation, and
+the quadratic term controls relative phase evolution within the packet.
+In a PDE it is represented by a second derivative of the envelope.
+
+Transverse curvature has the opposite sign. With dimensionless longitudinal
+offset $q$ and transverse offset $r$,
+\begin{equation}\label{eq:dispersion-series}
+ \frac{\omega(k_0(1+q),k_0r)}{\omega_0}
+ =1+\frac q2-\frac{q^2}{8}+\frac{r^2}{4}
+ +\frac{q^3}{16}-\frac{3qr^2}{8}+O((|q|+|r|)^4).
+\end{equation}
+This explains the quadratic terms in NLS and the third derivatives in
+Dysthe's equation. To check a PDE coefficient, insert
+$e^{i(qx+ry-\nu t)}$ and compare its $\nu$ with this polynomial.
+
+\begin{example}[A scale check]
+For wavelength $10\,\mathrm{m}$, $k_0=2\pi/10\,\mathrm{m}^{-1}$.
+Taking $g=9.81\,\mathrm{m\,s}^{-2}$ gives
+$\omega_0\approx2.48\,\mathrm{s}^{-1}$,
+$c_p\approx3.95\,\mathrm{m\,s}^{-1}$, and
+$c_g\approx1.98\,\mathrm{m\,s}^{-1}$.
+For $a=0.10\,\mathrm{m}$ the steepness is approximately $0.063$.
+These are illustrative linear values, not breaking-wave predictions.
+\end{example}
+
+\subsection{What the deep-water limit removes}
+For a flat bottom at $z=-h$, the no-normal-flow condition is
+$\phi_z(-h)=0$. A linear horizontal mode then has vertical factor
+$\cosh[k_0(z+h)]$ rather than $e^{k_0z}$. At the surface its logarithmic
+vertical derivative is
+\[
+ \frac{\phi_z}{\phi}=k_0\tanh(k_0h).
+\]
+The same two linear surface conditions therefore give
+\[
+ \omega_0^2=gk_0\tanh(k_0h).
+\]
+For $k_0h\gg1$, $\tanh(k_0h)$ tends to one and
+\eqref{eq:carrier-dispersion} is recovered. For $k_0h\ll1$,
+$\tanh(k_0h)\approx k_0h$ and $\omega_0\approx k_0\sqrt{gh}$.
+The shallow-water limiting phase and group speeds are equal; the deep-water
+factor of two is a consequence of a different dispersion law.
+
+This derivation explains why depth is a model assumption, not merely a
+descriptive adjective. A change of depth modifies dispersion and the
+mean-flow boundary problem, so one cannot retain the deep-water envelope
+coefficients unchanged. Dysthe mentions finite-depth extensions in the
+introduction, but the equations derived in this paper use infinite depth.
+
+\paperlink{Read (2.7)--(2.8), p.~107, and the dispersive terms of (2.19),
+p.~109. Optional reinforcement: \cite{plumb}.}
+\checkpoint{Recover the $q^2$ and $r^2$ signs in
+\eqref{eq:dispersion-series} from the expansion of $(1+s)^{1/4}$.}
+\clearpage

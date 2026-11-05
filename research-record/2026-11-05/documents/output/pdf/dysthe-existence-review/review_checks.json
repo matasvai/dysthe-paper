@@ -1,0 +1,209 @@
+{
+  "purpose": "Independent supporting identity checks for a paper review",
+  "not_claimed": [
+    "trajectory integration",
+    "trained PINN",
+    "existence proof",
+    "stability proof",
+    "complete verification of either paper's derivation"
+  ],
+  "python_version": "3.14.7",
+  "numpy_version": "2.4.2",
+  "mass_balances": {
+    "n": 512,
+    "period": 6.283185307179586,
+    "epsilon": 0.05,
+    "beta": 0.1,
+    "hilbert_multiplier": "-i sign(k)",
+    "abs_derivative_multiplier": "|k|",
+    "absolute_tolerance": 1e-11,
+    "passed": true,
+    "maxima": {
+      "spatial_v1_absolute_mass_rate": 3.051884935757553e-16,
+      "schober_islas_balance_absolute_discrepancy": 2.671474153004283e-16,
+      "parseval_absolute_discrepancy": 1.1102230246251565e-16,
+      "arbitrary_real_mean_spatial_absolute_mass_rate": 3.9238520602597107e-16,
+      "arbitrary_real_mean_temporal_absolute_mass_rate": 2.1799178112553949e-16
+    },
+    "profiles": [
+      {
+        "profile": "constant_plus_two_modes",
+        "fourier_coefficients": {
+          "0": [
+            0.7,
+            0.0
+          ],
+          "1": [
+            0.16,
+            0.09
+          ],
+          "-2": [
+            0.11,
+            -0.06
+          ]
+        },
+        "spatial_v1_mass_rate": 0.0,
+        "schober_islas_mass_rate": -0.008416017586249873,
+        "schober_islas_predicted_mass_rate": -0.008416017586249942,
+        "schober_islas_absolute_discrepancy": 6.938893903907228e-17,
+        "integral_rho_absD_rho": 0.42080087931249704,
+        "parseval_nonnegative_value": 0.4208008793124971,
+        "parseval_absolute_discrepancy": 5.551115123125783e-17,
+        "arbitrary_real_mean_spatial_mass_rate": 0.0,
+        "arbitrary_real_mean_temporal_mass_rate": 8.71967124502158e-17
+      },
+      {
+        "profile": "asymmetric_four_modes",
+        "fourier_coefficients": {
+          "-3": [
+            0.12,
+            -0.05
+          ],
+          "-1": [
+            0.0,
+            0.3
+          ],
+          "0": [
+            0.4,
+            0.0
+          ],
+          "2": [
+            -0.2,
+            0.08
+          ]
+        },
+        "spatial_v1_mass_rate": -8.71967124502158e-17,
+        "schober_islas_mass_rate": -0.020199385187450507,
+        "schober_islas_predicted_mass_rate": -0.020199385187450774,
+        "schober_islas_absolute_discrepancy": 2.671474153004283e-16,
+        "integral_rho_absD_rho": 1.0099692593725385,
+        "parseval_nonnegative_value": 1.0099692593725385,
+        "parseval_absolute_discrepancy": 0.0,
+        "arbitrary_real_mean_spatial_mass_rate": -3.487868498008632e-16,
+        "arbitrary_real_mean_temporal_mass_rate": 1.743934249004316e-16
+      },
+      {
+        "profile": "no_carrier_mode",
+        "fourier_coefficients": {
+          "-5": [
+            0.06,
+            0.04
+          ],
+          "-2": [
+            0.24,
+            -0.1
+          ],
+          "3": [
+            0.2,
+            0.17
+          ]
+        },
+        "spatial_v1_mass_rate": 3.051884935757553e-16,
+        "schober_islas_mass_rate": -0.00683836756092217,
+        "schober_islas_predicted_mass_rate": -0.006838367560921976,
+        "schober_islas_absolute_discrepancy": 1.942890293094024e-16,
+        "integral_rho_absD_rho": 0.34191837804609876,
+        "parseval_nonnegative_value": 0.3419183780460987,
+        "parseval_absolute_discrepancy": 5.551115123125783e-17,
+        "arbitrary_real_mean_spatial_mass_rate": 3.9238520602597107e-16,
+        "arbitrary_real_mean_temporal_mass_rate": -2.1799178112553949e-16
+      },
+      {
+        "profile": "weak_modulation",
+        "fourier_coefficients": {
+          "0": [
+            0.9,
+            0.1
+          ],
+          "-1": [
+            0.0,
+            0.012
+          ],
+          "1": [
+            0.02,
+            -0.01
+          ]
+        },
+        "spatial_v1_mass_rate": -5.449794528138487e-18,
+        "schober_islas_mass_rate": -0.00020272672260875487,
+        "schober_islas_predicted_mass_rate": -0.00020272672260873703,
+        "schober_islas_absolute_discrepancy": 1.7835125737386548e-17,
+        "integral_rho_absD_rho": 0.01013633613043685,
+        "parseval_nonnegative_value": 0.010136336130436862,
+        "parseval_absolute_discrepancy": 1.214306433183765e-17,
+        "arbitrary_real_mean_spatial_mass_rate": -5.449794528138487e-18,
+        "arbitrary_real_mean_temporal_mass_rate": -5.449794528138487e-18
+      },
+      {
+        "profile": "broad_low_mode_packet",
+        "fourier_coefficients": {
+          "-6": [
+            0.0,
+            0.03
+          ],
+          "-3": [
+            0.08,
+            0.0
+          ],
+          "0": [
+            0.5,
+            0.0
+          ],
+          "2": [
+            0.0,
+            0.2
+          ],
+          "5": [
+            0.07,
+            -0.04
+          ]
+        },
+        "spatial_v1_mass_rate": 1.307950686753237e-16,
+        "schober_islas_mass_rate": -0.00820750631192007,
+        "schober_islas_predicted_mass_rate": -0.008207506311920005,
+        "schober_islas_absolute_discrepancy": 6.418476861114186e-17,
+        "integral_rho_absD_rho": 0.41037531559600016,
+        "parseval_nonnegative_value": 0.41037531559600027,
+        "parseval_absolute_discrepancy": 1.1102230246251565e-16,
+        "arbitrary_real_mean_spatial_mass_rate": 3.269876716883092e-17,
+        "arbitrary_real_mean_temporal_mass_rate": -1.5259424678787764e-16
+      }
+    ],
+    "interpretation": "Roundoff-level verification of instantaneous mass-balance identities on five smooth periodic bandlimited fields. The arbitrary-real-mean check sets beta=0 and replaces the real |D|rho field by an independently chosen real M; it is not a simulation of the mean-field relaxation equation."
+  },
+  "phase_lag": {
+    "z_range": [
+      0,
+      3
+    ],
+    "samples": 1201,
+    "exact_response": "1/(1-i z)",
+    "first_order_response": "1+i z",
+    "absolute_error_identity": "z^2/sqrt(1+z^2)",
+    "maximum_error_identity_discrepancy": 8.881784197001252e-16,
+    "maximum_phase_difference": 2.220446049250313e-16,
+    "same_phase_exactly": "G=(1+i z)/(1+z^2), so both phases are arctan(z)",
+    "at_z_1": {
+      "exact_magnitude": 0.7071067811865475,
+      "first_order_magnitude": 1.4142135623730951,
+      "phase_radians": 0.7853981633974483,
+      "absolute_error": 0.7071067811865475
+    },
+    "figure": "figures/phase_lag_response.pdf",
+    "passed": true
+  },
+  "deep_water_taylor": {
+    "status": "passed",
+    "sympy_version": "1.14.0",
+    "normalized_dispersion": "omega/sqrt(g*k0)=((1+p)^2+q^2)^(1/4)",
+    "definition": "p=longitudinal sideband wavenumber/k0; q=transverse sideband wavenumber/k0",
+    "cubic_taylor_polynomial": "p**3/16 - p**2/8 - 3*p*q**2/8 + p/2 + q**2/4 + 1",
+    "symbolic_difference": "0",
+    "2026_slow_frequency_series": "5*K**4*epsilon**3*omega/(128*k**4) + K**3*epsilon**2*omega/(16*k**3) + K**2*epsilon*omega/(8*k**2) + K*omega/(2*k)",
+    "2026_slow_frequency_symbolic_difference": "0",
+    "required_cubic_Axxx_coefficient_in_F4": "-i*omega**2/(8*k**3)",
+    "required_quartic_Axxxx_coefficient_in_F5": "-5*omega**2/(64*k**4)",
+    "interpretation": "Independent linear deep-water dispersion identity; not a derivation or validation of nonlinear Dysthe coefficients."
+  },
+  "elapsed_seconds": 0.6424435879998782
+}

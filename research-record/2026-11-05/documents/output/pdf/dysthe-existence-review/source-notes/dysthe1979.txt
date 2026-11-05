@@ -1,0 +1,520 @@
+Note on a Modification to the Nonlinear Schrödinger Equation for Application to Deep
+Water Waves
+Author(s): K. B. Dysthe
+Source: Proceedings of the Royal Society of London. Series A, Mathematical and Physical
+Sciences, Vol. 369, No. 1736 (Dec. 13, 1979), pp. 105-114
+Published by: The Royal Society
+Stable URL: https://www.jstor.org/stable/2398590
+Accessed: 29-09-2026 14:20 UTC
+
+
+JSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide
+range of content in a trusted digital archive. We use information technology and tools to increase productivity and
+facilitate new forms of scholarship. For more information about JSTOR, please contact support@jstor.org.
+
+
+Your use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at
+https://about.jstor.org/terms
+
+
+
+
+                 The Royal Society is collaborating with JSTOR to digitize, preserve and extend access to
+                 Proceedings of the Royal Society of London. Series A, Mathematical and Physical
+                 Sciences
+
+
+
+
+                                This content downloaded from 163.118.182.142 on Tue, 29 Sep 2026 14:20:48 UTC
+                                                  All use subject to https://about.jstor.org/terms
+Proc. R. Soc. Lond. A 369, 105-114 (1979)
+Printed in Great Britain
+
+
+
+                    Note on a modification to the nonlinear
+     Schrodinger equation for application to deep water waves
+
+                                        By K. B. DYSTHEt
+                       Institute of Mathematical and Physical Sciences,
+                                   University of Tromsd, Norway
+
+                     (Communicated by M. S. Longuet-Higgins, F.R.S. -
+                                       Received 17 April 1979)
+
+      The ordinary nonlinear Schrodinger equation for deep water waves,
+      found by perturbation analysis to 0(63) in the wave-steepness e = ka, is
+      shown to compare rather unfavourably with the exact calculations of
+      Longuet-Higgins (I978b) for e > 0.15, say.
+           We show that a significant improvement can be achieved by taking the
+      perturbation analysis one step further 0(64). The dominant new effect
+      introduced to order 64 iS the mean flow response to non-uniformities in the
+      radiation stress caused by modulation of a finite amplitude wave.
+
+
+
+                                            1. INTRODUCTION
+Following the papers by Lighthill (I965, I967), Whitham (I967), Benjamin &
+Feir (I967), Benjamin (I967), and Zakharov (I967) there has been considerable
+interest in the stability of finite amplitude gravity waves on deep water. A lot of
+attention has been paid to the instability of a wave train to modulational pertur-
+bations.
+   With the prominent exception of the recent papers by Longuet-Higgins (I 978 a, b),
+which used the exact equations, most authors are using approximate model equa-
+tions in analysing the stability. For large amplitudes and perturbations of very long
+wavelengths, Whitham's method gives the best result, as shown by Lighthill (i965,
+I967), and confirmed by the exact results of Longuet-Higgins (I978 b). The most
+severe limitation on this method is the requirement that the wavelength of the
+perturbation be very long, which is not true for the most rapidly growing mode when
+the wave steepness ka exceeds 0.1 (say).
+   For small amplitudes, the most successful and elegant approach is through the
+application of the so-called nonlinear Schrodinger equation (hereafter denoted
+n.l.S.). This was done by Zakharov (I968), who allowed for the finite amplitude
+wavetrain to be subjected to modulational perturbations in two horizontal dimen-
+sions (both along and perpendicular to the direction of the wavetrain). Later, Davey
+ & Stewartson (I 974) extended this to waves on finite depth. The connection between
+
+   t Visiting the Department of Applied Mathematics and Theoretical Physics, University of
+ Cambridge, Silver Street, Cambridge, U.K.
+                                                  [ 105 ]
+
+
+               This content downloaded from 163.118.182.142 on Tue, 29 Sep 2026 14:20:48 UTC
+                                 All use subject to https://about.jstor.org/terms
+106 K. B. Dysthe
+Whitham's method and the n.l.S. approach was investigated by Dysthe (i974) and
+Yuen & Lake (1975).
+  While the n.l.S. approach is valid for smaller perturbation wavelengths than
+Whitham's method, the most severe restriction here is the smallness of the amplitude.
+  For small amplitudes, ka < 0.1 say, the n.l.S. predictions, when compared to
+Longuet-Higgins's exact results, are fairly accurate. It has also been shown experi-
+mentally by Yuen & Lake (I975) that the n.l.S. provides a quantitatively satis-
+factory description of the long-time evolution of wave packets for small amplitudes.
+  Comparing the predictions of the n.l.S. in the parametric range 0.15 < ka with
+Longuet-Higgins's results, shows the short-comings of the n.l.S. rather clearly (e.g.
+at ka = 0.3 the maximum growth rate is overestimated by a factor of 2). There seems
+to be a case for an improved model equation, which can cover more of the parameter
+range 0.15 < ka < 0.42, between that of the n.l.S., and up to the theoretical limit
+ka = 0.42 where the fast growing breaking instability starts (see Longuet-Higgins
+I978).
+  The aim of the present paper is to investigate more closely the reason for the
+rather limited range of validity of the n.l.S. equation, and to find ways of improving
+it. This is achieved by taking the perturbation expansion in the small parameter
+e = ka one step further than is necessary in the derivation of the n.l.S. equation.
+This means including a number of terms in the evolution equation for the amplitude
+of the wavetrain, as well as taking into account the small mean flow brought about
+by the radiation stresses of the modulated wavetrain (see Longuet-Higgins &
+Stewart I964, Stewartson I977).
+  As it turns out, the most significant contribution comes from the induced mean
+flow, whose component in the direction of propagation of the wave causes a local
+Doppler shift. This frequency shift then gives rise to changes in the stability proper-
+ties of the wavetrain.
+   In the two dimensional case, the improved equation removes a rather unphysical
+feature of the n.l.S. equation: namely its prediction that the maximum growth rate
+of the modulational instability occurs when the wavevector K = {A, /t} of the
+modulation falls on. a certain hyperbola in the K-plane whose asymptotes are
+A2= 2#- 2
+
+
+
+                2. DERIVATION OF THE EVOLUTION EQUATIONS
+  Let 0 be the velocity potential and C the surface elevation associated with the
+wave motion. As our starting point for describing the surface waves we take the
+equations
+                      z (j, V2qS= O, (2.1)
+                      Z = , -t.+g -+ (VO)22+ jV0.V(Vq)2 =o, (2.2)
+
+                      Z=, LC+VqS.V = ao (2.3)
+             This content downloaded from 163.118.182.142 on Tue, 29 Sep 2026 14:20:48 UTC
+                               All use subject to https://about.jstor.org/terms
+                  Modification to nonlinear Schrodinyer equation 107
+where g is the acceleration due to gravity, and z is the vertical coordinate with z = 0
+at the equilibrium level of the surface. Here (2.1) is the requirement of incompress-
+ibility, (2.2) follows by taking a total time derivative of the Bernoulli equation and
+assuming the atmospheric pressure to be constant (see Phillips I977, p. 34), and
+(2.3) is the kinematic boundary condition.
+  In the following we shall neglect terms of relative order of magnitude higher than
+62, where e is the so called wave-steepness ka. Developing (2.2) and (2.3) to third
+
+
+                   z=o, 0) +gaz (2.4)
+order in e they become
+
+
+
+
+                   z = 0,at az +Vh* ( Vh 0) +Vh a = 0, (2.5)
+where L at- Vh
+and Q = a+ 1VO*V(V)2 +
+  Having in mind the slow evolution of a wavetrain, we develop 0 and g as follows:
+
+                           0 = 0 + Aekzei + A2e2kZe2i6 + + C.C
+                                     g= g+BetO+BOe2i@+. + c. c.) (2.6)
+where 0 = k. x-cwt, k = Iki, and c.c. means complex conjugate. Here | and C are
+real functions slowly varying in space and time, representing the mean flow and
+surface elevation brought about by the radiation stress of the wave. The complex
+coefficients A, A2, A3, ..., B, B2, B3, ... are slowly varying - on a timescale et and a
+space scale ex.
+   The linearized equations are readily obtained from (2.4) and (2.5) as:
+
+
+
+or L= =0.                    8C/8t = 80/8z and 80/&t =-gc, (2.7)
+
+   We choose the relation between co and k such that the second terms on the right
+hand side of (2.6) will satisfy (2.7) for constant A and B, i.e. W2 = gk, the usual
+dispersion relation for deep water waves. We also obtain from (2.7) the relation
+
+
+                                     (++Vg v(B) O(e2), (2.8)
+where vg = (gq/) k/k is the group velocity.
+  Using (2.5) and the Bernoulli equation, we obtain by averaging over one wave
+period
+                                z=0, +gc 0) (2.9)
+                                z =0,az aa  a -k.VIA12, (2.10)
+                                        -~t g,
+
+
+             This content downloaded from 163.118.182.142 on Tue, 29 Sep 2026 14:20:48 UTC
+                               All use subject to https://about.jstor.org/terms
+108 K. B. Dysthe
+where terms of order 64 have been neglected, and use has been made of the relation
+(2.8). The equations (2.9) and (2.10) together with
+
+                                       z 0, V20-= 0, (2.11)
+determine the mean flow and surface elevation for a given wave. Note from (2.10)
+that a uniform wavetrain has no effect, while a modulated wavetrain results in a
+mean flow and surface elevation of the same period as the modulation. Doing the
+actual calculation we obtain the result given by Longuet-Higgins & Stewart (1964).
+  The equation (2. 1) being satisfied on the 'fast' space scale, imposes the following
+condition on A
+                               2k 4A/8z =-2ik 1A/8x-V2A, (2.12)
+where we have arranged for the x-axis to be along k. Equation (2.12) readily lends
+itself to iteration, which can be used to get rid of the z-derivatives. We obtain
+
+
+                         2k aA= -2ik 8A- a2--A i 3+(e4). (2.13)
+                             aJz ~ Jx y2I
+   From (2.4) and (2.5) (inserting (2.6)) it is found that A2 = 0 and B2 = A2, which
+agrees with the Stokes result.
+   In the following we want to derive an equation for A, taking into account terms
+up to and including o(64).
+   Inserting (2.6) into (2.4) we shall have to take into account the relevant contri-
+bution from Q, i.e. the terms having the fast variation exp iO. The first term of Q is
+readily found to give no contribution larger than O(e), and can be neglected. The
+extraction of the relevant contribution from the remaining two terms of Q, is greatly
+simplified by observing that
+                                 _ [.1 ~~~~A* aA\
+                  (VqS)2 -4e2k[k2JAJ2+ik A A* )+0(64)Js (2.14)
+where * denotes complex conjugation. This means that (Vq)2, except for terms of
+order 4 has a fast variation only with respect to z. The contribution from Q (sup-
+ pressing the factor exp iG) is now readily found to be
+
+                                IA*k. ZA\
+                   4k4AIA12+8ik3A A a -A* -@ ) 4ik3Aj Aj2. (2.15)
+
+   There are also contributions from the second order terms
+
+                                      gL q0/0z + a(Vq)2/&t,
+
+ having the fast variation expi6. Since A2 = 0, the first term is found to give no
+ contribution to the relevant order. From the second term, however, we get a con-
+ tribution 2V(80/Zt) * V?, which (except for the factor exp iO) can be written
+
+                                     2wckA (8,/`ax - ia/az). (2.16)
+
+            This content downloaded from 163.118.182.142 on Tue, 29 Sep 2026 14:20:48 UTC
+                              All use subject to https://about.jstor.org/terms
+                  Modification to nonlinear Schr6dinger equation 109
+From (2.15), (2.16) and (2.13), (2.4) can be written
+
+
+                    2i) (A+Vg8) + 22A _2X ig 83A = FA, (2.17)
+
+where F = 4k4jAj2+ 3ik3 (A a -4ik3aa JA12++ 2w i--ia-.
+
+It is found helpful to use dimensionless variables which are introduced by the
+transformationt
+                                                  (Ot-t,
+                                                  kx -?x
+                                                  kgo , > (2.18)
+                                            2k2A/w A.
+
+If iteration is used to transform the term a2A/at2, one finally obtains the equation
+
+          2i A aA\ 1 a2A 1 a2A AA
+                   x 2 ay2 4 ax2
+
+                = -i(6 aA 83A + x iA (A aA A* aA) + PiIAJ2 aA
+
+
+                                                                            + (A T (2.19)
+  The ordinary two dimensional n.l.S., is obtained from (2.19) by neglecting the
+right hand side of the equation, i.e. neglecting all terms of order 64. (Note that
+A = O(e), 5 = 0(62), c.f. (2.10), and a derivative increases the order by one). The
+two linear terms on the right hand side of (2.19) are corrections to the dispersive
+terms of the n.l.S.
+   The equations (2.9) and (2.10) read in the new variables
+
+
+                                                 a+ 2C= 0, (2.20)
+                                        -a-2C= ajAj2/aX. (2.21)
+It is seen from (2.20) that C 0(63). Thus the term 8/CJt can be neglected in (2.21).
+   The equations (2.19), (2.20), (2.21) and (2.11 ) constitute a closed set from which A,
+ f and C can be determined.
+
+   t The factors 2 in the transformations of A and i, are introduced in order that IA j for the
+ transformed quantity A is equal to the wave steepness.
+
+
+
+
+             This content downloaded from 163.118.182.142 on Tue, 29 Sep 2026 14:20:48 UTC
+                               All use subject to https://about.jstor.org/terms
+110 K. B. Dysthe
+              3. STABILITY OF A FINITE AMPLITUDE WAVETRAIN
+  A solution of the system (2.19), (2.20), (2.21) and (2.11) is A0exp (- IiA2t), where
+Ao is a real number equal to the wave steepness ka, and q-C = 0. We introduce
+the following perturbation on this solution
+
+                                  A (= A0(1 + a') exp i(O'- 1A t), (3.1)
+where a' and 0' are small real perturbations of amplitude and phase respectively.
+  Inserting (3.1) in (2.19) and linearizing we obtain the equations
+
+                                   P, at'+ 1Ao R2 20- =-2 - (3.2)
+                               e101 + 1o,
+                                      4XA21/
+                                           zP2?a' +AO a'= =-2 (3.3)
+where 6--a 1 az -3)
+and P2- 2 a2                                   S4 y2 8 aX2'
+
+   The linearized version of (2.20) and (2.21) can be simplified to
+
+                                             0f0t + 2C = 0, (3.4)
+                                        O/Oz -2A2Oa'/0x= 0. (3.5)
+   The plane wave solution of the equations (3.2)-(3.5), and (2.11) is
+
+             (,) c exp [i(Ax+,ty-SQt), and 0oc exp [Kz+i(Ax+,uy-SQt)]
+
+where K = (A2 + #2)1, and A, ,t, and Q satisfies the dispersion relation
+
+                        (P1 -"AA) (P1 -AA2) = P2 {P2 -A (1 -A2/K)}, (3.6)
+where P1= Q- 1A+-LA(6,U2- A2),
+and P2=2A2 2.
+   A solution of (3.6) consistent with neglecting terms of order 65 and higher in (2.19)
+       iSt ~~~~~P1 3 AA2 +[P2 {P2- A2(1 -A2/K)}]i. (3.7)
+   It is readily seen from (3.7) that inclusion of the higher order dispersive terms in
+(2.19) does not influence the stability at all. Comparing (3.7) with the corresponding
+result for the n.l.S., we see that the only difference that has any influence on the
+stability, is the term A2A2/K under the square root sign. This particular term is
+easily traced back to the term Aaqs/ax in (2.19).
+
+  t To make sure that our results were consistent with the neglect of O(H5) terms, some such
+terms were included in our original calculations. These terms gave a contribution under the
+square root of (3.7) of the same order as the one that has been neglected in the solution of (3.6),
+namely jA2A .
+
+
+
+
+               This content downloaded from 163.118.182.142 on Tue, 29 Sep 2026 14:20:48 UTC
+                                 All use subject to https://about.jstor.org/terms
+                 Modification to nonlinear Schradinger equation i11
+  Let us first analyse the case of a one dimensional perturbation, ,t = 0. In this case
+
+                                        A2 < 8A2(1-IAI ). (3.8)
+there is an instability when
+
+
+At marginal stability, Q is real and given by
+
+                                      9 = 2iAO(1 - 2iAo). (3.9)
+The maximuningrowth rate yM iS
+
+                                      )/M - -2AO) A2 (3.10)
+
+                       0.3 -
+
+
+                                stable
+
+                       0.2 -
+
+
+
+
+                                     / g 0.1 Xunstable
+
+
+
+
+                          0 /I
+                            0.2III0.4    wave steepness, ka
+  FIGURE 1. Curve of marginal stability. , Exact result of Longuet-Higgins; --, n.l.S.
+                        result; -.-, equation (3.9) (with Ao = ka).
+
+
+
+                     0.075 -
+
+
+
+                               o I,~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~o
+
+                     0.050
+
+
+
+
+                i 4 0.025 _ 7
+
+                             0 0.2 0.4       wave steepness, ka
+ FIGURE 2. Normalized maximum growth rate as a function of wave steepness ka. , Exact
+      results of Longuet-Higgins; --, n.l.S. result; -.-, equation (3.10) (with AO = ka).
+
+
+
+
+             This content downloaded from 163.118.182.142 on Tue, 29 Sep 2026 14:20:48 UTC
+                               All use subject to https://about.jstor.org/terms
+112 K. B. Dysthe
+                                         AM = 2A0-3A2. (3.11)
+and occurs for the wavenumber
+
+
+The corresponding value of the real part of Q is
+
+                                       Re QM = A0(1-1A0) (3.12)
+  In the figures 1, 2 and 3 we show how (3.10), (3.12) and (3.9) compare to the exact
+results of Longuet-Higgins, the n.l.S. results, and some experimental results. As can
+be seen, (3.9) and (3.10) are surprisingly close to the exact results for ka < 0.3, while
+(3.1 2) starts off better than the corresponding n.l.S. result, but for ka > 0. 2 it under-
+estimates the frequency shift of the fastest growing mode.
+  Let us next consider what happens when one allows for perturbations obliquely
+to the wave. The growth rate is now given by
+
+                                     y = [{A2(1-A2/K)-P2}P2]i. (3.13)
+  From (3.13) it is seen that, while the n.l.S. result (obtained by neglecting the term
+A2/K in (3.13)) predicts instability for arbitrary large K provided P2 is small enough
+(the domain between the hyperbola P2 = A2 and the asymptotes A2 = 2t2, in the
+A, it-plane), this is no longer so. Instability only occurs for K less than approximately
+i. This is not a substantial improvement since K = 2 is also outside the range of
+validity of our equations. What is more important than the actual range of the
+domain of instability in the wavenumber plane, however, is the location of the fastest
+
+
+
+
+                            S0.4 -
+                        0
+
+
+
+
+                       to0.2 -/                        IL
+
+
+
+
+                                0 0.1 0.2 0.3
+                                       wave steepness, ka
+FIGURE 3. Normalized frequenoy separation of fastest growing side-band component as a
+     function of wave steepness. , Exact result of Longuet-Higgins; --, n.l.S. result;
+     - equation (3.12) (with AO = ka). Experimental results: *, Lake & Yuen (I977);
+     O, Benjamin & Feir.
+
+
+
+
+             This content downloaded from 163.118.182.142 on Tue, 29 Sep 2026 14:20:48 UTC
+                               All use subject to https://about.jstor.org/terms
+                 Modification to nonlinear Schridinger equation 113
+growing perturbations because these are normally dominant. The n.l.S. equation, in
+this respect, is rather unsatisfactory, in that it predicts maximum growth rate for all
+wavevectors K having their end points on the hyperbola P2 = A2
+  The maximum growth rate deduced from (3.13), however, is the same as for the
+one dimensional case i.e. given by (3.10) and occurs for 0u = 0, and A = Am, where
+AM is given by (3.1 1).
+  A final check on the result (3.7) can be made, by noting that for very long wave-
+length perturbation (assuming ,t = 0) we obtain from (3.7)
+
+                                  Q I-lA + 3AA2 + i 2/AAo (3.14)
+  For perturbations of very long wavelength, however, Whitham's method can be
+used as shown by Lighthill (i967). Small and slow perturbations (frequency Q and
+wavenumber A) on a wavetrain of frequency w and wavenumber k was shown by
+Lighthill to satisfy the dispersion relation
+
+
+                               SX)a2
+                               (A)   +2Y
+                                   &U2+   2Q 8ak2=?(.5
+                                        -ao)ak  +-r 2 0, (3.15)
+where ?' is the Lagrangian for surface waves on deep water, for which Lighthill has
+found the simple polynomial approximation
+
+                           y Po~I [12 \2 W2\3 1)2\4]
+                                          5g? = k-2 [(-k-1) -(g-k-) -( k-1) ](3.16)
+where co is now the exact nonlinear frequency corresponding to k(w2 = gk(l +
+(ak)2+...). In passing we note that while (3.15) is only valid for very long wave
+perturbation, it is valid for arbitrary amplitude, which is the reason for its success
+in predicting the upper boundary, ka = 0.34, for the modulational instability
+(when Q and A - 0).
+   Using (3.16) and (3.15), one obtains (3.14), neglecting terms of order A4 and
+higher.
+
+
+                                       4. CONcLUSIONS
+   Adding terms of order 4 to the n.l.S. equation gives a surprising improvement on
+the results relating to the stability of a finite amplitude wave. Among the new terms
+in (2.19) only the term A 856/8x contributes to the results (3.9)-(3.12). Thus, at least
+as far as stability properties are concerned, it is sufficient to use the following simpli-
+fied system of equations
+
+
+               z = O, 2i (88 + 2 88X) 8A2-18 = A (lA12 + 0 (4.1)
+
+               Z =0 Va2 JA2' (4.2)
+               z < O, V20 = O. (4.3)
+             This content downloaded from 163.118.182.142 on Tue, 29 Sep 2026 14:20:48 UTC
+                               All use subject to https://about.jstor.org/terms
+114 K. B. Dysthe
+The physical picture of the influence of the added term and equations is rather clear:
+   (i) Modulation of the finite amplitude wavetrain causes non-uniformity of the
+radiation-stress.
+   (ii) The resulting forces bring about a mean flow response of the fluid (which is
+still a potential flow, since it is caused by a transient rather than a dissipative
+mechanism).
+   (iii) The horizontal component of this mean flow along the direction of wave
+propagation causes a slowly varying Doppler shift of the wave as represented by the
+last term in (4.1).
+   (iv) The Doppler shift then has a 'detuning 'effectonthemodulational instability.
+
+  The author gratefully acknowledges stimulating discussions with Professor
+M. S. Longuet-Higgins, F.R.S.
+
+
+
+                                          REFERENCES
+     Benjamin, T. B. I967 Proc. R. Soc. Lond. A 299, 59-67.
+     Benjamin, T. B. & Feir, J. E. I967 J. Fluid Mllech. 27, 417-430.
+     Davey, A. & Stewartson, K. I974 Proc. R. Soc. Lond. A 338, 101-110.
+     Dysthe, K. B. I974 J. Plasma Phys. 11, 63-76.
+     Lighthill, M. J. I965 J. Inst. Math. Appl. 1, 269-306.
+     Lighthill, M. J. I967 Proc. R. Soc. Lond. A 299, 28-53.
+     Longuet-Higgins, M. S. i978a Proc. R. Soc. Lond. A 360, 471-488.
+     Longuet-Higgins, M. S. I978b Proc. R. Soc. Lond. A 360, 489-505.
+     Longuet-Higgins, M. S. & Stewart, R. W. I964 Deep Sea Res. 11, 529-562.
+     Phillips, 0. M. I977 The dynamics of the, upper ocean. Cambridge University Press.
+     Stewartson, K. I977 Mathematik, 24, 37-49.
+     Whitham, G. B. I967 Proc. R. Soc. Lond. A 299, 6-25.
+     Yuen, H. C. & Lake, B. H. I975 Phys. Fluids 18, 956-960.
+     Zakharov, V. E. I967 Soviet Phys. JETP 24, 740-744.
+     Zakharov, V. E. I968 Sov. Phys. J. appl. Mech. tech. Phys. 4, 86-90.
+
+
+
+
+              This content downloaded from 163.118.182.142 on Tue, 29 Sep 2026 14:20:48 UTC
+                                All use subject to https://about.jstor.org/terms
+

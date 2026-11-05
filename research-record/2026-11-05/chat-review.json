@@ -1,0 +1,1190 @@
+{
+  "review_date": "2026-11-05",
+  "timezone": "America/New_York",
+  "membership": "All 12 user-owned local chats found by Dysthe project ID or workspace directory, including older chats beyond the app recent-list limit. Internal subagents/approval-review threads excluded. No Dysthe ChatGPT project was returned by list_projects.",
+  "retrieval": "Thread app API, fully paginated. Read-only local thread metadata supplied older IDs; summaries use user/final-assistant messages. No raw transcripts or internal reasoning are published.",
+  "chat_count": 12,
+  "pages_read": 34,
+  "returned_turns": 262,
+  "inherited_duplicate_turns_identified": 67,
+  "records": [
+    {
+      "id": "01a0873c-15b7-75f0-82de-dc5accfc01fa",
+      "title": "Plan 3D Dysthe equation model",
+      "created_at": "2026-09-09T13:34:17-04:00",
+      "last_substantive_message_at": "2026-09-18T15:04:40-04:00",
+      "date_basis": "Latest completed public turn returned by read_thread; individual message timestamps are unavailable.",
+      "metadata_updated_at": "2026-09-26T00:03:16-04:00",
+      "category": "Historical numerical PDE, scientific visualization and optical PINN research",
+      "topics": [
+        "Equation 1.27 versus printed 1.32 sign audit and Fourier symbols",
+        "Fractionally weighted dispersive estimates, scaling and finite-time peak searches",
+        "Non-Gaussian/random inputs, restricted spectra and cancellation",
+        "Nonlinear traveling profiles, collisions and optical stripe perturbations",
+        "Envelope/phase/carrier figures, animation and interpretation corrections",
+        "Optical PINN implementation, A100 smoke/training/evaluation, Slurm support",
+        "Periodic long-horizon reference runs, oscillatory fits and breathing hypothesis",
+        "One accidentally pasted TDA pruning review, explicitly withdrawn as wrong chat"
+      ],
+      "summary": "The chat developed a historical numerical programme from exact linear propagation and weighted-decay studies into nonlinear profile experiments and one-input optical PINN validation. It produced multiple reports and visualizations, then reviewed long periodic reference trajectories. The final discussion emphasizes formulation fidelity, finite-time evidence, per-input retraining and the limits of peak/loss-only claims.",
+      "results": [
+        "Canonical Gaussian weighted peak searches reached t = 1024; restricted-input studies completed 40 screened records after retained follow-ups. (Recorded historical CPU numerical evidence; no theorem or counterexample.)",
+        "28 discrete spatial Dysthe traveling profiles and refined collision/perturbation tests were reported; optical stripe perturbations were resolved through t = 4 but later t = 8 remained unresolved. (Different nonlinear formulations explicitly separated.)",
+        "The original 90-degree two-packet pair has zero intensity cross-term under the real-coefficient canonical propagator; an in-phase control demonstrates interference. (Interpretation correction preserved alongside earlier figures.)",
+        "One optical PINN completed 20,000 A100 steps; independent short-time evaluation reports 0.665 percent maximum relative complex-field error over 0 <= t <= 0.5. (One input/seed benchmark; not generalization or a long-time result.)",
+        "An optical reference run reached t = 8 but its sampled peak-grid discrepancy 0.795 percent exceeded the 0.5 percent gate although field/time checks passed. (Reference peak-resolution failure; not PINN-training failure.)",
+        "A periodic optical fine-step run reached t = 2048 in about 5.12 h with maximum relative mass drift 7.39e-12; long-time grid/time accuracy was not validated. (Completed reference trajectory, accuracy unresolved.)",
+        "A separate coarse optical preview targeting t = 12288 stopped at t = 10321 after relative mass drift exceeded 0.1 percent. (Stopped diagnostic-limited preview; not blow-up or completed target.)",
+        "Local four-harmonic fit on 1536 <= t <= 1664 has recorded R2 about 0.985 and base period 11.48. (Descriptive local fit; no future prediction, decay law or proof of breather.)"
+      ],
+      "events": [],
+      "unresolved": [
+        "No new uniform decay theorem or certified counterexample.",
+        "Long optical trajectories lack independent late-time grid/time refinement; mass conservation alone does not validate them.",
+        "Breathing-like peak modulation does not establish a localized breather without spatial/phase evidence.",
+        "The trained historical PINN fits one prescribed input and requires retraining for changed initial data.",
+        "No calibrated measured-data propagation benchmark was completed.",
+        "Optical and canonical branches are historical under current water-wave scope."
+      ],
+      "artifact_paths": [
+        "report/dysthe_report.tex",
+        "output/pdf/dysthe_formal_checkpoint.pdf",
+        "output/pdf/dysthe_checkpoint_2026-09-10.pdf",
+        "output/pdf/dysthe_research_meeting.pdf",
+        "output/pdf/dysthe_visual_study.pdf",
+        "output/pdf/nonlinear_solitary_wave_report.pdf",
+        "output/pdf/restricted_input_decay_and_practical_model.pdf",
+        "output/pdf/pinn_framework_smoke_report.pdf",
+        "output/pdf/pinn_full_training_evaluation.pdf",
+        "output/pdf/late_window_1024_2048_technical_review.pdf",
+        "output/pdf/late_window_1024_2048_review_latex.zip",
+        "output/pdf/wave_visualizations_beginners_guide.pdf",
+        "output/pdf/wave_figure_explanations.pdf",
+        "output/checkpoint_3_4_animations/README.md",
+        "output/packet_alternative_views/README.md",
+        "output/packet_phase_interactive/EXTENSION.md",
+        "dysthe-pinn/results/late-window-1024-2048/summary.json",
+        "dysthe-pinn/results/breathing-preview-12288/summary.json"
+      ],
+      "coverage": {
+        "source": "mcp__codex_app__read_thread",
+        "pages": 11,
+        "returned_turns": 107,
+        "all_pages_read": true,
+        "inherited_turns": 0,
+        "selected_message_truncation_detected": false
+      },
+      "current_claims_note": "These are historical conversation claims, with matching artifact paths existence-checked on November 5. Existing source-backed inventory independently reviews several short/weighted-decay records. No scientific simulation or remote ref verification was rerun as part of this chat audit.",
+      "artifact_index": [
+        {
+          "original_path": "report/dysthe_report.tex",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/report/dysthe_report.tex"
+        },
+        {
+          "original_path": "output/pdf/dysthe_formal_checkpoint.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/dysthe_formal_checkpoint.pdf"
+        },
+        {
+          "original_path": "output/pdf/dysthe_checkpoint_2026-09-10.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/dysthe_checkpoint_2026-09-10.pdf"
+        },
+        {
+          "original_path": "output/pdf/dysthe_research_meeting.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/dysthe_research_meeting.pdf"
+        },
+        {
+          "original_path": "output/pdf/dysthe_visual_study.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/dysthe_visual_study.pdf"
+        },
+        {
+          "original_path": "output/pdf/nonlinear_solitary_wave_report.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/nonlinear_solitary_wave_report.pdf"
+        },
+        {
+          "original_path": "output/pdf/restricted_input_decay_and_practical_model.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/restricted_input_decay_and_practical_model.pdf"
+        },
+        {
+          "original_path": "output/pdf/pinn_framework_smoke_report.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/pinn_framework_smoke_report.pdf"
+        },
+        {
+          "original_path": "output/pdf/pinn_full_training_evaluation.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/pinn_full_training_evaluation.pdf"
+        },
+        {
+          "original_path": "output/pdf/late_window_1024_2048_technical_review.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/late_window_1024_2048_technical_review.pdf"
+        },
+        {
+          "original_path": "output/pdf/late_window_1024_2048_review_latex.zip",
+          "availability": "Original artifact or input retained locally when available; not copied to this compact archive."
+        },
+        {
+          "original_path": "output/pdf/wave_visualizations_beginners_guide.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/wave_visualizations_beginners_guide.pdf"
+        },
+        {
+          "original_path": "output/pdf/wave_figure_explanations.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/wave_figure_explanations.pdf"
+        },
+        {
+          "original_path": "output/checkpoint_3_4_animations/README.md",
+          "url": "https://github.com/matasvai/dysthe-experiments/blob/codex/research-record-2026-11-05/archive/2026-11-05/source/output/checkpoint_3_4_animations/README.md"
+        },
+        {
+          "original_path": "output/packet_alternative_views/README.md",
+          "url": "https://github.com/matasvai/dysthe-experiments/blob/codex/research-record-2026-11-05/archive/2026-11-05/source/output/packet_alternative_views/README.md"
+        },
+        {
+          "original_path": "output/packet_phase_interactive/EXTENSION.md",
+          "url": "https://github.com/matasvai/dysthe-experiments/blob/codex/research-record-2026-11-05/archive/2026-11-05/source/output/packet_phase_interactive/EXTENSION.md"
+        },
+        {
+          "original_path": "dysthe-pinn/results/late-window-1024-2048/summary.json",
+          "url": "https://github.com/matasvai/dysthe-experiments/blob/codex/research-record-2026-11-05/archive/2026-11-05/source/dysthe-pinn/results/late-window-1024-2048/summary.json"
+        },
+        {
+          "original_path": "dysthe-pinn/results/breathing-preview-12288/summary.json",
+          "url": "https://github.com/matasvai/dysthe-experiments/blob/codex/research-record-2026-11-05/archive/2026-11-05/source/dysthe-pinn/results/breathing-preview-12288/summary-selected-fields.derived.json"
+        }
+      ]
+    },
+    {
+      "id": "01a08902-30e9-7e13-ae48-caafc8c0b148",
+      "title": "Explain Socrates on morality",
+      "created_at": "2026-09-09T21:50:17-04:00",
+      "last_substantive_message_at": "2026-09-09T22:01:50-04:00",
+      "date_basis": "Latest completed public turn returned by read_thread; individual message timestamps are unavailable.",
+      "metadata_updated_at": "2026-09-09T22:01:50-04:00",
+      "category": "Unrelated philosophy discussion",
+      "topics": [
+        "Plato Republic Book II and Glaucon/Adeimantus challenge",
+        "Ring of Gyges",
+        "Justice as harmony of reason/spirit/appetite",
+        "Peter Singer Famine, Affluence, and Morality",
+        "Personal welfare versus duty to relieve suffering"
+      ],
+      "summary": "Explained Socrates' position and its development in later Republic books, then compared it with Singer's moral demandingness. Singer was presented as a challenge rather than a decisive counterexample because Socrates distinguishes material hardship from disorder of the soul.",
+      "results": [
+        "Explanatory study conversation only; no new research result or artifact."
+      ],
+      "events": [],
+      "unresolved": [
+        "No formal essay or independently adjudicated philosophical refutation produced."
+      ],
+      "artifact_paths": [],
+      "coverage": {
+        "source": "mcp__codex_app__read_thread",
+        "pages": 1,
+        "returned_turns": 4,
+        "all_pages_read": true,
+        "inherited_turns": 0,
+        "selected_message_truncation_detected": false
+      },
+      "current_claims_note": "Historical explanation summarized; no fresh primary-text audit performed for this catalogue.",
+      "artifact_index": []
+    },
+    {
+      "id": "01a0a172-45ad-7db2-95de-fc977a7ffb68",
+      "title": "Review bezel functions",
+      "created_at": "2026-09-14T15:43:35-04:00",
+      "last_substantive_message_at": "2026-09-14T15:45:19-04:00",
+      "date_basis": "Latest completed public turn returned by read_thread; individual message timestamps are unavailable.",
+      "metadata_updated_at": "2026-09-14T15:45:19-04:00",
+      "category": "Mathematical methods discussion",
+      "topics": [
+        "Bessel J0 and Fourier-Hankel reduction",
+        "Transverse radial symmetry and analytic Gaussian integration",
+        "Non-Gaussian radial packets and annular spectra",
+        "Azimuthal Jm modes",
+        "Coordinate distinctions between canonical and optical equations"
+      ],
+      "summary": "Interpreted bezel as Bessel and derived the angular-integral role of J0. Explained that existing Gaussian evolution already evaluates the radial integral analytically, while a numerical Hankel prototype could extend historical radial non-Gaussian cases.",
+      "results": [
+        "A Fourier-Hankel prototype was proposed; no new prototype or numerical campaign was implemented in this chat.",
+        "The existing optical stripe is not cylindrically symmetric and cannot be replaced directly with a J0 solver."
+      ],
+      "events": [],
+      "unresolved": [
+        "Proposed Gaussian agreement test, radial cutoff/node convergence and non-Gaussian extension remained future work."
+      ],
+      "artifact_paths": [
+        "long_time_decay.py",
+        "report/long_time_section.tex",
+        "nonlinear/solver.py",
+        "nonlinear/experiments.py"
+      ],
+      "coverage": {
+        "source": "mcp__codex_app__read_thread",
+        "pages": 1,
+        "returned_turns": 1,
+        "all_pages_read": true,
+        "inherited_turns": 0,
+        "selected_message_truncation_detected": false
+      },
+      "current_claims_note": "Methodological discussion is archived as a proposal; historical optical suggestions do not authorize changing current water-wave scope.",
+      "artifact_index": [
+        {
+          "original_path": "long_time_decay.py",
+          "url": "https://github.com/matasvai/dysthe-experiments/blob/codex/research-record-2026-11-05/archive/2026-11-05/source/long_time_decay.py"
+        },
+        {
+          "original_path": "report/long_time_section.tex",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/report/long_time_section.tex"
+        },
+        {
+          "original_path": "nonlinear/solver.py",
+          "url": "https://github.com/matasvai/dysthe-experiments/blob/codex/research-record-2026-11-05/archive/2026-11-05/source/nonlinear/solver.py"
+        },
+        {
+          "original_path": "nonlinear/experiments.py",
+          "url": "https://github.com/matasvai/dysthe-experiments/blob/codex/research-record-2026-11-05/archive/2026-11-05/source/nonlinear/experiments.py"
+        }
+      ]
+    },
+    {
+      "id": "01a0b151-a544-7320-be44-d90f80a6cfb2",
+      "title": "Explain PINNs in fluid dynamics",
+      "created_at": "2026-09-17T17:41:53-04:00",
+      "last_substantive_message_at": "2026-09-17T20:57:53-04:00",
+      "date_basis": "Latest completed public turn returned by read_thread; individual message timestamps are unavailable.",
+      "metadata_updated_at": "2026-09-28T19:17:42-04:00",
+      "category": "PINN background and unrelated resume editing",
+      "topics": [
+        "PINNs for hidden velocity/pressure recovery",
+        "Inverse coefficient estimation and blood-flow pressure inference",
+        "Sparse turbulent mean-flow and water-wave reconstruction",
+        "Limits of direct-solver speed/reliability claims",
+        "Resume Dysthe/PINN/Slurm/HPC wording",
+        "One-page layout and research-IT/Ansible/YAML wording"
+      ],
+      "summary": "Provided notable fluid-PINN examples and emphasized incomplete-observation reconstruction as a plausible use. Subsequent turns updated a resume with project wording and user-supplied research-IT experience, corrected the weighted-decay terminology and verified a one-page layout.",
+      "results": [
+        "No new PDE experiment, PINN training or scientific benchmark was executed in this chat.",
+        "A one-page editable resume and PDF were produced, then refined to reflect supplied duties rather than the entire job description."
+      ],
+      "events": [],
+      "unresolved": [
+        "Literature overview was not a validated comparison for the Dysthe solver."
+      ],
+      "artifact_paths": [
+        "output/resume/matas-resume-one-page.tex",
+        "output/pdf/matas-resume-one-page.pdf"
+      ],
+      "coverage": {
+        "source": "mcp__codex_app__read_thread",
+        "pages": 1,
+        "returned_turns": 7,
+        "all_pages_read": true,
+        "inherited_turns": 0,
+        "selected_message_truncation_detected": false
+      },
+      "current_claims_note": "Career details are historical user-provided material, not independently verified accomplishments or current employment claims.",
+      "publication_handling": "Record the existence and broad purpose of resume work only. Do not copy resume content, contact details, private paths outside this project or employment claims into the public research archive.",
+      "artifact_index": [
+        {
+          "original_path": "output/resume/matas-resume-one-page.tex",
+          "availability": "Private career artifact indexed only; contents not republished."
+        },
+        {
+          "original_path": "output/pdf/matas-resume-one-page.pdf",
+          "availability": "Private career artifact indexed only; contents not republished."
+        }
+      ]
+    },
+    {
+      "id": "01a0b606-59a1-7e51-8b4b-a962ee7b69bd",
+      "title": "Find neural operator resources",
+      "created_at": "2026-09-18T15:37:44-04:00",
+      "last_substantive_message_at": "2026-09-21T17:54:19-04:00",
+      "date_basis": {
+        "created_at": "read_thread thread.createdAt Unix timestamp",
+        "last_message_date_proxy": "latest completion (or start if absent) of a returned turn containing user/final assistant text; individual messages have no timestamps",
+        "metadata_updated_at": "read_thread updatedAt; not used as a conversation-message date"
+      },
+      "metadata_updated_at": "2026-09-26T00:03:02-04:00",
+      "category": "Mixed historical scientific-methods discussion, explicitly requested Vlasov–Poisson plasma FNO, cluster operations, and unrelated screenshot editing. Plasma and optical results are not current water-wave evidence.",
+      "topics": [
+        "FNO/PINO/PINN literature",
+        "Whole-initial-field operator inputs and trajectory-level held-out evaluation",
+        "Spatial Lp norms and phase errors",
+        "Kinetic Vlasov–Poisson rather than Dysthe",
+        "Slurm dependencies, environment failures, GPU allocations and compact exports",
+        "Unrelated removal of store logos from an image"
+      ],
+      "summary": "",
+      "results": [],
+      "events": [
+        {
+          "date": "2026-09-18",
+          "date_basis": "historical user/final-assistant turn date, America/New_York; not necessarily underlying experiment execution date",
+          "name": "Neural-operator reading and field-FNO implementation",
+          "status": "implemented; historical chat reports tests passed",
+          "scope": "historical plasma and separate optical methodology",
+          "findings": [
+            "Reusable Fourier architecture for the whole input field. Plasma learns f(x,v,t), computes electric field through Poisson, enforces nonnegative distributions and particle count.",
+            "23 tests reported passed. These architecture constraints are not independent evidence of correct dynamics."
+          ],
+          "artifacts": [
+            {
+              "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/FIELD_FNO.md",
+              "role": "method documentation",
+              "exists_at_audit": true
+            }
+          ],
+          "historical_publication_commits": [
+            "a4aea44286e3ddc42cdb49ab227c2b3b98a9c3d8",
+            "b192816"
+          ]
+        },
+        {
+          "date": "2026-09-18",
+          "date_basis": "historical user/final-assistant turn date, America/New_York; not necessarily underlying experiment execution date",
+          "name": "plasma-fno-20260918-230112",
+          "status": "short GPU smoke completed and reviewed",
+          "scope": "historical Vlasov–Poisson",
+          "findings": [
+            "Chat reports 300 training steps in 24.1 s on A100; hardware identity here is a historical assistant assertion, not independently revalidated from logs in this chat audit.",
+            "Validation loss 1.24 to 0.00792. Three held-out trajectories. Mean distribution error 16.59% of initial perturbation norm versus persistence 135.02%; mean electric-field error 4.24% of initial field norm versus 65.57%.",
+            "Final distribution error 25.1%, total-energy drift 0.44%, electric energy at near minimum about 6.3 times reference. Particle-count error below 3e-7 was architecture-enforced.",
+            "Short-time smoke does not establish long-time Landau damping or Dysthe accuracy."
+          ],
+          "artifacts": [
+            {
+              "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/runs/plasma-fno-20260918-230112/evaluation/report.md",
+              "role": "reported run review",
+              "exists_at_audit": true
+            },
+            {
+              "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/runs/fno-plasma-validated-20260918/evaluation/report.md",
+              "role": "earlier validation report",
+              "exists_at_audit": true
+            }
+          ],
+          "historical_publication_commits": []
+        },
+        {
+          "date": "2026-09-18",
+          "date_basis": "historical user/final-assistant turn date, America/New_York; not necessarily underlying experiment execution date",
+          "name": "plasma-nonlinear-77761 overnight configuration",
+          "status": "configured and published; results not yet available within this chat",
+          "scope": "historical Vlasov–Poisson",
+          "findings": [
+            "User selected stronger nonlinear behavior at a shorter resolved horizon. T = 12, 128 by 1024 grid, three seeds, 20000 updates or three hours per seed, twelve-hour job allocation.",
+            "30 tests reported passed. GPU2 single-submit workflow added. Result upload was not visible at this chat end; the next chat later reviewed it."
+          ],
+          "artifacts": [],
+          "historical_publication_commits": [
+            "5dae884"
+          ]
+        },
+        {
+          "date": "2026-09-19",
+          "date_basis": "historical user/final-assistant turn date, America/New_York; not necessarily underlying experiment execution date",
+          "name": "Plasma handout review",
+          "status": "literature critique completed",
+          "scope": "historical out-of-scope physical model",
+          "findings": [
+            "Water-wave coefficients cannot be relabeled as plasma physics without a new derivation. Langmuir/Zakharov coupling was discussed as a distinct possible future model, not an implemented Dysthe result."
+          ],
+          "artifacts": [
+            {
+              "path": "/home/matasvai/Downloads/Plasma Physics Applications of the Dysthe Equation.pdf",
+              "role": "user-supplied document",
+              "exists_at_audit": true
+            }
+          ],
+          "historical_publication_commits": []
+        },
+        {
+          "date": "2026-09-20",
+          "date_basis": "historical user/final-assistant turn date, America/New_York; not necessarily underlying experiment execution date",
+          "name": "Store-logo screenshot cleanup",
+          "status": "image edit reported completed",
+          "scope": "unrelated image editing",
+          "findings": [
+            "User requested removal of store logos including Whole Foods and Winn-Dixie. Final response disclosed that some small packaging text also changed. No resulting image file path was included in the final assistant text."
+          ],
+          "artifacts": [
+            {
+              "path": "/tmp/codex-clipboard-d23b14c8-9d6d-458c-821a-854908184c68.png",
+              "role": "source screenshot",
+              "exists_at_audit": false
+            }
+          ],
+          "historical_publication_commits": []
+        },
+        {
+          "date": "2026-09-18/2026-09-21",
+          "date_basis": "historical user/final-assistant turn date, America/New_York; not necessarily underlying experiment execution date",
+          "name": "Cluster operation troubleshooting",
+          "status": "support provided",
+          "scope": "general HPC operations",
+          "findings": [
+            "Identified missing PyTorch and reused output directory after failed attempts; explained dependency jobs, monitoring, environment activation, and exporting compact results.",
+            "GPU availability discussion distinguished scheduler allocation from actual utilization."
+          ],
+          "artifacts": [],
+          "historical_publication_commits": []
+        }
+      ],
+      "unresolved": [
+        "Nonlinear overnight result upload was absent at the last review attempt; resolved in Find neural operator resources (2).",
+        "No demonstrated long-time plasma fidelity or Dysthe operator generalization.",
+        "Image editing changed incidental small packaging text."
+      ],
+      "artifact_paths": [
+        "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/FIELD_FNO.md",
+        "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/runs/plasma-fno-20260918-230112/evaluation/report.md",
+        "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/runs/fno-plasma-validated-20260918/evaluation/report.md",
+        "/home/matasvai/Downloads/Plasma Physics Applications of the Dysthe Equation.pdf",
+        "/tmp/codex-clipboard-d23b14c8-9d6d-458c-821a-854908184c68.png"
+      ],
+      "coverage": {
+        "source": "mcp__codex_app__read_thread",
+        "pages": 3,
+        "returned_turns": 26,
+        "all_pages_read": true,
+        "inherited_turns": 0,
+        "selected_message_truncation_detected": false
+      },
+      "current_claims_note": "Historical chat outcomes; see source-backed experiment records for numerical evidence.",
+      "artifact_index": [
+        {
+          "original_path": "dysthe-pinn/FIELD_FNO.md",
+          "url": "https://github.com/matasvai/dysthe-pinn/blob/bca8aa3833d79e5030ed53efab3bd94c9480aa54/FIELD_FNO.md"
+        },
+        {
+          "original_path": "dysthe-pinn/runs/plasma-fno-20260918-230112/evaluation/report.md",
+          "url": "https://github.com/matasvai/dysthe-pinn/blob/bca8aa3833d79e5030ed53efab3bd94c9480aa54/runs/plasma-fno-20260918-230112/evaluation/report.md"
+        },
+        {
+          "original_path": "dysthe-pinn/runs/fno-plasma-validated-20260918/evaluation/report.md",
+          "availability": "Original artifact or input retained locally when available; not copied to this compact archive."
+        },
+        {
+          "original_path": "/home/matasvai/Downloads/Plasma Physics Applications of the Dysthe Equation.pdf",
+          "availability": "Original artifact or input retained locally when available; not copied to this compact archive."
+        },
+        {
+          "original_path": "/tmp/codex-clipboard-d23b14c8-9d6d-458c-821a-854908184c68.png",
+          "availability": "Original artifact or input retained locally when available; not copied to this compact archive."
+        }
+      ]
+    },
+    {
+      "id": "01a0c41a-d01a-7d80-b1f4-affa0301232d",
+      "title": "Find neural operator resources (2)",
+      "created_at": "2026-09-21T09:14:46-04:00",
+      "last_substantive_message_at": "2026-09-30T12:03:44-04:00",
+      "date_basis": {
+        "created_at": "read_thread thread.createdAt Unix timestamp",
+        "last_message_date_proxy": "latest completion (or start if absent) of a returned turn containing user/final assistant text; individual messages have no timestamps",
+        "metadata_updated_at": "read_thread updatedAt; not used as a conversation-message date"
+      },
+      "metadata_updated_at": "2026-10-14T14:34:08-04:00",
+      "category": "Historical plasma-FNO results and conservation-loss work followed by explicit return to water-wave Dysthe; repository family, publication planning, and interactive research-map site. Earlier optical proposals were superseded by the September 30 scope correction.",
+      "topics": [
+        "Overnight GPU results and physical consistency",
+        "Editable minimalist LaTeX and vector figures",
+        "Conservation and PDE-residual losses",
+        "Early stopping and checkpoint selection",
+        "Nontechnical scientific communication",
+        "DeepONet/PINO and hybrid/reduced operator-learning proposals",
+        "GitHub Pages research map and repository family",
+        "Explicit water-wave-only scope correction"
+      ],
+      "summary": "",
+      "results": [],
+      "events": [
+        {
+          "date": "2026-09-21",
+          "date_basis": "historical user/final-assistant turn date, America/New_York; not necessarily underlying experiment execution date",
+          "name": "plasma-nonlinear-77761 analysis",
+          "status": "completed report; historical push reported",
+          "scope": "historical Vlasov–Poisson",
+          "findings": [
+            "Three seeds completed 20000 updates but best checkpoints were at 4000–6000.",
+            "Mean electric-field errors 3.8–4.0% of initial field norm coexisted with worst-case energy drift of 36.5–77.4%.",
+            "Report revised from nine to six pages with editable LaTeX. Five figures were true vectors; phase-space PNG was wrapped losslessly in PDF because raw prediction arrays were unavailable."
+          ],
+          "artifacts": [
+            {
+              "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/output/pdf/plasma-nonlinear-77761-report.pdf",
+              "role": "compiled report",
+              "exists_at_audit": true
+            },
+            {
+              "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/reports/plasma-nonlinear-77761-analysis/report.tex",
+              "role": "editable report",
+              "exists_at_audit": true
+            }
+          ],
+          "historical_publication_commits": [
+            "d21c1ee",
+            "104eb47",
+            "2866c60"
+          ]
+        },
+        {
+          "date": "2026-09-21",
+          "date_basis": "historical user/final-assistant turn date, America/New_York; not necessarily underlying experiment execution date",
+          "name": "Physics-built plasma loss and stability workflow",
+          "status": "implemented and published; training benefit then unproven",
+          "scope": "historical Vlasov–Poisson",
+          "findings": [
+            "Added PDE residual and conservation penalties for particle count, momentum, total energy, distribution L2/L4, with a numerical-data anchor.",
+            "Added early stopping, 12/24/48-step comparisons, fresh final tests, resumability, clearer logs and vector-report export. 45 tests reported passed."
+          ],
+          "artifacts": [
+            {
+              "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/output/pdf/plasma-physics-loss.pdf",
+              "role": "loss definitions report",
+              "exists_at_audit": true
+            }
+          ],
+          "historical_publication_commits": [
+            "0c794b9"
+          ]
+        },
+        {
+          "date": "2026-09-23",
+          "date_basis": "historical user/final-assistant turn date, America/New_York; not necessarily underlying experiment execution date",
+          "name": "plasma-stability-78140 review",
+          "status": "completed; negative acceptance outcome",
+          "scope": "historical Vlasov–Poisson",
+          "findings": [
+            "Selected model reduced energy drift but distribution and electric-field errors worsened 14.1% and 52.4%.",
+            "All six tested models failed seven of eight acceptance checks; selected worst energy error about 14% versus a 5% gate.",
+            "Eight-page report with five vector figures; full checkpoints unavailable, review used uploaded logs and retained arrays.",
+            "Export helper repaired with six export checks before successful upload; this was a publishing fix, not retraining."
+          ],
+          "artifacts": [
+            {
+              "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/output/pdf/plasma-stability-78140-review.pdf",
+              "role": "compiled review",
+              "exists_at_audit": true
+            },
+            {
+              "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/output/pdf/plasma-stability-78140-review-source.zip",
+              "role": "editable source bundle",
+              "exists_at_audit": true
+            }
+          ],
+          "historical_publication_commits": [
+            "b9630e6"
+          ]
+        },
+        {
+          "date": "2026-09-23",
+          "date_basis": "historical user/final-assistant turn date, America/New_York; not necessarily underlying experiment execution date",
+          "name": "Dysthe project overview for nontechnical readers",
+          "status": "completed and published",
+          "scope": "mixed historical models, correctly separated in later scope policy",
+          "findings": [
+            "Six-page equation-free overview used four figures and everyday analogies. A short numerical-solution/PINN explanation was also supplied in chat."
+          ],
+          "artifacts": [
+            {
+              "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/output/pdf/dysthe-project-overview.pdf",
+              "role": "overview report",
+              "exists_at_audit": true
+            },
+            {
+              "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/output/pdf/dysthe-project-overview-source.zip",
+              "role": "editable source bundle",
+              "exists_at_audit": true
+            }
+          ],
+          "historical_publication_commits": [
+            "bca8aa3"
+          ]
+        },
+        {
+          "date": "2026-09-24",
+          "date_basis": "historical user/final-assistant turn date, America/New_York; not necessarily underlying experiment execution date",
+          "name": "Return to wave questions and multi-input learning",
+          "status": "research discussion; no new learned model validated",
+          "scope": "water-wave motivation plus historically mixed equation review",
+          "findings": [
+            "Suggested organizing the work around which packets spread, remain concentrated, or develop growing disturbances.",
+            "Explained whole-field operator inputs, DeepONet and PINO; a single-initial-condition PINN does not establish operator generalization.",
+            "Reviewed supplied plasma handout: a deep-water Dysthe equation was reinterpreted without a plasma derivation."
+          ],
+          "artifacts": [
+            {
+              "path": "/home/matasvai/Downloads/Plasma Physics Applications of the Dysthe Equation-1.pdf",
+              "role": "reviewed user document",
+              "exists_at_audit": true
+            }
+          ],
+          "historical_publication_commits": []
+        },
+        {
+          "date": "2026-09-28",
+          "date_basis": "historical user/final-assistant turn date, America/New_York; not necessarily underlying experiment execution date",
+          "name": "Publication plan and alternative ML architectures",
+          "status": "proposals only",
+          "scope": "historical optical wording; superseded by September 30 water-wave policy",
+          "findings": [
+            "Compared learned solver corrections, reduced-order operator inference, DeepONet, FNO/PINO and active learning.",
+            "No claim that any proposed alternative outperformed FNO; publishability requires a new supported finding or method, not merely using another network."
+          ],
+          "artifacts": [],
+          "historical_publication_commits": []
+        },
+        {
+          "date": "2026-09-28",
+          "date_basis": "historical user/final-assistant turn date, America/New_York; not necessarily underlying experiment execution date",
+          "name": "Interactive research wireframe and public research-map site",
+          "status": "created and published per historical final messages",
+          "scope": "research planning interface",
+          "findings": [
+            "Six approaches connected inputs, model structure, validation and publication evidence. HTTPS and mobile interaction were reported verified.",
+            "Site labeled methods as proposed research."
+          ],
+          "artifacts": [
+            {
+              "path": "/home/matasvai/.codex/visualizations/2026/09/21/01a0c41a-d01a-7d80-b1f4-affa0301232d/dysthe-research-wireframe.html",
+              "role": "local interactive wireframe",
+              "exists_at_audit": true
+            }
+          ],
+          "historical_publication_commits": []
+        },
+        {
+          "date": "2026-09-28",
+          "date_basis": "historical user/final-assistant turn date, America/New_York; not necessarily underlying experiment execution date",
+          "name": "Public repository family and ten workstream branches",
+          "status": "published scaffolding per historical final",
+          "scope": "initial optical scope later corrected",
+          "findings": [
+            "Created dysthe-core, dysthe-learning, dysthe-experiments, dysthe-paper and connected them through dysthe-research-map.",
+            "User explicitly selected public repositories. Included pinned dependencies, checks and migration guidance; actual solver migration was still forthcoming."
+          ],
+          "artifacts": [],
+          "historical_publication_commits": []
+        },
+        {
+          "date": "2026-09-30",
+          "date_basis": "historical user/final-assistant turn date, America/New_York; not necessarily underlying experiment execution date",
+          "name": "Water-wave-only scope correction",
+          "status": "implemented and pushed across five repos and ten branches per historical final",
+          "scope": "active water-wave Dysthe",
+          "findings": [
+            "User rejected optical/plasma redirection. Assistant acknowledged it had incorrectly promoted a prior implementation choice into the research objective.",
+            "Added scope instructions and checks rejecting incompatible models, coordinates and configurations. Updated research map and one-page outline.",
+            "31 local checks reported passed, desktop/mobile and compiled PDF visually checked. Manuscript remote build still running at final. Next substantive work was validation and migration of the water-wave solver."
+          ],
+          "artifacts": [
+            {
+              "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-paper/output/pdf/main.pdf",
+              "role": "water-wave outline PDF",
+              "exists_at_audit": true
+            }
+          ],
+          "historical_publication_commits": []
+        }
+      ],
+      "unresolved": [
+        "No demonstrated general-purpose learned water-wave solver at this date; scope-correct solver migration still next. Later project records supersede this status.",
+        "Remote manuscript CI still running in final response; not rechecked by this historical chat audit.",
+        "Plasma full checkpoints and some raw phase-space predictions were unavailable."
+      ],
+      "artifact_paths": [
+        "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/output/pdf/plasma-nonlinear-77761-report.pdf",
+        "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/reports/plasma-nonlinear-77761-analysis/report.tex",
+        "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/output/pdf/plasma-physics-loss.pdf",
+        "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/output/pdf/plasma-stability-78140-review.pdf",
+        "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/output/pdf/plasma-stability-78140-review-source.zip",
+        "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/output/pdf/dysthe-project-overview.pdf",
+        "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/output/pdf/dysthe-project-overview-source.zip",
+        "/home/matasvai/Downloads/Plasma Physics Applications of the Dysthe Equation-1.pdf",
+        "/home/matasvai/.codex/visualizations/2026/09/21/01a0c41a-d01a-7d80-b1f4-affa0301232d/dysthe-research-wireframe.html",
+        "/home/matasvai/Documents/Projects/Dysthe/dysthe-paper/output/pdf/main.pdf"
+      ],
+      "coverage": {
+        "source": "mcp__codex_app__read_thread",
+        "pages": 6,
+        "returned_turns": 52,
+        "all_pages_read": true,
+        "inherited_turns": 24,
+        "selected_message_truncation_detected": false
+      },
+      "current_claims_note": "Historical chat outcomes; see source-backed experiment records for numerical evidence.",
+      "artifact_index": [
+        {
+          "original_path": "dysthe-pinn/output/pdf/plasma-nonlinear-77761-report.pdf",
+          "url": "https://github.com/matasvai/dysthe-pinn/blob/bca8aa3833d79e5030ed53efab3bd94c9480aa54/output/pdf/plasma-nonlinear-77761-report.pdf"
+        },
+        {
+          "original_path": "dysthe-pinn/reports/plasma-nonlinear-77761-analysis/report.tex",
+          "url": "https://github.com/matasvai/dysthe-pinn/blob/bca8aa3833d79e5030ed53efab3bd94c9480aa54/reports/plasma-nonlinear-77761-analysis/report.tex"
+        },
+        {
+          "original_path": "dysthe-pinn/output/pdf/plasma-physics-loss.pdf",
+          "url": "https://github.com/matasvai/dysthe-pinn/blob/bca8aa3833d79e5030ed53efab3bd94c9480aa54/output/pdf/plasma-physics-loss.pdf"
+        },
+        {
+          "original_path": "dysthe-pinn/output/pdf/plasma-stability-78140-review.pdf",
+          "url": "https://github.com/matasvai/dysthe-pinn/blob/bca8aa3833d79e5030ed53efab3bd94c9480aa54/output/pdf/plasma-stability-78140-review.pdf"
+        },
+        {
+          "original_path": "dysthe-pinn/output/pdf/plasma-stability-78140-review-source.zip",
+          "url": "https://github.com/matasvai/dysthe-pinn/blob/bca8aa3833d79e5030ed53efab3bd94c9480aa54/output/pdf/plasma-stability-78140-review-source.zip"
+        },
+        {
+          "original_path": "dysthe-pinn/output/pdf/dysthe-project-overview.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/dysthe-pinn/output/pdf/dysthe-project-overview.pdf"
+        },
+        {
+          "original_path": "dysthe-pinn/output/pdf/dysthe-project-overview-source.zip",
+          "url": "https://github.com/matasvai/dysthe-pinn/blob/bca8aa3833d79e5030ed53efab3bd94c9480aa54/output/pdf/dysthe-project-overview-source.zip"
+        },
+        {
+          "original_path": "/home/matasvai/Downloads/Plasma Physics Applications of the Dysthe Equation-1.pdf",
+          "availability": "Original artifact or input retained locally when available; not copied to this compact archive."
+        },
+        {
+          "original_path": "/home/matasvai/.codex/visualizations/2026/09/21/01a0c41a-d01a-7d80-b1f4-affa0301232d/dysthe-research-wireframe.html",
+          "availability": "Original artifact or input retained locally when available; not copied to this compact archive."
+        },
+        {
+          "original_path": "dysthe-paper/output/pdf/main.pdf",
+          "availability": "Original artifact or input retained locally when available; not copied to this compact archive."
+        }
+      ]
+    },
+    {
+      "id": "01a0d3c1-8b31-7053-a8b3-67fea056e40a",
+      "title": "Find neural operator resources (3)",
+      "created_at": "2026-09-24T10:11:11-04:00",
+      "last_substantive_message_at": "2026-09-24T10:34:21-04:00",
+      "date_basis": {
+        "created_at": "read_thread thread.createdAt Unix timestamp",
+        "last_message_date_proxy": "latest completion (or start if absent) of a returned turn containing user/final assistant text; individual messages have no timestamps",
+        "metadata_updated_at": "read_thread updatedAt; not used as a conversation-message date"
+      },
+      "metadata_updated_at": "2026-10-07T18:37:42-04:00",
+      "category": "A one-turn retrospective fork reviewing archived linear, optical, water-wave and PINN work. Its optical future-work proposal is historical and was superseded by the September 30 water-wave-only decision in the sibling chat.",
+      "topics": [
+        "Experiment audit and question–measurement mismatch",
+        "Linear decay and frequency restrictions",
+        "Nonlinear optical stripe perturbations",
+        "Water-wave profiles and collisions",
+        "Periodic breathing and recurrence limits",
+        "Single-input PINN limitations"
+      ],
+      "summary": "",
+      "results": [],
+      "events": [
+        {
+          "date": "2026-09-24",
+          "date_basis": "historical user/final-assistant turn date, America/New_York; not necessarily underlying experiment execution date",
+          "name": "Dysthe research reset",
+          "status": "ten-page retrospective completed locally; no publication claimed in final",
+          "scope": "mixed historical models with explicit labels",
+          "findings": [
+            "Four vector figures and nine annotated references; PDF compiled and visually checked; 18 small software tests and a cross-solver check reported passed.",
+            "Checked Gaussian-family peak searches reached t = 1024. Restricted frequencies gave effective exponents near 1.50 versus 1.07 over a finite window, not universal decay laws.",
+            "Optical stripe perturbation grew 0.50% to 4.76% by T = 4; T = 8 calculations disagreed spatially.",
+            "28 discrete water-wave profiles and an inelastic collision largely reproduced known behavior in a separate equation.",
+            "Repeated concentration in periodic-box breathing runs and good conservation did not establish stable breathers or correct phase.",
+            "Original optical PINN about 0.67% maximum sampled field error over T = 0.5 for one initial condition; no demonstrated unfamiliar-input generalization or matched-accuracy speed advantage.",
+            "Scaling obstruction to improving an unrestricted homogeneous 7/6 decay exponent with the same input norm was distinguished from stronger-assumption experiments."
+          ],
+          "artifacts": [
+            {
+              "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/output/pdf/dysthe-research-reset.pdf",
+              "role": "compiled review",
+              "exists_at_audit": true
+            },
+            {
+              "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/output/pdf/dysthe-research-reset-source.zip",
+              "role": "editable source bundle",
+              "exists_at_audit": true
+            },
+            {
+              "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/reports/dysthe-research-reset/report.tex",
+              "role": "editable LaTeX",
+              "exists_at_audit": true
+            }
+          ],
+          "historical_publication_commits": []
+        }
+      ],
+      "unresolved": [
+        "No general nonlinear decay law, stable optical breather, or reliable unfamiliar-input predictor established.",
+        "T = 8 optical stripe spatial resolution failed.",
+        "Suggested optical future studies are superseded scope, not an instruction or current project plan."
+      ],
+      "artifact_paths": [
+        "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/output/pdf/dysthe-research-reset.pdf",
+        "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/output/pdf/dysthe-research-reset-source.zip",
+        "/home/matasvai/Documents/Projects/Dysthe/dysthe-pinn/reports/dysthe-research-reset/report.tex"
+      ],
+      "coverage": {
+        "source": "mcp__codex_app__read_thread",
+        "pages": 5,
+        "returned_turns": 44,
+        "all_pages_read": true,
+        "inherited_turns": 43,
+        "selected_message_truncation_detected": false
+      },
+      "current_claims_note": "Historical chat outcomes; see source-backed experiment records for numerical evidence.",
+      "artifact_index": [
+        {
+          "original_path": "dysthe-pinn/output/pdf/dysthe-research-reset.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/dysthe-pinn/output/pdf/dysthe-research-reset.pdf"
+        },
+        {
+          "original_path": "dysthe-pinn/output/pdf/dysthe-research-reset-source.zip",
+          "availability": "Original artifact or input retained locally when available; not copied to this compact archive."
+        },
+        {
+          "original_path": "dysthe-pinn/reports/dysthe-research-reset/report.tex",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/dysthe-pinn/reports/dysthe-research-reset/report.tex"
+        }
+      ]
+    },
+    {
+      "id": "01a0fdf3-3700-77a2-85de-29ed2291ff86",
+      "title": "Solve with worked solution",
+      "created_at": "2026-10-02T14:49:30-04:00",
+      "last_substantive_message_at": "2026-10-02T14:54:24-04:00",
+      "date_basis": {
+        "created_at": "read_thread thread.createdAt Unix timestamp",
+        "last_message_date_proxy": "latest completion (or start if absent) of a returned turn containing user/final assistant text; individual messages have no timestamps",
+        "metadata_updated_at": "read_thread updatedAt; not used as a conversation-message date"
+      },
+      "metadata_updated_at": "2026-10-14T14:34:04-04:00",
+      "category": "Unrelated fluid-mechanics coursework stored in the Dysthe project; not a Dysthe research experiment.",
+      "topics": [
+        "Bernoulli equation",
+        "Continuity",
+        "Cavitation pressure threshold",
+        "Worked-solution PDF"
+      ],
+      "summary": "",
+      "results": [],
+      "events": [
+        {
+          "date": "2026-10-02",
+          "date_basis": "historical user/final-assistant turn date, America/New_York; not necessarily underlying experiment execution date",
+          "name": "Cavitation minimum-diameter worked solution",
+          "status": "completed in chat and as a one-page PDF",
+          "scope": "unrelated fluid mechanics",
+          "findings": [
+            "For assumed steady incompressible lossless flow, a large reservoir, water at 20 C and absolute pressures: outlet speed 9.90 m/s, limiting section speed 17.2 m/s, minimum diameter about 11.4 cm.",
+            "Neglecting vapor pressure gives about 11.3 cm. Water temperature was assumed, not supplied by the problem.",
+            "Final says PDF was visually checked and links editable LaTeX."
+          ],
+          "artifacts": [
+            {
+              "path": "/home/matasvai/Documents/Projects/Dysthe/output/pdf/cavitation-worked-solution.pdf",
+              "role": "compiled worked solution",
+              "exists_at_audit": true
+            },
+            {
+              "path": "/home/matasvai/Documents/Projects/Dysthe/output/pdf/cavitation-worked-solution/cavitation-worked-solution.tex",
+              "role": "editable LaTeX",
+              "exists_at_audit": true
+            }
+          ],
+          "historical_publication_commits": []
+        }
+      ],
+      "unresolved": [],
+      "artifact_paths": [
+        "/home/matasvai/Documents/Projects/Dysthe/output/pdf/cavitation-worked-solution.pdf",
+        "/home/matasvai/Documents/Projects/Dysthe/output/pdf/cavitation-worked-solution/cavitation-worked-solution.tex"
+      ],
+      "coverage": {
+        "source": "mcp__codex_app__read_thread",
+        "pages": 1,
+        "returned_turns": 2,
+        "all_pages_read": true,
+        "inherited_turns": 0,
+        "selected_message_truncation_detected": false
+      },
+      "current_claims_note": "Historical chat outcomes; see source-backed experiment records for numerical evidence.",
+      "artifact_index": [
+        {
+          "original_path": "output/pdf/cavitation-worked-solution.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/cavitation-worked-solution.pdf"
+        },
+        {
+          "original_path": "output/pdf/cavitation-worked-solution/cavitation-worked-solution.tex",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/cavitation-worked-solution/cavitation-worked-solution.tex"
+        }
+      ]
+    },
+    {
+      "id": "01a1036a-88f4-7e20-9ae2-6c25712eef90",
+      "title": "Solve using the linear ODE formula",
+      "created_at": "2026-10-03T16:17:55-04:00",
+      "last_substantive_message_at": "2026-10-03T16:20:01.801000-04:00",
+      "date_basis": "Exact timestamp of user and final_answer message records in the local thread rollout, excluding instructions/context and all reasoning/tool records.",
+      "metadata_updated_at": "2026-10-30T14:53:48-04:00",
+      "category": "Unrelated coursework: elementary ODE",
+      "topics": [
+        "Integrating-factor/variation-of-constants formula for y' = a y+q(t)",
+        "Initial-value problem y' = sin(3t), y(0) = 1"
+      ],
+      "summary": "",
+      "results": [
+        "Derived y(t) = (4-cos(3t))/3 using a = 0 and an integral from 0 to t."
+      ],
+      "events": [],
+      "unresolved": [
+        "No unresolved request in the completed turn; this is a tutoring result, not a Dysthe experiment."
+      ],
+      "artifact_paths": [],
+      "coverage": {
+        "source": "mcp__codex_app__read_thread",
+        "pages": 1,
+        "returned_turns": 1,
+        "all_pages_read": true,
+        "inherited_turns": 0,
+        "selected_message_truncation_detected": false
+      },
+      "current_claims_note": "Historical chat outcomes; see source-backed experiment records for numerical evidence.",
+      "artifact_index": []
+    },
+    {
+      "id": "01a103b0-807b-7c50-a193-f2e7943df5ba",
+      "title": "Create a Dysthe paper primer",
+      "created_at": "2026-10-03T17:34:21-04:00",
+      "last_substantive_message_at": "2026-10-03T19:28:23.706000-04:00",
+      "date_basis": "Exact timestamp of user and final_answer message records in the local thread rollout, excluding instructions/context and all reasoning/tool records.",
+      "metadata_updated_at": "2026-10-30T15:18:58-04:00",
+      "category": "Dysthe prerequisites and original-paper reading",
+      "topics": [
+        "1979 Dysthe paper prerequisites adapted to PDE and linear algebra background",
+        "Wave envelopes, deep-water potential flow, dispersion, asymptotic orders, induced mean flow and modulational stability",
+        "Velocity-potential versus free-surface envelope distinction"
+      ],
+      "summary": "",
+      "results": [
+        "Delivered a compiled and visually checked 31-page guide with four figures, worked derivations and 14 exercises with answers.",
+        "Flagged an apparent coefficient inconsistency in the supplied scan, without claiming an authenticated erratum."
+      ],
+      "events": [],
+      "unresolved": [
+        "The apparent printed coefficient inconsistency needs an explicit convention in any implementation; later original-paper work addresses it as separately labelled variants."
+      ],
+      "artifact_paths": [
+        "output/pdf/dysthe-1979-prerequisite-guide.pdf",
+        "output/pdf/dysthe-1979-prerequisite-guide/guide.tex",
+        "output/pdf/dysthe-1979-prerequisite-guide-source.zip"
+      ],
+      "coverage": {
+        "source": "mcp__codex_app__read_thread",
+        "pages": 1,
+        "returned_turns": 1,
+        "all_pages_read": true,
+        "inherited_turns": 0,
+        "selected_message_truncation_detected": false
+      },
+      "current_claims_note": "Historical chat outcomes; see source-backed experiment records for numerical evidence.",
+      "artifact_index": [
+        {
+          "original_path": "output/pdf/dysthe-1979-prerequisite-guide.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/dysthe-1979-prerequisite-guide.pdf"
+        },
+        {
+          "original_path": "output/pdf/dysthe-1979-prerequisite-guide/guide.tex",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/dysthe-1979-prerequisite-guide/guide.tex"
+        },
+        {
+          "original_path": "output/pdf/dysthe-1979-prerequisite-guide-source.zip",
+          "availability": "Original artifact or input retained locally when available; not copied to this compact archive."
+        }
+      ]
+    },
+    {
+      "id": "01a169f9-4540-73a2-b24d-45199d4a30b0",
+      "title": "Review papers for Dysthe solution",
+      "created_at": "2026-10-23T14:15:06-04:00",
+      "last_substantive_message_at": "2026-11-05T10:46:56.840000-05:00",
+      "date_basis": "Exact timestamp of user and final_answer message records in the local thread rollout, excluding instructions/context and all reasoning/tool records.",
+      "metadata_updated_at": "2026-11-05T10:50:03-05:00",
+      "category": "Main Dysthe numerical/PINN research and publication work",
+      "topics": [
+        "Continued smoothness and finite-time numerical evidence for water-wave Dysthe",
+        "Original 1979 and 2026 preprint equation audits",
+        "Spatial free-surface Fourier reference, differentiable operators, FNO/PINO and per-inlet slab PINNs",
+        "CPU-to-cluster tests, longer propagation, derivative-sensitive errors and random-input failures",
+        "Soliton/coherent-wave literature and resolution limits",
+        "Separately versioned original-paper temporal potential-envelope study",
+        "Ordinary envelope maximum, near-zero Gaussian tails, linear formula, instability and Fourier visuals",
+        "Periodic recurrence versus isolated-packet decay; exploratory NOAA comparison",
+        "Dated GitHub research compilation and review of all project chats"
+      ],
+      "summary": "",
+      "results": [
+        "October 23: 12-page existence review recommends a numerical reference plus spectral PINN, with analytical validation required for any existence certificate; audits 1979 and 2026 equations.",
+        "October 25: 18-page operator-learning review with 22 references and ten test protocols; methods from the separate NLS literature review are adapted to Dysthe's derivative and nonlocal terms.",
+        "October 26: CPU pilot found four-slab per-inlet PINNs strongest among tested neural methods through xi = 2 (0.963% worst complex-field, 1.881% H1); FNO/PINO failed declared gates and the numerical solver remained faster and more accurate. Code and A100 workflow were published.",
+        "October 26: staged spatial numerical xi = 4,8,16,32,64 and PINN xi = 4,8,16 tests, twelve inlets/three seeds, H2/refinement/domain checks and Slurm arrays published at c04b44b.",
+        "October 27: soliton/test report expanded after cluster results arrived: twelve numerical cases reported qualified through xi = 64; none of 24 evaluated PINN fits passed combined xi = 4 criteria; twelve random fits had execution errors; packet domain checks passed xi = 4 and failed xi = 8.",
+        "October 27: checksummed inlet reuse repaired cross-node random-data failures; Fourier coefficient conditioning retained 48 modes/full physics and reduced one-seed CPU H2 errors through xi = 4 from 26.11/12.11/15.85% to 1.47/0.65/0.22% for packet/sideband/random. Seventy-two local tests were reported; learning and experiment repair branches pushed.",
+        "October 29-30: returned to original 1979 temporal velocity-potential equation; preserved c = 1 literal-print versus c = 3/2 stability-consistent discrepancy as explicit versions. Six primary temporal cases passed refinement through T = 16; a 20-page report and forwardable proof of concept were delivered.",
+        "October 30: recreated historical visual style for new one-coordinate temporal trajectories; seven-page report/nine figures and animation. CPU nonlinear comparisons through T = 4, near-zero snapshots 1e-4, 1e-3, 1e-2, and direct periodic linear snapshots through T = 1024 completed.",
+        "October 30: separate periodic and isolated-domain nonlinear ladders 16..1024 prepared and small execution tests passed. The distant nonlinear targets were explicitly unrun.",
+        "November 5: current user request asks to compile all work with dates/experiment names to GitHub and to include every project chat, including unrelated conversations; this publication turn is still in progress."
+      ],
+      "events": [],
+      "unresolved": [
+        "Global smooth existence remains an analytical question; finite-grid smooth trajectories and small PINN residuals do not prove it.",
+        "Improved spatial PINN reruns need cluster verification across seeds/horizons; the completed repair evidence is CPU and one-seed.",
+        "Nonlinear temporal T = 1024 remains a prepared target, subject to convergence/domain/physical-validity checks.",
+        "NOAA was only a vague future direction; no buoy, depth or phase-complete data comparison has been selected.",
+        "Temporal and spatial formulations, ordinary versus historical weighted norms, and isolated versus periodic conclusions must remain separate."
+      ],
+      "artifact_paths": [
+        "output/pdf/dysthe-existence-review.pdf",
+        "output/pdf/dysthe-operator-learning-review.pdf",
+        "output/pdf/nls-pinn-research-2026-10-25.pdf",
+        "output/pdf/dysthe-cpu-pilot-2026-10-26.pdf",
+        "output/pdf/dysthe-solitons-tests-2026-10-27.pdf",
+        "output/pdf/dysthe-modelling-report-2026-10-30.pdf",
+        "output/pdf/dysthe-nonlinear-visual-gallery-2026-10-30.pdf",
+        "output/dysthe-proof-of-concept-2026-10-30.zip",
+        "output/dysthe-original-poc-2026-10-30",
+        "output/dysthe-nonlinear-visuals-2026-10-30",
+        "output/dysthe-nonlinear-visuals-2026-10-30/long_horizon",
+        "dysthe-experiments/results/cpu-pilot-2026-10-26",
+        "worktrees/h2-rerun/experiments/results/long-distance-gpu2-2026-10-26",
+        "worktrees/h2-rerun/experiments/results/h2-repair-2026-10-27"
+      ],
+      "coverage": {
+        "source": "mcp__codex_app__read_thread",
+        "pages": 2,
+        "returned_turns": 16,
+        "all_pages_read": true,
+        "inherited_turns": 0,
+        "selected_message_truncation_detected": false
+      },
+      "current_claims_note": "Historical chat outcomes; see source-backed experiment records for numerical evidence.",
+      "artifact_index": [
+        {
+          "original_path": "output/pdf/dysthe-existence-review.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/dysthe-existence-review.pdf"
+        },
+        {
+          "original_path": "output/pdf/dysthe-operator-learning-review.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/dysthe-operator-learning-review.pdf"
+        },
+        {
+          "original_path": "output/pdf/nls-pinn-research-2026-10-25.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/nls-pinn-research-2026-10-25.pdf"
+        },
+        {
+          "original_path": "output/pdf/dysthe-cpu-pilot-2026-10-26.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/dysthe-cpu-pilot-2026-10-26.pdf"
+        },
+        {
+          "original_path": "output/pdf/dysthe-solitons-tests-2026-10-27.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/dysthe-solitons-tests-2026-10-27.pdf"
+        },
+        {
+          "original_path": "output/pdf/dysthe-modelling-report-2026-10-30.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/dysthe-modelling-report-2026-10-30.pdf"
+        },
+        {
+          "original_path": "output/pdf/dysthe-nonlinear-visual-gallery-2026-10-30.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/dysthe-nonlinear-visual-gallery-2026-10-30.pdf"
+        },
+        {
+          "original_path": "output/dysthe-proof-of-concept-2026-10-30.zip",
+          "availability": "Original artifact or input retained locally when available; not copied to this compact archive."
+        },
+        {
+          "original_path": "output/dysthe-original-poc-2026-10-30",
+          "availability": "Original artifact or input retained locally when available; not copied to this compact archive."
+        },
+        {
+          "original_path": "output/dysthe-nonlinear-visuals-2026-10-30",
+          "availability": "Original artifact or input retained locally when available; not copied to this compact archive."
+        },
+        {
+          "original_path": "output/dysthe-nonlinear-visuals-2026-10-30/long_horizon",
+          "availability": "Original artifact or input retained locally when available; not copied to this compact archive."
+        },
+        {
+          "original_path": "dysthe-experiments/results/cpu-pilot-2026-10-26",
+          "availability": "Original artifact or input retained locally when available; not copied to this compact archive."
+        },
+        {
+          "original_path": "worktrees/h2-rerun/experiments/results/long-distance-gpu2-2026-10-26",
+          "availability": "Original artifact or input retained locally when available; not copied to this compact archive."
+        },
+        {
+          "original_path": "worktrees/h2-rerun/experiments/results/h2-repair-2026-10-27",
+          "availability": "Original artifact or input retained locally when available; not copied to this compact archive."
+        }
+      ]
+    },
+    {
+      "id": "01a175cb-e630-7523-b755-574f5ff72f3b",
+      "title": "Survey PINNs for nonlinear Schrödгer",
+      "created_at": "2026-10-25T21:20:59-04:00",
+      "last_substantive_message_at": "2026-10-25T21:44:08.029000-04:00",
+      "date_basis": "Exact timestamp of user and final_answer message records in the local thread rollout, excluding instructions/context and all reasoning/tool records.",
+      "metadata_updated_at": "2026-10-30T14:53:44-04:00",
+      "category": "NLS/PINN literature and research agenda",
+      "topics": [
+        "Recent NLS PINN literature through 25 October 2026",
+        "Hard constraints, complex-valued networks, sequential/causal training, adaptive sampling and conservation penalties",
+        "Dysthe versus fixed/fitted NLS reconstruction, nonlocal identifiability, reusable operators and error certification"
+      ],
+      "summary": "",
+      "results": [
+        "Delivered 20-page review with 28 cited sources and five research questions, including concrete controls, failure criteria and staged protocols.",
+        "Recommended first research direction: identify when spatial Dysthe improves sparse-measurement reconstruction and downstream prediction beyond fixed/fitted NLS, with matched observations/budgets and a numerical assimilation control.",
+        "PDF and portable source were compiled and visually checked; literature experiments were not independently rerun, and several recent sources were available only as previews."
+      ],
+      "events": [],
+      "unresolved": [
+        "Research proposals are not completed comparative studies.",
+        "No universal best NLS PINN was established; physical superiority requires independent higher-order or laboratory data.",
+        "The literature cutoff is 25 October 2026, not a fresh November literature search."
+      ],
+      "artifact_paths": [
+        "output/pdf/nls-pinn-research-2026-10-25.pdf",
+        "output/pdf/nls-pinn-research-2026-10-25/report.tex",
+        "output/pdf/nls-pinn-research-2026-10-25/references.bib",
+        "output/pdf/nls-pinn-research-2026-10-25-source.zip"
+      ],
+      "coverage": {
+        "source": "mcp__codex_app__read_thread",
+        "pages": 1,
+        "returned_turns": 1,
+        "all_pages_read": true,
+        "inherited_turns": 0,
+        "selected_message_truncation_detected": false
+      },
+      "current_claims_note": "Historical chat outcomes; see source-backed experiment records for numerical evidence.",
+      "artifact_index": [
+        {
+          "original_path": "output/pdf/nls-pinn-research-2026-10-25.pdf",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/nls-pinn-research-2026-10-25.pdf"
+        },
+        {
+          "original_path": "output/pdf/nls-pinn-research-2026-10-25/report.tex",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/nls-pinn-research-2026-10-25/report.tex"
+        },
+        {
+          "original_path": "output/pdf/nls-pinn-research-2026-10-25/references.bib",
+          "url": "https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/documents/output/pdf/nls-pinn-research-2026-10-25/references.bib"
+        },
+        {
+          "original_path": "output/pdf/nls-pinn-research-2026-10-25-source.zip",
+          "availability": "Original artifact or input retained locally when available; not copied to this compact archive."
+        }
+      ]
+    }
+  ]
+}

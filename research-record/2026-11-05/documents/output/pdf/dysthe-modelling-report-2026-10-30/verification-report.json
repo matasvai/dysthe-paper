@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-30",
+  "compiler": "system pdfLaTeX, two successful final passes",
+  "pages": 20,
+  "figures_in_report": 12,
+  "raster_images_in_report": 0,
+  "embedded_fonts": 51,
+  "overfull_boxes": 0,
+  "undefined_references": 0,
+  "visual_review": "All20pages rendered and inspected; revised pages6and7 inspected individually; figure-level checks for spatial, MI and bandwidth panels recorded separately.",
+  "preview_limitation": "App live-preview compilation failed due missing font map / unavailable Tectonic cache. System-generated exported PDF compiles and is checked.",
+  "source_pdf_sha256": "64abddb57d1497296e14e59147a7e5738e5a4086d875c74744ce454b61499751",
+  "fresh_folder_poc_check": {
+    "unit_tests": 14,
+    "MI_trajectories": 12,
+    "CPU_T4_cases_passed": 24,
+    "used_prepared_python_environment": true
+  },
+  "raw_data_limit": "Forwarded arrays are visualization products; full raw references remain local and are reproducible from supplied solver/configuration."
+}

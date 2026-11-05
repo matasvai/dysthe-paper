@@ -1,0 +1,143 @@
+\section{Multiple inputs: a declared population, not arbitrary waves}
+\label{sec:data}
+
+Begin with $L=160$ and $\epsilon=.025$. A training example contains the
+entire complex initial profile, the actual local propagation increment,
+and its reference output. Future reference fields are training targets
+only. The same trained operator must accept a new initial profile
+without optimization. If adaptation is allowed, label and time it
+separately.
+
+\subsection{Three complementary input families}
+The following ranges are proposed starting values for a bounded pilot,
+not ranges established by a physical-validity theorem. Validate a small
+batch before freezing them. Record all rejected draws and their reason;
+an unreported rejection rule changes the population being learned.
+
+\paragraph{Localized packets: focusing and asymmetry.}
+Use a periodized version of
+\[
+u_0(\tau)=a\exp\left[-\frac{1-ic}{2\sigma^2}(\tau-\tau_0)^2+i\phi\right],
+\quad
+a\in[.5,1],\quad \sigma\in[6,12],\quad c\in[-.5,.5].
+\]
+Vary position and phase as well. Periodize the complex function by summing
+translated copies, with a documented derivative-level truncation tolerance.
+A cropped Gaussian is not exactly periodic. This family tests amplitude,
+width, chirp, focusing distance and asymmetric deformation. Hold out
+entire parameter draws, not propagation stations. Sech-shaped packets
+and two separated packets can later be withheld \emph{families}, not
+silently mixed into an interpolation score.
+
+\paragraph{Modulated wavetrains: instability and recurrence.}
+Use
+\[
+u_0(\tau)=a e^{i\phi}
+ \left[1+b_+e^{ik_m\tau}+b_-e^{-ik_m\tau}\right].
+\]
+Choose $a\in[.5,1]$, integer modes spanning stable, near-boundary and
+unstable portions of the matrix in Appendix~\ref{app:mi}, and independent
+sideband phases. Use $|b_\pm|$ between $.01$ and $.05$ for a nonlinear
+pilot; use much smaller paired disturbances for the linearization test.
+These waves intentionally fill the periodic domain. They do not need a
+localized-packet edge criterion.
+
+\paragraph{Smooth random profiles: functional variation.}
+Sample complex Fourier coefficients with a prescribed decaying spectrum,
+for example a finite series with $|m|\leq16$ and weights
+$\exp[-(m/m_c)^2]$, $m_c\in[4,10]$, followed by a declared RMS-amplitude
+choice. Coefficients at $m$ and $-m$ are independent. Bound both peak
+amplitude and derivative-weighted bandwidth by rejection or a stated
+sampling rule. This is a finite, smooth input distribution with variable
+phase, not a claim to represent all sea states. Record its seed and
+coefficient vector. An alternative spectral law is a separate
+distribution-shift test.
+
+\paragraph{Information that cannot be discarded.}
+Intensity $|u_0|^2$ alone does not specify the initial-value problem:
+opposite chirps can have the same intensity and different evolution.
+Sparse or noisy measurements require an observation model, a
+reconstruction method and uncertainty evaluation. They are a later
+inverse problem; they must not be presented as another complete-field
+input channel with missing phase filled in from the reference.
+
+\subsection{Splits, grids and provenance}
+Store reference fields as complex128 arrays $[N_\xi,N_\tau]$ with
+$\tau_j=-L/2+jL/N$, excluding the duplicated endpoint. Store explicit
+propagation coordinates. The existing runner's rounded output indices
+can create unequal increments; validate the actual spacing or condition
+the operator on each actual increment.
+
+Assign one immutable \emph{split group} to each base initial draw.
+All its windows, refinements, translated or phase-rotated copies,
+paired disturbances, and coefficient variants remain in the same split.
+Test for duplicate field hashes as well as mislabeled groups.
+Generate parameter ranges and seed lists before fitting. Fit global
+normalization on training fields only. Use validation for model selection;
+open the final test set once the protocol and checkpoint are frozen.
+Snapshots from one field are correlated samples, not independent cases.
+
+The current metadata validator is insufficient by itself. The new loader
+must check actual shapes, dtypes, finite values, coordinates, hashes,
+model ID, epsilon, grid origin, and qualification status. Preserve case
+schema 2 and add a separate dataset manifest for group and split records.
+
+Downsample through Fourier restriction, not viewer decimation. Measure
+projection and reconstruction errors in $L^2,H^1,H^2,H^3$ over the
+qualified reference interval. A 512- or 1024-point learning grid is only a
+candidate; require its representation error to consume at most one tenth
+of the intended surrogate error budget. Choose the number of learned
+Fourier modes through a small validation sweep, such as $32,64,128$,
+after inspecting the physical spectra. These numbers do not specify the
+FNO output bandwidth.
+
+\subsection{A campaign that can stop early}
+Use equal numbers from the three families initially.
+\begin{center}
+\small
+\begin{tabular}{p{.28\linewidth}rrp{.25\linewidth}}
+\toprule
+Stage & Groups & Train/val/test & Purpose\\
+\midrule
+Execution smoke & 12 & $6/3/3$ & Load, train, resume and evaluate\\
+Bounded pilot & 48 & $36/6/6$ & Select viable method and tolerances\\
+Main comparison, if justified & 384 & $288/48/48$ & Estimate held-out performance\\
+\bottomrule
+\end{tabular}
+\end{center}
+These are proposed budgets, not power calculations or guaranteed
+sufficient sample sizes. Six pilot test groups cannot substantiate broad
+generalization. Use learning curves on nested training subsets to decide
+whether more groups are useful. Keep the test population fixed while
+increasing training data.
+
+At $N=4096$ and 81 saved stations on $[0,4]$, one complex128 trajectory
+requires about $5.06$ MiB before compression. Thus 48 and 384 base
+trajectories require about 243 MiB and 1.90 GiB, respectively, excluding
+refinements and checkpoints. A saved interval $.05$ is a proposed
+\emph{learning} increment; the reference integration step $.00125$
+is a separate quantity. Extra stations are needed for continuous-distance
+training and near fast events.
+
+Qualify representative extremes first, then screen every generated
+trajectory; refine any case whose derivative tails or defects approach
+the gate. Use full three-level grid and step comparisons on the sentinel
+panel and difficult cases, and at least an independent refined
+comparison for accepted evaluation cases. Do not assume the three old
+demonstrations qualify a whole new distribution.
+
+For the main campaign's first long-distance evaluation, preselect 12 held-out groups
+(four per family) by input parameters alone. Extend $4\to8\to16$ and
+only then, if useful and qualified, to 32. At 641 stations a 12-case
+$N=4096$ panel needs about 481 MiB of base fields. The same panel supports
+paired comparisons across methods; do not repeatedly select its easiest
+members. Benchmark actual generation and training costs before launching
+the main campaign.
+
+Vary epsilon only after the fixed-parameter question works. A proposed
+second stage uses $.015,.025,.04$ in training and disjoint groups at
+$.02,.03$ for interpolation. Keep $.05$ a separately labeled
+extrapolation probe, subject to new qualification and physical screens.
+Treat $\epsilon=0$ as an analytic/numerical control. Changing $L$ is a
+different domain, and changing transverse dimensionality or dissipation
+is a different model.

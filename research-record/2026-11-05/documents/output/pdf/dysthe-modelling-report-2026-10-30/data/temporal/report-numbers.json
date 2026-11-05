@@ -1,0 +1,59 @@
+[
+  {
+    "family": "packet",
+    "T": 16.0,
+    "epsilon": 0.05,
+    "max_peak_ratio": 2.5934196454323133,
+    "max_h2_ratio": 7.284014466312605,
+    "max_steepness_indicator": 0.11022031204414798,
+    "max_bandwidth_indicator": 0.09672712610915268,
+    "grid_h2": 1.2422983612054568e-09,
+    "step_h2": 3.5137296518583687e-07,
+    "max_action_drift": 9.427865881889526e-12,
+    "nonlinear_times": 5.7799975996215425,
+    "first_peak": [
+      {
+        "T": 9.8,
+        "peak": 2.2044062408829594
+      }
+    ]
+  },
+  {
+    "family": "sideband",
+    "T": 16.0,
+    "epsilon": 0.05,
+    "max_peak_ratio": 2.780835636057839,
+    "max_h2_ratio": 7.478669733151828,
+    "max_steepness_indicator": 0.11679509671442925,
+    "max_bandwidth_indicator": 0.08950830022022693,
+    "grid_h2": 1.0393330531534473e-08,
+    "step_h2": 2.8695486659723645e-07,
+    "max_action_drift": 1.1907964647274376e-11,
+    "nonlinear_times": 5.644800000000001,
+    "first_peak": [
+      {
+        "T": 15.200000000000001,
+        "peak": 2.335901934288585
+      }
+    ]
+  },
+  {
+    "family": "random",
+    "T": 16.0,
+    "epsilon": 0.05,
+    "max_peak_ratio": 3.0255376120495145,
+    "max_h2_ratio": 6.574134371637976,
+    "max_steepness_indicator": 0.12858534851210446,
+    "max_bandwidth_indicator": 0.07146357431538064,
+    "grid_h2": 1.1135862123539441e-06,
+    "step_h2": 5.917684464003899e-06,
+    "max_action_drift": 1.2989103357024755e-11,
+    "nonlinear_times": 5.780000000000009,
+    "first_peak": [
+      {
+        "T": 11.8,
+        "peak": 2.571706970242089
+      }
+    ]
+  }
+]

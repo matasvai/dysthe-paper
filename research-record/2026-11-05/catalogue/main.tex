@@ -1,0 +1,469 @@
+\documentclass[11pt]{article}
+\usepackage{fontspec}\setmainfont{Latin Modern Roman}\newfontfamily\cyrillicfont{Liberation Serif}\usepackage{royden-report}
+\usepackage{microtype,longtable,array,needspace}\setlength{\emergencystretch}{3em}
+\hypersetup{pdftitle={Dysthe work record through 5 November 2026}}
+\title{Dysthe work record:\\dates, experiments and evidence}
+\author{}\date{5 November 2026}
+\begin{document}\maketitle
+\noindent This catalogue consolidates retained computational work, research reports and the project chat review. It records successful checks, failed tests, repairs and outstanding experiments. Dates identify the source event stated in each entry; a report date does not establish an execution date. No new scientific simulation or neural training was performed for this compilation.
+\section{Research scope and present conclusions}
+The approved repository baseline is the one-coordinate spatial free-surface envelope model, with propagation distance $\xi$ and profile coordinate $\tau$. The October 30 temporal potential-envelope extension uses its own equation identity and scaled time $T$. Earlier canonical and optical computations remain historical records with their original model labels. Their conclusions are not transferred to the spatial water-wave equation.
+
+The spatial CPU pilot favored per-inlet slab PINNs among the learned candidates through $\xi=2$, while numerical integration remained faster. FNO/PINO failed the declared pilot gates. Returned GPU2 records contain periodic references through $\xi=64$, PINN failures at $\xi=4$, and random-input execution errors. The later conditioning and canonical-input repairs passed bounded CPU validation; repaired GPU accuracy remains pending in the reviewed evidence. CUDA execution is supported by memory records, while exact A100 identity is unverified for that spatial campaign.
+
+The temporal reference has six primary cases qualified through $T=16$. A smaller-step audit removed a large numerical $H^2$ artifact. Additional near-zero snapshots and direct periodic linear values through $T=1024$ are complete. Nonlinear $T=1024$ is a prepared target, not a completed result. Periodic recurrence and isolated-packet decay are different questions. None of these computations establishes continuum global existence.
+
+\section{How to use the record}
+The linked JSON and CSV catalogue retains exact model identifiers, evidence hashes, original paths, reproduction commands and per-entry date bases. Reports and source figures are archived in \texttt{dysthe-paper}; code and compact numerical records are archived in \texttt{dysthe-experiments}; the research-map repository provides the index. Large raw arrays and checkpoints remain at their recorded storage locations. Their hashes do not make them publicly downloadable or establish reproducibility without access to those data. Historical documents are byte-preserved and may contain interpretations superseded by later entries.
+
+\noindent\href{https://github.com/matasvai/dysthe-research-map/tree/codex/research-record-2026-11-05/research-record/2026-11-05}{Open the complete linked research record on GitHub.}
+
+\section{Active spatial water-wave}
+\needspace{7\baselineskip}
+\subsection*{Versioned water-wave spatial model and repository contracts}
+\noindent\textbf{2026-09-30.} implemented. \emph{Publication or commit date}.\par
+The approved active equation is the one-coordinate spatial free-surface Dysthe model, with $\xi$ as propagation distance and $\tau$ as retarded time. Scope guards prevent silently mixing model formulations.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#spatial-scope-2026-09-30}{Evidence record: spatial-scope-2026-09-30}.
+\needspace{7\baselineskip}
+\subsection*{Bounded solitary-profile propagation and unrestricted perturbation smoke}
+\noindent\textbf{2026-10-01.} completed smoke. \emph{Dated source record; see the linked date basis}.\par
+Three trajectories reach $\xi$ = 0.1 at $\epsilon$ = 0.025, using 34 profile iterations and 240 total propagation steps. The full profile residual is $2.0337\times 10^{-11}$ and the control raw $L^2$ error is $7.0939\times 10^{-11}$. These results do not establish stability.
+
+\noindent\textit{Limits or next work.} Grid, step and domain checks, together with signed unrestricted perturbations, are needed at meaningful horizons.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#spatial-solitary-smoke-2026-10-01}{Evidence record: spatial-solitary-smoke-2026-10-01}.
+\needspace{7\baselineskip}
+\subsection*{Solitary branch $\epsilon$=0.025 grid/step/domain campaign}
+\noindent\textbf{2026-10-02.} completed computations. \emph{Recorded execution timestamp}.\par
+Base, step-refined, grid-refined and enlarged-domain cases each reach $\xi$ = 20 with seven control or perturbed trajectories. A grid-run interruption was retained and followed by a successful restart. Completion alone does not qualify the domain response; the October 16 analysis provides that assessment.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#spatial-solitary-gate1-2026-10-02}{Evidence record: spatial-solitary-gate1-2026-10-02}.
+\needspace{7\baselineskip}
+\subsection*{Restricted complex-envelope formula editor and CPU execution}
+\noindent\textbf{2026-10-16.} completed software and smoke. \emph{Recorded execution timestamp}.\par
+Checks include 13 parser tests, 20,000 fuzz samples without unexpected exceptions, nine custom integration tests, six simulator regressions and 16 installed-browser checks. Two tiny solves with N = 256, L = 40 and $\xi_{\mathrm{end}}$ = 0.005 exercise custom formulas. No custom-input convergence campaign was performed.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#spatial-custom-envelope-2026-10-16}{Evidence record: spatial-custom-envelope-2026-10-16}.
+\needspace{7\baselineskip}
+\subsection*{Stage-one analytic controls and response-relative domain refinement}
+\noindent\textbf{2026-10-16.} completed bounded validation. \emph{Report or package date; see the linked date basis}.\par
+Controls cover analytic NLS and plane-wave solutions, a moving profile, a signed odd perturbation, and independent grid, step and domain comparisons. Sampled 1 percent response-relative domain horizons are $\xi$ = 5 for L = 160 versus 320, $\xi$ = 10 for L = 320 versus 640, and $\xi$ = 20 for L = 640 versus 1280. The final L = 640 versus 1280 discrepancy-to-response ratio is 0.0053783. FNO training was explicitly a no-go at that stage.
+
+\noindent\textit{Limits or next work.} This is case-specific simulator qualification. It does not transfer to broad data-generation qualification.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#spatial-reference-stage1-2026-10-16}{Evidence record: spatial-reference-stage1-2026-10-16}.
+\needspace{7\baselineskip}
+\subsection*{Three-input numerical simulator demonstration}
+\noindent\textbf{2026-10-16.} completed bounded validation. \emph{Report or package date; see the linked date basis}.\par
+A solitary profile, a localized 2 percent perturbation and a complex Gaussian were each independently checked through $\xi$ = 4. Two-level grid, step and domain comparisons pass the declared demonstration gates. Each of the three cases has 81 snapshots. Numerical field export, desktop and mobile controls, and a bounded fresh CPU solve were checked. Custom cases remain exploratory.
+
+\noindent\textit{Limits or next work.} New initial profiles need their own grid/step/domain qualification.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#spatial-small-simulator-2026-10-16}{Evidence record: spatial-small-simulator-2026-10-16}.
+\needspace{7\baselineskip}
+\subsection*{Matched FNO/PINO and per-inlet spectral PINN pilot}
+\noindent\textbf{2026-10-26.} completed pilot. \emph{Report or package date; see the linked date basis}.\par
+FNO and PINO fail all held-out short-horizon and rollout accuracy gates. Four-slab per-inlet PINNs pass all six test case-seed pairs through $\xi$ = 2, with worst relative $L^2$ error 0.009629655, $H^1$ error 0.018814047 and peak error 0.010894324. The coarse numerical solve remains faster and more accurate. Per-inlet PINNs do not establish operator generalization.
+
+\noindent\textit{Limits or next work.} Frozen held-out evaluation, CPU/CUDA parity and a full-cost comparison are needed before making an A100 claim.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#spatial-cpu-pilot-2026-10-26}{Evidence record: spatial-cpu-pilot-2026-10-26}.
+\needspace{7\baselineskip}
+\subsection*{GPU2 long-distance campaign: retained reference successes and PINN failures}
+\noindent\textbf{2026-10-26.} partly completed with failed gates. \emph{Publication or commit date}.\par
+Of 72 tasks, 24 completed, 28 stopped at a gate, 12 had execution errors and eight were not applicable. All 12 reference cases report qualification through $\xi$ = 64. All 24 evaluated packet or sideband PINN case-seed pairs fail the combined $L^2$/$H^1$/$H^2$/peak gate at $\xi$ = 4. All 12 random-family PINN tasks have execution errors. The worst $H^2$ validation and test errors are 0.30741433 and 0.22115310. Four packet domain tasks stop at $\xi$ = 8. Periodic qualification through $\xi$ = 64 does not qualify isolated packets. Positive GPU memory records support CUDA execution. The exact A100 model, driver, node and scheduler allocation are unavailable in the published contents. Each of the 24 PINN fits reports 94955520 peak GPU bytes. The per-fit sampled\_interval\_pass flag omits $H^2$ and must not replace the authoritative long-distance status. Raw trajectories, checkpoints and 1097 hash-listed detailed JSON files remain outside the published snapshot.
+
+\noindent\textit{Limits or next work.} Publish compact detailed diagnostics and hardware/job records, validate the $H^2$ repair, and retain the examined old test cases as regressions.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#spatial-gpu2-campaign-2026-10-26}{Evidence record: spatial-gpu2-campaign-2026-10-26}.
+\needspace{7\baselineskip}
+\subsection*{Staged distance workflow and CPU execution smoke}
+\noindent\textbf{2026-10-26.} completed workflow smoke. \emph{Report or package date; see the linked date basis}.\par
+Reference targets $\xi$ = 4, 8, 16, 32 and 64 and PINN targets $\xi$ = 4, 8 and 16 were prepared. A tiny CPU workflow through $\xi$ = 0.2 has 24 tasks: 17 completed, three stopped at scientific gates and four were not applicable. Restart and replay evidence is retained. This smoke run does not execute the target horizons.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#spatial-long-workflow-2026-10-26}{Evidence record: spatial-long-workflow-2026-10-26}.
+\needspace{7\baselineskip}
+\subsection*{Verified periodic reference and differentiable Torch adapter}
+\noindent\textbf{2026-10-26.} implemented and tested. \emph{Publication or commit date}.\par
+Saved verification reports 32 passing core tests. The shared Fourier reference and differentiable nonlinear right-hand side form the numerical baseline. Passing consistency tests does not prove continuum well-posedness.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#spatial-reference-torch-2026-10-26}{Evidence record: spatial-reference-torch-2026-10-26}.
+\needspace{7\baselineskip}
+\subsection*{Random-inlet identity repair and spectral PINN conditioning ablation}
+\noindent\textbf{2026-10-27.} completed cpu validation gpu rerun pending. \emph{Publication or commit date}.\par
+Random-input failures reproduce last-bit differences across BLAS implementations when inputs are independently regenerated. Canonical arrays are now reused. The paired CPU ablation uses all K = 48 coefficients and scaling by $1/(1+k^2)$, preserving the model and its expressivity. At $\xi$ = 4, with eight slabs, 400 updates per slab, one validation inlet per family and seed 11, all three unscaled cases fail and all three scaled cases pass the unchanged gates. $H^2$ error fractions change from 0.26111873 to 0.01465812 for packets, from 0.12107568 to 0.00654749 for sidebands, and from 0.15850481 to 0.00215562 for random inputs. These are validation-selection results, not untouched-test generalization. All 72 software tests pass. The corrected export has 233 metadata files and 181 raw artifacts, with zero missing files and zero integrity findings. Repaired A100 accuracy and throughput have not been verified.
+
+\noindent\textit{Limits or next work.} Run the frozen scaled and unscaled GPU candidate/control comparison, check CPU/CUDA parity, and evaluate fresh untouched test inlets with multiple seeds before qualifying longer distances.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#spatial-h2-random-repair-2026-10-27}{Evidence record: spatial-h2-random-repair-2026-10-27}.
+
+\section{Temporal water-wave extension}
+\needspace{7\baselineskip}
+\subsection*{Temporal packet domain checks and neural representation floors}
+\noindent\textbf{2026-10-30.} completed CPU diagnostics. \emph{Dated source record; see the linked date basis}.\par
+Four packet domain comparisons through T = 8 pass, with maximum common-interval $H^1$ difference 0.00076044. Projection floors were measured at T = 2, 4, 8 and 16. K = 48 is inadequate for late temporal neural targets.
+
+\noindent\textit{Limits or next work.} The public supplement --domain CLI targets T = 16; it is not the reproduction entry for the historical T = 8 record. Projection checks are not trained-model results.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#temp-domain-representation}{Evidence record: TEMP-DOMAIN-REPRESENTATION}.
+\needspace{7\baselineskip}
+\subsection*{Temporal high-steepness sideband timestep audit}
+\noindent\textbf{2026-10-30.} completed CPU numerical repair. \emph{Report or package date; see the linked date basis}.\par
+For a sideband with $\epsilon$ = 0.1 at T = 16, a fine step of 0.0003125, with independent comparisons at step 0.000625 and N = 2048, reduces the apparent maximum $H^2$ amplification from about 600.6 to 28.41724. All earlier failures are retained.
+
+\noindent\textit{Limits or next work.} Repair concerns the numerical time step, not a proof of PDE regularity.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#temp-h2-timestep-repair}{Evidence record: TEMP-H2-TIMESTEP-REPAIR}.
+\needspace{7\baselineskip}
+\subsection*{Direct periodic linear evolution through T = 1024}
+\noindent\textbf{2026-10-30.} completed CPU exact-discrete-propagator experiment. \emph{Report or package date; see the linked date basis}.\par
+Three initial profiles were evaluated directly using the Fourier phase. Mode-power, action and refined spatial-peak checks pass through the selected T = 1024 snapshot.
+
+\noindent\textit{Limits or next work.} These are periodic linear data, not evidence for nonlinear evolution to T = 1024 or isolated-packet decay.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#temp-linear-1024}{Evidence record: TEMP-LINEAR-1024}.
+\needspace{7\baselineskip}
+\subsection*{Periodic and isolated nonlinear horizon ladder to T = 1024}
+\noindent\textbf{2026-10-30.} implemented and smoke-tested; production horizons not executed. \emph{Dated source record; see the linked date basis}.\par
+Targets are T = 16, 32, 64, 128, 256, 512 and 1024. Periodic cases include Gaussian, random and two-packet inputs; isolated cases include Gaussian and two-packet inputs. Seven software tests pass. Two tiny Gaussian tracks pass T = 0.02 and 0.04. A failed monitor blocks later horizons.
+
+\noindent\textit{Limits or next work.} This work is CPU-only, with no cluster submission. Cost extrapolations exclude diagnostics, retries and future refinement. Automatic restart is not implemented.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#temp-long-horizon-targets}{Evidence record: TEMP-LONG-HORIZON-TARGETS}.
+\needspace{7\baselineskip}
+\subsection*{Complex growth and phase check for temporal modulational instability}
+\noindent\textbf{2026-10-30.} completed CPU control. \emph{Report or package date; see the linked date basis}.\par
+Four coefficient/$\epsilon$ pairs each have three refinement trajectories through T = 4. Complex growing-mode, padded-right-hand-side and semidiscrete mass checks pass. Wrong-coefficient phase negative controls are rejected.
+
+\noindent\textit{Limits or next work.} Growth alone does not distinguish c = 1 from c = 3/2. The test covers a tiny perturbation about one wavetrain.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#temp-mi-controls}{Evidence record: TEMP-MI-CONTROLS}.
+\needspace{7\baselineskip}
+\subsection*{Very-early nonlinear evolution and Gaussian cutoff audit}
+\noindent\textbf{2026-10-30.} completed CPU experiment. \emph{Report or package date; see the linked date basis}.\par
+The sampled times are 0, $1\times 10^{-4}$, $1\times 10^{-3}$ and $1\times 10^{-2}$. Eight nonlinear Dysthe/NLS cases pass across three profiles plus a high-cutoff Gaussian. The initial Gaussian discrepancy is $3.77\times 10^{-9}$ at cutoff 12 and falls to roundoff at cutoff 24.
+
+\noindent\textit{Limits or next work.} Magnified tails require initial-projection control; no global-existence conclusion.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#temp-near-zero}{Evidence record: TEMP-NEAR-ZERO}.
+\needspace{7\baselineskip}
+\subsection*{Original temporal Dysthe multi-profile numerical proof of concept}
+\noindent\textbf{2026-10-30.} completed CPU primary reference through T16. \emph{Report or package date; see the linked date basis}.\par
+Packet, sideband and random profiles were tested at $\epsilon$ = 0.05 and 0.1. Six primary c = 3/2 trajectories qualified. Literal c = 1, NLS and mean-flow-only controls are separately versioned. The initial N = 4096 audit passed 21 of 24 cases. Two nonprimary high-$\epsilon$ controls remain unresolved after the primary repair.
+
+\noindent\textit{Limits or next work.} Temporal potential model is separate from active spatial free-surface baseline; no temporal PINN/FNO or cluster execution.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#temp-reference-t16}{Evidence record: TEMP-REFERENCE-T16}.
+\needspace{7\baselineskip}
+\subsection*{Nonlinear envelope visual companion across three initial profiles}
+\noindent\textbf{2026-10-30.} completed CPU numerical visualization. \emph{Report or package date; see the linked date basis}.\par
+Gaussian, smooth random and phase-offset two-packet inputs were compared under Dysthe, NLS and exact free-linear evolution through T = 4. Six nonlinear cases pass independent spatial and time checks. Outputs include a seven-page report, nine vector figures and an 81-frame animation.
+
+\noindent\textit{Limits or next work.} The illustrative carrier is not physical surface elevation. The 3D plots show position, time and magnitude.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#temp-visual-t4}{Evidence record: TEMP-VISUAL-T4}.
+
+\section{Water-wave review}
+\needspace{7\baselineskip}
+\subsection*{Before Reading Dysthe 1979: prerequisite guide}
+\noindent\textbf{2026-10-03.} completed pedagogical report. \emph{Dated source record; see the linked date basis}.\par
+The guide has 31 pages, 13 modules, 14 exercises and four vector figures. It flags a coefficient inconsistency without claiming an authenticated erratum.
+
+\noindent\textit{Limits or next work.} Illustrations and reduced formulas are not new empirical validation.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#doc-1979-guide}{Evidence record: DOC-1979-GUIDE}.
+\needspace{7\baselineskip}
+\subsection*{Dysthe evolution: numerical evidence and existence}
+\noindent\textbf{2026-10-23.} completed literature/math review. \emph{Dated source record; see the linked date basis}.\par
+The 12-page review covers the 1979 paper and the supplied 2026 preprint. It distinguishes finite-Galerkin and global-ODE statements, residual controls, and infinite-dimensional existence. It includes no new propagation or neural training.
+
+\noindent\textit{Limits or next work.} No continuum existence certificate.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#doc-existence-review}{Evidence record: DOC-EXISTENCE-REVIEW}.
+\needspace{7\baselineskip}
+\subsection*{NLS and physics-informed learning review}
+\noindent\textbf{2026-10-25.} completed targeted literature review. \emph{Report or package date; see the linked date basis}.\par
+The 20-page review has 28 bibliography entries and proposes an experimental program for spatial water-wave Dysthe. General Schrodinger learning provides methodological context.
+
+\noindent\textit{Limits or next work.} The reviewed paper experiments, code and HOS data were not rerun. Sample sizes and thresholds are proposals.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#doc-nls-pinn-literature}{Evidence record: DOC-NLS-PINN-LITERATURE}.
+\needspace{7\baselineskip}
+\subsection*{Learning Dysthe evolution across initial wave fields}
+\noindent\textbf{2026-10-25.} completed literature-grounded protocol. \emph{Dated source record; see the linked date basis}.\par
+The 18-page protocol defines multi-input FNO/PINO and per-field PINN comparisons, exact-equation controls, and long-distance evaluation. Only arithmetic checks were executed.
+
+\noindent\textit{Limits or next work.} Protocol is proposed; this report trained no model.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#doc-operator-protocol}{Evidence record: DOC-OPERATOR-PROTOCOL}.
+\needspace{7\baselineskip}
+\subsection*{Dysthe solitary waves and published tests}
+\noindent\textbf{2026-10-27.} completed revised review of published cluster snapshot. \emph{Dated source record; see the linked date basis}.\par
+The 14-page report archives 29 result files from commit 723883f2\allowbreak{}7a6b3489\allowbreak{}bfc36f55\allowbreak{}d9d15b52\allowbreak{}e8635ad0 and checks 28 metadata hashes. It adds a bounded projection calculation on a historical profile.
+
+\noindent\textit{Limits or next work.} The reviewer submitted no HPC job. The original cluster snapshot lacks detailed $H^2$, reference and random-exception evidence, along with exact GPU identification. The report provides no new solitary-wave propagation result.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#doc-solitons-published-tests}{Evidence record: DOC-SOLITONS-PUBLISHED-TESTS}.
+\needspace{7\baselineskip}
+\subsection*{Numerical evidence and a PINN research framework}
+\noindent\textbf{2026-10-30.} completed research report. \emph{Report or package date; see the linked date basis}.\par
+The 20-page report includes 12 vector figures. It combines temporal solver, refinement, modulational-instability and bandwidth evidence with spatial PINN phase and curvature analysis and a cluster handoff.
+
+\noindent\textit{Limits or next work.} Portable arrays are display products, not full-grid reference truth; no new temporal training.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#doc-modelling-report}{Evidence record: DOC-MODELLING-REPORT}.
+
+\section{Historical formulation}
+\needspace{7\baselineskip}
+\subsection*{Formal checkpoint and research-meeting visual reports}
+\noindent\textbf{2026-09-10.} completed historical report collection. \emph{Report or package date; see the linked date basis}.\par
+The formal checkpoint is 30 pages and the separate archival checkpoint is 32 pages. Both preserve their original canonical or optical model labels.
+
+\noindent\textit{Limits or next work.} Later packet-interference correction must accompany the original interpretation.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#hist-checkpoint}{Evidence record: HIST-CHECKPOINT}.
+\needspace{7\baselineskip}
+\subsection*{Original optical-coordinate Fourier solution controls}
+\noindent\textbf{2026-09-10.} completed historical CPU experiment. \emph{Report or package date; see the linked date basis}.\par
+Nine Gaussian runs through t = 6 produced 225 norm records. Saved controls cover phase, reversibility, symmetry, grid and domain refinement, and independent quadrature.
+
+\noindent\textit{Limits or next work.} These are not nonlinear water-wave results. Large full-field arrays can be regenerated.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#hist-lin-base}{Evidence record: HIST-LIN-BASE}.
+\needspace{7\baselineskip}
+\subsection*{Scaling, spectral, cancellation, concentration and quadrature tests}
+\noindent\textbf{2026-09-10.} completed historical CPU experiment. \emph{Report or package date; see the linked date basis}.\par
+The archive contains 33 scaling checks, 78 spectral and cancellation measurements with eight separately refined flags, and ten approximate-identity checks. Fixed-coordinate quadrature includes t = 512 and 1024.
+
+\noindent\textit{Limits or next work.} The t = 512 and 1024 entries in this batch are fixed-coordinate checks, not new peak searches.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#hist-spectral-controls}{Evidence record: HIST-SPECTRAL-CONTROLS}.
+\needspace{7\baselineskip}
+\subsection*{Gaussian weighted-decay extension and spatial audit at t = 256}
+\noindent\textbf{2026-09-10.} completed historical CPU experiment. \emph{Report or package date; see the linked date basis}.\par
+Four Gaussian-family curves extend through t = 256. Separate longitudinal-period and radial-domain changes, together with independent cusp-regularized integral checks, pass the stated 0.1 percent peak screen.
+
+\noindent\textit{Limits or next work.} Finite sampled searches do not certify the whole-space supremum.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#hist-weighted-256}{Evidence record: HIST-WEIGHTED-256}.
+\needspace{7\baselineskip}
+\subsection*{Artificial-input weighted-decay survey and t16 refinement}
+\noindent\textbf{2026-09-10.} completed exploratory historical CPU experiment. \emph{Report or package date; see the linked date basis}.\par
+The survey covers 22 artificial fields in two regimes and 858 weighted measurements. Four selected families were independently refined through t = 16.
+
+\noindent\textit{Limits or next work.} The weighted fractional-derivative maximum differs from the ordinary envelope $L^\infty$ norm. Several initial results were sensitive to domain size.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#hist-weighted-inputs}{Evidence record: HIST-WEIGHTED-INPUTS}.
+\needspace{7\baselineskip}
+\subsection*{Extended Gaussian weighted peak searches to t = 1024}
+\noindent\textbf{2026-09-12.} completed historical CPU experiment. \emph{Dated source record; see the linked date basis}.\par
+Eight new case-time searches, covering four inputs at t = 512 and 1024, pass consistency checks after retained follow-ups. Finite-interval exponents vary by case.
+
+\noindent\textit{Limits or next work.} No common asymptotic exponent or uniform theorem established.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#hist-weighted-1024}{Evidence record: HIST-WEIGHTED-1024}.
+\needspace{7\baselineskip}
+\subsection*{Quadrature-packet intensity interpretation correction}
+\noindent\textbf{2026-09-14.} completed correction with numerical controls. \emph{Dated conversation or review; not an asserted execution timestamp}.\par
+The original 90-degree pair has zero intensity cross-term at every time under the real-coefficient linear propagator. A separate zero-phase control demonstrates interference.
+
+\noindent\textit{Limits or next work.} The correction changes the interpretation, not the original computed total field.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#hist-interference-correction}{Evidence record: HIST-INTERFERENCE-CORRECTION}.
+\needspace{7\baselineskip}
+\subsection*{Three-coordinate optical stripe perturbations}
+\noindent\textbf{2026-09-14.} completed through T4; T8 unresolved. \emph{Report or package date; see the linked date basis}.\par
+Transverse variation grows from 0.5 percent to about 4.76 percent by T = 4. Reported fine-resolution comparisons are below $4.68\times 10^{-4}$.
+
+\noindent\textit{Limits or next work.} This is optical evidence only. The stripes are not fully localized 3D solitons, and T = 8 remains spatially unresolved.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#hist-optical-stripes}{Evidence record: HIST-OPTICAL-STRIPES}.
+\needspace{7\baselineskip}
+\subsection*{Canonical packet animation and phase viewer extension}
+\noindent\textbf{2026-09-14.} completed historical visualization. \emph{Dated conversation or review; not an asserted execution timestamp}.\par
+Three stages of 65 frames extend through t = 256. A later phase viewer contains 122 snapshots through t = 2056. Checks of the displayed-coordinate domain and spacing are retained.
+
+\noindent\textit{Limits or next work.} Central displayed peaks and quantized view data are not whole-space supremum measurements.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#hist-packet-animation}{Evidence record: HIST-PACKET-ANIMATION}.
+\needspace{7\baselineskip}
+\subsection*{NLS benchmark, spatial Dysthe profile continuation and collisions}
+\noindent\textbf{2026-09-14.} completed historical CPU experiment. \emph{Report or package date; see the linked date basis}.\par
+The exact NLS benchmark has relative field error about $3.68\times 10^{-9}$ at T = 20. All 28 continued profiles have discrete profile residual below $2\times 10^{-11}$. The refined collision radiation proxy is about 1.8 percent outside two cores of radius six.
+
+\noindent\textit{Limits or next work.} Discrete profiles and finite-distance tests do not establish continuum orbital stability or elastic soliton collisions.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#hist-solitary-spatial}{Evidence record: HIST-SOLITARY-SPATIAL}.
+\needspace{7\baselineskip}
+\subsection*{Moment cancellation and separated-band weighted decay}
+\noindent\textbf{2026-09-16.} completed historical CPU experiment. \emph{Dated source record; see the linked date basis}.\par
+The study contains 40 records through t = 256: 38 first-pass screens and two successful follow-ups. The separated-band finite-interval exponent is approximately 1.4992.
+
+\noindent\textit{Limits or next work.} Original flags retained; finite-time behavior does not prove a decay theorem.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#hist-restricted-inputs}{Evidence record: HIST-RESTRICTED-INPUTS}.
+\needspace{7\baselineskip}
+\subsection*{Short-time A100 PINN benchmark for equation 1.27}
+\noindent\textbf{2026-09-17.} completed historical GPU training and reference audit. \emph{Report or package date; see the linked date basis}.\par
+The run completed 20,000 training steps on a recorded NVIDIA A100-PCIE-40GB GPU. Over 0 $\le$ t $\le$ 0.5, the sampled maximum relative $L^2$ error is 0.006651002 and the peak error is 0.002147572. A separate fixed-period reference audit passes.
+
+\noindent\textit{Limits or next work.} Single initial field and short window; no active water-wave transfer claim, whole-space result or long-time claim.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#hist-optical-pinn}{Evidence record: HIST-OPTICAL-PINN}.
+\needspace{7\baselineskip}
+\subsection*{Historical optical sequential reference audit: T=2 passes and T=8 fails the peak grid gate}
+\noindent\textbf{2026-09-17.} Failed sampled peak grid-convergence screen at T=8; sequence stopped after T=2 passed. \emph{Dated conversation or review; not an asserted execution timestamp}.\par
+The retained sequence-summary.json has two stages: T=2 with status pass and T=8 with status fail and return code 2. At T=8, the largest sampled peak discrepancy between nested grids is 0.00795352933 (0.79535\%), exceeding the 0.005 (0.5\%) gate. The common-grid relative $L^2$ discrepancy is $2.50306424\times 10^{-6}$. Fine-grid time refinement gives maximum relative $L^2$ discrepancy $5.54161170\times 10^{-12}$ and peak discrepancy $1.04007004\times 10^{-11}$. These small discrepancies do not cancel the failed peak grid screen. The retained implementation uses a NumPy Fourier integrating-factor RK4 reference. Its configuration contains neural training and CUDA fields, but this reference calculation does not instantiate a neural network.
+
+\noindent\textit{Limits or next work.} Accuracy of the continuous spatial supremum is unresolved. The peak comparison samples each grid separately; it is not a certified continuum maximum. This is a fixed periodic domain. No domain-enlargement test, whole-space decay conclusion, global-existence theorem, or blowup finding follows. This optical model is preserved as research history and is not evidence for the active water-wave-dysthe-spatial-v1 baseline. Passing a reference screen would not establish PINN accuracy.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#hist-optical-reference-t8}{Evidence record: HIST-OPTICAL-REFERENCE-T8}.
+\needspace{7\baselineskip}
+\subsection*{Historical optical fine-step trajectory to T=2048 and descriptive local oscillation fit}
+\noindent\textbf{2026-09-18.} completed\_unvalidated; descriptive fit completed. \emph{Dated conversation or review; not an asserted execution timestamp}.\par
+The trajectory integrates from t=0 to 2048 on a $64^3$ grid with dt=0.01, 204800 steps, and 257 saved frames in the observation window [1024,2048]. It does not reset the initial packet at t=1024. The retained summary reports 18421.4701 seconds (5.1171 hours), maximum relative mass drift $7.39085032\times 10^{-12}$, and maximum retained spectral-edge fraction $3.27698233\times 10^{-18}$. Across integer diagnostic times in [1024,2048], the sampled peak ranges from 0.07376859 to 0.23707285, with mean 0.13071707. The fitted late log-log slope has $R^2$=0.0035077, so these samples do not support a useful single power-law decay fit. A separate local four-harmonic descriptive fit on [1536,1664] uses 129 samples, a fitted base period 11.48213, RMSE 0.00513424, and $R^2$=0.9849756. Withheld points selected the harmonic count before refitting all points. The original implementation is NumPy CPU reference integration. CUDA and network configuration entries are retained provenance; this run supplies no new long-time PINN prediction.
+
+\noindent\textit{Limits or next work.} Long-time field and peak accuracy remain unresolved: the saved qualification explicitly records no grid/time refinement and unknown accumulated error before the observation window. Small mass drift is not a field-error bound. The harmonic fit is local description, not an independent test, a future-time forecast, a new PDE solution, or proof of a breather, soliton, recurrence, or asymptotic law. Periodic confinement and a mass-dependent lower bound obstruct interpreting the ordinary maximum as whole-space decay to zero. This historical optical trajectory is not active water-wave evidence. Production field/checkpoint arrays are not present in the inspected results directory; the archive preserves diagnostic summaries and code, rather than claiming full raw-field reproducibility.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#hist-optical-late-window-2048}{Evidence record: HIST-OPTICAL-LATE-WINDOW-2048}.
+\needspace{7\baselineskip}
+\subsection*{Historical optical coarse breathing preview: T=12288 target stopped at t=10321}
+\noindent\textbf{2026-09-18.} failed\_diagnostics; stopped at t=10321 before target T=12288. \emph{Dated conversation or review; not an asserted execution timestamp}.\par
+The separate preview uses dt=0.5 and $32^3$ points, starts from t=0, targets T=12288, and records a detailed [1500,2500] observation window plus showcase windows. The retained summary reports 20642 steps, 726 saved frames, and 121.2381 seconds before stopping at t=10321. It leaves 3934 planned steps uncompleted. Maximum relative mass drift reaches 0.00100007306 (0.1000073\%), exceeding the 0.001 stop threshold. Maximum recorded spectral-edge fraction is $2.65134688\times 10^{-6}$. The retained focus-window statistics report peak values from 0.07372305 to 0.23691754 and effective-volume values from 164.36659 to 924.40993, with peak-volume correlation -0.9134428. These describe oscillatory concentration in the preview. The report records at most 1.04\% sampled-peak disagreement with the earlier fine-step run at common integer times 1500 through 2048. This comparison changes the grid and time step together.
+
+\noindent\textit{Limits or next work.} The operational mass-drift stop is a numerical diagnostic failure, not evidence of PDE blowup or loss of solution existence. Long-time field accuracy is unresolved, particularly beyond t=2048. The overlap check does not separate spatial and temporal errors or validate the complex field. Breathing-like concentration diagnostics do not establish a localized breather or soliton, and the trajectory is not a long-time PINN result. This is historical optical evidence on a periodic domain, not the active water-wave model or a whole-space decay test. Production frame arrays are not present in the inspected results directory.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#hist-optical-preview-10321}{Evidence record: HIST-OPTICAL-PREVIEW-10321}.
+\needspace{7\baselineskip}
+\subsection*{Nontechnical overview of the project and numerical/PINN methods}
+\noindent\textbf{2026-09-23.} Completed communication artifact. \emph{Dated conversation or review; not an asserted execution timestamp}.\par
+Six-page equation-free overview with four figures explains numerical evolution, PINN fitting and the original research questions.
+
+\noindent\textit{Limits or next work.} Communication material does not supply new solver validation or generalization evidence.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#doc-project-overview}{Evidence record: DOC-PROJECT-OVERVIEW}.
+\needspace{7\baselineskip}
+\subsection*{Retrospective of earlier Dysthe experiments and research reset}
+\noindent\textbf{2026-09-24.} Completed retrospective report; later active-scope decision supersedes optical proposals. \emph{Dated conversation or review; not an asserted execution timestamp}.\par
+Ten-page retrospective with four vector figures and nine annotated references records the mismatch between original decay/stability questions and the available finite-window evidence. It preserves failed resolution checks and single-input PINN limitations.
+
+\noindent\textit{Limits or next work.} Historical optical future-work suggestions are superseded by the September 30 water-wave-only scope decision.
+
+\noindent\href{https://github.com/matasvai/dysthe-paper/blob/codex/research-record-2026-11-05/research-record/2026-11-05/README.md#doc-research-reset}{Evidence record: DOC-RESEARCH-RESET}.
+
+\section{Project chat review}
+The companion chat index records each reviewed conversation, its date range, topics, outputs and unresolved work. Unrelated conversations are retained as requested and do not become Dysthe evidence. Private contact details, raw conversation transcripts, internal reasoning and tool logs are not part of this public summary.
+\noindent All 12 identified user chats were reviewed across 34 paginated pages. Returned history contained 262 turns, including 67 inherited fork turns identified separately. No selected user/final message was flagged as truncated. Metadata update dates were not substituted for conversation dates. The current publication turn is ongoing at the review cutoff.\par
+\needspace{5\baselineskip}
+\subsection*{Plan 3D Dysthe equation model}
+\noindent 2026-09-09 to 2026-09-18. Historical numerical PDE, scientific visualization and optical PINN research.\par
+The chat developed a historical numerical programme from exact linear propagation and weighted-decay studies into nonlinear profile experiments and one-input optical PINN validation. It produced multiple reports and visualizations, then reviewed long periodic reference trajectories. The final discussion emphasizes formulation fidelity, finite-time evidence, per-input retraining and the limits of peak/loss-only claims.
+
+\noindent Canonical Gaussian weighted peak searches reached t = 1024; restricted-input studies completed 40 screened records after retained follow-ups. (Recorded historical CPU numerical evidence; no theorem or counterexample.)
+
+\nopagebreak[4]
+\noindent\href{https://github.com/matasvai/dysthe-research-map/blob/codex/research-record-2026-11-05/research-record/2026-11-05/CHATS.md#chat-01a0873c-15b7-75f0-82de-dc5accfc01fa}{Full chat summary and artifact index}.
+\needspace{5\baselineskip}
+\subsection*{Explain Socrates on morality}
+\noindent 2026-09-09 to 2026-09-09. Unrelated philosophy discussion.\par
+Explained Socrates' position and its development in later Republic books, then compared it with Singer's moral demandingness. Singer was presented as a challenge rather than a decisive counterexample because Socrates distinguishes material hardship from disorder of the soul.
+
+\noindent Explanatory study conversation only; no new research result or artifact.
+
+\nopagebreak[4]
+\noindent\href{https://github.com/matasvai/dysthe-research-map/blob/codex/research-record-2026-11-05/research-record/2026-11-05/CHATS.md#chat-01a08902-30e9-7e13-ae48-caafc8c0b148}{Full chat summary and artifact index}.
+\needspace{5\baselineskip}
+\subsection*{Review bezel functions}
+\noindent 2026-09-14 to 2026-09-14. Mathematical methods discussion.\par
+Interpreted bezel as Bessel and derived the angular-integral role of $J_0$. Explained that existing Gaussian evolution already evaluates the radial integral analytically, while a numerical Hankel prototype could extend historical radial non-Gaussian cases.
+
+\noindent A Fourier-Hankel prototype was proposed; no new prototype or numerical campaign was implemented in this chat.
+
+\nopagebreak[4]
+\noindent\href{https://github.com/matasvai/dysthe-research-map/blob/codex/research-record-2026-11-05/research-record/2026-11-05/CHATS.md#chat-01a0a172-45ad-7db2-95de-fc977a7ffb68}{Full chat summary and artifact index}.
+\needspace{5\baselineskip}
+\subsection*{Explain PINNs in fluid dynamics}
+\noindent 2026-09-17 to 2026-09-17. PINN background and unrelated resume editing.\par
+Provided notable fluid-PINN examples and emphasized incomplete-observation reconstruction as a plausible use. Subsequent turns updated a resume with project wording and user-supplied research-IT experience, corrected the weighted-decay terminology and verified a one-page layout.
+
+\noindent No new PDE experiment, PINN training or scientific benchmark was executed in this chat.
+
+\nopagebreak[4]
+\noindent\href{https://github.com/matasvai/dysthe-research-map/blob/codex/research-record-2026-11-05/research-record/2026-11-05/CHATS.md#chat-01a0b151-a544-7320-be44-d90f80a6cfb2}{Full chat summary and artifact index}.
+\needspace{5\baselineskip}
+\subsection*{Find neural operator resources}
+\noindent 2026-09-18 to 2026-09-21. Mixed historical scientific-methods discussion, explicitly requested Vlasov--Poisson plasma FNO, cluster operations, and unrelated screenshot editing. Plasma and optical results are not current water-wave evidence.\par
+Topics: FNO/PINO/PINN literature; Whole-initial-field operator inputs and trajectory-level held-out evaluation; Spatial $L^p$ norms and phase errors; Kinetic Vlasov--Poisson rather than Dysthe; Slurm dependencies, environment failures, GPU allocations and compact exports; Unrelated removal of store logos from an image.
+
+\noindent Recorded dated outputs: 2026-09-18: Neural-operator reading and field-FNO implementation; 2026-09-18: plasma-fno-20260918-230112; 2026-09-18: plasma-nonlinear-77761 overnight configuration; 2026-09-19: Plasma handout review; 2026-09-20: Store-logo screenshot cleanup; 2026-09-18/2026-09-21: Cluster operation troubleshooting.
+
+\nopagebreak[4]
+\noindent\href{https://github.com/matasvai/dysthe-research-map/blob/codex/research-record-2026-11-05/research-record/2026-11-05/CHATS.md#chat-01a0b606-59a1-7e51-8b4b-a962ee7b69bd}{Full chat summary and artifact index}.
+\needspace{5\baselineskip}
+\subsection*{Find neural operator resources (2)}
+\noindent 2026-09-21 to 2026-09-30. Historical plasma-FNO results and conservation-loss work followed by explicit return to water-wave Dysthe; repository family, publication planning, and interactive research-map site. Earlier optical proposals were superseded by the September 30 scope correction.\par
+Topics: Overnight GPU results and physical consistency; Editable minimalist LaTeX and vector figures; Conservation and PDE-residual losses; Early stopping and checkpoint selection; Nontechnical scientific communication; DeepONet/PINO and hybrid/reduced operator-learning proposals; GitHub Pages research map and repository family; Explicit water-wave-only scope correction.
+
+\noindent Recorded dated outputs: 2026-09-21: plasma-nonlinear-77761 analysis; 2026-09-21: Physics-built plasma loss and stability workflow; 2026-09-23: plasma-stability-78140 review; 2026-09-23: Dysthe project overview for nontechnical readers; 2026-09-24: Return to wave questions and multi-input learning; 2026-09-28: Publication plan and alternative ML architectures; 2026-09-28: Interactive research wireframe and public research-map site; 2026-09-28: Public repository family and ten workstream branches; 2026-09-30: Water-wave-only scope correction.
+
+\nopagebreak[4]
+\noindent\href{https://github.com/matasvai/dysthe-research-map/blob/codex/research-record-2026-11-05/research-record/2026-11-05/CHATS.md#chat-01a0c41a-d01a-7d80-b1f4-affa0301232d}{Full chat summary and artifact index}.
+\needspace{5\baselineskip}
+\subsection*{Find neural operator resources (3)}
+\noindent 2026-09-24 to 2026-09-24. A one-turn retrospective fork reviewing archived linear, optical, water-wave and PINN work. Its optical future-work proposal is historical and was superseded by the September 30 water-wave-only decision in the sibling chat.\par
+Topics: Experiment audit and question--measurement mismatch; Linear decay and frequency restrictions; Nonlinear optical stripe perturbations; Water-wave profiles and collisions; Periodic breathing and recurrence limits; Single-input PINN limitations.
+
+\noindent Recorded dated outputs: 2026-09-24: Dysthe research reset.
+
+\nopagebreak[4]
+\noindent\href{https://github.com/matasvai/dysthe-research-map/blob/codex/research-record-2026-11-05/research-record/2026-11-05/CHATS.md#chat-01a0d3c1-8b31-7053-a8b3-67fea056e40a}{Full chat summary and artifact index}.
+\needspace{5\baselineskip}
+\subsection*{Solve with worked solution}
+\noindent 2026-10-02 to 2026-10-02. Unrelated fluid-mechanics coursework stored in the Dysthe project; not a Dysthe research experiment.\par
+Topics: Bernoulli equation; Continuity; Cavitation pressure threshold; Worked-solution PDF.
+
+\noindent Recorded dated outputs: 2026-10-02: Cavitation minimum-diameter worked solution.
+
+\nopagebreak[4]
+\noindent\href{https://github.com/matasvai/dysthe-research-map/blob/codex/research-record-2026-11-05/research-record/2026-11-05/CHATS.md#chat-01a0fdf3-3700-77a2-85de-29ed2291ff86}{Full chat summary and artifact index}.
+\needspace{5\baselineskip}
+\subsection*{Solve using the linear ODE formula}
+\noindent 2026-10-03 to 2026-10-03. Unrelated coursework: elementary ODE.\par
+Topics: Integrating-factor/variation-of-constants formula for y' = a y+q(t); Initial-value problem y' = sin(3t), y(0) = 1.
+
+\noindent Derived y(t) = (4-cos(3t))/3 using a = 0 and an integral from 0 to t.
+
+\nopagebreak[4]
+\noindent\href{https://github.com/matasvai/dysthe-research-map/blob/codex/research-record-2026-11-05/research-record/2026-11-05/CHATS.md#chat-01a1036a-88f4-7e20-9ae2-6c25712eef90}{Full chat summary and artifact index}.
+\needspace{5\baselineskip}
+\subsection*{Create a Dysthe paper primer}
+\noindent 2026-10-03 to 2026-10-03. Dysthe prerequisites and original-paper reading.\par
+Topics: 1979 Dysthe paper prerequisites adapted to PDE and linear algebra background; Wave envelopes, deep-water potential flow, dispersion, asymptotic orders, induced mean flow and modulational stability; Velocity-potential versus free-surface envelope distinction.
+
+\noindent Delivered a compiled and visually checked 31-page guide with four figures, worked derivations and 14 exercises with answers.
+
+\nopagebreak[4]
+\noindent\href{https://github.com/matasvai/dysthe-research-map/blob/codex/research-record-2026-11-05/research-record/2026-11-05/CHATS.md#chat-01a103b0-807b-7c50-a193-f2e7943df5ba}{Full chat summary and artifact index}.
+\needspace{5\baselineskip}
+\subsection*{Review papers for Dysthe solution}
+\noindent 2026-10-23 to 2026-11-05. Main Dysthe numerical/PINN research and publication work.\par
+Topics: Continued smoothness and finite-time numerical evidence for water-wave Dysthe; Original 1979 and 2026 preprint equation audits; Spatial free-surface Fourier reference, differentiable operators, FNO/PINO and per-inlet slab PINNs; CPU-to-cluster tests, longer propagation, derivative-sensitive errors and random-input failures; Soliton/coherent-wave literature and resolution limits; Separately versioned original-paper temporal potential-envelope study; Ordinary envelope maximum, near-zero Gaussian tails, linear formula, instability and Fourier visuals; Periodic recurrence versus isolated-packet decay; exploratory NOAA comparison; Dated GitHub research compilation and review of all project chats.
+
+\noindent October 23: 12-page existence review recommends a numerical reference plus spectral PINN, with analytical validation required for any existence certificate; audits 1979 and 2026 equations.
+
+\nopagebreak[4]
+\noindent\href{https://github.com/matasvai/dysthe-research-map/blob/codex/research-record-2026-11-05/research-record/2026-11-05/CHATS.md#chat-01a169f9-4540-73a2-b24d-45199d4a30b0}{Full chat summary and artifact index}.
+\needspace{5\baselineskip}
+\subsection*{Survey PINNs for nonlinear Schröd{\cyrillicfont г}er}
+\noindent 2026-10-25 to 2026-10-25. NLS/PINN literature and research agenda.\par
+Topics: Recent NLS PINN literature through 25 October 2026; Hard constraints, complex-valued networks, sequential/causal training, adaptive sampling and conservation penalties; Dysthe versus fixed/fitted NLS reconstruction, nonlocal identifiability, reusable operators and error certification.
+
+\noindent Delivered 20-page review with 28 cited sources and five research questions, including concrete controls, failure criteria and staged protocols.
+
+\nopagebreak[4]
+\noindent\href{https://github.com/matasvai/dysthe-research-map/blob/codex/research-record-2026-11-05/research-record/2026-11-05/CHATS.md#chat-01a175cb-e630-7523-b755-574f5ff72f3b}{Full chat summary and artifact index}.
+
+\section{Verification of this compilation}
+Original evidence files were copied with SHA-256 checks. Archive structure and model-scope checks were run; existing model labels were preserved. The catalogue was compiled and its rendered pages reviewed. The older archived reports were not all recompiled or their experiments rerun. Missing raw data, unverified historical macro references and outstanding GPU or long-horizon experiments remain explicitly identified.
+\end{document}

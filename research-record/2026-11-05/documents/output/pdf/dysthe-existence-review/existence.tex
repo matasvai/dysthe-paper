@@ -1,0 +1,166 @@
+\section{What would establish continued smooth existence?}
+\label{sec:existence}
+
+The question is whether prescribed smooth initial data generate a solution
+of \eqref{eq:baseline} that continues to exist with controlled derivatives
+as the propagation distance increases. Three claims must be separated:
+existence on a specified finite interval; continuation for every finite
+distance; and smoothness of all orders. A computation over a finite interval
+can support the first claim empirically. Neither a bounded maximum amplitude
+nor a bounded $L^2$ norm controls all derivatives.
+
+\subsection{The available theory must match the equation}
+
+Mosincat, Pilod and Saut prove local well-posedness in
+$H^s(\mathbb R^2)$, $s>0$, and global well-posedness and scattering for
+sufficiently small $L^2(\mathbb R^2)$ data for their \emph{temporal}, nonlocal
+Dysthe equation; see their equation~(1.12) and Theorems~1.1--1.2
+\cite{mps}. Their one-dimensional whole-line discussion concerns temporal
+Dysthe with third-order dispersion and $H^s(\mathbb R)$, $s\geq1/4$.
+These statements do not directly cover our second-order spatial equation
+on a periodic profile domain. Nonzero constant backgrounds are also outside
+the finite-$L^2(\mathbb R^2)$ hypothesis.
+
+For one-dimensional periodic temporal Dysthe, Heller and Shao obtain
+estimates and low-regularity ill-posedness results, but explicitly do not
+prove local well-posedness of the full equation \cite[\S1.5]{heller}.
+Belloni and Giuliani's recent global result for a local periodic
+NLS--Dysthe family likewise does not settle our problem: their discussion
+explicitly excludes the water-wave mean-flow term $u|D|(|u|^2)$
+\cite[pp.~5--6]{belloni}. Thus we have not identified a theorem whose stated
+hypotheses match \eqref{eq:baseline}. This is a limitation of the present
+review, not a claim that all Dysthe existence questions are open.
+
+\subsection{A rigorous finite-dimensional statement, and its limit}
+
+Let $\TT$ be the periodic profile circle of length $L>0$, and let $P_K$
+denote the orthogonal Fourier projection onto modes $|n|\leq K$.
+Write $F(u)$ for the full right-hand side of \eqref{eq:baseline}.
+The following statement concerns exact Galerkin evolution, with exact
+nonlinear products and the stated Fourier mean-flow operator.
+
+\begin{proposition}[Global existence at each fixed Fourier cutoff]
+\label{prop:galerkin-global}
+Let $K$ be a nonnegative integer, let $\epsilon\in\mathbb R$, and let
+$u_K(0)$ belong to the range of $P_K$. The finite system
+\[
+  \partial_\xi u_K=P_KF(u_K)
+\]
+has a unique solution for every $\xi\in\mathbb R$, and
+$\norm{u_K(\xi)}_{L^2(\TT)}=\norm{u_K(0)}_{L^2(\TT)}$.
+\end{proposition}
+\begin{proof}
+Its Fourier coefficients solve a polynomial ordinary differential
+equation in finitely many real variables, hence have a unique local
+solution. Put $\rho=|u_K|^2$. Self-adjointness of $P_K$ and $P_Ku_K=u_K$
+allow its removal from the mass derivative. The linear dispersive term
+vanishes after integration by parts. The local cubic term and the mean-flow
+term have zero real contribution because $\rho$ and $|D_\tau|\rho$ are real.
+The remaining two derivative terms give
+\[
+ \frac{\dd}{\dd\xi}\norm{u_K}_{L^2}^2
+ =2\operatorname{Re}\int_{\TT}\overline{u_K}F(u_K)\,\dd\tau
+ =-10\epsilon\int_{\TT}\rho\,\partial_\tau\rho\,\dd\tau=0.
+\]
+Parseval's identity therefore bounds the coefficient vector throughout
+its maximal interval. In finite dimension it remains in a compact ball,
+where the polynomial vector field and its derivative are bounded.
+The ordinary differential equation continuation theorem excludes a finite
+endpoint in either direction.
+\end{proof}
+
+This proposition does not prove existence for the partial differential
+equation, or stability of a chosen time-stepping method. For $s>0$ it gives
+only
+\[
+ \norm{u_K(\xi)}_{H^s(\TT)}
+ \leq\left(1+\left(\frac{2\pi K}{L}\right)^2\right)^{s/2}
+       \norm{u_K(0)}_{L^2(\TT)},
+\]
+whose constant grows with $K$. Global finite systems can therefore fail
+to provide the uniform regularity needed in the limit $K\to\infty$.
+An aliased implementation need not equal this Galerkin system, and an
+RK4 update does not inherit its exact mass conservation or global bound.
+
+\subsection{The analytic continuation route}
+
+A PDE proof must first establish local existence, uniqueness and
+continuous dependence in a specified function space for the exact
+equation and boundary conditions. Directly applying a finite-dimensional
+ODE argument is insufficient: the nonlinear terms contain derivatives,
+including the first-order nonlocal operator $|D_\tau|$, so a naive
+same-$H^s$ nonlinear estimate loses derivatives. Suitable cancellations,
+modified energy estimates, or dispersive estimates must recover this loss.
+
+If a local theory supplies a lifespan bounded below in terms of the
+$H^s$ norm, its restart argument gives a continuation criterion: a finite
+maximal distance can occur only if that controlling norm becomes
+unbounded. Establishing the needed norm bound uniformly on every finite
+interval would then give global existence in that regularity class.
+Passing from Galerkin approximations also requires sufficient compactness,
+convergence of the derivative nonlinearities, and uniqueness of the limit.
+For initially smooth data, a claim of smoothness of all orders additionally
+needs persistence of higher regularity on the same interval; one fixed
+$H^s$ estimate alone is not that claim.
+
+Residual-based PINN error estimates also require PDE stability
+\cite{mishra,bai}. For an exact solution $u$ and a candidate $v$, put
+$E(\xi)=\norm{u(\xi)-v(\xi)}_{H^s}$ and
+$r=\partial_\xi v-F(v)$. If a justified stability argument gives
+$E'\leq CE+\norm{r}_{\mathcal R}$ almost everywhere, with $C\geq0$ and
+an appropriate residual norm $\mathcal R$, then Gronwall's inequality gives
+\[
+ E(\xi)\leq e^{C\xi}\left(E(0)+
+              \int_0^\xi\norm{r(\eta)}_{\mathcal R}\,\dd\eta\right).
+\]
+For this equation, derivative loss must actually be controlled and $C$
+must be bounded on the relevant solution set, independently of a numerical
+cutoff. Without that work, the displayed bound is conditional; an error
+estimate presupposing an exact solution is not an existence proof.
+
+\subsection{A rigorous route from a computed candidate}
+
+A numerical solution or PINN can instead serve as the center of an
+\emph{a posteriori} existence proof, following the general validated-numerics
+approach \cite{validation}. On a fixed interval $[0,\Xi]$, choose
+Banach spaces $X,Y$ and an initial-value defect map, for example
+\[
+ \mathcal G(v)=\bigl(\partial_\xi v-F(v),\ v(0)-u_0\bigr).
+\]
+The spaces must make this map well-defined and must encode periodicity
+and the desired regularity. Complex-valued functions are treated as real
+Banach spaces because the equation contains complex conjugation.
+
+\begin{theorem}[Conditional contraction certificate]
+\label{thm:certificate}
+Let $U\subseteq X$ be open, let $\mathcal G:U\to Y$ be continuously
+Fr\'echet differentiable, and let $A:Y\to X$ be bounded, real-linear and
+injective. Suppose $\overline B_X(\widetilde u,r)\subseteq U$, $r>0$, and
+verified bounds satisfy
+\[
+ \norm{A\mathcal G(\widetilde u)}_X\leq Y_0,\qquad
+ \sup_{v\in\overline B_X(\widetilde u,r)}
+ \norm{I_X-A D\mathcal G(v)}_{X\to X}\leq Z(r).
+\]
+If $Z(r)<1$ and $Y_0+Z(r)r\leq r$, then $\mathcal G$ has exactly one zero
+in this closed ball.
+\end{theorem}
+\begin{proof}
+Define $T(v)=v-A\mathcal G(v)$. The derivative bound and the mean-value
+inequality show that $T$ is Lipschitz on the ball with constant $Z(r)$.
+For $v$ in the ball,
+$\norm{T(v)-\widetilde u}_X\leq Z(r)r+Y_0\leq r$.
+The contraction theorem gives a unique fixed point. Injectivity of $A$
+makes a fixed point equivalent to a zero of $\mathcal G$, proving both
+existence and uniqueness within the ball.
+\end{proof}
+
+This is a sufficient criterion, not a certificate already obtained for
+our equation. Constructing $X,Y,A$ and proving the displayed bounds is the
+main mathematical work. The validation must cover all unresolved Fourier
+modes, the nonlocal operator, roundoff with outward bounds, and the initial
+condition including any initial tail. For successive slabs, it must carry
+the certified endpoint uncertainty forward. A residual sampled on a grid,
+or at PINN training points, supplies none of those uniform guarantees by
+itself. Such a certificate establishes the specified finite interval;
+global continuation still requires control over arbitrarily long intervals.

@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+% Royden report conventions are embedded so this source is standalone.
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{graphicx,booktabs}
+\usepackage[hidelinks]{hyperref}
+\setlength{\parindent}{1.25em}
+\setlength{\parskip}{0pt}
+\pagestyle{plain}
+\numberwithin{equation}{section}
+\title{Avoiding Cavitation: Problem 5--63}
+\author{}
+\date{}
+
+\begin{document}
+\begin{center}
+  {\Large Avoiding Cavitation: Problem 5--63}\par
+  \smallskip
+  Worked solution
+\end{center}
+
+\noindent\textbf{Problem.} Water flows from an open reservoir through a
+horizontal pipe. The free surface (3) is $5\,\mathrm m$ above sections (1)
+and (2), and the outlet diameter is $D_2=15\,\mathrm{cm}$. Find the minimum
+diameter at section (1) that avoids cavitation there.
+
+\medskip
+\noindent\textbf{Assumptions.} The flow is steady and incompressible,
+losses are negligible, and the reservoir is large enough that $V_3\approx0$.
+Both the free surface and outlet are at atmospheric pressure. Use
+$\rho=1000\,\mathrm{kg/m^3}$, $g=9.81\,\mathrm{m/s^2}$, and
+$p_{\mathrm{atm}}=101.3\,\mathrm{kPa}$. All pressures are absolute.
+The temperature is not given; assume $20^\circ\mathrm C$, for which
+$p_v\approx2.34\,\mathrm{kPa}$.\footnote{NIST,
+\href{https://nvlpubs.nist.gov/nistpubs/jres/80A/jresv80An5-6p775_A1b.pdf}
+{\emph{Vapor pressure formulation for water in range 0 to
+100 degrees C: A revision}}, Table 3.}
+
+\section{Outlet velocity}
+Take $z_1=z_2=0$ and $z_3=5\,\mathrm m$. Bernoulli's equation between
+the free surface (3) and outlet (2) gives
+\[
+ \frac{p_3}{\rho g}+\frac{V_3^2}{2g}+z_3
+ =\frac{p_2}{\rho g}+\frac{V_2^2}{2g}+z_2.
+\]
+Since $p_3=p_2=p_{\mathrm{atm}}$ and $V_3\approx0$, this reduces to
+\[
+ 5=\frac{V_2^2}{2g},
+ \qquad
+ V_2=\sqrt{2g(5\,\mathrm m)}\approx9.90\,\mathrm{m/s}.
+\]
+
+\section{Cavitation limit at section (1)}
+Cavitation begins when the local absolute pressure reaches the vapor
+pressure. Set $p_1=p_v$ to find the limiting velocity. Bernoulli between
+(1) and (2), which are at the same elevation, yields
+\[
+ \frac{p_v}{\rho g}+\frac{V_{1,\max}^2}{2g}
+ =\frac{p_{\mathrm{atm}}}{\rho g}+\frac{V_2^2}{2g}.
+\]
+Hence
+\[
+ V_{1,\max}
+ =\sqrt{V_2^2+\frac{2(p_{\mathrm{atm}}-p_v)}{\rho}}
+ =\sqrt{98.1+\frac{2(101300-2340)}{1000}}\,\mathrm{m/s}
+ \approx17.2\,\mathrm{m/s}.
+\]
+
+\section{Minimum diameter}
+For circular sections, continuity gives
+\[
+ A_1V_1=A_2V_2,
+ \qquad
+ \frac{\pi D_1^2}{4}V_1=\frac{\pi D_2^2}{4}V_2.
+\]
+The smallest allowable diameter corresponds to $V_1=V_{1,\max}$. Thus
+\[
+ D_{1,\min}
+ =D_2\sqrt{\frac{V_2}{V_{1,\max}}}
+ \approx0.15\sqrt{\frac{9.90}{17.2}}\,\mathrm m
+ \approx\boxed{11.4\,\mathrm{cm}}.
+\]
+If vapor pressure is neglected ($p_v\approx0$), the same calculation gives
+$D_{1,\min}\approx11.3\,\mathrm{cm}$.
+A smaller diameter raises the velocity and lowers the pressure at (1).
+Equality marks the onset of cavitation; a diameter above the limiting value
+keeps $p_1>p_v$ under the stated assumptions.
+
+\end{document}

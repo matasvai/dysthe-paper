@@ -1,0 +1,50 @@
+{
+  "literature_cutoff": "2026-10-25 America/New_York",
+  "pdf_pages": 20,
+  "bibliography_entries": 28,
+  "all_citations_resolved": true,
+  "overfull_boxes": 0,
+  "unresolved_reference_markers": 0,
+  "text_outside_checked_bounds": 0,
+  "all_fonts_embedded": true,
+  "figures": {
+    "phase-drift.pdf": {
+      "raster_image_count": 0,
+      "sha256": "e6c27383cbf3bee296b6482b1dfae7889faa817486734a94390fa1828bd793dd"
+    },
+    "experiment-design.pdf": {
+      "raster_image_count": 0,
+      "sha256": "959250560e0782ce6d000364b1cc35fc8c4e4ad4f1b8d932d3603fb3001f24ba"
+    }
+  },
+  "visual_review": {
+    "pages": "1-20",
+    "method": "Individual rendered-page review by root and independent reviewer; changed pages reviewed again",
+    "issues_resolved": [
+      "Orphan future-work heading",
+      "Separated diagram and evidence list",
+      "Orphan roadmap table header"
+    ],
+    "remaining_material_layout_issues": []
+  },
+  "nonmaterial_log_notes": [
+    "One mild underfull paragraph; visually inspected."
+  ],
+  "mathematics_review": [
+    "NLS real/imaginary residual signs",
+    "Dysthe coefficient and Fourier convention",
+    "Analytic phase-error example",
+    "Conditional periodic NLS residual estimate"
+  ],
+  "reproduction_limits": [
+    "No paper experiments rerun",
+    "No downloaded training code executed",
+    "No HOS dataset processed",
+    "Local solver read-only inspection, not new qualification",
+    "Recent preview-only papers not fully audited"
+  ],
+  "pdf_sha256": "9d6627a45edb58671d430d3163b985a25fa903004ba6f85b8298afbbdf3c09d1",
+  "source_archive_integrity": "passed",
+  "extracted_source_recompilation": "passed, three pdflatex passes",
+  "source_package_file_count": 20
+}

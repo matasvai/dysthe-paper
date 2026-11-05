@@ -1,0 +1,614 @@
+{
+  "research_cutoff": "2026-10-25",
+  "cited_paper_count": 28,
+  "papers": {
+    "ehlers2024": {
+      "title": "Data Assimilation and Parameter Identification for Water Waves Using the Nonlinear Schrödinger Equation and Physics-Informed Neural Networks",
+      "authors": [
+        "Svenja Ehlers",
+        "Niklas A. Wagner",
+        "Annamaria Scherzl",
+        "Marco Klein",
+        "Norbert Hoffmann",
+        "Merten Stender"
+      ],
+      "year": 2024,
+      "date": "2024-10-01",
+      "venue": "Fluids 9(10), 231",
+      "doi": "10.3390/fluids9100231",
+      "url": "https://doi.org/10.3390/fluids9100231",
+      "access_level": "Published primary record and publisher/institutional full text inspected; author manuscript at https://arxiv.org/html/2401.03708v1 also inspected. Institutional published PDF: https://tore.tuhh.de/dspace-cris-server/api/core/bitstreams/d014f972-c436-476d-861a-737bc0434adc/content .",
+      "evidence": [
+        "Hydrodynamic NLS PINN reconstruction on 630 synthetic HOS wave-tank samples; observations at x=3 and 6 m, withheld test gauges at x=4 and 5 m.",
+        "Learning carrier frequency/wavenumber alongside the field reduced reported mean SSP from 0.204 to 0.186, reported as an 8.82 percent improvement."
+      ],
+      "limitations": [
+        "Synthetic measurements; no laboratory experiment in this paper. Broader spectra and higher steepness remained difficult.",
+        "Effective coefficient fitting does not itself establish physical parameter identifiability or a correct nonlinear dispersion relation.",
+        "No independent reproduction was performed in this literature review."
+      ],
+      "explicit_future_work": [
+        "Published Conclusions explicitly suggest Dysthe/MNLSE residuals and the broader-bandwidth MNLSE.",
+        "Other stated directions include varying gauge separation, deriving a nonlinear dispersion relation from fitted parameters, and using real wave measurements.",
+        "Fully nonlinear potential-flow PINNs are also proposed, but subsequent 2025 work has already pursued that direction."
+      ],
+      "code_url": null
+    },
+    "ehlers2025": {
+      "title": "Physics-informed neural networks for phase-resolved data assimilation and prediction of nonlinear ocean waves",
+      "authors": [
+        "Svenja Ehlers",
+        "Norbert Hoffmann",
+        "Tianning Tang",
+        "Adrian H. Callaghan",
+        "Rui Cao",
+        "Enrique M. Padilla",
+        "Yuxin Fang",
+        "Merten Stender"
+      ],
+      "year": 2025,
+      "date": "2025-09-02",
+      "venue": "Physical Review Fluids 10, 094901",
+      "doi": "10.1103/ytyy-pvys",
+      "url": "https://journals.aps.org/prfluids/abstract/10.1103/ytyy-pvys",
+      "access_level": "APS publisher metadata/abstract inspected; detailed method/results/outlook inspected in the full author manuscript https://arxiv.org/html/2501.08430v1 . Publisher full article requires access.",
+      "evidence": [
+        "Two coupled potential-flow PINNs represent free-surface elevation and velocity potential, with Fourier features, hard measurement constraints and ReLoBRaLo loss balancing.",
+        "Author manuscript reports laboratory flume reconstruction SSP=0.049, and an example forecasting approximately one peak period beyond four observed snapshots."
+      ],
+      "limitations": [
+        "This is potential-flow work, not a Dysthe PINN implementation.",
+        "Forecast accuracy declines beyond the assimilation interval; inferred laboratory velocity potential lacks independently measured ground truth.",
+        "The manuscript HTML's generated August 2026 header is not the journal publication date."
+      ],
+      "explicit_future_work": [
+        "Faster training, multi-GPU optimization, pretraining with fine-tuning, and physics-informed neural operators.",
+        "Directional wave fields, variable bathymetry and related engineering applications. Directional/bathymetric extensions are outside the approved project baseline.",
+        "The generic PINO suggestion is already pursued by the subsequent wavepino paper."
+      ],
+      "code_url": null
+    },
+    "wavepino": {
+      "title": "Bridging ocean wave physics and deep learning: Physics-informed neural operators for nonlinear wavefield reconstruction in real-time",
+      "authors": [
+        "Svenja Ehlers",
+        "Merten Stender",
+        "Norbert Hoffmann"
+      ],
+      "year": 2025,
+      "date": "2025-10-07",
+      "venue": "Physics of Fluids 37(10), 107119",
+      "doi": "10.1063/5.0294655",
+      "url": "https://doi.org/10.1063/5.0294655",
+      "access_level": "Publisher metadata and abstract inspected at https://pubs.aip.org/aip/pof/article/37/10/107119/3366763/Bridging-ocean-wave-physics-and-deep-learning ; detailed results and outlook inspected in full author manuscript https://arxiv.org/html/2508.03315v1 . Public author repository inspected; not executed.",
+      "evidence": [
+        "FNO-based PINO constrained by potential-flow free-surface boundary conditions; synthetic HOS data, split into 634 training, 211 validation and 211 test cases.",
+        "Five buoy time series or radar snapshots plus one calibration buoy; author manuscript reports mean SSP 0.1035 and 0.1341, respectively.",
+        "A representative reconstructed sample takes 0.014 seconds after training; this is inference latency, not total cost."
+      ],
+      "limitations": [
+        "Demonstrated on synthetic long-crested unidirectional wave fields, not deployed multidirectional ocean observations.",
+        "PINO constraints are potential flow, not the approved spatial Dysthe equation. Generic sparse-wave PINO reconstruction is therefore already occupied novelty.",
+        "Detailed manuscript numbers were not independently reproduced."
+      ],
+      "explicit_future_work": [
+        "Extension to multidirectional 2D+t fields, with increased computational requirements and possible parallelization."
+      ],
+      "code_url": "https://github.com/svenjahlrs/PINO-for-wave-data-assimilation"
+    },
+    "urban": {
+      "title": "Unveiling the optimization process of physics informed neural networks: How accurate and competitive can PINNs be?",
+      "authors": [
+        "Jorge F. Urbán",
+        "Petros Stefanou",
+        "José A. Pons"
+      ],
+      "year": 2025,
+      "date": null,
+      "venue": "Journal of Computational Physics 523, 113656",
+      "doi": "10.1016/j.jcp.2024.113656",
+      "url": "https://doi.org/10.1016/j.jcp.2024.113656",
+      "access_level": "Peer-reviewed; author manuscript and full arXiv v3 HTML inspected",
+      "evidence": "Direct cubic-NLS test. Table 5: two hidden layers of 40 neurons with self-scaled Broyden and MSE achieve real/imaginary relative L2 errors (5±1,8±2)e-6. Hard initial conditions and periodic coordinate features used.",
+      "limitations": "Domain expands from earlier benchmark ±5 to ±15; constraints, model size and training also change. Cross-paper improvement cannot be attributed solely to the optimizer. Initial sech profile is not exactly periodic; enlarged window reduces boundary-tail mismatch. No verified Dysthe test.",
+      "explicit_future_work": "Investigate modifications of limited-memory BFGS and their convergence in PINNs (section 6).",
+      "code_url": "https://github.com/jorgeurban/self_scaled_algorithms_pinns"
+    },
+    "cvpinn": {
+      "key": "cvpinn",
+      "title": "Complex-valued physics-informed machine learning for efficient solving of quintic nonlinear Schrödinger equations",
+      "authors": [
+        "Lei Zhang",
+        "Mengge Du",
+        "Xiaodong Bai",
+        "Yuntian Chen",
+        "Dongxiao Zhang"
+      ],
+      "year": 2025,
+      "date": "2025-02-13",
+      "venue": "Physical Review Research 7, 013164",
+      "doi": "10.1103/PhysRevResearch.7.013164",
+      "url": "https://journals.aps.org/prresearch/pdf/10.1103/PhysRevResearch.7.013164",
+      "access_level": "Full 18-page paper: methods, baseline design, experimental tables and conclusion inspected; public repository listing inspected.",
+      "evidence": "Complex-valued layers and predictive dynamic monitoring sampling evaluated on 16 one-dimensional GPE cases. Real baseline approximately matched parameter counts; three repetitions. PDM comparison contains a slightly worse case. Typical training approximately two hours for 50000 epochs on an Nvidia 3090. Spectral solutions supply references.",
+      "limitations": "Demonstrates improvement over selected PINN baselines, not superiority to spectral solvers. One-dimensional GPE tests are not water-wave Dysthe validation. Repository was not executed and its linked data were not tested.",
+      "explicit_future_work": "Section VI, PDF page 17: extend to two/three dimensions and other PDEs; explore real-valued problems; improve sampling by jointly monitoring equation residuals and solution gradients and adaptively choosing resampling nodes.",
+      "code_url": "https://github.com/Lei-Zhang1227/CV-PINN"
+    },
+    "hardic": {
+      "title": "Stability in training PINNs for stiff PDEs: Why initial conditions matter",
+      "authors": [
+        "Baoli Hao",
+        "Chun Liu",
+        "Ulisses Braga-Neto",
+        "Lifan Wang",
+        "Ming Zhong"
+      ],
+      "year": 2026,
+      "date": "2026-06-08",
+      "venue": "Foundations of Data Science, early access",
+      "doi": "10.3934/fods.2026016",
+      "url": "https://www.aimsciences.org/article/doi/10.3934/fods.2026016",
+      "access_level": "Peer-reviewed early access; publisher abstract, indexed full text, tables and author repository inspected",
+      "evidence": "Direct NLS ablation: real/imaginary relative L2 errors 1.80e-4 and 2.58e-4 with periodic boundaries, hard IC1, self-adaptive weights and mini-batching. Examines hard initial constraints with NTK analysis.",
+      "limitations": "Hard trial-function construction is explicitly acknowledged as established. Results do not establish universal necessity of exact IC enforcement or superiority on Dysthe; hard enforcement of noisy inverse data requires care.",
+      "explicit_future_work": "Publisher text discusses combining hard constraints with causal training, time marching, residual attention, curricula and co-training; detailed concluding outlook not independently inspected.",
+      "code_url": "https://github.com/baolihao/hard-constrained-pinns"
+    },
+    "alejo": {
+      "title": "Error bounds for Physics Informed Neural Networks in Nonlinear Schrödinger equations placed on unbounded domains",
+      "authors": [
+        "Miguel Á. Alejo",
+        "Lucrezia Cossetti",
+        "Luca Fanelli",
+        "Claudio Muñoz",
+        "Nicolás Valenzuela"
+      ],
+      "year": 2025,
+      "date": "2025-06-26",
+      "venue": "arXiv:2409.17938v3, preprint; first submitted 2024",
+      "doi": "10.48550/arXiv.2409.17938",
+      "url": "https://arxiv.org/abs/2409.17938",
+      "access_level": "Primary arXiv metadata and full manuscript inspected by the lead researcher during this review",
+      "evidence": "NLS-specific PINN error bounds on unbounded domains under stated analytical and integration hypotheses.",
+      "limitations": "Preprint version revised June 2025, first submitted September 2024. Hypotheses and norms must be retained; not a ready-made certificate for derivative/nonlocal Dysthe.",
+      "explicit_future_work": null,
+      "code_url": null
+    },
+    "eiras": {
+      "title": "Efficient Error Certification for Physics-Informed Neural Networks",
+      "authors": [
+        "Francisco Eiras",
+        "Adel Bibi",
+        "Rudy R. Bunel",
+        "Krishnamurthy Dj Dvijotham",
+        "Philip Torr",
+        "M. Pawan Kumar"
+      ],
+      "year": 2024,
+      "date": null,
+      "venue": "Proceedings of the 41st International Conference on Machine Learning, PMLR 235, 12318–12347",
+      "doi": null,
+      "url": "https://proceedings.mlr.press/v235/eiras24a.html",
+      "access_level": "Primary proceedings metadata and full manuscript inspected by the lead researcher during this review",
+      "evidence": "Computes verified worst-case PINN residual bounds over domains using neural-network verification techniques.",
+      "limitations": "Residual certification and solution-error certification are distinct; stability and boundary/initial information are still required. No Dysthe-specific guarantee established here.",
+      "explicit_future_work": null,
+      "code_url": null
+    },
+    "raissi": {
+      "title": "Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations",
+      "authors": [
+        "Maziar Raissi",
+        "Paris Perdikaris",
+        "George Em Karniadakis"
+      ],
+      "year": 2019,
+      "date": null,
+      "venue": "Journal of Computational Physics 378, 686–707",
+      "doi": "10.1016/j.jcp.2018.10.045",
+      "url": "https://doi.org/10.1016/j.jcp.2018.10.045",
+      "access_level": "Publisher primary record inspected by the lead researcher during this review",
+      "evidence": "Foundational forward/inverse PINN framework with a direct nonlinear Schrodinger benchmark.",
+      "limitations": "Foundational proof of concept; not a modern best-method benchmark or Dysthe validation.",
+      "explicit_future_work": null,
+      "code_url": null
+    },
+    "pino": {
+      "title": "Physics-Informed Neural Operator for Learning Partial Differential Equations",
+      "authors": [
+        "Zongyi Li",
+        "Hongkai Zheng",
+        "Nikola Kovachki",
+        "David Jin",
+        "Haoxuan Chen",
+        "Burigede Liu",
+        "Kamyar Azizzadenesheli",
+        "Anima Anandkumar"
+      ],
+      "year": 2024,
+      "date": "2024-02-21",
+      "venue": "ACM/IMS Journal of Data Science",
+      "doi": "10.1145/3648506",
+      "url": "https://authors.library.caltech.edu/records/06m4r-8jf10",
+      "access_level": "Peer-reviewed; accepted-manuscript repository metadata and abstract inspected",
+      "evidence": "Combines coarse-resolution trajectory data with finer-resolution PDE constraints to learn parametric solution operators, rather than one trajectory.",
+      "limitations": "Application to the approved spatial water-wave Dysthe equation remains a proposed transfer. Cost accounting must include reference-data generation and training; output-resolution transfer is distinct from accuracy on unseen physical spectra.",
+      "explicit_future_work": null,
+      "code_url": null
+    },
+    "fedele": {
+      "title": "Hamiltonian description and traveling waves of the spatial Dysthe equations",
+      "authors": [
+        "Francesco Fedele",
+        "Denys Dutykh"
+      ],
+      "year": 2012,
+      "date": "2012-04-12",
+      "venue": "arXiv:1110.3605v3, research report; first submitted 17 October 2011",
+      "doi": "10.48550/arXiv.1110.3605",
+      "url": "https://arxiv.org/abs/1110.3605",
+      "access_level": "Primary arXiv record verified; current local model contract and corresponding solver source inspected for the adopted equation convention.",
+      "evidence": [
+        "Gauge transformation reveals a Hamiltonian formulation and invariants for spatial Dysthe equations; numerical traveling waves and inelastic collisions are studied.",
+        "Local approved free-surface contract cites equation (1.3), coefficient tuple (a,h,c,e,f)=(1,1,8,2,2), with a nonlocal |D_tau| mean-flow derivative."
+      ],
+      "limitations": [
+        "This source is not a PINN study. Its numerical traveling waves do not establish nonlinear stability or integrability.",
+        "The free-surface envelope is noncanonical; generic NLS Hamiltonian constraints require careful transformation and boundary conventions.",
+        "The metadata here describes this exact arXiv research report, not an assumed journal publication under a similar title."
+      ],
+      "explicit_future_work": [],
+      "code_url": null
+    },
+    "causal": {
+      "title": "Respecting causality for training physics-informed neural networks",
+      "authors": [
+        "Sifan Wang",
+        "Shyam Sankaran",
+        "Paris Perdikaris"
+      ],
+      "year": 2024,
+      "date": "2024-03-01",
+      "venue": "Computer Methods in Applied Mechanics and Engineering 421, 116813",
+      "doi": "10.1016/j.cma.2024.116813",
+      "url": "https://doi.org/10.1016/j.cma.2024.116813",
+      "access_level": "Peer-reviewed; publisher abstract and accessible article sections inspected",
+      "evidence": "Causal residual weights delay emphasis on later evolution stages until preceding residuals decrease. Demonstrated on Lorenz, Kuramoto-Sivashinsky and Navier-Stokes.",
+      "limitations": "Transfer method rather than direct NLS/Dysthe evidence from this paper. For spatial Dysthe, causality follows propagation distance xi rather than retarded profile time tau.",
+      "explicit_future_work": null,
+      "code_url": null
+    },
+    "gravis": {
+      "key": "gravis",
+      "title": "Physics-informed neural networks for nonlinear Schrödinger localized wave problems with gradient-residual adaptive collocation sampling",
+      "authors": [
+        "Long Chen",
+        "Fan Liu",
+        "Yongming Zhang",
+        "Weiqi Chen"
+      ],
+      "year": 2026,
+      "date": "2026-06-14",
+      "venue": "Nonlinear Dynamics 114, 820",
+      "doi": "10.1007/s11071-026-12723-1",
+      "url": "https://link.springer.com/article/10.1007/s11071-026-12723-1",
+      "access_level": "Publisher abstract, metadata, references and availability statement; subscription full text inaccessible.",
+      "evidence": "GRAVIS combines residual magnitude with output-layer parameter-gradient norm, tempered Gaussian mixture sampling, exploration and importance correction. Seven localized-wave benchmarks under matched architectures/training budgets; authors report 1.56-2.37 times lower relative L2 error than RAD and up to 36.4 times lower than uniform sampling.",
+      "limitations": "Full cost and statistical accounting not audited. No measured ocean-wave validation established. No public implementation verified. Data availability statement says no datasets generated or analysed.",
+      "explicit_future_work": null,
+      "code_url": null
+    },
+    "soap": {
+      "title": "Gradient Alignment in Physics-informed Neural Networks: A Second-Order Optimization Perspective",
+      "authors": [
+        "Sifan Wang",
+        "Ananyae Kumar Bhartari",
+        "Bowen Li",
+        "Paris Perdikaris"
+      ],
+      "year": 2025,
+      "date": null,
+      "venue": "Advances in Neural Information Processing Systems 38, Main Conference",
+      "doi": "10.52202/085713-5615",
+      "url": "https://papers.nips.cc/paper_files/paper/2025/hash/f655706547885b8e32ef46f1c067ece2-Abstract-Conference.html",
+      "access_level": "Peer-reviewed; full proceedings PDF inspected",
+      "evidence": "Structured SOAP preconditioning mitigates gradient conflicts. Ten PDE benchmarks show reported 2–10x accuracy improvements; PirateNet is effective in studied architecture ablations.",
+      "limitations": "No NLS benchmark found in full text. Approximately 2x longer training than their baselines is explicitly reported. Cross-PDE accuracy gains do not establish NLS superiority or lower wall time.",
+      "explicit_future_work": "Develop more computationally efficient preconditioned algorithms that retain gradient-alignment benefits (conclusion).",
+      "code_url": "https://github.com/PredictiveIntelligenceLab/jaxpi/tree/pirate"
+    },
+    "hosdata": {
+      "title": "Data to train a physics-informed neural operator for ocean wave reconstruction",
+      "authors": [
+        "Svenja Ehlers"
+      ],
+      "year": 2026,
+      "date": "2026-04-08",
+      "venue": "Zenodo, version 1, dataset",
+      "doi": "10.5281/zenodo.19473989",
+      "url": "https://zenodo.org/records/19473989",
+      "access_level": "Public author-deposited primary dataset record inspected; 3.2 GB file not downloaded or validated.",
+      "evidence": [
+        "Public dataset_1056_samples_HOS_ele_pot_inte.npz, approximately 3.2 GB, linked to DOI 10.1063/5.0294655 and the author code repository.",
+        "Record provides MD5 8fbd489997c22c86f373e56f5f85c691."
+      ],
+      "limitations": [
+        "HOS provenance must be preserved; these arrays are not Dysthe solutions.",
+        "Using a subset for Dysthe validation requires a documented elevation-to-envelope observation map and a justified physical-validity filter.",
+        "The dataset record's related-journal year does not supersede the publisher's verified 2025 article date."
+      ],
+      "explicit_future_work": [],
+      "code_url": "https://github.com/svenjahlrs/PINO-for-wave-data-assimilation"
+    },
+    "tdd": {
+      "key": "tdd",
+      "title": "Data-driven SFB solutions and parameters discovery for nonlinear Schrödinger equation via time domain decomposition physics-informed neural networks",
+      "authors": [
+        "Jiaxin Chen",
+        "Biao Li",
+        "Manwai Yuen"
+      ],
+      "year": 2025,
+      "date": "2025-12-01",
+      "venue": "Computers & Mathematics with Applications 199, 45-63 (issue date)",
+      "doi": "10.1016/j.camwa.2025.09.007",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0898122125003724",
+      "access_level": "Publisher abstract, introduction and methodology preview; author metadata corroborated with indexing.",
+      "evidence": "Time-domain decomposition with interface training points. Akhmediev and Kuznetsov-Ma breathers, Peregrine waves, higher-order rogue waves, and noisy/noiseless inverse coefficients. Authors report one-two orders of magnitude improvement and reduced training time against classical PINNs.",
+      "limitations": "Full cost audit and implementation not verified. Translation to spatial water-wave evolution requires explicit formulation handling. Date is issue metadata.",
+      "explicit_future_work": null,
+      "code_url": null
+    },
+    "interaction": {
+      "key": "interaction",
+      "title": "Nonlinear interaction multi-domain physics-informed neural networks for the hybrid rogue wave and breather solutions of the nonlinear Schrödinger equation",
+      "authors": [
+        "Jiaxin Chen",
+        "Biao Li",
+        "Manwai Yuen"
+      ],
+      "year": 2025,
+      "date": "2025-12",
+      "venue": "Communications in Nonlinear Science and Numerical Simulation 151, 109049",
+      "doi": "10.1016/j.cnsns.2025.109049",
+      "url": "https://www.sciencedirect.com/science/article/pii/S1007570425004605",
+      "access_level": "Publisher abstract and introduction; author metadata checked against bibliographic indexing.",
+      "evidence": "NI-MPINNs combines nonlinear interaction features, residual connections and domain decomposition. Hybrid rogue-wave/breather reconstructions and noisy/noiseless inverse coefficients. Authors report accuracy improvements up to three orders of magnitude relative to classical PINNs.",
+      "limitations": "Full training-budget accounting, ablations and spectral cost comparison not accessible. Code not verified. Month is issue metadata, not independently verified online-first date.",
+      "explicit_future_work": null,
+      "code_url": null
+    },
+    "transfer": {
+      "key": "transfer",
+      "title": "Enhancing accuracy of physically informed neural networks for nonlinear Schrödinger equations through multi-view transfer learning",
+      "authors": [
+        "Yikai Chen",
+        "Hongli Xiao",
+        "Xiao Teng",
+        "Wenjun Liu",
+        "Long Lan"
+      ],
+      "year": 2024,
+      "date": null,
+      "venue": "Information Fusion 102, 102041",
+      "doi": "10.1016/j.inffus.2023.102041",
+      "url": "https://www.sciencedirect.com/science/article/pii/S1566253523003573",
+      "access_level": "Publisher abstract, introduction and partial conclusion.",
+      "evidence": "Pretrained NLS models transfer across initial/boundary-condition views. Compares losses and reports improved results with Huber loss relative to conventional MSE PINNs.",
+      "limitations": "Amortized total cost, random-spectrum generalization and code not verified. Transfer learning does not alone establish a neural operator. Exact online date not established.",
+      "explicit_future_work": null,
+      "code_url": null
+    },
+    "noether": {
+      "key": "noether",
+      "title": "Noether-constrained physics-informed neural networks for the nonlinear Schrödinger equation",
+      "authors": [
+        "Yanrui Zhang",
+        "Fujun Liu"
+      ],
+      "year": 2026,
+      "date": "2026-09-05",
+      "venue": "Physics Letters A 589, 131802 (issue date)",
+      "doi": "10.1016/j.physleta.2026.131802",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0375960126004780",
+      "access_level": "Publisher abstract, issue metadata and authorship contribution statement only.",
+      "evidence": "Dynamically weighted Noether-inspired penalties plus residual-adaptive sampling. Abstract reports soliton amplitude errors below 0.8%, mass/momentum/energy fluctuations of order 1e-3, and extrapolation beyond the training domain.",
+      "limitations": "Numerical horizons, comparison fairness, phase diagnostics and repetitions could not be audited. Penalty-based small fluctuations are not exact conservation. Code not verified. Date is the issue date; online-first date not established.",
+      "explicit_future_work": null,
+      "code_url": null
+    },
+    "cpa": {
+      "key": "cpa",
+      "title": "Structure-preserving conservative phase-amplitude PINNs for semiclassical Schrödinger-type equations",
+      "authors": [
+        "Shubham Kumar",
+        "Himanshu Kumar Dwivedi",
+        "Rajeev"
+      ],
+      "year": 2026,
+      "date": "2026-10-15",
+      "venue": "Journal of Computational and Applied Mathematics 485, 117607 (issue date)",
+      "doi": "10.1016/j.cam.2026.117607",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0377042726002505",
+      "access_level": "Publisher abstract, extensive introduction and section previews. Authors corroborated on the IIT BHU author publication page https://iitbhu.ac.in/dept/mat/people/rajeevapm .",
+      "evidence": "Real phase/complex amplitude representation with soft local continuity and global mass/energy penalties. Two-dimensional linear plane wave, moving oblique defocusing dark soliton, and inverse semiclassical/nonlinearity parameters; artificial noise at 5% and 10%.",
+      "limitations": "Full numerical tables and final future-work discussion inaccessible; code unverified. Conservation is approximate. Defocusing semiclassical tests do not establish focusing water-wave modulational-instability performance. Date is the issue date.",
+      "explicit_future_work": null,
+      "code_url": null
+    },
+    "extreme2026": {
+      "title": "Geometry-Agnostic Data-Driven Discovery of Extreme Scenarios",
+      "authors": [
+        "Angeline Hu",
+        "Ava K. Tse",
+        "Kaitlyn S. Yasumura",
+        "Luciana Sarabia",
+        "Malcolm Yeung",
+        "Kavin K. Prasanna",
+        "Kai Wong",
+        "William Hammond",
+        "Ioannis G. Keverkidis",
+        "Shengkai Li",
+        "Trung V. Phan"
+      ],
+      "year": 2026,
+      "date": "2026-10-20",
+      "venue": "arXiv:2610.28487v1, preprint",
+      "doi": "10.48550/arXiv.2610.28487",
+      "url": "https://arxiv.org/abs/2610.28487",
+      "access_level": "Primary arXiv metadata and abstract inspected; not full-text reviewed or independently reproduced. Author spelling retained as listed in that primary record.",
+      "evidence": [
+        "Two-stage learned dynamics and physics-informed neural search; abstract describes Duffing/homoclinic, stationary NLS/Townes and Liouville examples."
+      ],
+      "limitations": [
+        "Recent preprint; not evidence of a validated Dysthe predictor or sparse water-wave reconstruction method.",
+        "Rogue waves and singularities are prospective applications, not demonstrated Dysthe results in the inspected abstract."
+      ],
+      "explicit_future_work": [
+        "Abstract proposes other coherent structures, including rogue waves, compactons, peakons and potentially singularities."
+      ],
+      "code_url": null
+    },
+    "pirate": {
+      "title": "PirateNets: Physics-informed Deep Learning with Residual Adaptive Networks",
+      "authors": [
+        "Sifan Wang",
+        "Bowen Li",
+        "Yuhan Chen",
+        "Paris Perdikaris"
+      ],
+      "year": 2024,
+      "date": "2024-12",
+      "venue": "Journal of Machine Learning Research 25(402), 1–51",
+      "doi": null,
+      "url": "https://jmlr.org/papers/v25/24-0313.html",
+      "access_level": "Peer-reviewed; full publisher PDF inspected",
+      "evidence": "Residual gates initially yield a shallow effective architecture which gains depth during learning; Fourier features and physics-informed initialization improve trainability of network derivatives.",
+      "limitations": "No NLS benchmark found in inspected full text. Proved residual-to-solution results concern specified linear elliptic/parabolic problems, not nonlinear NLS or Dysthe. Authors acknowledge substantial training cost.",
+      "explicit_future_work": "Accelerate training with PDE-specific coordinate embeddings; extend physics-informed initialization to operator learning (section 6).",
+      "code_url": "https://github.com/PredictiveIntelligenceLab/jaxpi/tree/pirate"
+    },
+    "optimizer": {
+      "title": "Optimizing the optimizer for physics-informed neural networks and Kolmogorov-Arnold networks",
+      "authors": [
+        "Elham Kiyani",
+        "Khemraj Shukla",
+        "Jorge F. Urbán",
+        "Jérôme Darbon",
+        "George Em Karniadakis"
+      ],
+      "year": 2025,
+      "date": null,
+      "venue": "Computer Methods in Applied Mechanics and Engineering 446, 118308",
+      "doi": "10.1016/j.cma.2025.118308",
+      "url": "https://doi.org/10.1016/j.cma.2025.118308",
+      "access_level": "Peer-reviewed publication verified via publisher and author institution; updated arXiv abstract inspected, v6 2026-02-08",
+      "evidence": "Studies self-scaled BFGS/Broyden and line-search variants on Burgers, Allen-Cahn, Kuramoto-Sivashinsky, Ginzburg-Landau and Stokes; also evaluates DeepONet.",
+      "limitations": "Listed evidence does not establish NLS or Dysthe performance. Later arXiv revision should not be conflated with the 2025 journal version. Dense curvature methods may incur substantial memory costs.",
+      "explicit_future_work": null,
+      "code_url": null
+    },
+    "pinnacle": {
+      "title": "PINNacle: A Comprehensive Benchmark of Physics-Informed Neural Networks for Solving PDEs",
+      "authors": [
+        "Zhongkai Hao",
+        "Jiachen Yao",
+        "Chang Su",
+        "Hang Su",
+        "Ziao Wang",
+        "Fanzhi Lu",
+        "Zeyu Xia",
+        "Yichi Zhang",
+        "Songming Liu",
+        "Lu Lu",
+        "Jun Zhu"
+      ],
+      "year": 2024,
+      "date": null,
+      "venue": "NeurIPS 2024 Datasets and Benchmarks",
+      "doi": null,
+      "url": "https://papers.nips.cc/paper/2024/file/8c63299fb2820ef41cb05e2ff11836f5-Paper-Datasets_and_Benchmarks_Track.pdf",
+      "access_level": "Peer-reviewed; proceedings manuscript and author code repository inspected",
+      "evidence": "More than 20 PDEs and approximately ten PINN methods permit systematic comparisons across geometry, nonlinearity and multiscale difficulty.",
+      "limitations": "Not an NLS-specific leaderboard. Does not establish a universal best PINN or superiority over classical solvers. Benchmark recipes must be adapted transparently to the approved water-wave equation.",
+      "explicit_future_work": "Highlights domain decomposition and loss reweighting for multiscale problems and complex geometries.",
+      "code_url": "https://github.com/i207M/PINNacle"
+    },
+    "spectral": {
+      "title": "Spectral informed neural networks",
+      "authors": [
+        "Tianchi Yu",
+        "Yiming Qi",
+        "Ivan Oseledets",
+        "Shiyi Chen"
+      ],
+      "year": 2026,
+      "date": "2026-05-15",
+      "venue": "Journal of Computational and Applied Mathematics 477, 117178",
+      "doi": "10.1016/j.cam.2025.117178",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0377042725006922",
+      "access_level": "Peer-reviewed publication metadata and indexed publisher abstract/sections inspected. Direct publisher retrieval restricted. Author identities and journal DOI independently verified on primary arXiv record 2408.16414.",
+      "evidence": "Frequency inputs and spectral-coefficient outputs replace spatial automatic differentiation by multiplication. Authors report reduced memory and training expense in their evaluated PDEs.",
+      "limitations": "No NLS/Dysthe validation established by this metadata check. Issue date is May 2026, while arXiv lists journal year 2025 and the original preprint appeared August 2024. Do not describe the underlying idea as first introduced in 2026.",
+      "explicit_future_work": null,
+      "code_url": null,
+      "preprint_url": "https://arxiv.org/abs/2408.16414",
+      "date_type": "journal issue date"
+    },
+    "goal": {
+      "title": "Goal oriented error estimation for adaptive sampling of PINNS",
+      "authors": [
+        "Medard Govoeyi",
+        "Thomas Richter"
+      ],
+      "year": 2026,
+      "date": "2026-04-02",
+      "venue": "arXiv preprint, math.NA, 2604.01835v1",
+      "doi": "10.48550/arXiv.2604.01835",
+      "url": "https://arxiv.org/abs/2604.01835",
+      "access_level": "Primary arXiv metadata and abstract inspected; journal or conference acceptance not verified",
+      "evidence": "Uses dual-weighted-residual ideas to estimate goal-functional error and guide importance sampling for PINNs and Deep Ritz on the Laplace equation.",
+      "limitations": "This is elliptic Laplace evidence, not NLS/Dysthe or extreme-event prediction. Generic goal-oriented PINN sampling is already prior art; proposed wave applications need their own contribution and validation.",
+      "explicit_future_work": null,
+      "code_url": null
+    },
+    "operatorbudget": {
+      "title": "Operator-Budget Evaluation of Residual-Adaptive Sampling in Physics-Informed Neural Networks",
+      "authors": [
+        "Yifei Long",
+        "Kuan Fan"
+      ],
+      "year": 2026,
+      "date": "2026-09-24",
+      "venue": "Applied Sciences 16(19), 9508",
+      "doi": "10.3390/app16199508",
+      "url": "https://www.mdpi.com/2076-3417/16/19/9508",
+      "access_level": "Peer-reviewed publisher metadata, indexed full article and abstract inspected; direct open returned rate limit",
+      "evidence": "Charges proposal-maintenance and training residual evaluations in a shared work ledger. Studies cached residual proposal maintenance and joint cost-accuracy criteria.",
+      "limitations": "Selected manufactured/low-dimensional PDE suite, not NLS/Dysthe. Authors explicitly do not establish universal superiority of cache writeback. Residual-call counts complement rather than replace wall-time and memory measurements.",
+      "explicit_future_work": null,
+      "code_url": null
+    },
+    "grossmann": {
+      "title": "Can physics-informed neural networks beat the finite element method?",
+      "authors": [
+        "Tamara G. Grossmann",
+        "Urszula Julia Komorowska",
+        "Jonas Latz",
+        "Carola-Bibiane Schönlieb"
+      ],
+      "year": 2024,
+      "date": "2024-05-23",
+      "venue": "IMA Journal of Applied Mathematics 89(1), 143–174",
+      "doi": "10.1093/imamat/hxae011",
+      "url": "https://doi.org/10.1093/imamat/hxae011",
+      "access_level": "Primary publisher metadata and abstract inspected; author institutional publication record corroborates volume and page range",
+      "evidence": "Systematic cost/accuracy comparison for Poisson, Allen-Cahn and semilinear Schrodinger problems. Studied PINNs did not outperform FEM in total solution time and accuracy; some evaluation timings favored PINNs.",
+      "limitations": "Evidence for the compared implementations and tasks, not a theorem excluding gains by newer methods or inverse/operator workflows.",
+      "explicit_future_work": null,
+      "code_url": null
+    }
+  },
+  "note": "Consolidated cited sources only. Access evidence records researcher inspection, not independent experiment reproduction."
+}

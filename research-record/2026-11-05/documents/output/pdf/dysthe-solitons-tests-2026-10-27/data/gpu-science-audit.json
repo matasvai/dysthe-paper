@@ -1,0 +1,113 @@
+{
+  "reviewed_date": "2026-10-27",
+  "repository": "matasvai/dysthe-experiments",
+  "commit": "723883f27a6b3489bfc36f55d9d15b52e8635ad0",
+  "source": "results/long-distance-gpu2-2026-10-26/summary.json",
+  "source_blob_sha": "4a415353effb6844ba0345017892166455ce7291",
+  "status_counts": {
+    "reference:completed": 12,
+    "pinn:stopped_at_gate": 24,
+    "pinn:execution_error": 12,
+    "sensitivity:completed": 12,
+    "domain:stopped_at_gate": 4,
+    "domain:not_applicable": 8
+  },
+  "summary_complete": false,
+  "all_requested_gates_passed": false,
+  "reference_summary": {
+    "cases": 12,
+    "all_qualified_through": 64,
+    "qualification": "recorded summary status; per-case detailed reference results not included in inspected pushed folder"
+  },
+  "sensitivity_summary": {
+    "cases": 12,
+    "all_qualified_through": 16,
+    "qualification": "recorded summary status; per-case detailed sensitivity results not included in inspected pushed folder"
+  },
+  "domain_summary": {
+    "packet_cases": 4,
+    "last_all_passed_horizon": 4,
+    "first_failed_horizon": 8,
+    "nonpacket_not_applicable": 8
+  },
+  "pinn_summary": {
+    "requested_pairs": 36,
+    "requested_inlets": 12,
+    "evaluated_pairs_at_xi4": 24,
+    "evaluated_inlets_at_xi4": 8,
+    "accuracy_passes": 0,
+    "execution_errors": 12,
+    "execution_error_inlets": [
+      "random-008",
+      "random-009",
+      "random-010",
+      "random-011"
+    ],
+    "execution_error_cause": "Not provided by inspected summary or uploaded per-case records.",
+    "xi8_evaluated_pairs": 0,
+    "xi16_evaluated_pairs": 0,
+    "xi4_aggregates": [
+      {
+        "split": "validation",
+        "horizon": 4,
+        "expected_case_seed_pairs": 18,
+        "evaluated_case_seed_pairs": 12,
+        "passed_case_seed_pairs": 0,
+        "complete": false,
+        "worst_errors": {
+          "l2": 0.019684516682485383,
+          "h1": 0.058260846470379296,
+          "h2": 0.30741433040480765,
+          "peak": 0.013827729484728829
+        },
+        "median_errors": {
+          "l2": 0.013470581367529544,
+          "h1": 0.03419328283844631,
+          "h2": 0.14680514100050593,
+          "peak": 0.008196355103955822
+        }
+      },
+      {
+        "split": "test",
+        "horizon": 4,
+        "expected_case_seed_pairs": 18,
+        "evaluated_case_seed_pairs": 12,
+        "passed_case_seed_pairs": 0,
+        "complete": false,
+        "worst_errors": {
+          "l2": 0.015765930972724638,
+          "h1": 0.0413003135754998,
+          "h2": 0.22115309876000383,
+          "peak": 0.014980297239688665
+        },
+        "median_errors": {
+          "l2": 0.009340163726506576,
+          "h1": 0.029684040851984034,
+          "h2": 0.14900451558937433,
+          "peak": 0.006693845958492226
+        }
+      }
+    ],
+    "first_failed_saved_station": {
+      "packet": [
+        0.3,
+        0.45
+      ],
+      "sideband": [
+        0.5,
+        1.1
+      ]
+    }
+  },
+  "interpretation": [
+    "Substantial new finite-distance periodic reference evidence is reported through xi64, separate from neural accuracy.",
+    "Localized-packet whole-line/domain-independence interpretation is qualified only through xi4 in this campaign; all packet doubled-domain tests fail atxi8.",
+    "All24 measurable packet/sideband PINN fits fail the combinedxi4 gates. Twelve random fits are execution failures, not measured accuracy failures.",
+    "Test summary worst H2error22.1153% and median14.9005% exceed5% target even while worst peak1.4980% looksgood. Smoothness-sensitive derivatives expose weaknesses not seen in peak/amplitude alone.",
+    "No neuralxi8/16 result exists in this uploadedsummary. Coverageisincomplete for eachsplit atxi4:12of18pairs,4of6inlets.",
+    "Cannot infer GPUcaused deterioration versus CPUxi2: inputseed, horizon, network width/depth, bandwidth, epochs, and the extraH2gate changed.",
+    "None of these initial fields is a solved solitary profile; no solitary-wave existence/stability claim follows.",
+    "Repair/randomfailurediagnosis and validation-only matched ablations should precede longerPINN extension. Existingtestsethasbeeninspected and needs anewlockedtestsample afteradaptivechanges.",
+    "Sources record aCUDA-enabled runtime and GPUallocatedmemory; actualGPUmodel not identified in theseinspectedfiles."
+  ]
+}

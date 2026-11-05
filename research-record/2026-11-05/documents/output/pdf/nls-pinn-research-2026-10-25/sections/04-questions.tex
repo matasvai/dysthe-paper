@@ -1,0 +1,219 @@
+\section{Five candidate paper questions}
+\label{sec:questions}
+The questions below are candidate contributions, not established novel
+results. A final novelty search and citation-chain review should precede
+submission. The recommended order is Question 1, an identifiability study
+from Question 2, and then the relevant method development.
+
+\subsection{Question 1: Does Dysthe improve prediction beyond fitted NLS?}
+\paragraph{Question.}
+For which steepness, bandwidth, gauge separation, and noise regimes does
+the approved spatial Dysthe equation improve withheld-gauge reconstruction
+and downstream prediction compared with both fixed and retuned NLS?
+
+\paragraph{Why this could be a paper.}
+This directly develops the Dysthe suggestion in \cite{ehlers2024}.
+The scientific issue is whether adding known higher-order physics helps
+once a simpler model is given a fair calibration opportunity. A regime
+map and a causal explanation of gains or failures are stronger than a
+single improved error number.
+
+\paragraph{Hypothesis to test.}
+Within the justified envelope regime, Dysthe should be most useful when
+the leading corrections are observable but the asymptotic model still
+applies. It may offer little benefit at weak nonlinearity, with insufficient
+measurements, or outside its validity range. This is an expectation, not
+a demonstrated result.
+
+\paragraph{Method.}
+First use independently refined \eqref{eq:dysthe} trajectories to validate
+implementation. Then use separately labelled HOS-generated observations
+or suitable laboratory data to assess model discrepancy. Cross three model
+arms---fixed NLS, fitted NLS, fixed Dysthe---with two inference engines:
+the same tuned PINN recipe and regularized numerical assimilation around
+a differentiable or adjoint spectral solver. Give every arm identical
+observations, nuisance-parameter treatment, and tuning opportunities.
+Fix envelope extraction and surface reconstruction across arms.
+
+Hold out entire initial wave realizations and entire gauge positions.
+Report interpolation between observed gauges separately from propagation
+beyond the last observed gauge. A forecast experiment must also specify
+which measurement times were available at the forecast origin; using a
+complete future time series at an upstream gauge changes the task.
+
+\paragraph{Decisive result and stop condition.}
+The target is a reproducible region in which Dysthe lowers unseen
+complex-field/surface-wave error or improves calibrated event predictions
+at a useful cost. If gains disappear under numerical assimilation, they
+may have come from training rather than physics. If the simpler fitted
+NLS performs equally well within uncertainty, publish that limit only if
+the benchmark and explanation are substantial; do not conceal it by
+selecting favorable packets.
+
+\subsection{Question 2: Is the nonlocal correction identifiable from sparse data?}
+\paragraph{Question.}
+Can the observations distinguish mean-flow effects from carrier calibration,
+the unknown inlet field, and local nonlinear terms? Which sensor arrangement
+or wave-packet family makes this distinction possible?
+
+\paragraph{Why this could be a paper.}
+Predictive success does not imply parameter recovery. A parameter may
+absorb model discrepancy or compensate for an uncertain initial field.
+The contribution would be an identifiability limit and a practical
+observation-design remedy. This is our proposed extension of the inverse
+problem, not a published Dysthe identifiability theorem.
+
+\paragraph{Method.}
+Before training a neural network, form the observation map
+$d\approx\mathcal O(\alpha,z_0)$ using the verified solver, where
+$\alpha$ denotes diagnostic coefficients and nuisance calibration
+parameters, and $z_0$ denotes an inlet parametrization. Compute scaled
+sensitivities
+\[
+ J_\alpha=\frac{\partial\mathcal O}{\partial\alpha},
+ \qquad J_0=\frac{\partial\mathcal O}{\partial z_0}.
+\]
+Study the singular values of the joint, noise-whitened Jacobian and the
+information remaining for $\alpha$ after accounting for $z_0$. A small
+singular value signals local confounding; full rank alone does not prove
+global identifiability. Supplement it with profile likelihoods,
+multi-start estimation, repeated-noise trials, and confidence-interval
+coverage for known synthetic parameters.
+
+Compare two gauges with three or more, altered separation, and deliberately
+varied packet bandwidth and phase modulation. A sensor-selection criterion
+can maximize the smallest relevant singular value or a regularized
+information determinant. Compare it with uniform placement and a simple
+greedy heuristic. Afterwards test whether the same information gains
+improve PINN and numerical assimilation.
+
+\paragraph{Model identity and decisive result.}
+The approved physical baseline keeps its coefficient tuple fixed.
+Coefficient fitting, removing the nonlocal term, or scaling individual
+terms creates separately named diagnostic models, never relabelled
+baseline evidence. A useful outcome is an experimentally testable minimum
+information condition. If observations cannot distinguish the terms,
+report predictive uncertainty rather than a precise inferred coefficient.
+
+\subsection{Question 3: Which intervention prevents long-distance phase failure?}
+\paragraph{Question.}
+Can propagation-wise training and a correctly evaluated nonlocal residual
+maintain phase and focusing-event accuracy at a lower total cost than
+conservation penalties or residual adaptivity alone?
+
+\paragraph{Novelty boundary.}
+Neither conservation-aware NLS PINNs, spectral differentiation, time
+decomposition, nor goal-oriented sampling is new
+\cite{noether,cpa,tdd,spectral,goal}. The prospective contribution is a
+demonstrated mechanism linking Dysthe's nonlocal coupling, accumulated
+phase error, and measurable focusing-event failures.
+
+\paragraph{Method.}
+Use structured full-$\tau$ slices so that the mean-flow term is evaluated
+by a differentiable Fourier multiplier with controlled padding and
+quadrature. Compare local automatic differentiation plus the common
+nonlocal operator with a fully spectral profile residual. An optional
+weak formulation integrates local derivatives by parts and moves the
+self-adjoint multiplier onto a suitable test function where justified.
+Check weak residuals against an independent strong residual, since an
+incomplete test basis can miss modes.
+
+Start with a compact real-output network and a parameter-matched complex
+network. Compare global training, causal weights in $\xi$, and sequential
+$\xi$ slabs; distinguish these interventions. Then compare uniform, RAD,
+and sensitivity/goal-oriented sampling with equal total budgets, including
+candidate scoring and interface work. For a smooth proxy to a maximum,
+one possible functional is
+\[
+ J_\kappa(u)=\kappa^{-1}
+  \log\left(\frac{1}{|\Omega|}\int_\Omega e^{\kappa|u|^2}\dd\xi\dd\tau\right),
+ \qquad \kappa>0.
+\]
+Finite $\kappa$ introduces a deliberate approximation; validate the actual
+peak height and location afterwards. Do not tune $\kappa$ on the final
+test events.
+
+\paragraph{Decisive result and risk.}
+Require better unaligned phase/event error versus wall time, not only
+lower invariant drift. Independently vary grid, domain, and residual
+quadrature. If a benefit vanishes when aliasing or sampler overhead is
+counted, it is not a method improvement. A narrow ablation within
+Question 1 may be more valuable than a separate architecture paper.
+
+\subsection{Question 4: When does an operator pay for its training?}
+\paragraph{Question.}
+Can an input-conditioned Dysthe surrogate reliably generalize to unseen
+wave packets and achieve a matched-accuracy cost advantage over repeated
+numerical solves or inverse fits?
+
+\paragraph{Novelty boundary.}
+Generic water-wave PINO reconstruction already exists \cite{wavepino}.
+Specify whether the new operator maps initial fields to trajectories
+or measurements to reconstructed fields. These are different datasets
+and claims. The prospective advance is phase-aware generalization,
+controlled physics correction, and calibrated failure detection for the
+approved model.
+
+\paragraph{Method.}
+Compare a supervised FNO, a physics-informed operator using the exact
+residual, and a hybrid that retains an accurate linear propagator and
+learns a constrained nonlinear correction. Add a per-instance PINN,
+pretrained-and-refined PINN, and numerical solver/assimilation controls.
+Split whole initial fields, including all refinements and augmentations.
+Reserve distinct bandwidth, steepness, and sensor configurations for
+out-of-distribution testing; do not mix them into a single average.
+
+For an operator with total preparation cost $C_{\rm prep}$, inference plus
+adaptation cost $C_{\rm op}$, and a classical per-query cost $C_{\rm ref}$,
+the simplest break-even estimate is
+\[
+ Q_\star=\frac{C_{\rm prep}}{C_{\rm ref}-C_{\rm op}},
+ \qquad C_{\rm ref}>C_{\rm op}.
+\]
+Round upward for integer query counts. If the denominator is nonpositive,
+there is no speed break-even under this model. Charge data generation,
+preprocessing, tuning, training, failed runs, and deployment-specific
+refinement consistently. Compare solutions at the same target accuracy.
+
+\paragraph{Decisive result and risk.}
+Demonstrate both a useful $Q_\star$ and acceptable held-out phase/event
+errors, with calibrated abstention when the input leaves the validated
+regime. Ensemble disagreement alone is not calibrated uncertainty:
+assess coverage and failure-detection rates on separate trajectories.
+A fast model that misses rare focusing events fails the intended task.
+
+\subsection{Question 5: Can a Dysthe prediction have a useful error certificate?}
+\paragraph{Question.}
+Can one compute a finite-propagation bound on the error of a learned
+Dysthe trajectory that is tight enough to remain informative through
+nonlinear focusing?
+
+\paragraph{Novelty boundary.}
+NLS stability-based bounds and continuous-domain PINN residual
+certification already exist \cite{alejo,eiras}. Repeating a generic
+Gronwall argument is not a new contribution. The challenge is a computable,
+nonvacuous bound for the actual derivative/nonlocal formulation.
+
+\paragraph{Method.}
+Begin with the finite-dimensional Fourier discretization
+$\dot z=F_N(z)$. Bound the discrepancy of a learned trajectory using its
+initial defect and an independently bounded residual. Investigate
+interval- or energy-based local stability estimates, possibly per
+propagation slab, rather than an unnecessarily large global Lipschitz
+constant. Quantify certificate overhead and effectivity
+(bound divided by observed error on resolved test cases).
+
+A certificate relative to this ODE is not yet a certificate for the
+continuum PDE. A second stage must control Fourier truncation, quadrature,
+aliasing, regularity, and the chosen periodic or whole-line setting.
+Physical model discrepancy and observation uncertainty are additional
+errors, not consequences of the numerical certificate. State explicitly
+which of these quantities is bounded rigorously and which is only measured.
+
+\paragraph{Decisive result and risk.}
+The target is a bound useful before and after representative focusing
+events, with tractable cost. If all rigorous bounds become vacuous long
+before those events, a shorter-horizon result may still be valuable, but
+an empirical uncertainty band must not be renamed a proof. This is the
+highest-risk direction and would benefit from PDE/numerical-analysis
+supervision.

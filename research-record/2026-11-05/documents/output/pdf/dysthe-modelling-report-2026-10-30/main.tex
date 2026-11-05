@@ -1,0 +1,52 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{royden-report}
+\usepackage{microtype,array,longtable,enumitem,float}
+\usepackage[font=small,labelfont=bf]{caption}
+\setlength{\intextsep}{8pt}
+\setlist{nosep,leftmargin=*}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\D}{\lvert D_s\rvert}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\fig}[3]{\begin{figure}[H]\centering\includegraphics[width=#2\linewidth]{figures/#1.pdf}\caption{#3}\end{figure}}
+\hypersetup{pdftitle={Dysthe modelling: numerical evidence and a PINN research framework},pdfauthor={Matas Vai research working report}}
+\title{Dysthe modelling: numerical evidence and a PINN research framework}
+\author{Research meeting report}
+\date{30 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+The immediate objective is to reproduce and assess finite-time evolution of several smooth water-wave envelope profiles, then determine whether a neural approximation preserves the same amplitude, phase and derivative-sensitive behaviour. This report combines a new CPU numerical proof of concept for a one-coordinate temporal potential-envelope Dysthe model with previously recorded, separately labelled spatial free-surface PINN results. It identifies the equation, verifies controls, measures refinement and states where interpretation must stop. Neither computation nor a small PINN residual establishes global existence of the continuum PDE.
+\end{abstract}
+\section{What can be presented now}
+\begin{enumerate}
+\item \textbf{A reproducible original-paper numerical baseline.} A periodic Fourier solver evolves a localized packet, a modulated wavetrain and a smooth random profile. Independent grid and time-step comparisons support all six primary profile--steepness cases through scaled time $T=16$, with a smaller step needed in one case. The bundle includes the runs, diagnostics, exact-solution controls and a CPU cluster launcher.
+\item \textbf{A concrete PINN improvement already measured.} On three spatial validation inlets, an invertible Fourier coefficient scaling reduces maximum relative $H^2$ error from $12$--$26\%$ to $0.22$--$1.47\%$ at the same update budget. These are CPU fits on the displayed interval, with one optimizer seed; the repaired A100 campaign is awaiting results.
+\item \textbf{A useful failure diagnosis.} Conservation alone does not certify accuracy. Coarse runs retain action while failing derivative-sensitive grid comparisons near focusing. Some finer-grid stress runs also require smaller time steps. An unresolved computation cannot be interpreted as a singularity.
+\end{enumerate}
+\begin{center}\small
+\begin{tabular}{p{.25\linewidth}p{.30\linewidth}p{.36\linewidth}}\toprule
+Question & Evidence available & Conclusion justified \\\midrule
+Do several profiles evolve reproducibly? & CPU temporal solver, refinement, controls & Finite-time periodic trajectories on checked intervals \\
+Can PINN curvature accuracy improve? & Paired spatial CPU fits & Output conditioning is promising for this architecture \\
+Does the continuum solution remain smooth forever? & No matching global theorem or certificate supplied & Open within this project; numerical diagnostics guide analysis \\
+Does an FNO generalize faster than a solver? & A test protocol, no new validated FNO result & Requires held-out whole-profile and cost comparisons \\\bottomrule
+\end{tabular}
+\end{center}
+\noindent\textbf{Meeting decision.} Confirm the temporal formulation and first finite-time validation window before extending neural training.
+\clearpage
+\input{sections/model}
+\clearpage
+\input{sections/numerics}
+\clearpage
+\input{sections/pinn}
+\clearpage
+\input{sections/framework}
+\clearpage
+\input{sections/analysis}
+\clearpage
+\input{sections/reproducibility}
+\clearpage
+\input{sections/references}
+\end{document}

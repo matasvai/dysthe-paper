@@ -1,0 +1,192 @@
+{
+  "audit_completed_utc": "2026-10-27T15:30:11.015201+00:00",
+  "scope": "Read-only audit of visible branch heads and published evidence in matasvai/dysthe-experiments, dysthe-core and dysthe-learning. No repository working tree modified, no fetch or pull, and no scientific campaign rerun. Full bounded software suite executed separately in /tmp.",
+  "repositories": {
+    "matasvai/dysthe-experiments": {
+      "branches": {
+        "codex/long-distance-a100": "c04b44ba6459cac6f216e3a59de4fac78e3b55d7",
+        "codex/cpu-pilot-a100": "314a389063964bb565f3d9c3c3f06ddfe0d7a7c3",
+        "main": "87b534fba38a87d5146953765059998f3d43ecb7",
+        "codex/reference-campaign": "87b534fba38a87d5146953765059998f3d43ecb7",
+        "codex/benchmark-suite": "87b534fba38a87d5146953765059998f3d43ecb7"
+      }
+    },
+    "matasvai/dysthe-core": {
+      "branches": {
+        "codex/cpu-pilot-reference": "a47a42321475feb6bc55031f4b752419f4b7fda9",
+        "main": "10889fed1d20f02f8318d281322585284711eadd",
+        "codex/initial-condition-family": "10889fed1d20f02f8318d281322585284711eadd",
+        "codex/reference-migration": "10889fed1d20f02f8318d281322585284711eadd"
+      }
+    },
+    "matasvai/dysthe-learning": {
+      "branches": {
+        "codex/cpu-pilot-a100": "db7274f8cfe959cf187351f56b3dd4bf89f0e9b4",
+        "main": "27f94b0ebd7c42de3401c7430a380a2378b233b2",
+        "codex/active-learning": "27f94b0ebd7c42de3401c7430a380a2378b233b2",
+        "codex/deeponet": "27f94b0ebd7c42de3401c7430a380a2378b233b2",
+        "codex/fno-baseline": "27f94b0ebd7c42de3401c7430a380a2378b233b2",
+        "codex/hybrid-solver": "27f94b0ebd7c42de3401c7430a380a2378b233b2",
+        "codex/reduced-model": "27f94b0ebd7c42de3401c7430a380a2378b233b2"
+      }
+    }
+  },
+  "current_published_result_directories": [
+    "results/cpu-pilot-2026-10-26",
+    "results/long-distance-workflow-2026-10-26"
+  ],
+  "no_new_hpc_results_found": true,
+  "absence_claim_scope": "No new A100 or Slurm scientific result records found in the inspected visible branches and recursive tree. This does not establish absence of unpublished cluster output or results in other repositories.",
+  "solitary_tests_found_remotely": false,
+  "local_solitary_status": "solitary.py, solitary configuration files, docs/solitary-pilot.md and tests/test_solitary.py are local untracked files; they are absent from the published c04b44ba tree.",
+  "latest_github_actions_run": {
+    "id": 40366330415,
+    "url": "https://github.com/matasvai/dysthe-experiments/actions/runs/40366330415",
+    "head_branch": "codex/long-distance-a100",
+    "head_sha": "c04b44ba6459cac6f216e3a59de4fac78e3b55d7",
+    "created_at": "2026-10-26T17:11:49Z",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "cpu_only": true,
+    "cpu_only_evidence": "The published workflow installs torch==2.10.0 from https://download.pytorch.org/whl/cpu on ubuntu-latest, then runs scripts/check.py. This is CI, not evidence of A100 scientific execution.",
+    "workflow_url": "https://github.com/matasvai/dysthe-experiments/blob/c04b44ba6459cac6f216e3a59de4fac78e3b55d7/.github/workflows/ci.yml"
+  },
+  "published_cpu_pilot": {
+    "source_url": "https://github.com/matasvai/dysthe-experiments/blob/c04b44ba6459cac6f216e3a59de4fac78e3b55d7/results/cpu-pilot-2026-10-26/data/aggregate-errors.csv",
+    "evaluation": "xi=2; three held-out initial fields times two seeds; six case-seed pairs",
+    "slab_pinn": {
+      "passed_pairs": 6,
+      "total_pairs": 6,
+      "worst_relative_l2": 0.009629655182493436,
+      "worst_relative_h1": 0.018814046515568634,
+      "worst_relative_peak": 0.010894324396729035
+    },
+    "scratch_global_pinn": {
+      "passed_pairs": 2,
+      "total_pairs": 6,
+      "worst_relative_l2": 0.01994637322992661
+    },
+    "nls_warm_pinn": {
+      "passed_pairs": 3,
+      "total_pairs": 6,
+      "worst_relative_l2": 0.02073613369473226
+    },
+    "fno": {
+      "passed_pairs": 0,
+      "total_pairs": 6,
+      "worst_relative_l2": 0.5873895867777914
+    },
+    "pino": {
+      "passed_pairs": 0,
+      "total_pairs": 6,
+      "worst_relative_l2": 0.5661695922431063
+    }
+  },
+  "published_workflow_smoke": {
+    "source_url": "https://github.com/matasvai/dysthe-experiments/blob/c04b44ba6459cac6f216e3a59de4fac78e3b55d7/results/long-distance-workflow-2026-10-26/verification.json",
+    "horizons": [
+      0.1,
+      0.2
+    ],
+    "artifact_count": 180,
+    "completed_pinn_replay_identical_artifact_hashes": true,
+    "failures": [
+      {
+        "case": "packet-001",
+        "gate": "domain",
+        "xi": 0.1,
+        "initial_h1": 0.04044357875464748,
+        "max_h1": 0.04044952927746472
+      },
+      {
+        "case": "packet-002",
+        "gate": "domain",
+        "xi": 0.1,
+        "initial_h1": 0.04610257160702669,
+        "max_h1": 0.046169209190504996
+      },
+      {
+        "case": "sideband-002",
+        "gate": "PINN accuracy",
+        "xi": 0.2,
+        "first_failed_station": 0.15,
+        "relative_l2": 0.018303850242312878,
+        "limit_l2": 0.01
+      }
+    ],
+    "interpretation": "Packet domain checks already fail at the initial condition; PINN failure is approximation accuracy. Neither result is evidence of nonexistence or singularity."
+  },
+  "reproducibility_limits": [
+    "Published result summaries and artifact hashes are tracked, but raw NPZ/PT research artifacts are intentionally not tracked in Git. The original empirical results cannot be independently recalculated from these summaries alone.",
+    "Local untracked solitary-wave work is not available from the published branch.",
+    "Successful CI and fresh unit tests verify software contracts, not long-distance accuracy, nonlinear stability or global existence."
+  ],
+  "remote_provenance_methods": [
+    {
+      "method": "GitHub connector search_branches",
+      "purpose": "Enumerate visible remote branches in all three repositories."
+    },
+    {
+      "method": "GitHub connector compare_commits",
+      "purpose": "Compare known CPU and long-distance publication SHAs against their current named branches. Both identical; ahead_by=0, behind_by=0, files=[]."
+    },
+    {
+      "method": "git ls-remote --heads https://github.com/matasvai/<repo>.git",
+      "purpose": "Read exact current branch head hashes without fetching or changing checkouts. Connector branch list did not include commit hashes."
+    },
+    {
+      "method": "gh api repos/matasvai/dysthe-experiments/actions/runs?per_page=15",
+      "purpose": "Read latest push-triggered CI; the available connector workflow query was PR-specific."
+    },
+    {
+      "method": "gh api repos/matasvai/dysthe-experiments/git/trees/c04b44ba6459cac6f216e3a59de4fac78e3b55d7?recursive=1",
+      "purpose": "Inspect current published file and result inventory."
+    },
+    {
+      "method": "GitHub connector fetch_file at exact commit SHA",
+      "purpose": "Read workflow, aggregate CSV, and workflow verification JSON."
+    }
+  ],
+  "fresh_exact_published_suite": {
+    "archived_checkout_root": "/tmp/dysthe-remote-audit-20261027-fgx9piub",
+    "versions": {
+      "dysthe-experiments": "c04b44ba6459cac6f216e3a59de4fac78e3b55d7",
+      "dysthe-core": "a47a42321475feb6bc55031f4b752419f4b7fda9",
+      "dysthe-learning": "db7274f8cfe959cf187351f56b3dd4bf89f0e9b4"
+    },
+    "command": [
+      "/usr/sbin/python",
+      "scripts/check.py"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.946498444000099,
+    "log": "/tmp/dysthe-remote-audit-20261027-fgx9piub/published-suite.log",
+    "environment_overrides": {
+      "PYTHONPATH": "/tmp/dysthe-remote-audit-20261027-fgx9piub/dysthe-experiments/src:/tmp/dysthe-remote-audit-20261027-fgx9piub/dysthe-core/src:/tmp/dysthe-remote-audit-20261027-fgx9piub/dysthe-learning/src",
+      "MPLCONFIGDIR": "/tmp/dysthe-remote-audit-20261027-fgx9piub/mpl-cache",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    },
+    "tests_run": 39,
+    "test_runner_seconds": 1.34,
+    "all_tests_passed": true,
+    "skipped_tests": 0,
+    "check_scope_compile_json_and_artifact_checks_passed": true,
+    "dependencies": {
+      "python": "3.14.8 (main, Oct  1 2026, 00:00:00) [GCC 15.3.1 20260722 (Red Hat 15.3.1-1)]",
+      "numpy": "2.4.2",
+      "scipy": "1.17.0",
+      "torch": "2.10.0+cu128",
+      "matplotlib": "3.10.8",
+      "source_imports": {
+        "dysthe_core": "/tmp/dysthe-remote-audit-20261027-fgx9piub/dysthe-core/src/dysthe_core/__init__.py",
+        "dysthe_learning": "/tmp/dysthe-remote-audit-20261027-fgx9piub/dysthe-learning/src/dysthe_learning/__init__.py",
+        "dysthe_experiments": "/tmp/dysthe-remote-audit-20261027-fgx9piub/dysthe-experiments/src/dysthe_experiments/__init__.py"
+      }
+    },
+    "log_sha256": "9ddceb8a16e805ff625d8d52573feae85a1af89848935ca884253ea85789186b",
+    "is_scientific_campaign": false,
+    "verification_method": "git archive exported each exact pinned commit to /tmp. Temporary Git indexes were created only in those extracted directories so the published scripts/check.py artifact check could use git ls-files. PYTHONPATH selected only those archived project sources."
+  }
+}

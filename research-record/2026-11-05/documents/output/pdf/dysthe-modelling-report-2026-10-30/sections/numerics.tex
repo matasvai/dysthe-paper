@@ -1,0 +1,67 @@
+\section{A runnable numerical proof of concept}\label{sec:numerics}
+\subsection{Discretization and acceptance rules}
+The new solver uses Fourier differentiation and an integrating-factor fourth-order Runge--Kutta method. The linear multiplier in \eqref{eq:scaled} is
+\[
+ \lambda(k)=\ii k^2/8-\ii\epsilon k^3/16.
+\]
+Reference arithmetic is complex128. Exact linear evolution does not remove the nonlinear time-step restriction. The strict mask $|m|<N/4$ prevents cubic aliasing into retained modes. The density is formed before its $|D|$ multiplier; final cubic terms are projected, retaining the nonlocal mean flow.
+
+Each accepted trajectory is compared separately with $N/2$ points at the same time step and with the same $N$ at twice the time step. At saved times separated by $0.2$, both comparisons must satisfy
+\[
+\max E_0\le10^{-5},\quad \max E_1\le10^{-4},\quad
+\max E_2\le10^{-3}.
+\]
+Maximum action drift must be at most $10^{-6}$ and action in the upper fifth of retained Fourier modes at most $10^{-8}$. These are declared empirical acceptance rules, not rigorous error enclosures. The principal $T=16$ audit uses $N=4096$, $h=0.0025$, with comparisons $N=2048$ and $h=0.005$. Smaller grids and all failed outcomes are retained. Time sampling may miss an unsampled extreme.
+
+\subsection{Three inputs, two steepness parameters, four equations}
+The common box is $[-20,20)$. The packet is a periodized Gaussian with peak $0.85$, width $3$, centre $-2$, quadratic chirp $0.08$ and global phase $0.3$. The wavetrain is
+\[
+ 0.8\,[1+0.05\cos(qs)+0.025\ii\sin(qs)]e^{-0.2\ii},
+ \qquad q=2\pi\cdot5/40.
+\]
+The random profile is a fixed, smooth complex Fourier polynomial with modes $-5,\ldots,5$, Gaussian-decaying random coefficients and peak normalized to $0.85$. Coefficients are saved. Initial data are projected through mode $12$, which is part of their definition.
+\fig{temporal-initial-profiles}{.83}{Inputs for the temporal study. The same profiles are used at $\epsilon=0.05$ and $0.1$. One random realization establishes a reproducible example, not ensemble statistics.}
+Cubic NLS suppresses the entire $\epsilon$ bracket in \eqref{eq:scaled}. A mean-flow-only control retains just its last term, following the purpose of Dysthe's simplified Section 4 model. Literal-print and stability-consistent Dysthe retain all terms. Controls change the equation and are labelled accordingly; they are not alternative numerical solvers for identical physics.
+\clearpage
+\subsection{Observed evolution on checked intervals}
+\fig{temporal-evolution}{1}{Temporal potential-envelope dynamics for $c=3/2$, $\epsilon=0.05$. All three trajectories pass the stated independent comparisons through $T=16$. The packet focuses and moves; modulation grows on the wavetrain; the smooth random profile develops a strong localized peak. Display arrays are Fourier-resampled to 256 points; diagnostics use the full reference grid. Grayscale intensity is envelope magnitude, not free-surface elevation.}
+The observed localization is meaningful as a finite-time prediction of this envelope model. It is not evidence of wave breaking, a permanent soliton, or a singularity. The small box uses periodic interactions; packet domain checks below only support the earlier interval $T\le8$. A physical free-surface reconstruction would require the appropriate potential-to-elevation relation and carrier parameters.
+\clearpage
+\subsection{Peak growth and derivative growth quantify different behaviour}
+\fig{temporal-observables}{1}{Full-grid diagnostics for the three $\epsilon=0.05$ stability-consistent trajectories. Peaks and $H^2$ norms increase without implying a loss of regularity. The lower panels track changes in formal steepness and bandwidth; neither is a certified criterion for agreement with the full water-wave equations.}
+\begin{center}\small
+\begin{tabular}{lrrrr}\toprule
+Profile & Peak amplification & Max. $H^2/H^2_0$ & First sampled peak $T$ & Max. grid $E_2$ \\\midrule
+Packet & 2.593 & 7.284 & 9.8 & $1.24\cdot10^{-9}$ \\
+Wavetrain & 2.781 & 7.479 & 15.2 & $1.04\cdot10^{-8}$ \\
+Random & 3.026 & 6.574 & 11.8 & $1.11\cdot10^{-6}$ \\\bottomrule
+\end{tabular}
+\end{center}
+The corresponding maximum time-step $E_2$ values are $3.51\cdot10^{-7}$, $2.87\cdot10^{-7}$ and $5.92\cdot10^{-6}$. Maximum relative action drift is below $1.3\cdot10^{-11}$ in all three. These observations support a resolved focusing episode for these particular periodic profiles. They neither bound all higher derivatives nor cover arbitrary data.
+
+\textbf{Domain check.} Doubling the packet period from $40$ to $80$, doubling the grid, and keeping the physical Fourier cutoff matched gives maximum common-interval $H^1$ difference about $3.8\cdot10^{-4}$ at $\epsilon=0.05$ and $7.6\cdot10^{-4}$ at $0.1$, through $T=8$. Both temporal variants pass the declared $1\%$ domain rule. This is a two-box comparison, not a whole-line limit; it does not establish domain independence through $T=16$.
+\clearpage
+\subsection{Refinement is essential even when conservation looks excellent}
+\fig{temporal-refinement}{1}{Grid comparison and action drift for $\epsilon=0.05$. The first two columns cover $T\le8$; the final column covers $T\le16$. Dashed horizontal lines show the respective acceptance thresholds. Conservation and grid agreement test different properties.}
+A fine-grid calculation can expose a time-step restriction that a coarser grid did not reveal. Exact treatment of the linear dispersion does not make the nonlinear integrating-factor scheme unconditionally stable. The initial high-resolution audit passes 21 of 24 model--profile--steepness combinations; the three failures are the $\epsilon=0.1$ wavetrain in the literal, stability-consistent and mean-flow-only models. All failures and blocked continuations are saved. A separate smaller-step audit resolves the primary $c=3/2$ failure: $h=0.0003125$, compared with $0.000625$, reduces the apparent maximum $H^2/H^2_0$ from $600.6$ to $28.42$, with grid $E_2=4.92\cdot10^{-9}$ and step $E_2=6.95\cdot10^{-10}$. All six primary profile--steepness cases thus qualify through $T=16$, using this finer step for one case. The two other high-steepness control failures remain unresolved. No earlier failure is overwritten.
+\clearpage
+\subsection{Dysthe corrections become visible beyond cubic NLS}
+\fig{temporal-model-differences}{.80}{Complex-field $L^2$ differences from the $c=3/2$ temporal Dysthe solution at $\epsilon=0.05$. Every displayed model pair passes its own $T=16$ numerical audit. Curves are computed from portable display arrays; the full-grid endpoint comparisons in the text are authoritative. No phase or translation alignment is performed.}
+At $T=16$, the full-grid complex $L^2$ difference between the stability-consistent and NLS equations, normalized by the NLS solution, is approximately $0.910$ for the packet, $1.163$ for the wavetrain and $0.892$ for the random profile. The figure uses the stability-consistent solution in the denominator, so it is a distinct normalization. Even with similar amplitude ranges, accumulated phase and drift can make complex-field discrepancies large. These are \emph{model differences}, not neural approximation errors.
+
+The literal and stability-consistent variants also separate substantially: their endpoint relative differences, normalized by the stability-consistent solution, are about $0.217$, $0.514$ and $0.297$. Accordingly, selecting a formulation is consequential for later dynamics. Agreement with a instability growth rate about a zero-envelope-wavenumber background alone cannot resolve the printed coefficient ambiguity.
+
+\subsection{Exact controls before learned models}
+For a plane wave $u=a\exp[\ii(qs-\Omega T)]$, the mean-flow derivative vanishes and
+\begin{equation}
+ \Omega=-q^2/8+\epsilon q^3/16+a^2/2
+       +\epsilon(c+1/4)a^2q.\label{eq:plane}
+\end{equation}
+A nonzero $q$ detects the difference between $c=1$ and $c=3/2$. The bundled tests also check the linear propagator, Fourier mean-flow symbol, cubic dealiasing, zero-$\epsilon$ agreement, time convergence and a cubic-NLS sech solution. The latter is a solver control in the NLS limit, not a claimed Dysthe soliton.
+
+For the zero-carrier-envelope background, the exact retained-model instability exponent obeys
+\begin{equation}
+ \gamma^2=\frac{q^2}{8}\left[a^2(1-\epsilon|q|)-\frac{q^2}{8}\right]
+                  -\frac{\epsilon^2a^4q^2}{16}.\label{eq:mi}
+\end{equation}
+Inside the unstable band ($\gamma^2>0$), its real sideband frequency is $\epsilon(q^3/16+ca^2q)$. The two $c$ values have identical growth but different drift. Dysthe's formal first-order steepness correction omits the last term in \eqref{eq:mi}; implementation checks should use the exact eigenvalue of the equation actually integrated.

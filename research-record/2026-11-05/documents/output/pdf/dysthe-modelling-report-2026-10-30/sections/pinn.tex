@@ -1,0 +1,34 @@
+\section{What the existing PINN results establish}\label{sec:pinn}
+\subsection{A slab PINN fits short consecutive intervals}
+The recorded experiment solves the spatial equation \eqref{eq:spatial}. A separate neural network is fitted for each input profile and each slab of propagation distance. For $\delta=\xi-\xi_j\in[0,0.5]$, the trial field has the form
+\begin{equation}
+ v_j(\delta,\tau)=e^{\delta L}P_Ku_j(\tau)
+  +\delta\sum_{|m|\le K}w_m c_{\theta_j,m}(\delta)e^{\ii k_m\tau},
+ \qquad w_m=\frac1{1+k_m^2}.\label{eq:ansatz}
+\end{equation}
+Here $L=-\ii\partial_{\tau\tau}$, $P_K$ is Fourier projection and the distance-only network returns real and imaginary Fourier coefficients. The projected input is enforced exactly at each slab entrance. The computed endpoint supplies the next input; there is no reset to reference truth. The network is trained on the PDE residual throughout each slab. This is a numerical fit over that slab, not an extrapolation beyond its fitted distance.
+
+The baseline uses $w_m=1$. With all retained $w_m>0$, the change in \eqref{eq:ansatz} is an invertible parameterization on the retained modes; it does not remove high modes, modify the equation or change evaluation gates. It suppresses large initial changes in derivative-sensitive coefficients during optimization. The mechanism is a plausible conditioning explanation, not a proof of an optimizer convergence rate.
+
+Eight slabs cover $\xi\in[0,4]$. Both versions use $K=48$, width 64, depth 3, 400 Adam updates per slab, 64 residual-distance slices and a 512-point spatial residual grid. A finer independent 1024-point residual audit is retained. Checkpoints are selected by the full PDE residual; numerical labels are used for evaluation, not for training these fits. The reference grid is 1024 with time step $0.00125$.
+\fig{spatial-pinn-error-growth}{1}{Spatial free-surface equation, three validation inlets, optimizer seed 11. Maximum relative $H^2$ error is taken over all 81 saved stations through $\xi=4$. The 5\% line is one component of the existing acceptance gate. These are fitted-distance results, not forecasts or new A100 outcomes.}
+\clearpage
+\subsection{The improvement is substantial, but bounded in scope}
+\begin{center}\small
+\begin{tabular}{lrrr}\toprule
+Validation inlet & Baseline max. $E_2$ & Conditioned max. $E_2$ & Reduction factor \\\midrule
+Packet & 26.112\% & 1.466\% & 17.8 \\
+Sideband & 12.108\% & 0.655\% & 18.5 \\
+Random & 15.850\% & 0.216\% & 73.5 \\\bottomrule
+\end{tabular}
+\end{center}
+All three conditioned fits pass the original sampled gate: $E_0\le1\%$, $E_1,E_2\le5\%$ and peak error at most $5\%$. All three unconditioned fits fail. These are validation profiles used during method development, not an untouched test set. Equal update budgets give recorded training times of approximately 14.1--14.4 seconds unconditioned and 15.3--15.7 seconds conditioned. One CPU timing per fit does not establish speedup over a Fourier solver; it only shows the modest recorded overhead of this change.
+\fig{spatial-pinn-profiles-xi4}{.76}{Endpoint profiles at $\xi=4$, including magnitude, real part and pointwise complex error. The zooms make peak differences visible. A visually similar magnitude curve alone cannot establish phase or derivative accuracy.}
+\clearpage
+\subsection{Why an $H^2$ audit matters}
+\fig{spatial-pinn-mode-error}{1}{Endpoint Fourier error power weighted by $(1+k^2)^2$ and normalized by reference $H^2$ energy. The unconditioned errors concentrate in the upper half of the retained correction modes. The reference projection floor through mode 48 is negligible in this spatial experiment, so truncation alone cannot explain these errors.}
+At $\xi=4$, modes 25--48 account for approximately $93\%$, $84\%$ and $90\%$ of unconditioned $H^2$ error power for packet, sideband and random inputs. Scaling improves this portion of the spectrum without filtering the reported error.
+\fig{spatial-pinn-residual-audit}{.82}{Full PDE residual RMS divided by initial RHS RMS on an independent fine spatial grid. One value is shown per fitted slab. These ratios quantify the equation defect, not a certified solution-error bound.}
+A small sampled residual must be assessed alongside the independent solution error and spectrum. The reported fits use reference labels only after training; checkpoint selection uses the residual.
+\fig{spatial-pinn-phase-curvature}{1}{Phase error is masked where either amplitude is below 5\% of its own peak. Curvature error is unmasked and divided by the reference curvature RMS, not by its full $H^2$ norm. These are supplementary diagnostics; they do not retroactively change the original pass/fail rule.}
+For the conditioned packet and sideband fits, curvature-only RMS relative errors remain about $18.0\%$ and $10.6\%$, despite their full $H^2$ errors being below $5\%$. The random curvature error is about $1.53\%$. Thus the next campaign should report a dedicated curvature diagnostic when crest shape or derivative evolution is scientifically important. It should preserve the predeclared primary gate and report additional metrics transparently.

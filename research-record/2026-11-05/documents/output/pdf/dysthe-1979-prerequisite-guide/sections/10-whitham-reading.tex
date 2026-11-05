@@ -1,0 +1,147 @@
+\section{The long-wave check and a map back to the paper}
+\label{sec:reading}
+\subsection{Why Whitham theory appears near the end}
+The paper uses a second approximation method as a consistency check.
+Whitham modulation theory describes a locally periodic nonlinear wave
+whose parameters change on scales much longer than its period and
+wavelength. NLS assumes small amplitude and a narrow band. Whitham's
+approach need not start with a small-amplitude carrier, but its modulation
+must be very long. These are overlapping, rather than identical, assumptions.
+
+For a longitudinal perturbation with $\lambda>0$ tending to zero,
+\eqref{eq:consistent-root} gives
+\begin{equation}\label{eq:long-wave}
+ \Omega\simeq\frac\lambda2+\frac32\lambda A_0^2
+              \mathbin{\pm}i\frac{\lambda A_0}{2\sqrt2}.
+\end{equation}
+The $\lambda^3$ linear-dispersion correction vanishes in this limit, and
+$\lambda^2/K=|\lambda|$ tends to zero. The real correction proportional
+to $\lambda A_0^2$ survives. This is the stated long-wave result (3.14).
+For negative $\lambda$, the growing branch uses $|\lambda|$ in its
+positive growth rate.
+
+\subsection{Averaged Lagrangian: the minimum needed for (3.15)}
+A Lagrangian is a function whose variation produces evolution equations.
+For a nearly periodic wave, average it over the rapid phase to obtain
+$\mathcal{L}(\omega,k)$ after the carrier-amplitude relation has been
+incorporated. You do not need a full course in variational mechanics to
+understand the particular check Dysthe makes.
+
+Let the slowly varying phase be $S(x,t)$, so $k=S_x$ and $\omega=-S_t$.
+Equality of mixed derivatives implies
+\[
+ k_t+\omega_x=0.
+\]
+Varying the averaged action with respect to $S$ yields
+\[
+ \partial_t\mathcal{L}_{\omega}-\partial_x\mathcal{L}_k=0.
+\]
+Linearize both equations about constant $\omega,k$. For a modulation
+$e^{i(\lambda x-\Omega t)}$, the first gives
+$\delta\omega=c\,\delta k$ with $c=\Omega/\lambda$.
+Substitute into the second to get
+\begin{equation}\label{eq:whitham}
+ c^2\mathcal{L}_{\omega\omega}
+ +2c\mathcal{L}_{\omega k}+\mathcal{L}_{kk}=0.
+\end{equation}
+This is (3.15), in the variables appropriate to that calculation.
+The second derivatives are entries of the Hessian of $\mathcal{L}$.
+If $\mathcal{L}_{\omega\omega}\ne0$, the roots are
+\[
+ c=\frac{-\mathcal{L}_{\omega k}\pm
+ \sqrt{\mathcal{L}_{\omega k}^2-
+       \mathcal{L}_{\omega\omega}\mathcal{L}_{kk}}}
+ {\mathcal{L}_{\omega\omega}}.
+\]
+Negative discriminant means complex modulation speeds and an exponentially
+growing branch. In PDE language, the real characteristic speeds of the
+averaged system cease to exist.
+
+The approximate averaged Lagrangian supplied in (3.16) is
+\[
+ \mathcal{L}=\frac{\rho g}{2k^2}(\sigma^2-\sigma^3-\sigma^4),
+ \qquad \sigma=\frac{\omega^2}{gk}-1.
+\]
+Here $\omega$ denotes the \emph{nonlinear} carrier frequency, with
+$\omega^2=gk[1+(ka)^2+\cdots]$. Differentiate the function with respect
+to $\omega,k$ before evaluating it on the carrier relation. If you first
+set $\omega^2=gk$, you incorrectly set $\sigma=0$ and erase the nonlinear
+information the check needs.
+
+Dysthe reports that this calculation agrees with (3.14) at the retained
+small-amplitude order. That is a cross-check in the common long-wave,
+small-steepness limit. The polynomial (3.16) is itself an approximation;
+it is not an exact nonlinear dispersion law. The paper's historical
+discussion of a long-wave instability boundary near $ka=0.34$ concerns
+the separate finite-amplitude Whitham calculation, not a threshold proved
+by its fourth-order envelope expansion.
+
+\subsection{Read the actual paper in three passes}
+\begin{enumerate}
+\item \textbf{Physical argument.} Read pp.~105--106 and the conclusion on
+pp.~113--114. Explain the chain: modulation changes averaged momentum
+flux; a mean current develops; the current shifts phase; the altered
+phase response changes modulational growth.
+\item \textbf{Structure of the model.} Read Section~2, identifying the
+interior equation, boundary conditions, harmonic expansion, scaling, and
+mean-flow closure. Use the table below. Treat the nonlinear-product
+algebra as a coefficient-collection calculation rather than memorizing it.
+\item \textbf{Derivation and evidence.} Work through Section~3 with
+Section~\ref{sec:stability} open. Check the determinant, the truncation,
+and each figure axis. Finish with the long-wave overlap check.
+\end{enumerate}
+
+\begin{longtable}{@{}p{.22\linewidth}p{.49\linewidth}p{.22\linewidth}@{}}
+\toprule Paper location & What the step does & Background here\\\midrule
+\endhead
+Introduction, pp.~105--106 & Compares small-amplitude NLS and very-long-wave
+Whitham regimes; motivates one more asymptotic order. & Sections~1, 5, 6, 10\\
+(2.1)--(2.3), p.~106 & States interior and free-surface fluid equations.
+& Section~3\\
+(2.4)--(2.5), p.~107 & Taylor expands surface conditions at $z=0$.
+& Section~3\\
+(2.6)--(2.8), p.~107 & Separates carrier, harmonics, and mean; finds leading
+dispersion and group transport. & Sections~2, 4, 5\\
+(2.9)--(2.11), pp.~107--108 & Averages to obtain induced mean potential
+and elevation. & Section~7\\
+(2.12)--(2.13), p.~108 & Uses Laplace's equation to eliminate envelope
+vertical derivatives. & Appendix~A.1\\
+(2.14)--(2.16), p.~108 & Collects the fundamental harmonic of nonlinear
+products and its mean-flow interaction. & Sections~2, 5\\
+(2.17)--(2.18), p.~109 & Forms an intermediate envelope equation and
+nondimensionalizes it. & Section~6; A.2\\
+(2.19)--(2.21), p.~109 & Reduces time derivatives; states fourth-order
+equation and mean-flow closure. Check the coefficient issue. & Sections~7--8\\
+(3.1)--(3.5), p.~110 & Introduces real amplitude/phase perturbations and
+linearizes their mean flow. & Sections~6, 9\\
+(3.6)--(3.7), p.~110 & Eliminates the mean field and solves a mode
+determinant to consistent order. & Section~9\\
+(3.8)--(3.12), pp.~111--112 & Extracts longitudinal instability band,
+maximum growth, and frequencies. & Section~9\\
+Figures 1--3, pp.~111--112 & Compares different observables with
+full-equation calculations and some measurements. & Section~9\\
+(3.13), pp.~112--113 & Studies oblique modulation and the NLS hyperbola.
+& Sections~6, 9\\
+(3.14)--(3.16), p.~113 & Checks the very-long-wave limit using an averaged
+Lagrangian. & Section~10\\
+(4.1)--(4.3), pp.~113--114 & Isolates mean-current feedback as the key
+growth correction. & Sections~7--8\\
+\bottomrule
+\end{longtable}
+
+\subsection{What to retain as the paper's conclusion}
+The paper gives an improved \emph{approximate} description of weakly
+nonlinear deep-water gravity-wave modulation. Its central stability
+mechanism is the wave-induced mean current. The asymptotic growth and
+frequency predictions are supported by the paper's reported comparisons
+for particular observables, and by an overlap check with long-wave theory.
+
+It does not derive breaking dynamics, prove a uniform error bound for all
+packets, establish a large-bandwidth model, or validate every later
+equation called Dysthe. In particular, the original two-horizontal-direction
+temporal potential-envelope formulation is distinct from a later
+one-coordinate spatial free-surface-envelope formulation.
+
+\checkpoint{Explain why a smaller growth-rate error in Figure~2 does
+not prove accurate phase prediction or accurate breaking dynamics.}
+\clearpage

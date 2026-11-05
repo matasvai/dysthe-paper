@@ -1,5 +1,11 @@
 # dysthe-paper
 
+## Research record — 5 November 2026
+
+[Complete dated catalogue](research-record/2026-11-05/README.md) · [All project chats](research-record/2026-11-05/CHATS.md) · [Compiled catalogue](research-record/2026-11-05/catalogue/main.pdf)
+
+The collection includes original reports, editable LaTeX, figure PDFs and provenance. Completed experiments, failed gates and planned runs retain distinct status; historical formulations and unrelated chat topics are labeled. The manuscript scaffold below remains separate from this archive.
+
 **Scope: water-wave Dysthe only.** See [SCOPE.md](SCOPE.md) for the fixed
 physical model, exclusions and enforced boundaries.
 

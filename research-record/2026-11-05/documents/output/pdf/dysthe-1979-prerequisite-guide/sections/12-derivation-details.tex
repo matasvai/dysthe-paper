@@ -1,0 +1,100 @@
+\section{Two compressed derivative calculations}
+\label{sec:details}
+\subsection{Eliminating the carrier envelope's vertical derivatives}
+Insert $\phi_1=Ae^{k_0z}e^{i(k_0x-\omega_0t)}$ into Laplace's equation.
+Differentiate both carrier factors and the slow coefficient. After the
+$k_0^2$ contributions cancel, the fundamental coefficient satisfies
+\begin{equation}\label{eq:vertical-envelope}
+ 2k_0A_z=-2ik_0A_x-(A_{xx}+A_{yy}+A_{zz}).
+\end{equation}
+This is (2.12). At leading slow order, $A_z\simeq-iA_x$. Therefore
+$A_{zz}\simeq-A_{xx}$ and the two longitudinal second derivatives cancel.
+The next iteration gives $A_z\simeq-iA_x-A_{yy}/(2k_0)$.
+Because the constant-coefficient derivatives commute, it gives
+\[
+ A_{zz}\simeq
+ \left(-i\partial_x-\frac1{2k_0}\partial_y^2\right)^2A
+ =-A_{xx}+\frac i{k_0}A_{xyy}+\text{higher slow orders}.
+\]
+Substitution into \eqref{eq:vertical-envelope} produces (2.13):
+\begin{equation}\label{eq:vertical-reduced}
+ 2k_0A_z=-2ik_0A_x-A_{yy}-\frac i{k_0}A_{xyy}
+        +O(\varepsilon^5).
+\end{equation}
+Here $A$ is first order, so the retained $A_{xyy}$ term is fourth order
+and omitted terms have higher total order. The paper writes its
+remainder as $o(\varepsilon^4)$. The cancellation is not accidental.
+A sideband's exact positive vertical exponent is
+$\sqrt{(k_0+q)^2+r^2}$, which has no purely longitudinal $q^2$ term
+near $k_0>0$.
+
+\subsection{Reducing the second time derivative}
+\label{sec:reduction}
+In carrier-scaled variables, the left side of (2.17) is
+\[
+ 2i\Dg A+\frac12A_{yy}-A_{tt}+\frac i2A_{xyy}.
+\]
+From NLS at third order,
+\begin{equation}\label{eq:order-reduction-F}
+ A_t=-\frac12A_x+F+O(\varepsilon^4),\qquad
+ F=\frac i4A_{yy}-\frac i8A_{xx}-\frac i2|A|^2A.
+\end{equation}
+$F$ is third order. At the order needed to differentiate it once,
+the envelope translates at velocity $1/2$, so $F_t=-F_x/2$ up to
+fifth-order terms. Thus
+\begin{align*}
+ A_{tt}&=-\frac12A_{xt}+F_t+O(\varepsilon^5)\\
+ &=\frac14A_{xx}-\frac12F_x+F_t+O(\varepsilon^5)\\
+ &=\frac14A_{xx}-\frac i4A_{xyy}+\frac i8A_{xxx}
+   +\frac i2\partial_x(|A|^2A)+O(\varepsilon^5).
+\end{align*}
+This yields the linear correction
+$-i(6A_{xyy}-A_{xxx})/8$ on the right of the reduced NLS equation.
+The derivative of the cubic term also changes nonlinear gradient coefficients.
+
+To expose the source-consistency issue without concealing it, write the
+dimensionless right-side coefficient of the intermediate equation as
+\[
+ \Gamma=|A|^2+i\beta(AA_x^*-A^*A_x)
+              -i\partial_x|A|^2+\Ph_x-i\Ph_z.
+\]
+The $3ik_0^3$ coefficient printed below (2.17), with the scaling (2.18),
+gives $\beta=3/4$. After reducing $A_{tt}$, the nonlinear gradient terms
+on the right become
+\begin{equation}\label{eq:beta-reduction}
+ i(\beta-\tfrac12)A(AA_x^*-A^*A_x)
+ -\frac i2|A|^2A_x.
+\end{equation}
+For $\beta=3/4$, the first coefficient is $i/4$.
+The scan's (2.19) instead prints $3i/2$ and $+i/2$.
+To obtain the linearized coefficients in (3.2)--(3.3),
+\eqref{eq:beta-reduction} would require $\beta=2$ and its displayed minus
+sign. We have not established an authoritative corrected edition or erratum;
+these are direct algebraic comparisons within the supplied scan.
+
+The practical lesson is to distinguish a formal method you can learn from
+a printed coefficient chain that may need source correction. The stability
+determinant derived in Section~\ref{sec:stability} is independently checked
+from the stated (3.2)--(3.3). The mean-flow mechanism and NLS prerequisite
+calculations do not depend on resolving this coefficient issue.
+
+\subsection{Verify the discrepancy by linearizing one gradient term}
+Let the right side of the full NLS balance contain
+\[
+ ic\,A(AA_x^*-A^*A_x)+id\,|A|^2A_x+A(\Ph_x-i\Ph_z).
+\]
+For $A=A_0e^{-iA_0^2t/2}(1+\eta u+i\eta v)$, its linear gradient part
+is proportional to
+\[
+ A_0^3\eta\bigl[id\,u_x+(2c-d)v_x\bigr].
+\]
+Separating the envelope equation into its real and imaginary parts gives
+\[
+ P_1u-\frac d2A_0^2u_x+P_2v=-\frac12\Ph_z,
+ \qquad
+ P_1v+(c-\tfrac d2)A_0^2v_x-P_2u+A_0^2u=-\frac12\Ph_x.
+\]
+The printed $c=3/2,d=+1/2$ yield $-1/4,5/4$ before eliminating
+$\Ph_z$. The paper's (3.2)--(3.3) use $+1/4,7/4$, corresponding to
+$c=3/2,d=-1/2$. This supplies a short reproducible check of the sign issue.
+\clearpage

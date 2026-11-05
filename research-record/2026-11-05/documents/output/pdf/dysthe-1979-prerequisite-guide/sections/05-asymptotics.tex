@@ -1,0 +1,96 @@
+\section{Weak nonlinearity and multiple-scale bookkeeping}
+\label{sec:asymptotics}
+\subsection{Two small quantities, with a chosen relationship}
+Weak nonlinearity means $\varepsilon=k_0a\ll1$. Slow modulation means
+$\delta=\Delta k/k_0\ll1$. They are distinct requirements. Dysthe balances
+them by taking $\delta=O(\varepsilon)$. A small amplitude alone does not
+make an arbitrary spectrum narrowband.
+
+After choosing carrier units, display the scales as
+\[
+ X=\varepsilon(x-c_gt),\qquad Y=\varepsilon y,\qquad T=\varepsilon^2t.
+\]
+If $A=\varepsilon\alpha(X,Y,T)$, the chain rule gives
+\begin{align*}
+ A_x&=\varepsilon^2\alpha_X,& A_{xx}&=\varepsilon^3\alpha_{XX},\\
+ A_t&=-c_g\varepsilon^2\alpha_X+\varepsilon^3\alpha_T,&
+ (\partial_t+c_g\partial_x)A&=\varepsilon^3\alpha_T.
+\end{align*}
+The transport cancellation is essential: $A_t$ alone can be second order,
+while the derivative following the group is third order.
+
+\begin{definition}[Formal order]
+Here $f=O(\varepsilon^m)$ means that the scaled coefficient of
+$\varepsilon^m$ is treated as bounded in the chosen slow variables.
+Products add orders. A derivative acting on a slow profile adds a factor
+of $\varepsilon$, apart from the slower group-frame time scale.
+\end{definition}
+A rigorous bound would specify the domain, norm, derivative bounds, and
+time interval, and prove uniform estimates. The paper's order statements
+are formal bookkeeping, not an error theorem for arbitrary initial data.
+
+\subsection{Distinguish slow derivatives from fast derivatives}
+For the full oscillatory field,
+\[
+ \partial_x(Ae^{i\theta})=(A_x+ik_0A)e^{i\theta}.
+\]
+The carrier derivative $ik_0A$ does not raise the slow order. The statement
+after (2.19) that a derivative adds an order concerns derivatives of the
+slow coefficients. Carrier derivatives have already been extracted.
+
+The vertical mean-flow scale is slow as well. Its depth dependence is
+$e^{Kz}$ with $K=O(\varepsilon)$ in carrier units, whereas the carrier
+has $e^z$ dependence.
+
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule Quantity in carrier units & Formal order\\\midrule
+$A$ & $\varepsilon$\\
+$A_x,A_y$ & $\varepsilon^2$\\
+$\Dg A$, $\Dg=\partial_t+\tfrac12\partial_x$ & $\varepsilon^3$\\
+$A_{xx},A_{yy},A|A|^2$ & $\varepsilon^3$\\
+$A_{xxx},A_{xyy},|A|^2A_x,A^2A_x^*$ & $\varepsilon^4$\\
+$\Ph$ & $\varepsilon^2$\\
+$\Ph_x,\Ph_z,\Zh$ & $\varepsilon^3$\\
+$A\Ph_x,A\Ph_z$ & $\varepsilon^4$\\\bottomrule
+\end{tabular}
+\end{center}
+
+NLS keeps the third-order balance; Dysthe also keeps fourth-order terms.
+``Fourth order'' refers to the perturbation expansion, not a fourth
+spatial derivative or a quartic nonlinearity.
+
+\subsection{Coefficient matching and resonance}
+Insert the harmonic expansion into the boundary conditions. Collect the
+coefficient of each $e^{im\theta}$ and the slow mean $m=0$ separately.
+Higher harmonics are often determined by forced linear problems in terms
+of $A$. They are \emph{bound}: their phase follows the carrier rather than
+an independent linear frequency.
+
+The fundamental $m=1$ is special. The leading linear operator already has
+the carrier as a homogeneous solution; forcing at that phase can resonate.
+The requirement that the next correction remain bounded supplies the
+envelope evolution equation.
+
+For comparison, $u_{tt}+u=\varepsilon\cos t$ has a particular term
+$\tfrac12\varepsilon t\sin t$, which grows at long times. Allowing the
+leading amplitude and phase to evolve slowly removes this secular forcing
+from the next correction. This principle produces NLS and its next correction.
+
+The cubic product in Section~\ref{sec:waves} explains the structure
+$|A|^2A$ but not its water-wave coefficient. That coefficient comes from
+the full boundary conditions, lower harmonics, and normalization.
+
+\subsection{Order reduction}
+An intermediate equation contains $A_{tt}$. Leading transport gives
+$A_t\approx-\tfrac12A_x$, hence $A_{tt}\approx\tfrac14A_{xx}$.
+For fourth-order accuracy one must also differentiate the third-order NLS
+correction. Appendix~\ref{sec:reduction} shows this calculation.
+Such substitutions are justified only when their errors lie beyond the
+target order; they are not identities for arbitrary functions.
+
+\paperlink{Read the order statements around (2.6), (2.12)--(2.17), and
+after (2.19). Identify which derivatives act on slow coefficients.}
+\checkpoint{For $A=\varepsilon\alpha(\varepsilon x)$, check that
+$|A|^2A_x$ is fourth order and $|A|^2A$ third order.}
+\clearpage

@@ -1,0 +1,105 @@
+{
+  "verified_on": "2026-10-30",
+  "figures": [
+    {
+      "path": "figures/spatial-pinn-error-growth.pdf",
+      "sha256": "46364c0e0887cd4012d2eea2167be41cf8b7cb7e36a0787ae697b5f9fc93d550",
+      "raster_images": 0,
+      "font_embedding_verified": true,
+      "rendered_and_visually_inspected": true,
+      "preview_scale_pixels": 1400
+    },
+    {
+      "path": "figures/spatial-pinn-mode-error.pdf",
+      "sha256": "d2376328599a8b2bbb9d086420acc6f20adc9ab8d1e93cb6b362729561755c8c",
+      "raster_images": 0,
+      "font_embedding_verified": true,
+      "rendered_and_visually_inspected": true,
+      "preview_scale_pixels": 1400
+    },
+    {
+      "path": "figures/spatial-pinn-phase-curvature.pdf",
+      "sha256": "143aeacb9a468c17f79c252de42004d73825878932548b3a6fe7601b50129df3",
+      "raster_images": 0,
+      "font_embedding_verified": true,
+      "rendered_and_visually_inspected": true,
+      "preview_scale_pixels": 1400
+    },
+    {
+      "path": "figures/spatial-pinn-profiles-xi4.pdf",
+      "sha256": "bf4d733363a16e29c36b4aa53b1493b3f9d38e6ddb017ca56061e9f860e8c3bb",
+      "raster_images": 0,
+      "font_embedding_verified": true,
+      "rendered_and_visually_inspected": true,
+      "preview_scale_pixels": 1400
+    },
+    {
+      "path": "figures/spatial-pinn-recorded-cost.pdf",
+      "sha256": "8a67332af3c1ac0f0d6e5fe14496b533a8ecc7a14c990a49dc1a037aed722429",
+      "raster_images": 0,
+      "font_embedding_verified": true,
+      "rendered_and_visually_inspected": true,
+      "preview_scale_pixels": 1400
+    },
+    {
+      "path": "figures/spatial-pinn-residual-audit.pdf",
+      "sha256": "101df304f470bf58ab946aa96ac8c69a018784f482f3218270a00ba1830cedd1",
+      "raster_images": 0,
+      "font_embedding_verified": true,
+      "rendered_and_visually_inspected": true,
+      "preview_scale_pixels": 1400
+    }
+  ],
+  "source_data_and_code": [
+    {
+      "path": "make_spatial_figures.py",
+      "sha256": "7a7c8fca9dd8b4dbdc2f2ffb4a0f85b8a76a89a44d70fbfc6c698d092cceee30"
+    },
+    {
+      "path": "data/spatial-pinn-costs.csv",
+      "sha256": "2ac113babee2ab288faa205f6d01513d786a2265e15f532938bd740a2d71feda"
+    },
+    {
+      "path": "data/spatial-pinn-phase-curvature.csv",
+      "sha256": "3f9c31886b229af05beff354efaae3c57d4b2ea5d04342864a3f6975f50ec682"
+    },
+    {
+      "path": "data/spatial-pinn-residuals.csv",
+      "sha256": "7bb85963e21efb08a1fd5f30b1f441b15e6ae1f851c1e75c83a34e2203c0e0d2"
+    },
+    {
+      "path": "data/spatial-pinn-stations.csv",
+      "sha256": "1761054cd9cf7986299e651f41f532c5ab157a67383eb7093a2a5db4e8ec2c16"
+    },
+    {
+      "path": "data/spatial-pinn-xi4-profiles.csv",
+      "sha256": "16629477fa5ed8596b880192f396d73ba5ea04de3cb675f202cd23c840cd03ef"
+    },
+    {
+      "path": "data/spatial-pinn-xi4-spectrum.csv",
+      "sha256": "7c057efac2d042d3b3a2f83edc91a8b3475689e94a6f3a49e44ff121ee694c9e"
+    },
+    {
+      "path": "data/spatial-figure-descriptions.json",
+      "sha256": "d894148514c44cd0ee009cdb24a03e11d577bc965e8dd5c64c3ecea9c8e989c0"
+    },
+    {
+      "path": "data/spatial-pinn-endpoint-diagnostics.json",
+      "sha256": "de27228efd8c7369ead8610025cf818bb3ca2221088bb2ebb94a46ac0250be6a"
+    },
+    {
+      "path": "data/spatial-pinn-phase-summary.json",
+      "sha256": "998bed4f572adc8faedc3358e4bd6e8cb21b61f2cf62a6df117549417768ff4e"
+    },
+    {
+      "path": "data/spatial-pinn-verification.json",
+      "sha256": "f0a4f10812fafd40e9268e2976f13de35d398761b6e6cc0ad819b825a6451846"
+    }
+  ],
+  "python": "3.14.8",
+  "numpy": "2.4.2",
+  "scipy": "1.17.0",
+  "matplotlib": "3.10.8",
+  "renderer": "Poppler pdftoppm",
+  "notes": "All six standalone spatial figures rendered and visually inspected. Main report PDF verification is separate."
+}

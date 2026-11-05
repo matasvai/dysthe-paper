@@ -1,0 +1,560 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=.9in]{geometry}
+\usepackage{amsmath,amssymb,graphicx,booktabs,hyperref}
+\hypersetup{hidelinks,pdftitle={Numerical Solitary Waves and Transverse Dynamics in Dysthe-Type Envelope Models}}
+\numberwithin{equation}{section}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{definition}[proposition]{Definition}
+\DeclareFontShape{OT1}{cmr}{m}{n}{<->cmr10}{}
+\DeclareMathSizes{7}{7}{7}{7}\DeclareMathSizes{6}{7}{7}{7}
+\DeclareMathSizes{8}{10}{7}{7}\DeclareMathSizes{12}{12}{7}{7}
+\DeclareMathSizes{9}{10}{7}{7}\DeclareMathSizes{10}{10}{7}{7}
+\DeclareFontShape{OT1}{cmr}{bx}{n}{<->cmbx10}{}
+\DeclareFontShape{TU}{lmr}{m}{n}{<->\UnicodeFontFile{lmroman10-regular}{\UnicodeFontTeXLigatures}}{}
+\DeclareFontShape{TU}{lmr}{bx}{n}{<->\UnicodeFontFile{lmroman10-bold}{\UnicodeFontTeXLigatures}}{}
+\DeclareFontShape{TU}{lmr}{m}{it}{<->\UnicodeFontFile{lmroman10-italic}{\UnicodeFontTeXLigatures}}{}
+\setlength{\parindent}{1.2em}\setlength{\parskip}{3pt}
+\setlength{\emergencystretch}{1.5em}
+\renewcommand{\topfraction}{.9}\renewcommand{\bottomfraction}{.8}
+\renewcommand{\textfraction}{.08}\renewcommand{\floatpagefraction}{.65}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\R}{\mathbb R}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\fig}[4]{\begin{figure}[!htbp]\centering\includegraphics[width=#2\linewidth]{nonlinear_figures/#1.pdf}\caption{#3}\label{#4}\end{figure}}
+\title{Numerical Solitary Waves and Transverse Dynamics\\in Dysthe-Type Envelope Models\\[6pt]\large A self-contained solver and computational study}
+\author{Research checkpoint}
+\date{14 September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+A dealiased Fourier solver is constructed for two explicitly distinguished nonlinear envelope equations: the one-profile-coordinate spatial water-wave Dysthe equation, and the three-profile-coordinate optical equation in the supplied manuscript. The study executes an exact nonlinear Schr\"odinger (NLS) benchmark, solitary-wave continuation, propagation and perturbation tests, collisions, and transverse perturbations of an optical stripe. The NLS benchmark reaches a relative complex-field error of $3.68\times10^{-9}$ at evolution time $20$. Twenty-eight Dysthe profiles are computed with relative discrete residual below $2\times10^{-11}$. Refined Dysthe collisions leave approximately $1.8\%$ excess action outside two prescribed pulse cores and change the outgoing profiles, whereas the corresponding NLS control recovers the incoming shapes to approximately $8\times10^{-8}$ after translation and phase alignment. In the full optical equation, a prescribed transverse perturbation grows from approximately $0.5\%$ to $4.76\%$ of the field norm by $t=4$; the largest final complex-field discrepancy among the reported early-window comparisons is $4.68\times10^{-4}$. Exploratory results through $t=8$ are materially resolution dependent and are not used to claim late-time breakup or collapse. The equations, normalization, discretization, diagnostics, input data, computational evidence, and reproduction procedure are specified below. These are finite-window numerical observations, not proofs of asymptotic stability or changes to a uniform linear decay theorem.
+\end{abstract}
+\tableofcontents
+\clearpage
+
+\section{Purpose, scope, and physical interpretation}
+\subsection{The questions being tested}
+The preceding project studied dispersive decay of linear envelope solutions, including large evolution times and spatial reliability. The present task is different in a mathematically necessary way: a solitary wave requires a balance between dispersion and nonlinearity. A linear propagator can spread an initially localized packet, but it cannot demonstrate that the nonlinear equation preserves a localized traveling profile. The objective here is therefore to construct and verify a nonlinear solver before interpreting persistent localized structures.
+
+The computational sequence addresses four concrete questions. First, does the solver reproduce an exact localized wave when the answer is known? Second, can that wave be continued into a specified Dysthe model and propagated consistently with its defining profile equation? Third, how do selected perturbations and collisions change it? Fourth, what happens when a known stripe is perturbed in additional coordinates of the full optical equation? The final question is an evolution experiment about a stripe; it is not an existence computation for a pulse localized in every coordinate.
+
+\subsection{What the plotted magnitudes represent}
+The unknown is a complex envelope, written $u=a\exp(\ii\phi)$ with $a=|u|\geq0$. Its magnitude measures the local strength of a rapidly oscillating carrier. In a leading-order water-wave reconstruction, the oscillatory surface is bounded approximately by the curves $\pm a$, after restoring the chosen amplitude scale. The envelope is thus the broader outline containing many individual crests and troughs. It is not fluid velocity. Its argument $\phi$ changes the positions of the carrier crests without necessarily changing the outline.
+
+A persistent envelope does not imply that every individual crest remains attached to a fixed point of the packet. Carrier and packet motion are distinct. Furthermore, a complex envelope alone is not a complete velocity, pressure, or free-surface solution of the Euler equations. Figure~\ref{fig:water} illustrates precisely the leading-order reconstruction adopted here, including the amplitude scale. It is deliberately presented before the numerical machinery so that subsequent magnitude plots have a physical referent.
+
+\fig{water_reconstruction}{.91}{Leading-order water-surface illustration from the computed spatial Dysthe profile with $\epsilon=0.05$, $\mu=2$, and $s=0$. The lower panel shows the oscillating carrier and the envelope bounds; the upper panel repeats the same section across a transverse water-surface coordinate. This is a surface visualization with straight crests, not a computed two-horizontal-coordinate water wave. The reconstruction and dimensionless coordinates are defined in Section~\ref{sec:reconstruction}.}{fig:water}
+
+\subsection{Two meanings of three dimensions}
+The spatial Dysthe experiment uses one envelope coordinate $\tau$ and one evolution variable $\xi$. A graph with axes $(\tau,\xi,|u|)$ has three plotting axes but does not solve a three-coordinate field equation. Likewise, a perspective picture of a water surface does not, by itself, establish that transverse water-wave dynamics have been computed.
+
+The optical experiment actually evolves $E(t,x,y,z)$ on a three-dimensional tensor grid in $(x,y,z)$. In the manuscript's optical interpretation, $t$ is propagation distance after a relabeling of variables, $x,y$ are transverse spatial coordinates, and $z$ is retarded time. It is therefore a three-coordinate envelope problem, not a free water surface in three spatial directions. The distinction matters both for physical interpretation and for comparing decay or localization statements.
+
+\section{The equations and conventions}
+\subsection{Spatial water-wave Dysthe equation}
+We implement the spatial equation used by Fedele and Dutykh~\cite{FD}:
+\begin{equation}\label{eq:dysthe}
+ u_\xi=-\ii u_{\tau\tau}-\ii |u|^2u
+ -\epsilon\left(8|u|^2u_\tau+2u^2\overline{u}_\tau
+       +2\ii u|D_\tau|(|u|^2)\right).
+\end{equation}
+The coefficient tuple in their general notation is $(a,h,c,e,f)=(1,1,8,2,2)$. Here $\epsilon$ is the small steepness parameter of this water-wave scaling. It is not either of the two optical coefficients introduced below. We keep the coefficients fixed and vary $\epsilon$ between $0$ and $0.15$.
+
+Our Fourier convention uses the forward kernel $\exp(-\ii k\tau)$, so that
+\begin{equation}
+ \widehat{\partial_\tau f}=\ii k\widehat f,\qquad
+ \widehat{\mathcal Hf}=-\ii\operatorname{sgn}(k)\widehat f,
+ \qquad |D_\tau|=\mathcal H\partial_\tau.
+\end{equation}
+Consequently the nonlocal multiplier is $|k|$, with zero value at $k=0$. This specifies a sign convention that is essential for reproducibility. On a periodic box it defines a periodic nonlocal operator; enlarging that box can change the solution even when the visible envelope tails are very small.
+
+At $\epsilon=0$, equation~\eqref{eq:dysthe} reduces to
+\begin{equation}\label{eq:spatialnls}
+ \ii u_\xi=u_{\tau\tau}+|u|^2u.
+\end{equation}
+Its propagation convention is the time reversal of the standard focusing NLS convention used in our separate benchmark. We retain this distinction in every reference phase.
+
+\subsection{Full optical equation}
+The three-coordinate solver implements equation (1.27) of the supplied manuscript~\cite{MPS26}:
+\begin{equation}\label{eq:optical}
+ \ii E_t+(1-\ii\epsilon_1\partial_z)(E_{xx}+E_{yy})
+ -E_{zz}-\ii\epsilon_2 E_{zzz}
+ +(1+\ii\epsilon_1\partial_z)(|E|^2E)=0.
+\end{equation}
+Both coefficients are set to $1$ for the three-coordinate experiments. They control terms in this normalized model; no dimensional optical material parameters are inferred from that choice. With $v=\widehat E$, the implemented equation is
+\begin{align}
+ v_t&=L(k)v+\widehat{\mathcal N}(v),\\
+ L(k)&=-\ii\omega(k),\qquad
+ \omega(k)=(1+\epsilon_1k_z)(k_x^2+k_y^2)-k_z^2+\epsilon_2k_z^3,
+ \label{eq:symbol}\\
+ \widehat{\mathcal N}(v)&=\ii(1-\epsilon_1k_z)\widehat{|E|^2E}.
+ \label{eq:opticalnl}
+\end{align}
+In particular, the multiplier in the nonlinear term is $1-\epsilon_1k_z$, not $1+\epsilon_1k_z$. It follows from multiplying the equation by $\ii$ to isolate $E_t$ and applying the stated Fourier convention.
+
+If $E$ is independent of $y,z$, equation~\eqref{eq:optical} reduces exactly to
+\begin{equation}\label{eq:nls}
+ \ii E_t+E_{xx}+|E|^2E=0.
+\end{equation}
+Thus a known one-dimensional NLS wave supplies a controlled stripe solution of the full optical equation. Adding dependence on both $y$ and $z$ activates the additional terms and yields a genuinely three-coordinate evolution.
+
+\subsection{Model provenance and limits}
+Fedele and Dutykh motivate the spatial traveling-wave and collision experiments~\cite{FD}. The supplied manuscript specifies the optical model~\cite{MPS26}. A separate Hamiltonian water-wave Dysthe model in three-dimensional deep water, with two horizontal envelope coordinates and comparisons to Euler evolution, is studied by Guyenne, Kairzhan, and Sulem~\cite{GKS}. That model is a natural future route to transversely varying water waves, but it is not silently substituted for either equation above. A claim for one of these models cannot be transferred to another merely because both are called Dysthe equations.
+
+\section{Exact solitary waves and the continuation target}
+\subsection{An exact NLS benchmark}
+For $\mu>0$, substitute $E(t,x)=Q(x)e^{\ii\mu t}$ into~\eqref{eq:nls}. A real decaying profile satisfies
+\begin{equation}
+ Q''-\mu Q+Q^3=0.
+\end{equation}
+Multiplication by $Q'$ and integration, using decay at infinity, gives
+\begin{equation}
+ (Q')^2=\mu Q^2-\tfrac12Q^4.
+\end{equation}
+The positive centered solution is
+\begin{equation}\label{eq:exact}
+ Q_\mu(x)=\sqrt{2\mu}\,\operatorname{sech}(\sqrt\mu x),\qquad
+ E(t,x)=Q_\mu(x)e^{\ii\mu t}.
+\end{equation}
+Its envelope magnitude is independent of $t$. Its action is $\int_\R Q_\mu^2\,dx=4\sqrt\mu$. The benchmark uses $\mu=1$, so the exact peak is $\sqrt2$ and the exact whole-line action is $4$.
+
+This formula is a whole-line solution. Its restriction to a finite periodic interval has a small boundary mismatch. We quantify the resulting numerical effect using separate grid and box changes; we do not call the sampled formula an exact periodic solution.
+
+\subsection{Traveling profiles for the spatial equation}
+Seek
+\begin{equation}\label{eq:ansatz}
+ u(\xi,\tau)=F(\tau-s\xi)e^{-\ii\mu\xi},\qquad \mu>s^2/4.
+\end{equation}
+Writing $\mathcal N_\epsilon$ for the nonlinear right-hand side of~\eqref{eq:dysthe}, substitution gives
+\begin{equation}\label{eq:profile}
+ (\mu-\partial_\tau^2-\ii s\partial_\tau)F
+   =\ii\mathcal N_\epsilon(F).
+\end{equation}
+The left multiplier is
+\begin{equation}
+ d(k)=\mu+k^2+sk=(k+s/2)^2+\mu-s^2/4>0.
+\end{equation}
+At $\epsilon=0$ its localized solution is
+\begin{equation}\label{eq:seed}
+ F_{0,\mu,s}(\tau)=\sqrt{2\nu}\operatorname{sech}(\sqrt\nu\tau)
+       e^{-\ii s\tau/2},\qquad \nu=\mu-s^2/4.
+\end{equation}
+Both its phase and the sign in~\eqref{eq:ansatz} are part of the initial data. Replacing this complex profile by its magnitude generally changes the experiment.
+
+\subsection{Why continuation is useful}
+A Gaussian is a convenient starting packet for dispersion, but it is not a solitary-wave solution of these equations. Formula~\eqref{eq:seed} gives a substantially sharper test: it is exact at one parameter value and supplies a nearby starting iterate when $\epsilon$ is increased. We continue four branches, $(\mu,s)=(2,0),(2,-2),(2,2),(3,0)$, through
+\begin{equation}
+ \epsilon=0,\ 0.025,\ 0.05,\ 0.075,\ 0.10,\ 0.125,\ 0.15.
+\end{equation}
+This is a collection of 28 computed profiles, not a classification of all traveling waves or a proof that a branch exists between every sampled parameter value.
+
+\section{Fourier discretization and nonlinear evaluation}
+\subsection{Periodic grid and norms}
+For each profile coordinate use
+\begin{equation}
+ x_j=-L/2+j\Delta x,\qquad \Delta x=L/N,\qquad j=0,\ldots,N-1.
+\end{equation}
+In three coordinates these grids are tensor products. The discrete norm is
+\begin{equation}
+ \norm{u}_{2,h}^2=\left(\prod_{\ell=1}^d\Delta x_\ell\right)
+                  \sum_{j_1,\ldots,j_d}|u_{j_1,\ldots,j_d}|^2.
+\end{equation}
+The FFT uses an unscaled forward transform and an inverse transform divided by the number of grid points. Norm ratios can consequently be evaluated with ordinary array Euclidean norms on a fixed grid. Physical integrals and action diagnostics include the cell volume.
+
+\subsection{Cubic dealiasing}
+Let $P$ retain only integer Fourier modes satisfying
+\begin{equation}\label{eq:cutoff}
+ |m_\ell|<N_\ell/4\qquad\text{for every coordinate }\ell.
+\end{equation}
+We project the initial data, each nonlinear right-hand side, and each completed step. The strict inequality is intentional. If all inputs have coordinatewise bandwidth $K<N/4$, a cubic product has bandwidth at most $3K$. An aliased contribution from that product into a retained mode would require $|r-m|\geq N$, whereas $|r-m|\leq4K<N$. Thus it cannot occur. Derivatives change multipliers but not support. For the nonlocal Dysthe term, the quadratic density has bandwidth at most $2K<N/2$, so its intermediate $|D|$ evaluation also fits the native grid before multiplication by $u$.
+
+This conservative cutoff is appropriate to a cubic equation. It retains fewer modes than the rule commonly used for quadratic products. In particular, nominal spacing $L/N$ alone overstates the available bandwidth: the largest active positive index for the grids here is $N/4-1$. A numerical comparison must increase $N$ at fixed $L$ to resolve more frequencies; increasing both equally only increases the period at fixed spacing.
+
+\subsection{Evaluation of the two nonlinearities}
+For the spatial equation, transform $v$ to $u$, compute $u_\tau$ by multiplying $v$ by $\ii k$, and form $\rho=|u|^2$. Transform $\rho$, multiply by $|k|$, and invert to obtain $|D|\rho$. Assemble the three cubic contributions in physical space and project their transform. For the optical equation, transform $|E|^2E$ and apply the multiplier in~\eqref{eq:opticalnl} before projection.
+
+All fields use double-precision complex arithmetic. The solver does not add viscosity, an absorbing layer, or amplitude renormalization. Consequently it approximates a periodic conservative model, and radiation remains in the computational box. This is one reason that very long runs require more than an increase of the final-time parameter.
+
+\section{Time integration}
+For a finite-dimensional system $v'=Lv+\widehat{\mathcal N}(v)$, define
+\begin{equation}
+ H=e^{hL/2},\qquad G=e^{hL}.
+\end{equation}
+The integrating-factor fourth-order Runge--Kutta step used here is
+\begin{align}
+ a&=h\widehat{\mathcal N}(v_n),\\
+ b&=hH^{-1}\widehat{\mathcal N}\bigl(H(v_n+a/2)\bigr),\\
+ c&=hH^{-1}\widehat{\mathcal N}\bigl(H(v_n+b/2)\bigr),\\
+ d&=hG^{-1}\widehat{\mathcal N}\bigl(G(v_n+c)\bigr),\\
+ v_{n+1}&=PG\left[v_n+(a+2b+2c+d)/6\right].\label{eq:step}
+\end{align}
+Both models have a purely imaginary linear symbol, so inverse factors are complex conjugates. The linear evolution is exact at the retained frequencies. With nonlinearity disabled, equation~\eqref{eq:step} reduces to multiplication by $e^{hL}$.
+
+Exact linear stepping removes the need to approximate rapidly oscillating linear phases by a polynomial. It does not eliminate nonlinear time-step restrictions, particularly for derivative nonlinearities, and does not make the method symplectic. We test time-step sensitivity instead of inferring reliability from the formal order alone.
+
+For a requested endpoint $T$ and nominal step $h$, the implementation uses $n_t=\max(1,\operatorname{round}(T/h))$ steps and the actual step $T/n_t$. All reported configurations divide exactly. Diagnostic output is sampled at selected step indices, including both endpoints. Reported maximum drifts are maxima over these saved times, not over every internal Runge--Kutta stage.
+
+\section{Profile computation and residual checks}
+\subsection{Petviashvili iteration}
+Let $v_n=\widehat F_n$ and $\mathcal C(v)=\ii\widehat{\mathcal N}_\epsilon(v)$. Every term in $\mathcal C$ is homogeneous of degree three under a real amplitude scaling. We iterate
+\begin{align}
+ S_n&=\frac{\operatorname{Re}\langle v_n,dv_n\rangle}
+             {\operatorname{Re}\langle v_n,\mathcal C(v_n)\rangle},\\
+ \widetilde v_{n+1}&=S_n^{3/2}\frac{\mathcal C(v_n)}{d}.
+\end{align}
+After inversion, enforce the centered conjugation symmetry
+\begin{equation}
+ F_{n+1}(\tau)=\tfrac12\left[\widetilde F_{n+1}(\tau)
+                      +\overline{\widetilde F_{n+1}(-\tau)}\right].
+\end{equation}
+This fixes the centered branch convention. It restricts the search to this symmetry class and does not seek arbitrary asymmetric or excited profiles. The initial iterate is~\eqref{eq:seed} at the first parameter value and the previous converged profile thereafter.
+
+The iteration stops when
+\begin{equation}\label{eq:residual}
+ r_F=\frac{\norm{dv-\mathcal C(v)}_2}{\norm{dv}_2}<2\times10^{-11}.
+\end{equation}
+A nonpositive or nonfinite stabilizing ratio, nonfinite iterate, or failure to converge within 12,000 iterations raises an error. A second check computes
+\begin{equation}
+ r_{\rm evol}=\frac{\norm{Lv+\widehat{\mathcal N}_\epsilon(v)
+                    -(-\ii\mu-\ii sk)v}_2}
+                    {\norm{(-\ii\mu-\ii sk)v}_2}.
+\end{equation}
+This checks consistency with the evolution ansatz and catches sign or assembly mistakes. It shares the spatial discretization and is not an independent whole-line accuracy certificate.
+
+\subsection{Residual versus accuracy}
+A small profile residual establishes that the discrete equation has been solved accurately. It does not establish that the domain is sufficiently large or the retained bandwidth sufficient. Table~\ref{tab:profilecheck} illustrates the distinction: every residual is small, but the coarse-grid peak and the finite-box peak still change under refinement. The profile audit therefore changes both grid and box independently.
+
+\section{Diagnostics and comparison rules}
+\subsection{Action and spatial Dysthe invariants}
+For $\rho=|u|^2$ and $C=\overline{u_\tau}u-u_\tau\overline u$, monitor
+\begin{align}
+ A&=\int\rho\,d\tau,\\
+ \mathcal E&=\int\left[|u_\tau|^2-\tfrac12\rho^2
+       +\tfrac{10}{3}\epsilon^2\rho^3
+       -\tfrac{5\ii}{2}\epsilon\rho C
+       -\epsilon\rho|D_\tau|\rho\right]d\tau,\label{eq:energy}\\
+ M&=\int\left[\ii C-2\epsilon\rho^2\right]d\tau.
+\end{align}
+These are the invariants in the spatial formulation~\cite{FD}; the designation $\mathcal E$ does not assert that $u$ is a canonical Hamiltonian variable. Numerical integrals use the periodic trapezoidal sum, taking the real part to discard roundoff imaginary components.
+
+For action we report $D_A=\max_j|A_j-A_0|/|A_0|$. For $I=\mathcal E,M$, we report $D_I=\max_j|I_j-I_0|/\max(1,|I_0|)$ to avoid an ill-conditioned relative error near zero. They are thus normalized drifts, not all identically normalized relative errors. The optical runs monitor $A=\int|E|^2\,dx\,dy\,dz$; no unverified optical energy functional is introduced.
+
+The projected finite-dimensional equation and native-grid quadrature need not conserve the continuum formulas exactly. In particular, the sixth-degree term in~\eqref{eq:energy} is not automatically integrated without aliasing by the cubic evolution cutoff. Invariant drift is therefore a combined discretization and time-integration diagnostic. Its interpretation must be supported by refinement, not treated as a sufficient accuracy test in isolation.
+
+\subsection{Field and orbital errors}
+For a prescribed reference wave $u_{\rm ref}$, use
+\begin{equation}
+ e_{\rm field}(t)=\frac{\norm{u(t)-u_{\rm ref}(t)}_{2,h}}
+                         {\norm{u_{\rm ref}(0)}_{2,h}}.
+\end{equation}
+For a fixed profile $F$, also compute
+\begin{equation}\label{eq:orb}
+ e_{\rm orb}(t)=\min_{a,\theta}
+     \frac{\norm{u(t)-e^{\ii\theta}F(\,\cdot-a)}_{2,h}}{\norm F_{2,h}}.
+\end{equation}
+Translations are evaluated spectrally through $e^{-\ii ka}$. At fixed $a$, the optimizing phase is $\arg\langle F(\cdot-a),u\rangle$. A bounded scalar minimizer searches near the predicted center: within three coordinate units for propagation and perturbations, and eight for outgoing collision fits. These are local alignment searches, not certified global minimizations over the entire periodic orbit. No amplitude rescaling or frequency-parameter refitting is permitted.
+
+A large field error and small orbital error can therefore indicate changed phase or position rather than loss of pulse shape. Conversely, a nonzero orbital error may include a nearby profile of different amplitude or frequency; it is not purely radiation.
+
+\subsection{Tail action and spectral occupation}
+For collisions, select the two largest sampled local maxima subject to a minimum separation of five coordinate units. Let their centers be $c_1,c_2$. Define
+\begin{equation}
+ R_6(u)=\frac{\int_{\{\min_j|\tau-c_j|>6\}}|u|^2\,d\tau}
+                  {\int|u|^2\,d\tau},\qquad
+ \Delta R_6=R_6(u(T))-R_6(u(0)),\label{eq:tail}
+\end{equation}
+where the initial cores are centered at the prescribed initial positions. This is excess action outside fixed-radius pulse neighborhoods. It is a useful radiation proxy, but contains profile tails and deformation, excludes radiation still inside a core, and depends on the chosen radius and sampled peak centers. We consequently quote approximately $1.8\%$, not an exact universal radiation fraction.
+
+The spectral-edge diagnostic is the fraction of Fourier action in the retained cube but outside its inner $80\%$ cube. Large edge occupation warns that the retained bandwidth may be inadequate. Small edge occupation does not by itself exclude box effects, accumulated phase error, or an insufficient time step.
+
+\subsection{Transverse variation}
+For the optical stripe experiment, average the complex field over the two coordinates in which the initial stripe is constant:
+\begin{equation}
+ \overline E_x(t,x)=\frac{1}{L_yL_z}\int E(t,x,y,z)\,dy\,dz,
+ \qquad V(t)=\frac{\norm{E-\overline E_x}_{2,h}}{\norm E_{2,h}}.\label{eq:transverse}
+\end{equation}
+Here ``transverse variation'' denotes variation away from the stripe reduction in both $y$ and $z$; physically, $z$ is retarded time in the optical interpretation. This quantity detects changes in phase as well as magnitude, unlike a peak-only plot.
+
+\section{Verification against known answers}
+\subsection{Automated checks}
+Six tests pass in the delivered implementation. They check: the three-coordinate optical linear phase for a known Fourier mode; the exact NLS profile in the differential equation; cubic projection against an independently oversampled product; fourth-order NLS time refinement; agreement of a Dysthe profile with its evolution ansatz; and vanishing instantaneous action derivative for the spatial Dysthe right-hand side.
+
+More precisely, the plane-wave test uses $k=(1,1,-1)$ with $\epsilon_1=\epsilon_2=1$, for which $\omega=-2$ and the linear phase is $e^{2\ii t}$. The dealiased cubic product is compared with a fourfold oversampled reference to a tolerance $2\times10^{-13}$. The NLS and Dysthe residual tests require errors below $10^{-9}$, and the instantaneous action derivative test uses $10^{-10}$. These checks target distinct operator and algorithm properties. They supplement, rather than replace, the experiment-level refinement tables.
+
+\subsection{NLS propagation and linear contrast}
+The exact benchmark uses $Q_1=\sqrt2\operatorname{sech}x$, $T=20$, and the configurations in Table~\ref{tab:nls}. The reference is $Q_1e^{\ii t}$. The matching linear control uses the same initial field, $N=1024$, $L=80$, and $h=0.02$, with the cubic term disabled. Figure~\ref{fig:nls} displays the persistent nonlinear envelope alongside the spreading linear packet.
+
+\begin{table}[!htbp]\centering\input{nonlinear_tables/nls.tex}
+\caption{NLS benchmark at $T=20$. All errors are against the sampled whole-line exact formula. A small action drift alone does not imply a small field error, as the $N=256$ run demonstrates.}\label{tab:nls}\end{table}
+
+Halving $h$ from $0.04$ to $0.02$, $0.01$, and $0.005$ reduces the field error by factors approximately $14.1$, $15.1$, and $15.6$, consistent with fourth-order behavior. At $h=0.0025$, increasing $N$ from 256 to 512 and 1024 changes the error from $2.88\times10^{-3}$ to $2.08\times10^{-7}$ and $3.68\times10^{-9}$. Doubling $L$ and $N$ together from $(80,1024)$ to $(160,2048)$ leaves the latter error essentially unchanged. This separates the time, spectral, and finite-box contributions for this particular benchmark.
+
+\fig{nls_balance}{1}{Exact NLS benchmark and matching linear control. Left: the nonlinear envelope at three times and the linear envelope at $t=20$. Right: normalized peak magnitude. Persistence here is checked against an exact nonlinear solution, not inferred from visual similarity alone.}{fig:nls}
+\fig{convergence_branch}{1}{Left: NLS time-step refinement with a fourth-order reference line. Right: computed spatial Dysthe profile action along the three $\mu=2$ branches. The two panels answer distinct questions: time accuracy and parameter dependence.}{fig:convergence}
+
+\section{Computed Dysthe profiles}
+The continuation grid is $N=2048$, $L=160$. All 28 profiles satisfy~\eqref{eq:residual}. Table~\ref{tab:branches} displays four values on each branch; the saved data also contain the three intermediate values. Figure~\ref{fig:profiles} displays the change of shape and the difference between opposite propagation speeds.
+
+\begin{table}[!htbp]\centering\input{nonlinear_tables/branches.tex}
+\caption{Selected points from the 28-profile continuation. Action and peak are dimensionless; iteration counts exclude the initial iterate.}\label{tab:branches}\end{table}
+
+At $\epsilon=0$, the two $s=\pm2$ profiles have the same magnitude. At $\epsilon=0.15$, their peaks differ substantially. This is a property of the specified higher-order equation and branch parameters, not an imposed difference in the initial NLS amplitudes. The complex phases also change along continuation. Profiles with different $(\mu,s)$ are not normalized to equal mass, so cross-branch peak comparisons must retain those parameter labels.
+
+\fig{profiles}{1}{Computed profile magnitudes. Left: the stationary $\mu=3$ branch for four steepness parameters. Right: the three $\mu=2$ profiles at $\epsilon=0.15$. These are complex traveling-wave profiles even though only their magnitudes are plotted.}{fig:profiles}
+
+\begin{table}[!htbp]\centering\input{nonlinear_tables/profile_checks.tex}
+\caption{Independent grid and period checks for $(\mu,s,\epsilon)=(2,2,0.15)$. Every discrete residual is small; changes of peak and action still reveal spatial error.}\label{tab:profilecheck}\end{table}
+
+At fixed $L=80$, increasing $N$ from 1024 to 2048 changes the peak by about $7.6\times10^{-7}$. At fixed spacing $\Delta\tau=80/1024$, increasing $L$ from 80 to 160 to 320 changes the peak from $1.728655889$ to $1.728583066$ to $1.728564868$. The periodic nonlocal term gives a reason to check the box even for sharply localized profiles. This audit supports the reported approximate shapes and branch trends, while retaining a measurable finite-period uncertainty.
+
+\section{Propagation and controlled perturbations}
+\subsection{Traveling-wave consistency}
+Twelve independent propagation runs use $\mu=2$, $s=0,\pm2$, $\epsilon=0,0.05,0.10,0.15$, $N=2048$, $L=160$, $h=0.0025$, and $T=20$. Each begins from a freshly converged profile. The reference is~\eqref{eq:ansatz}, using the same discrete profile. Table~\ref{tab:prop} separates phase-sensitive field error from shape error after alignment.
+
+\begin{table}[!htbp]\centering\small\input{nonlinear_tables/propagation.tex}
+\caption{Spatial Dysthe propagation checks at $\xi=20$. Drifts are maxima over saved output times. Reference-profile consistency is distinct from whole-line profile accuracy.}\label{tab:prop}\end{table}
+
+\fig{propagation}{1}{Left: propagation of the $s=2$, $\epsilon=0.15$, $\mu=2$ envelope. Right: field error against the prescribed traveling profile for four time steps. The slope in the left panel is motion of the envelope center in $(\tau,\xi)$ coordinates.}{fig:prop}
+
+\begin{table}[!htbp]\centering\input{nonlinear_tables/dysthe_time.tex}
+\caption{Time refinement for $(\mu,s,\epsilon)=(2,2,0.15)$ at $T=20$, $N=2048$, $L=160$. The largest step is insufficient for accurate phase propagation.}\label{tab:dysthetime}\end{table}
+
+The $h=0.01$ run accumulates a field error near $2.9\%$, whereas $h=0.00125$ gives $1.70\times10^{-6}$. Thus an apparently persistent envelope is not enough to select a time step. The convergence is strong over this range, but we do not assign a universal observed order to this nonlinear derivative problem from four finite-time values.
+
+\subsection{Specified perturbations}
+For the stationary profile $F$ with $(\mu,s,\epsilon)=(2,0,0.15)$, use either
+\begin{align}
+ u(0,\tau)&=F(\tau)[1+\delta\cos(0.7\tau)],\qquad \delta=\pm0.01,
+ \label{eq:amppert}\\
+ u(0,\tau)&=F(\tau)\exp\left[0.01\ii\exp(-\tau^2/16)\right].
+ \label{eq:phasepert}
+\end{align}
+These formulas completely specify the artificial perturbations. No random data or measured fluid records are used in this batch. The baseline runs have $N=2048$, $L=160$, $h=0.0025$, $T=40$. An unperturbed control and a repeat of the positive-amplitude perturbation use $h=0.00125$.
+
+\begin{table}[!htbp]\centering\small\input{nonlinear_tables/perturb.tex}
+\caption{Perturbation results at $\xi=40$. The fitted translation $a$ is measured relative to the initial stationary profile. ``Fine $h$'' means $h=0.00125$ instead of $0.0025$.}\label{tab:perturb}\end{table}
+
+The positive and negative amplitude changes produce approximately $2.6\%$ and $2.5\%$ orbital errors at $\xi=40$, with fitted translations of opposite sign. Halving the positive-perturbation step changes its final orbital error by approximately $1.7\times10^{-6}$ and reduces action drift substantially. Its phase-sensitive error is about $1.36$, illustrating why the two error notions cannot be interchanged. The localized phase perturbation produces a much smaller orbital response over the same window.
+
+\fig{perturbations}{1}{Response to the explicit perturbations~\eqref{eq:amppert}--\eqref{eq:phasepert}. Left: error after phase and translation alignment with the original profile. Right: peak relative to each perturbed initial peak. These are selected finite-time robustness tests; they do not establish orbital stability for all small perturbations.}{fig:perturb}
+
+The finite-time outcome is consistent with persistence near the solitary-wave family for these inputs. It does not prove nonlinear stability, asymptotic relaxation, or a decay rate for the radiation. In particular, a changed frequency or a nearby branch member can remain close in shape while drifting in phase. A later modulation analysis should fit branch parameters and a coherent component explicitly before assigning a dispersive decay exponent to the remainder.
+
+\section{Counter-propagating collisions}
+\subsection{Initial data and controls}
+For each spatial resolution, independently compute $F_+$ and $F_-$ with $(\mu,s)=(2,2)$ and $(2,-2)$, respectively. Set
+\begin{equation}
+ u(0,\tau)=F_+(\tau+12)+F_-(\tau-12).
+\end{equation}
+Both incoming phases are zero in the centered-profile convention. The nominal center trajectories meet at $\xi=6$. Evolve to $T=14$ for $\epsilon=0$ and $0.15$. The initial sum is not an exact analytic two-soliton solution, although the separation makes overlap small. The NLS collision therefore provides a direct control for this initialization and fitting procedure.
+
+At the final time, split the field into positive and negative half-domains and fit the original incoming profile to each corresponding outgoing pulse, using translation and phase only. The relative errors $e_+,e_-$ measure departure from the original profile, including radiation assigned to that half-domain. They do not represent pure local peak errors.
+
+\subsection{Results and refinement}
+\fig{collisions}{1}{NLS and spatial Dysthe collisions through $\xi=14$. Top: magnitude on a common color scale. Bottom: base-10 logarithm of magnitude on a common scale, making small outgoing components visible. The Dysthe display uses $N=8192$, $L=160$, $h=0.000625$; the NLS control uses $N=2048$, $L=160$, $h=0.00125$. The lower display clips values below $10^{-4}$ to its color floor.}{fig:collision}
+
+\begin{table}[!htbp]\centering\scriptsize\input{nonlinear_tables/collision.tex}
+\caption{Collision refinement at $T=14$. $100\Delta R_6$ is a percentage of action, while $e_\pm$ are norm ratios. The NLS fitting errors round to zero at the displayed precision; both are approximately $7.98\times10^{-8}$. Rows with larger $L$ and proportionally larger $N$ test the period at fixed spacing.}\label{tab:collision}\end{table}
+
+For the NLS control, the outgoing fitted centers are approximately $\pm16.693147$, rather than the ballistic $\pm16$. After phase and translation fitting, both profile errors are approximately $7.98\times10^{-8}$. The tiny excess core-tail fraction, about $9.82\times10^{-7}$ as an action ratio, is not interpreted as physical radiation; the core mask and finite initialization provide a nonzero diagnostic floor.
+
+For Dysthe, the refined $N=8192$, $L=160$ run gives
+\begin{equation}
+ \Delta R_6=0.0178214,\qquad e_+=0.230382,\qquad e_-=0.177836.
+\end{equation}
+The $N=4096$, $L=160$ and $N=8192$, $L=320$ runs at $h=0.000625$ give excess-tail ratios $0.0178413$ and $0.0178393$. The finite-radius and sampled-center definition warrants reporting these as approximately $1.8\%$. The normalized energy drift decreases from roughly $1.9\times10^{-3}$ on the coarser $N=2048$ grid to roughly $10^{-6}$ in the final refined runs. The refined mass drifts are approximately $2.1\times10^{-8}$.
+
+\fig{collision_profiles}{1}{Incoming and outgoing envelope shapes after the independently fitted center translations. NLS profiles overlap closely. Dysthe outgoing peaks and shapes differ from their incoming profiles. Line style distinguishes the incoming speed; color distinguishes incoming and outgoing data. These magnitude plots omit the independently fitted complex phases, which are included in the norm errors.}{fig:outgoing}
+
+The Dysthe changes are much larger than the differences between the final numerical refinements. They support inelastic behavior for this collision: the two outgoing pulses are not merely phase-shifted and translated copies of their incoming profiles. This is evidence for the chosen initial data and model. It is not a proof of nonintegrability, a complete scattering description, or a statement about all possible collisions.
+
+\section{Three-coordinate optical stripe experiment}
+\subsection{A known base state and a prescribed mode}
+Use $\epsilon_1=\epsilon_2=1$ and the exact stripe
+\begin{equation}
+ E_*(t,x,y,z)=\sqrt2\operatorname{sech}x\,e^{\ii t}.
+\end{equation}
+The perturbed initial condition is
+\begin{equation}\label{eq:stripepert}
+ E(0,x,y,z)=\sqrt2\operatorname{sech}x
+          [1+0.01\cos(y/2)\cos(z/2)].
+\end{equation}
+On the basic box $L_y=L_z=4\pi$, each transverse factor has one period. Since its mean is zero and the mean square of their product is $1/4$, the initial transverse fraction is
+\begin{equation}
+ V(0)=\frac{0.01/2}{\sqrt{1+0.01^2/4}}
+       \simeq0.00499994.
+\end{equation}
+Thus the phrase ``one-percent perturbation'' refers to its pointwise multiplier, while the diagnostic starts at approximately one-half percent in the relative field norm. This explains an otherwise misleading factor of two.
+
+The stripe is localized in $x$ and periodic or constant in the other coordinates. On the whole of $\R^3$ it has infinite action. It is not a finite-energy three-dimensionally localized optical soliton. The periodic transverse box imposes a particular allowed perturbation spectrum; enlarging it with the same periodic pattern simply repeats that pattern and does not test arbitrary longer-wave perturbations.
+
+\subsection{Exploratory window through eight}
+The initial batch uses the following configurations, all through $T=8$:
+\begin{center}\small
+\begin{tabular}{lccc}\toprule
+Run & $(N_x,N_y,N_z)$ & $(L_x,L_y,L_z)$ & $h$\\\midrule
+Unperturbed & $(128,16,16)$ & $(40,4\pi,4\pi)$ & $0.02$\\
+Coarse & $(128,16,16)$ & $(40,4\pi,4\pi)$ & $0.02$\\
+Coarse, half $h$ & $(128,16,16)$ & $(40,4\pi,4\pi)$ & $0.01$\\
+First grid refinement & $(256,24,24)$ & $(40,4\pi,4\pi)$ & $0.01$\\
+Larger box & $(256,32,32)$ & $(80,8\pi,8\pi)$ & $0.01$\\\bottomrule
+\end{tabular}\end{center}
+The larger box repeats the same cosine perturbation at fixed nominal spacing relative to the coarse grid. The unperturbed control remains independent of $y,z$ to roundoff. Its nonzero field error is longitudinal discretization error, not transverse symmetry breaking.
+
+\begin{table}[!htbp]\centering\small\input{nonlinear_tables/late.tex}
+\caption{Exploratory optical results at $T=8$. The changes between coarse and refined perturbed runs are too large for a quantitative late-time conclusion. Spectral-edge occupation also rises substantially.}\label{tab:late}\end{table}
+
+The coarse and first refined runs disagree at $T=8$: the transverse fraction is about $0.49$ versus $0.58$, and the peak also changes appreciably. Halving the coarse time step improves action conservation without removing this grid sensitivity. The later evolution must therefore remain exploratory. Neither collapse nor a resolved final breakup pattern is claimed.
+
+\fig{transverse_growth}{1}{Growth diagnostics for the full optical equation. The finely checked window ends at the dotted line $t=4$; later curves are exploratory and disagree under spatial refinement. The unperturbed transverse fraction is at roundoff and lies below the left panel's plotting range. The right panel retains its peak for comparison.}{fig:transgrowth}
+
+\subsection{Refined early window}
+To determine which observations survive refinement, repeat the perturbed experiment through $T=4$ with
+\begin{center}\small
+\begin{tabular}{lccc}\toprule
+Run & $(N_x,N_y,N_z)$ & $(L_x,L_y,L_z)$ & $h$\\\midrule
+A & $(256,32,32)$ & $(40,4\pi,4\pi)$ & $0.01$\\
+B & $(256,32,32)$ & $(40,4\pi,4\pi)$ & $0.005$\\
+C & $(256,48,48)$ & $(40,4\pi,4\pi)$ & $0.005$\\
+D & $(512,32,32)$ & $(80,4\pi,4\pi)$ & $0.005$\\
+E & $(512,32,32)$ & $(40,4\pi,4\pi)$ & $0.005$\\\bottomrule
+\end{tabular}\end{center}
+A--B changes time step, B--C changes the two transverse grids, B--D doubles the $x$ period at fixed $x$ spacing, and B--E doubles longitudinal bandwidth at fixed period. The term longitudinal here refers to the stripe profile coordinate $x$, not the physical optical propagation direction $t$.
+
+\begin{table}[!htbp]\centering\small\input{nonlinear_tables/early.tex}
+\caption{Early optical results at $T=4$. Run labels refer to the explicit configurations above. These comparisons support approximately $4.76\%$ transverse variation, not every digit of an extrapolated continuum answer.}\label{tab:early}\end{table}
+
+For a complex-field comparison, take C as the reference, spectrally resample it to the comparison grid, and compare final fields without phase or translation alignment. For D, use the central $40$-unit portion of its doubled $x$ domain. The relative discrepancies for A, B, D, and E are, respectively,
+\begin{equation}
+ 8.83\times10^{-7},\quad 8.55\times10^{-7},\quad
+ 2.51\times10^{-4},\quad4.68\times10^{-4}.
+\end{equation}
+These are pairwise discrepancies at the final time, not rigorous error bounds against an unknown exact solution. The largest is about $0.047\%$. In the same runs, the final transverse fraction stays close to $0.04761$, a growth by a factor of approximately $9.52$ from its initial value. The effect is therefore well above the measured changes under these refinements.
+
+\fig{transverse_slices}{1}{Slices of the full three-coordinate optical field from run C at $t=0,2,4$. Top: $z=0$ slices in $(x,y)$. Bottom: $y=0$ slices in $(x,z)$. A common magnitude scale is used throughout. These are cuts through a computed three-coordinate field, not an assumed two-dimensional reduction.}{fig:transslices}
+
+The defensible conclusion is finite-window amplification of this prescribed transverse perturbation. A single evolving perturbation does not determine the spectrum of the linearized operator, an asymptotic exponential growth rate, or nonlinear instability in a specified function space. Nor does it demonstrate that a localized optical bullet exists. The unchanged unperturbed stripe is a useful symmetry control but not evidence of stability against transverse perturbations.
+
+\section{Restoring a leading-order water surface}\label{sec:reconstruction}
+The water illustration uses the spatial scaling associated with~\eqref{eq:dysthe}. Let $x'=k_0x_{\rm phys}$ and $t'=\omega_0t_{\rm phys}$, and define
+\begin{equation}
+ \tau=\epsilon(2x'-t'),\qquad \xi=\epsilon^2x',\qquad B=\epsilon u.
+\end{equation}
+Adopt the explicit leading-harmonic elevation convention
+\begin{equation}\label{eq:surface}
+ \eta'=k_0\eta_{\rm phys}
+     =\operatorname{Re}\left\{B(\xi,\tau)e^{\ii(x'-t')}\right\}.
+\end{equation}
+The real part makes the surface oscillate, while $|B|$ gives its local bounds. This declared convention is sufficient to reproduce the illustration; it does not replace a higher-order reconstruction with bound harmonics and mean-flow corrections.
+
+For Figure~\ref{fig:water}, set $\epsilon=0.05$, $\mu=2$, $s=0$, $t'=800$, and $365\leq x'\leq435$. Interpolate the computed complex profile at $\tau=0.05(2x'-800)$ and use
+\begin{equation}
+ B(x')=0.05F\bigl(0.05(2x'-800)\bigr)e^{-2\ii(0.05)^2x'}.
+\end{equation}
+The horizontal plotting coordinate is $x'-400$. Repeat this elevation independently of $y'=k_0y_{\rm phys}$ for $-12\leq y'\leq12$ to obtain the perspective surface. The factor $0.05$ and the computed profile, rather than an arbitrary height multiplier, set the vertical scale.
+
+No values of $k_0$, $\omega_0$, water depth, or material calibration are assigned. Accordingly the plot is dimensionless. The $\epsilon=0.15$ collision is an experiment in the specified asymptotic envelope equation; its accuracy as a prediction for a particular finite-amplitude laboratory wave would require a separate model-validity assessment and appropriate physical calibration.
+
+\section{What these computations say about decay}
+\subsection{A coherent component can prevent envelope decay}
+The exact NLS solution~\eqref{eq:exact} has constant $L^\infty$ magnitude. A numerically propagated Dysthe profile likewise exhibits persistence over the tested window. Thus an unrestricted assertion that every nonlinear solution in these classes has a decaying peak would be incompatible with the exact NLS example and with the intended traveling-wave solutions of the spatial model.
+
+That observation does not contradict a linear dispersive estimate. A bound of the schematic form
+\begin{equation}
+ \norm{W S(t)f}_{\infty}\leq C|t|^{-7/6}\norm f_1
+\end{equation}
+concerns a particular linear propagator $S(t)$, a specified multiplier or weight $W$, and particular norms and assumptions. The present nonlinear equation, dimension, data class, and observable must all be matched before constructing a counterexample. In particular, the optical stripe is not in $L^1(\R^3)$ or $L^2(\R^3)$. It cannot be inserted into a finite-norm whole-space decay statement as though it were a localized three-coordinate packet.
+
+\subsection{A useful next decomposition}
+A meaningful nonlinear decay study near a coherent wave would first specify a decomposition such as
+\begin{equation}
+ u(\xi,\tau)=e^{\ii\theta(\xi)}F_{\lambda(\xi)}(\tau-a(\xi))
+                  +r(\xi,\tau),
+\end{equation}
+with rules determining the branch parameter $\lambda$, phase, and position. One would then study the remainder $r$ in a stated norm, with orthogonality or fitting conditions preventing arbitrary reassignment between pulse and radiation. Our fixed-profile orbital errors and core-tail proxy are preliminary diagnostics toward that decomposition, not its replacement.
+
+No nonlinear radiation decay exponent is fitted in this report. In particular, the number $1.8\%$ is an action redistribution measurement at one endpoint, not an exponent. The optical amplification factor is also not a decay exponent. The prior numerical discussion of whether $t^{-7/6}$ is sharper than $t^{-1}$ concerns decay exponents in a different setting: $7/6>1$ corresponds to faster decay for large $t$, but these nonlinear experiments do not strengthen that uniform estimate.
+
+\subsection{Why the new runs do not simply use $T=256$ or $1024$}
+The optical exploratory runs already lose quantitative spatial agreement by $T=8$. Extending them mechanically would generate more output without resolving that defect. The spatial and optical evolution variables also have different scalings, so the earlier linear endpoint cannot be reused as a physical duration without specifying the model and normalization.
+
+A defensible extension should first enlarge retained bandwidth until the late optical solution stabilizes under both grid and time refinement, then assess the period and outgoing components. For water-wave radiation on a periodic domain, one must distinguish genuine long-time dynamics from return through the boundary and periodic nonlocal interactions. The present report records the reliable windows rather than claiming a new long-time decay law from unresolved late output.
+
+\section{Conclusions and remaining mathematical questions}
+The completed solver reproduces an exact NLS wave with quantified time, grid, and box errors, and it consistently propagates computed spatial Dysthe profiles. The nonlinear term makes a directly visible difference: the exact NLS envelope persists while its matching linear control spreads. Continued Dysthe profiles show parameter-dependent amplitude and a difference between opposite speeds.
+
+The selected perturbation tests preserve a nearby pulse shape over $\xi\leq40$, while allowing phase and position changes. The refined collision exhibits outgoing profile changes and approximately $1.8\%$ excess action outside the prescribed cores. In the full optical model, a specified transverse perturbation grows by roughly a factor of $9.52$ by $t=4$ with small measured refinement discrepancies. Later optical evolution remains unresolved.
+
+These results provide a numerical basis for discussing coherent structures, collision-induced redistribution, and transverse response. They do not establish a fully localized three-coordinate soliton, global stability, collapse, or a new decay inequality. The next mathematical tasks are a parameter-modulated separation of coherent and radiative components, a resolved late-time optical experiment, and, if transverse water physics is the target, implementation and validation of a water-wave model with two horizontal envelope coordinates. Each task should preserve the equation and norm distinctions that make the current results interpretable.
+
+\appendix
+\section{Reproduction and software organization}
+\subsection{Environment and complete sequence}
+The runs use Python 3.14.5, NumPy 2.4.2, and SciPy 1.17.0. Matplotlib generates the scientific figures. Fourier arrays use complex double precision; one FFT worker is used for the one-dimensional runs and two for the three-coordinate experiments. These are the observed environment versions, not assertions that other compatible versions cannot reproduce the results.
+
+From the project root, the full sequence is
+\begin{verbatim}
+OPENBLAS_NUM_THREADS=4 python -m unittest nonlinear.test_solver -v
+OPENBLAS_NUM_THREADS=4 python -m nonlinear.experiments all
+OPENBLAS_NUM_THREADS=4 python -m nonlinear.refinements all
+OPENBLAS_NUM_THREADS=4 python -m nonlinear.final_checks
+python -m nonlinear.analyze
+python report/nonlinear_tables.py
+tectonic report/nonlinear_solitary_wave_report.tex
+\end{verbatim}
+The optional experiment groups are \texttt{benchmark}, \texttt{profiles}, \texttt{dynamics}, and \texttt{transverse}. The dynamics group includes the baseline collisions. Refinement groups are \texttt{collision}, \texttt{perturb}, and \texttt{transverse}. The final-check module adds the fine collision box comparison and the optical $x$-grid comparison. The analysis and table commands operate on saved data and do not rerun the solver.
+
+The package contains the actual executed solver and experiment definitions, not just report figures. The main modules have the following responsibilities:
+\begin{center}\small
+\begin{tabular}{ll}\toprule
+Module in \texttt{nonlinear/} & Responsibility\\\midrule
+\texttt{solver.py} & Operators, projection, time step, profiles, diagnostics\\
+\texttt{experiments.py} & Exact benchmark and four-stage baseline sequence\\
+\texttt{refinements.py} & Collision, perturbation, and early optical refinements\\
+\texttt{final\_checks.py} & Additional domain and longitudinal grid checks\\
+\texttt{analyze.py} & Figures, derived summaries, field comparisons\\
+\texttt{test\_solver.py} & Six verification tests\\
+\texttt{\_\_main\_\_.py} & Configurable command-line evolution\\\bottomrule
+\end{tabular}\end{center}
+
+\subsection{Supplying new artificial initial data}
+The reusable interface consists of constructing a \texttt{FourierModel}, evaluating an initial complex array on its coordinate axes, and passing that array to \texttt{evolve}. The returned fields and diagnostics can be saved with the experiment helper. The model's projection is applied automatically to the initial data. Users should compare the projected and requested data when introducing strongly oscillatory or nonsmooth inputs.
+
+For example, the command-line interface can construct and propagate a Dysthe solitary wave:
+\begin{verbatim}
+python -m nonlinear --model dysthe --n 1024 --lengths 160 \
+  --epsilon 0.15 --mu 2 --speed 0 --initial solitary \
+  --T 20 --dt 0.0025 --out results/nonlinear/custom_solitary
+\end{verbatim}
+It also accepts optical stripes and Gaussian packets, grid dimensions and periods separated by commas, the two optical coefficients, and a linear-control switch. A general Gaussian option uses
+\begin{equation}
+ u_0(x_1,\ldots,x_d)=a\exp\left(-\frac{\sum_jx_j^2}{2w^2}\right),
+\end{equation}
+where amplitude $a$ and width $w$ are explicit inputs. This capability does not imply that a new Gaussian run has inherited the solitary-wave validation at arbitrary parameters.
+
+Naturally measured surface data require a separate preprocessing protocol: carrier identification, complex-envelope extraction, dimensional normalization, sampling and uncertainty checks, and compatibility with the chosen equation's coordinates. No measurement record has been incorporated into the present sequence. The absence of such data should not be obscured by calling an artificial cosine perturbation a naturally occurring wave.
+
+\subsection{Output schema and sampling}
+All numerical outputs are under \texttt{results/nonlinear/}. Each ordinary run has a JSON metadata file and a compressed NumPy archive. The archive keys are \texttt{u} for complex fields, \texttt{t} for saved evolution coordinates, and \texttt{x0}, \texttt{x1}, \texttt{x2} for the active coordinate arrays. The leading dimension of \texttt{u} indexes time. JSON metadata record model coefficients, dimensions, periods, and diagnostics. Profile JSON files additionally record profile parameters, residuals, iterations, and invariants.
+
+The NLS benchmark saves 41 fields, the linear control 101, ordinary propagation 101, time-refinement propagation 41, perturbations 161, and collisions 141. Three-coordinate experiments save five full fields and separate central slices and diagnostic histories: 33 history times through $T=8$ or 17 through $T=4$. These are output schedules, not time-step counts. Within the current implementation, the evolution routine temporarily retains requested fields in memory before the reduced three-coordinate output is written; larger future runs should use streaming output to reduce memory use.
+
+The consolidated file \texttt{analysis\_summary.json} contains the numerical values used in this report. Individual histories remain the source for each drift calculation. The portable report archive includes the LaTeX, figure PDFs, and generated tables. The companion solver archive includes code, JSON results, and selected small profile data; large field archives remain in the workspace and can be regenerated by the commands above. This separation keeps the report easy to distribute without implying that all large field arrays are embedded in it.
+
+\section{Audit rules for extending the experiments}
+A new experiment should record its exact equation, initial formula or data provenance, amplitude normalization, coordinate periods, active cutoff, time step, and output schedule. A persistent peak should be accompanied by a field or orbital comparison when a reference exists. A proposed radiative decay law should identify the radiative component and norm before fitting any logarithmic slope.
+
+For a new late-time run, compare at least one smaller time step, a finer grid at fixed period, and a larger period at fixed spacing. Those comparisons answer different questions. A plot that is visually attractive but changes appreciably under any relevant refinement remains exploratory. In the three-coordinate optical example, that criterion preserves the early amplification result and withholds a late-time interpretation. In the Dysthe collision, it motivates the fine-grid and doubled-period runs that support the reported approximate tail fraction.
+
+Finally, invariants, profile residuals, and spectral-edge occupancy are complementary diagnostics. None alone proves whole-space accuracy. The artifact therefore preserves the coarse and failed-to-converge-in-resolution observations alongside the refined results, so a reader can see why the accepted conclusions stop where they do.
+
+\begin{thebibliography}{9}
+\bibitem{FD} F. Fedele and D. Dutykh, \emph{Hamiltonian form and solitary waves of the spatial Dysthe equations}, JETP Letters 94 (2011), 840--844.
+\href{https://doi.org/10.1134/S0021364011240039}{doi:10.1134/S0021364011240039}.
+Open manuscript: \url{https://arxiv.org/abs/1110.4083}.
+\bibitem{MPS26} R. Mosincat, D. Pilod, and J.-C. Saut, \emph{On Third Order Nonlinear Schr\"odinger Equations}, supplied manuscript dated 22 January 2026, file \texttt{Dysthe3D-2.pdf}. Equation (1.27) specifies the optical model used here. This reference identifies the supplied version, rather than assuming a publication status.
+\bibitem{GKS} P. Guyenne, A. Kairzhan, and C. Sulem, \emph{Hamiltonian Dysthe equation for three-dimensional deep-water gravity waves}, Multiscale Modeling \& Simulation 20 (2022), 349--378.
+\href{https://doi.org/10.1137/21M1432788}{doi:10.1137/21M1432788}.
+Open manuscript: \url{https://arxiv.org/abs/2108.10822}.
+\end{thebibliography}
+\end{document}

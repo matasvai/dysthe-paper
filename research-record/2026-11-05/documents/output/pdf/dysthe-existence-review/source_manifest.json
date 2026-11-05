@@ -1,0 +1,117 @@
+{
+  "review_date": "2026-10-23",
+  "purpose": "Exact supplied papers and inspected local evidence, not proof of remote publication",
+  "sources": [
+    {
+      "path": "/home/matasvai/Documents/Papers/Dysthe/2608.04473v1.pdf",
+      "bytes": 234743,
+      "sha256": "b02cf0cb1b2da3d81cf018c07eef1c69d0b3ea72cf648dbb0a92923feb1f4955"
+    },
+    {
+      "path": "/home/matasvai/Documents/Papers/Dysthe/Dysthe-NoteModificationNonlinear-1979.pdf",
+      "bytes": 442884,
+      "sha256": "00ee2101e861cf46b85694d9d4738afaa6460c4a8ca56c4588efa7ea5b93e7a8"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-core/docs/model.md",
+      "bytes": 3371,
+      "sha256": "691b1adf33aa678c75efa24762c21e56b14ea10942ed2279bebb2d96bc840ac6"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-core/src/dysthe_core/reference/spatial.py",
+      "bytes": 10241,
+      "sha256": "4091833d58921bfbf2a4604e9cc46691316394c513643ee732066e7528235db8"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-core/src/dysthe_core/reference/validation.py",
+      "bytes": 7839,
+      "sha256": "2fc2066e16ab85515490ec82cdc9dd1f661a7d769303874ea0c470807d5c8d48"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-learning/src/dysthe_learning/registry.py",
+      "bytes": 997,
+      "sha256": "d0ef9446bcca4b3f00e5118c6a9e637dd17eacdde4656c836d0d67b5bc590692"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-paper/evidence/claims.json",
+      "bytes": 168,
+      "sha256": "863fadbea57abb1f8e90fc59541aa1694a9a13d61e6c323261a9e532f7582a41"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-core/SCOPE.md",
+      "bytes": 2258,
+      "sha256": "b88e6f5554d256444fa0d37bd6779bf75276e9ad9257308d83cb1e8d4dbcba60"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-core/scope.json",
+      "bytes": 269,
+      "sha256": "2841f556f36c12669a4b82300a2d27f84dcd6dcaec0a77b4f0626f10eac72564"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-learning/SCOPE.md",
+      "bytes": 2258,
+      "sha256": "b88e6f5554d256444fa0d37bd6779bf75276e9ad9257308d83cb1e8d4dbcba60"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-learning/scope.json",
+      "bytes": 269,
+      "sha256": "2841f556f36c12669a4b82300a2d27f84dcd6dcaec0a77b4f0626f10eac72564"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-experiments/SCOPE.md",
+      "bytes": 2258,
+      "sha256": "b88e6f5554d256444fa0d37bd6779bf75276e9ad9257308d83cb1e8d4dbcba60"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-experiments/scope.json",
+      "bytes": 269,
+      "sha256": "2841f556f36c12669a4b82300a2d27f84dcd6dcaec0a77b4f0626f10eac72564"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-paper/SCOPE.md",
+      "bytes": 2258,
+      "sha256": "b88e6f5554d256444fa0d37bd6779bf75276e9ad9257308d83cb1e8d4dbcba60"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-paper/scope.json",
+      "bytes": 269,
+      "sha256": "2841f556f36c12669a4b82300a2d27f84dcd6dcaec0a77b4f0626f10eac72564"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-research-map/SCOPE.md",
+      "bytes": 2258,
+      "sha256": "b88e6f5554d256444fa0d37bd6779bf75276e9ad9257308d83cb1e8d4dbcba60"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-research-map/scope.json",
+      "bytes": 269,
+      "sha256": "2841f556f36c12669a4b82300a2d27f84dcd6dcaec0a77b4f0626f10eac72564"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-experiments/runs/small-simulator-20261016/checks/profile/qualification.json",
+      "bytes": 46605,
+      "sha256": "23e8476517d4edd71b4d3b89429400a53e3b2b3105b98030e49f81d46eacd0e3"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-experiments/runs/small-simulator-20261016/checks/perturbed/qualification.json",
+      "bytes": 50432,
+      "sha256": "dca528863c72229074f1855d1c6706043f92b50daae26d77a69366b4b6c36266"
+    },
+    {
+      "path": "/home/matasvai/Documents/Projects/Dysthe/dysthe-experiments/runs/small-simulator-20261016/checks/gaussian/qualification.json",
+      "bytes": 50052,
+      "sha256": "d68bf526f68443bf051f9f660224c8d987edd5e32c27cf354fb8f5a080b79605"
+    }
+  ],
+  "fresh_test_summary": {
+    "core_passed": 21,
+    "core_total": 21,
+    "experiments_passed": 43,
+    "experiments_total": 47,
+    "experiments_blocked": 4,
+    "block_reason": "Sandbox prevents localhost HTTP socket binding"
+  },
+  "new_evolution_runs": false,
+  "trained_pinn": false,
+  "existence_certificate": false
+}

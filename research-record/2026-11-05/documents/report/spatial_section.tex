@@ -1,0 +1,69 @@
+\newpage
+\input{spatial_values.tex}
+\section*{Stronger spatial reliability at $t=256$}
+\textbf{Purpose.} Hold time, input, and $\alpha=1/2$ fixed, and vary the spatial
+computation. This audit separates longitudinal enlargement from transverse
+enlargement. It tests whether the four reported candidate maxima stabilize to
+an exploratory relative tolerance of $0.1\%$.
+
+The longitudinal period increases from 32,768 to 65,536 while the radial limit
+stays at 2,048. We then search the additional annulus out to radius 4,096.
+Finally, we double the longitudinal period again to 131,072, retaining the
+larger radial limit. Every broad scan keeps $\Delta x=0.25$ and $\Delta r=2$.
+The baseline is the saved final scan from the preceding experiment.
+
+\begin{center}\small
+\begin{tabular}{llrrrr}\toprule
+Equation & Input & First $L$ change & Radius change & Second $L$ change & Integral check\\\midrule
+\SpatialRows
+\bottomrule\end{tabular}\end{center}
+The three domain columns compare sampled peak magnitudes before and after the
+stated expansion. The integral check compares the final Fourier-quadrature field
+to an independently evaluated non-periodic integral at the refined candidate peak.
+Percentages use the newer or independent result as the denominator. Values are rounded.
+
+\textbf{Result.} \SpatialPassed\ of four cases pass the $0.1\%$ peak screen.
+This includes the two longitudinal expansions, the transverse expansion, the
+final locally optimized peak drift, and the independent integral check.
+The largest change in locally optimized peak magnitude between the final two
+periods is \SpatialPeakDrift.
+
+\begin{center}\small
+\begin{tabular}{llrrrr}\toprule
+Equation & Input & Refined $R(256)$ & $x$ & $r$ & Location drift\\\midrule
+\SpatialLocations
+\bottomrule\end{tabular}\end{center}
+Locations are continuous-coordinate candidate maxima from the independent
+integral optimization. The drift is the Euclidean distance in $(x,r)$ between
+local peak optimizations at the final two longitudinal periods. Its maximum is
+\SpatialLocationDrift. Axial symmetry means a nonzero $r$ represents a ring of
+equivalent points, not a unique three-dimensional location.
+
+\textbf{Additional checks.} Local optimization starts from the broad search's
+largest sample and refines both $x$ and $r$. Increasing the independent
+integral's Gauss--Legendre order from 256 to 512 per panel changes the complex field by
+at most \SpatialQuadTighten\ relative to the tighter result. Its integration
+interval is split at the fractional multiplier cusp and into 64 Gaussian-frequency
+panels. On each side, $k=-\beta\pm u^2$ removes the square-root cusp from the
+integration variable. Fixed-order quadrature with an order-doubling check replaces
+adaptive quadrature, which issued convergence warnings during local searches.
+The largest sampled search-boundary amplitude is \SpatialBoundary\ of
+the corresponding peak. Optimizer status and all intermediate measurements are
+saved in the per-case JSON records.
+
+\textbf{What we can now say.} At this time and for these four inputs, the peak
+values have stronger numerical support from separate domain enlargements,
+continuous local refinement, stable locations, and independent integration.
+This improves confidence in the reported decay ratios. It does not prove the
+maximum is global over all of $\mathbb R^3$, establish an asymptotic decay rate,
+or extend reliability to other inputs, values of $\alpha$, or later times.
+
+\textbf{Remaining spatial limitation.} The broad radial mesh is still spaced by
+2; refinement is local to the identified maximum, not a global halving of every
+cell. A missed narrow peak or a remote maximum is not excluded by these checks.
+The report therefore claims numerical spatial stability of the identified peaks,
+not a certified supremum.
+
+\textbf{Reproduce.} Run \texttt{python3 spatial\_reliability.py}, then
+\texttt{python3 report/make\_spatial\_tables.py}. Results, configurations, and
+checkpoints are under \texttt{results/spatial\_reliability/}.

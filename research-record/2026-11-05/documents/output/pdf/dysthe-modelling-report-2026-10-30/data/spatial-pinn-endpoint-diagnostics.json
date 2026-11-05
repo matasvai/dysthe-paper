@@ -1,0 +1,80 @@
+[
+  {
+    "case_id": "packet-008",
+    "method": "none",
+    "phase_amplitude_threshold_fraction": 0.05,
+    "amplitude_weighted_phase_rmse_radians": 0.008628897921190109,
+    "excluded_reference_action_fraction": 0.0007228252185990779,
+    "reference_curvature_rms": 0.012619700641045103,
+    "amplitude_weighted_phase_rmse_degrees": 0.49439943273340287,
+    "relative_curvature_l2_error": 3.337529957732026,
+    "maximum_pointwise_curvature_error_over_reference_rms": 9.181489848843023,
+    "endpoint_h2_error": 0.24892745250041148,
+    "fraction_h2_error_power_in_modes_25_to_48": 0.9286042229882204
+  },
+  {
+    "case_id": "packet-008",
+    "method": "inverse_1_plus_k2",
+    "phase_amplitude_threshold_fraction": 0.05,
+    "amplitude_weighted_phase_rmse_radians": 0.001945313333282865,
+    "excluded_reference_action_fraction": 0.0007392018827433274,
+    "reference_curvature_rms": 0.012619700641045103,
+    "amplitude_weighted_phase_rmse_degrees": 0.11145824382763427,
+    "relative_curvature_l2_error": 0.17976270009653023,
+    "maximum_pointwise_curvature_error_over_reference_rms": 0.473200914661478,
+    "endpoint_h2_error": 0.01465812323325048,
+    "fraction_h2_error_power_in_modes_25_to_48": 0.537756213373824
+  },
+  {
+    "case_id": "sideband-008",
+    "method": "none",
+    "phase_amplitude_threshold_fraction": 0.05,
+    "amplitude_weighted_phase_rmse_radians": 0.009087384614499656,
+    "excluded_reference_action_fraction": 0.0,
+    "reference_curvature_rms": 0.030940365155533056,
+    "amplitude_weighted_phase_rmse_degrees": 0.5206687852229489,
+    "relative_curvature_l2_error": 2.1853932665247715,
+    "maximum_pointwise_curvature_error_over_reference_rms": 5.8159904519397445,
+    "endpoint_h2_error": 0.1157419230030548,
+    "fraction_h2_error_power_in_modes_25_to_48": 0.8424157038863942
+  },
+  {
+    "case_id": "sideband-008",
+    "method": "inverse_1_plus_k2",
+    "phase_amplitude_threshold_fraction": 0.05,
+    "amplitude_weighted_phase_rmse_radians": 0.0022535557959383937,
+    "excluded_reference_action_fraction": 0.0,
+    "reference_curvature_rms": 0.030940365155533056,
+    "amplitude_weighted_phase_rmse_degrees": 0.12911923600451494,
+    "relative_curvature_l2_error": 0.10581944390623077,
+    "maximum_pointwise_curvature_error_over_reference_rms": 0.24902371102988602,
+    "endpoint_h2_error": 0.006506943770158659,
+    "fraction_h2_error_power_in_modes_25_to_48": 0.44272395689601257
+  },
+  {
+    "case_id": "random-008",
+    "method": "none",
+    "phase_amplitude_threshold_fraction": 0.05,
+    "amplitude_weighted_phase_rmse_radians": 0.01080903685948168,
+    "excluded_reference_action_fraction": 0.0,
+    "reference_curvature_rms": 0.037633302251177295,
+    "amplitude_weighted_phase_rmse_degrees": 0.6193121926496421,
+    "relative_curvature_l2_error": 1.1421441269492063,
+    "maximum_pointwise_curvature_error_over_reference_rms": 2.7633321749576853,
+    "endpoint_h2_error": 0.1441458497771506,
+    "fraction_h2_error_power_in_modes_25_to_48": 0.9001286386654345
+  },
+  {
+    "case_id": "random-008",
+    "method": "inverse_1_plus_k2",
+    "phase_amplitude_threshold_fraction": 0.05,
+    "amplitude_weighted_phase_rmse_radians": 0.0004267092743778663,
+    "excluded_reference_action_fraction": 0.0,
+    "reference_curvature_rms": 0.037633302251177295,
+    "amplitude_weighted_phase_rmse_degrees": 0.024448640500941577,
+    "relative_curvature_l2_error": 0.015278017557125068,
+    "maximum_pointwise_curvature_error_over_reference_rms": 0.039430643024822146,
+    "endpoint_h2_error": 0.002111292046973589,
+    "fraction_h2_error_power_in_modes_25_to_48": 0.4387997504508957
+  }
+]

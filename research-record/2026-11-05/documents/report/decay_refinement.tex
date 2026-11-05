@@ -1,0 +1,115 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=.75in]{geometry}
+\usepackage{amsmath,amssymb,graphicx,booktabs,xcolor,hyperref,fancyhdr}
+\definecolor{navy}{HTML}{17364B}
+\hypersetup{colorlinks=true,urlcolor=navy}
+\pagestyle{fancy}\fancyhf{}\lhead{\small WEIGHTED DECAY EXPERIMENTS}\rhead{\small Numerical refinement}\cfoot{\thepage}
+\setlength{\headheight}{14pt}\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\input{refinement_values.tex}
+\begin{document}
+{\color{navy}\LARGE Testing the decay inequality}\par
+{\large Clearer plots and a longer, larger-domain experiment}\par
+\smallskip
+\textbf{Research question.} Does the weighted solution obey the paper's proposed
+power-law bound across different initial fields? The earlier optical-envelope
+plots showed spreading. This experiment measures the quantity in the inequality.
+
+We work directly in the canonical coordinates of (6.2), using
+\[
+ S(t)f=\mathcal F^{-1}(e^{itw}\widehat f),\qquad
+ w=k_x^3+3s k_x(k_y^2+k_z^2)+3\beta(k_y^2+k_z^2).
+\]
+The two cases are $(s,\beta)=(-1,0)$ and $(+1,1)$, matching the minus homogeneous
+and plus inhomogeneous symbols used in the proofs of Propositions 6.2--6.3.
+We follow those proofs' positive phase convention; equation (6.1) prints inconsistent
+signs. No transformation from the original optical coordinates is needed here.
+
+For $\alpha=1/2$ and $p=\infty$, the diagnostic is
+\[
+ R(t;f)=\frac{t^{7/6}\big\||D_x+\beta|^{1/2}S(t)f\big\|_\infty}{\|f\|_1}.
+\]
+The inequality asserts $R(t;f)\le C$ with $C$ independent of $t$ and $f$ at fixed
+parameters. The multiplier is $|k_x+\beta|^{1/2}$, not an ordinary spatial derivative.
+Inputs are normalized to discrete $L^1=1$ on each grid.
+
+\textbf{How to read the plots.} A flat ratio corresponds to weighted decay like
+$t^{-7/6}$ over that interval. A falling ratio indicates faster decay there; a rising
+ratio indicates slower decay there. \textbf{A rising but bounded ratio is compatible
+with the theorem.} No horizontal ``failure threshold'' is drawn because the theorem's
+constant is unspecified. Finite curves cannot establish unbounded growth.
+
+\begin{center}\includegraphics[width=\linewidth]{../results/decay_dataset/refined_clear.pdf}\end{center}
+\textbf{Figure 1.} Each panel contains one family and one equation. Curves use a
+length-288 periodic cube at spacing 1; vertical values are shown in units of $0.001$.
+At $t=4,8,16$, dots indicate less than 2\% peak change in both tested refinements;
+crosses indicate at least one larger change. Intermediate times are not independently
+checked. The 2\% rule is a screening criterion, not a rigorous error bound.
+
+\newpage
+\section*{The broader collection of artificial inputs}
+\begin{center}\includegraphics[width=.95\linewidth]{../results/decay_dataset/families_clear.pdf}\end{center}
+\textbf{Figure 2.} Eleven input families, with two equation variants per panel.
+These are the original short-time results on a length-96 box, replotted without
+eleven overlapping curves. Their domain sensitivity remains as recorded in the
+first batch; the new layout does not make them converged whole-space results.
+
+All recipes define continuous functions that can be resampled on a different grid.
+The collection includes Gaussian and anisotropic packets, a smooth compact bump,
+two packets, a chirped phase, a tapered algebraic profile, spectral centers near and
+away from $k_x=-\beta$, and three seeded random packets. Near/away-degeneracy inputs
+depend on $\beta$ and therefore differ between the two equation variants. Random
+fields combine twelve modes with fixed seeds and a Gaussian spatial window.
+
+\newpage
+\section*{What was refined, and what the results support}
+We extend four families in both regimes to $t=16$, four times the first batch's
+maximum time. Gaussian is the reference, the compact bump has a broader spectrum,
+the near-degeneracy packet targets the multiplier's cusp, and seed 33 represents
+the random collection. This is a targeted follow-up, not an exhaustive data search.
+
+Domain checks compare lengths 96, 192, and 288 at spacing 1. A separate length-192
+grid with spacing $2/3$ checks resolution. Every comparison uses the same continuum
+recipe, normalized using its own grid quadrature. The table gives results at $t=16$;
+machine-readable files also include $t=4,8$ and complex-field errors on a common cube.
+
+\begin{center}\small
+\begin{tabular}{llrrr}\toprule
+Equation & Input & $R(16)$ & Domain peak change & Grid peak change\\\midrule
+\RefinedRows
+\bottomrule\end{tabular}
+\end{center}
+Domain peak change compares lengths 192 and 288; grid peak change compares
+spacings 1 and $2/3$ at length 192. Peak comparisons use each grid's full sampled
+maximum, not a fixed spatial point. The plotted length-288 field is not itself
+also refined to spacing $2/3$, so the checks do not establish joint convergence.
+
+\textbf{Observed behavior.} \ObservedResult
+
+\textbf{Numerical qualification.} \CheckResult
+The fractional multiplier can produce long spatial tails, and errors can vary
+nonmonotonically with box size near its cusp. A field's relative $L^2$ difference
+and its maximum-amplitude difference are distinct: this follow-up prioritizes the
+maximum because it appears in the inequality, while retaining both diagnostics.
+
+\textbf{Inference.} These experiments do not establish a faster universal decay
+rate, a theorem constant, or a counterexample. A convincing candidate violation
+would require a controlled sequence of times or normalized inputs with increasing
+ratios that survives numerical refinement. A short transient slope is insufficient.
+Cases that fail the peak checks should be refined before being interpreted as
+evidence about the whole-space bound.
+
+\textbf{Data and reproducibility.} Run \texttt{python3 decay\_dataset.py}, then
+\texttt{python3 refine\_decay.py}. Results are in
+\texttt{results/decay\_dataset/}: \texttt{refined\_decay.csv},
+\texttt{refinement\_checks.json}, \texttt{REFINEMENT.md}, and the plotted figures.
+The first batch's inputs remain available as complex-valued NPZ arrays.
+These are artificial inputs. CDIP buoy observations have been identified as a
+possible source, but are not imported or presented as three-dimensional measurements.
+
+\textbf{Source.} R. Mosincat, D. Pilod, and J.-C. Saut,
+\emph{On Third Order Nonlinear Schr\"odinger Equations}, supplied manuscript
+\texttt{Dysthe3D-2.pdf}, Section 6. This supplement follows the stated estimates
+as research targets, without claiming to resolve the manuscript's proof details.
+\input{long_time_section.tex}
+\input{spatial_section.tex}
+\end{document}

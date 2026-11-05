@@ -1,0 +1,264 @@
+\documentclass[11pt]{article}
+\usepackage{royden-report}
+\usepackage{array}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\Dx}{\lvert D_x\rvert}
+\newcommand{\src}[1]{\textrm{[#1]}}
+\newcommand{\fig}[3]{\begin{figure}[h!]\centering\includegraphics[width=\linewidth]{figures/#1.pdf}\caption{#2}\label{#3}\end{figure}}
+\setlength{\emergencystretch}{1.5em}
+\hypersetup{pdftitle={Returning to Dysthe: Evidence, limitations, and next questions}}
+\title{Returning to Dysthe\\\large Evidence, limitations, and next questions}
+\author{}
+\date{24 September 2026}
+\begin{document}
+\maketitle
+\vspace{-1.5em}
+\begin{abstract}
+The project has built useful numerical tools, found a promising restricted-frequency decay signal, and observed checked early growth of an optical stripe disturbance. It has not established a new general decay law, a stable fully localized optical breather, or a learned model that generalizes across optical initial fields. This review audits the original wave experiments, corrects omissions in earlier summaries, and recommends a narrower research programme. Plasma experiments are outside its scope. All experimental numbers below come from archived runs; only small software checks were rerun for this review.
+\end{abstract}
+
+\section{What we were trying to learn}
+The original questions were coherent: how a localized envelope spreads; how its initial shape, phase and frequency content change that spreading; what nonlinearity adds; and whether a physics-informed model can reproduce the dynamics. Later, the learning goal became more ambitious: predict the evolution of a \emph{new initial field} without training a new network.
+
+The work accumulated across three related but distinct settings. The original three-coordinate \emph{optical} equation is equation (1.27) of the supplied manuscript \cite{MPS}. Its evolution parameter represents propagation distance; two field coordinates are transverse positions and the third is retarded time. The \emph{canonical linear} calculations examine transformed cubic dispersion and derivative-weighted norms. The \emph{spatial water-wave} calculations concern a separate one-profile-coordinate Dysthe equation \cite{FD}. A result in one setting does not automatically answer a question in another.
+
+\paragraph{The frank assessment.}
+We made more progress on verification and carefully chosen examples than on a unified scientific conclusion. Some experiments stopped because their references lost resolution. Some questions were never directly tested. One possible ambition, improving the unrestricted homogeneous decay exponent using the same input norm, is ruled out by scaling. These are different limitations and call for different responses.
+
+Two corrections to the previous overview matter. Gaussian-family weighted peak searches already reach $t=1024$, not only $256$. The restricted-frequency pilot also has successful stored follow-ups for its two initial failures: all 40 case--time checks eventually meet its stated screen. Neither correction turns a numerical screen into a theorem.
+
+\paragraph{Recommended destination.}
+Build a checked map from a specified family of initial fields to spreading, concentration and disturbance growth, then ask whether a conditioned neural operator reproduces that map on unseen fields. Keep the restricted linear decay question as a focused mathematical companion. This gives the project a scientific target that a larger training run alone cannot supply.
+
+\newpage
+\section{Linear experiments: what the complete record says}
+For the weighted studies, the key quantity is
+\[
+ M_f(t)=\|\lvert D_x+\beta\rvert^{1/2}S(t)f\|_{\infty},
+ \qquad R_f(t)=t^{7/6}M_f(t)/\|f\|_1.
+\]
+Here $S(t)$ is the specified linear propagator, $f$ is its initial field, and the Fourier multiplier weights longitudinal frequencies. The manuscript's relevant bound is an \emph{upper estimate} under its assumptions; it does not require each selected input to have fitted slope exactly $-7/6$ \cite[\S6.3]{MPS}.
+
+\begin{center}\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.25\linewidth}>{\raggedright\arraybackslash}p{.69\linewidth}@{}}
+\toprule
+Experiment and aim & Outcome and limitation \\\midrule
+Optical baseline & Nine Gaussian runs, 225 norm records through $t=6$: anisotropic spreading and modulation-dependent motion. Plane-wave, reversibility and symmetry checks are near roundoff; independent quadrature discrepancy is below $4\times10^{-9}$. This verifies selected calculations, not a decay theorem. \src{L1}\\[.5em]
+Broad weighted inputs & 22 fields, 858 measurements through $t=4$, then selected refinements through $16$. Domain effects were material. All 24 targeted case--time checks meet a 2\% screen, but agreement of maxima can coexist with poor field agreement. \src{L2}\\[.5em]
+Gaussian late peaks & Four cases at five times $16$--$256$, plus eight searches at $512,1024$. The newer eight pass a 0.1\% screen after one radial follow-up. Finite-window exponents still differ across cases. \src{L3,L4}\\[.5em]
+Research checks & 33 scaling identities, 78 spectral/cancellation measurements, ten approximate-identity checks and 12 quadrature comparisons. Strong numerical consistency; no optimal constant or universal asymptotic law. \src{L5}\\[.5em]
+Restricted inputs & Eight inputs at five times $16$--$256$. The spectral-gap comparison is the strongest targeted decay lead; details follow. \src{L6}\\[.5em]
+Packet visualizations & Useful views of motion and spreading. The original quadrature-phase pair has identically zero mutual intensity cross-term. Its previous constructive/destructive-interference interpretation was wrong; a separate zero-phase control demonstrates actual interference. \src{L7}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{What prevented a stronger conclusion?}
+Accurately evaluating an oscillatory integral at a candidate point does not certify its global maximum. Peaks move far from the origin, exchange dominance between rings and the axis, and can be missed by a finite search. One $t=1024$ candidate lies near $x=-3227$. The finite screens assess selected numerical sensitivities, not every possible missed maximum.
+
+The final-doubling exponents over $512$--$1024$ are $1.0903$, $1.0260$, $1.3168$ and $1.1960$ for the four Gaussian families. A rising normalized ratio or a slowly decaying selected curve does not refute a bound with an unknown uniform constant. More time points can clarify a particular trajectory; they cannot by themselves establish or disprove a theorem over all initial fields.
+
+\newpage
+\section{The most useful linear lead, and a genuine obstruction}
+The existing restricted pilot compared a smooth spectral band with $0.5<k_x<1$ against a matched-width band centered on $k_x=0$. Both retained a transverse Gaussian. The effective exponent
+\[
+ p_{128,256}=\frac{\log(M_f(128)/M_f(256))}{\log 2}
+\]
+is $1.4992$ for the separated band and $1.0706$ for the centered band. This is a clear \emph{finite-window numerical contrast}, consistent with faster spreading away from a degenerate frequency set. It is not a theorem for every spectrally separated input. \src{L6}
+\fig{restricted_decay}{The two archived weighted peaks, each normalized at $t=16$. The dotted line is a slope guide, not a fitted theorem. All ten plotted case--time checks pass the pilot's 1\% screen after two stored follow-ups.}{fig:gap}
+
+\begin{proposition}[Scaling limitation]
+Let $S(t)$ on $\RR^3$ have homogeneous cubic symbol
+$\omega(k)=k_x^3-3k_x(k_y^2+k_z^2)$. A bound
+\[
+ \|\Dx^{1/2}S(t)f\|_\infty\leq C t^{-\gamma}\|f\|_1
+\]
+with one constant $C$ for every positive $t$ and every Schwartz input in a dilation-invariant class containing a nonzero input cannot hold with $\gamma>7/6$.
+\end{proposition}
+\begin{proof}
+Set $f_\lambda(X)=\lambda^3f(\lambda X)$. Then $\|f_\lambda\|_1=\|f\|_1$ and cubic homogeneity gives
+$M_{f_\lambda}(t)=\lambda^{7/2}M_f(\lambda^3t)$.
+At $t=\lambda^{-3}$ the proposed bound implies
+$M_f(1)\leq C\lambda^{3\gamma-7/2}\|f\|_1$.
+Choose $f$ with $M_f(1)>0$ and let $\lambda$ tend to zero. This contradicts $\gamma>7/6$.
+\end{proof}
+
+Zero mean or finitely many zero moments survive this rescaling, so those conditions alone do not remove the obstruction. A fixed spectral region away from the degenerate set, quantitative restrictions excluding arbitrary dilations, or a scale-sensitive input norm changes the question. The useful next test is how the observed faster regime depends on those restrictions and on small leakage toward degenerate frequencies. Cubic phase geometry supplies the analytical motivation \cite{BAKS}; the cited two-dimensional result is not itself a theorem for this three-variable symbol.
+
+\newpage
+\section{Nonlinear water waves: successful reproduction, limited scope}
+The water-wave branch established a working route from known NLS waves to selected spatial Dysthe profiles. Its value is real, but it answers a different model question from the original optical equation. Fedele and Dutykh already construct traveling waves and examine inelastic collisions for this spatial model \cite{FD}. Our current results primarily reproduce and verify that type of behavior.
+
+\paragraph{Known-answer benchmark.}
+A known whole-line NLS wave was sampled on a periodic grid and propagated to $T=20$, with box checks. At $N=1024$, box length $80$ and step $0.0025$, the relative complex-field error is $3.68\times10^{-9}$; time refinement is consistent with fourth order. This tests the integrator in a known reduction. It does not test all regimes of the optical equation. A coarser $N=256$ run had field error $0.288\%$ despite action drift near $1.8\times10^{-12}$: our own data demonstrate that conservation is not an accuracy certificate. \src{N1}
+
+\paragraph{Profiles and propagation.}
+There are 28 computed profiles across four continuation branches, with maximum discrete residual $1.99\times10^{-11}$. Twelve selected propagation runs reach $T=20$. Only one representative profile received the independent grid/box audit, so the residuals cannot be promoted to continuum existence or stability results for all 28. A propagation step of $0.01$ produced $2.918\%$ complex-field error while the phase/translation-aligned shape error was only $0.0798\%$. Reducing the step to $0.00125$ brought the field error to $1.70\times10^{-6}$. Persistent-looking shapes had concealed phase error. \src{N1,N2}
+
+\paragraph{Perturbations.}
+Three selected disturbances were evolved to $T=40$. The two 1\% amplitude perturbations ended with about $2.49\%$ and $2.61\%$ aligned shape deviations; the localized phase perturbation gave about $0.0406\%$. These establish responses to those particular disturbances. They do not establish general stability, asymptotic relaxation, or a radiation decay law. Only the positive amplitude case received the additional halved-step comparison. \src{N1}
+
+\paragraph{Collisions.}
+A selected counterpropagating Dysthe collision leaves about $1.8\%$ excess action outside two prescribed radius-six cores. Refined runs support inelastic behavior, whereas the NLS control recovers its outgoing profiles to roughly $8\times10^{-8}$ after phase/translation alignment. The tail fraction depends on the core definition, and the outgoing fit uses the incoming profile shape. It is not a universal radiation fraction or a complete scattering description. \src{N1,N3}
+
+\paragraph{What we did not find.}
+No fully localized three-coordinate optical wave was constructed by these tests. That existence search was never performed. Likewise, no fitted coherent-component/radiation decomposition or nonlinear radiation decay measurement was completed. These are missing experiments, not failed discoveries. If the water-wave branch is retained, its next contribution should be a sharply defined parameter-dependent stability or collision question, not simply more examples of phenomena already in its source literature.
+
+\newpage
+\section{The strongest original-optical nonlinear result}
+Fix the optical model by the mutually consistent equation (1.27) and symbol (6.6) in the supplied manuscript \cite{MPS}:
+\begin{align*}
+\ii E_t +(1-\ii\epsilon_1\partial_z)(E_{xx}+E_{yy})-E_{zz}
+ -\ii\epsilon_2E_{zzz}
+ +|E|^2E+\ii\epsilon_1\partial_z(|E|^2E)=0.
+\end{align*}
+The printed mixed-term sign in (1.32) differs. This convention needs to remain explicit in every solver, residual and report. It is not evidence of a newly discovered code bug.
+
+The stripe experiment starts from a field localized in one coordinate with a prescribed transverse disturbance. Its diagnostic is
+$V(t)=\|E-\langle E\rangle_{y,z}\|_2/\|E\|_2$, where the average removes dependence on the two additional coordinates. The initial $V\simeq0.005$ grows to $0.047607$ at $T=4$, approximately a factor of $9.52$. The largest final-field discrepancy among the stored refinement comparisons is $4.68\times10^{-4}$, or $0.0468\%$. \src{N4}
+\fig{stripe_growth}{Relative transverse variation in the refined optical run. This is disturbance growth, not percentage peak error or a measured universal exponential rate. Pairwise numerical refinement is evidence of consistency, not a rigorous error bound.}{fig:stripe}
+
+\paragraph{Where the continuation failed.}
+The exploratory $T=8$ results do not agree spatially: final variation is roughly $0.49$ versus $0.58$, and one spectral-edge fraction reaches about $0.032$. Halving the time step improves action conservation without resolving that disagreement. The later breakup or concentration is therefore unresolved. The more expensive $T=4$ refinements were not carried through $T=8$.
+
+\paragraph{What this result means.}
+An unperturbed stripe remaining symmetric is a control, not a transverse stability test. The stripe also has infinite action on all of $\RR^3$, since it is not localized in every coordinate. Repeating the same cosine on a wider transverse box does not test new longer-wavelength disturbances. The current evidence supports early growth of one chosen disturbance; it does not identify a full instability spectrum or a localized optical soliton.
+
+Transverse instability of related NLS stripes is already known \cite{RT}. The useful optical question is what the mixed signs, third-order dispersion and derivative nonlinearity change: which modes grow, how fast they initially grow, and whether growth later saturates. Those features must be measured for this equation rather than borrowed from standard NLS.
+
+\newpage
+\section{Long runs: why larger time did not settle the question}
+The $64^3$ optical run integrated from $0$ to $2048$ with step $0.01$ and ended as \texttt{completed\_unvalidated}. Its maximum relative action drift was $7.39\times10^{-12}$, but it has no complete-horizon grid, time and domain comparison. A separate $32^3$, step-$0.5$ preview intended to reach $12288$ stopped at $10321$ when action drift crossed its $0.1\%$ threshold. It is not a validated continuation of the finer calculation. \src{O3,O4}
+\fig{periodic_peak}{The $64^3$ periodic reference: full trace and a late interval. These are exploratory sampled peaks. The horizontal line is the lower bound imposed by conserved action in this fixed box. Repeated peak values alone do not show recurrence of the complex field.}{fig:periodic}
+
+\paragraph{A mathematical reason to stop treating this as whole-space decay.}
+Let $M=\int_\Omega |E|^2\,\rad X>0$ be conserved action on a fixed box of volume $|\Omega|$. Then
+\[
+ M\leq |\Omega|\|E(t)\|_\infty^2,
+ \qquad \|E(t)\|_\infty\geq\sqrt{M/|\Omega|}.
+\]
+The archived run has floor $0.03214$. Indefinite decay to zero is impossible for the exact nonzero-action periodic solution. This does not explain each rebound or prove that every oscillation is a box artifact; it shows why fixed-box behavior cannot certify an infinite-space decay law.
+
+\paragraph{What the fits actually establish.}
+The late log--log peak fit has essentially no explanatory power ($R^2\simeq0.0035$). A four-harmonic fit on $1536\leq t\leq1664$ describes that window well ($R^2\simeq0.985$, fitted period $11.48$). Its selection and assessment use the same window, not independent future dynamics. Neither the sinusoidal description nor a strong relation between peak and effective volume establishes a stable breather. \src{O5}
+
+Related water-wave HONLS recurrence has a literature \cite{ABK}; its mechanisms motivate diagnostics, not a direct explanation of this optical run. A stronger test would compare phase/translation-aligned \emph{complex fields}, modal action exchange and localization across resolutions and box sizes. For a whole-space comparison, enlarging the box must preserve the physical pulse width: keeping the same trigonometric power while changing its period changes the initial field itself.
+
+\newpage
+\section{The original PINN: a useful proof of implementation}
+The completed optical training used 20,000 updates, about 59.7 minutes, for one prescribed smooth periodic pulse over $0\leq t\leq0.5$. Its largest sampled relative complex-field error is $0.6651\%$, peak error $0.2148\%$, and action drift $0.1806\%$. The separate fixed-box reference audit passed. The copies in the outer evaluation folder and the nested repository describe the same training run, not independent replications. \src{O1}
+\fig{pinn_errors}{Errors for the one-initial-field optical PINN. Field error includes phase. The reference passed a separate short-horizon audit; the curves establish neither unseen-initial-field accuracy nor long-time performance.}{fig:pinn}
+
+\paragraph{Why it does not yet answer the generalization question.}
+The hard initial-condition form is
+$E_\theta(t,X)=E_0(X)+(t/T)N_\theta(t,X)$.
+The network receives coordinates, not the initial field as an input. Replacing $E_0$ changes the problem and requires retraining. The required new object is a conditioned solution operator, for example
+$\mathcal G_\theta[E_0](t,X)$ or a short-step map $E(t)\mapsto E(t+\Delta t)$.
+Physics-informed DeepONets and PINO provide established approaches to this objective \cite{DeepONet,PINO}. The open project question is whether they work reliably for \emph{this} optical family, not whether multi-input learning is possible in principle.
+
+\paragraph{A separate reference failure that needs careful interpretation.}
+The planned long reference sequence passed at $T=2$ and halted at $T=8$. At $8$, the grid field discrepancy was only $2.50\times10^{-6}$, but the sampled-peak discrepancy was $0.795\%$, above its $0.5\%$ threshold. Time-step discrepancies remained tiny. This is different from the strongly perturbed stripe's spatial breakdown. Sampling a moving maximum may explain it; that hypothesis needs a peak-interpolation/optimization check, not an automatic claim that the whole field was inaccurate. \src{O2}
+
+There is no established optical held-out-initial-condition campaign, matched-accuracy speed advantage, or reliable long operator rollout in these records. Existing FNO infrastructure can be reused, but its presence is not an optical result. Conservation penalties should supplement a checked optical residual and field/phase validation; the project already contains examples where excellent action conservation coexists with appreciable field error. Longer training or a lower loss is not sufficient evidence of a better solution \cite{PINNfail}.
+
+\newpage
+\section{The next research questions, in priority order}
+\paragraph{1. Make the main question a controlled nonlinear comparison.}
+For a bounded family of localized optical inputs, which combinations of amplitude, width and phase modulation spread, concentrate, or develop strong transverse variation? Compare each nonlinear trajectory with the \emph{same input} evolved under the linear part of the optical equation (linearization about zero). Track complex-field differences, $L^p$ norms, widths and frequency transfer. Begin within a checked short horizon; include both near-linear and stronger cases. The deliverable is a reproducible behavior map with an explicitly unresolved category, not an unrestricted decay claim. This is a mathematical PDE study until the inputs and parameters are tied to the optical envelope assumptions; it does not resolve global existence or scattering \cite{MPS}.
+
+\paragraph{2. Resolve the strongest existing optical lead.}
+Map stripe growth against transverse and retarded-time wavenumber and base amplitude. Repeat sufficiently small disturbance amplitudes to distinguish initial linear response from nonlinear saturation. Compare the full equation against matched reductions that remove selected higher-order terms, and interpret rates with a linearized stability calculation where feasible. The first decision is which modes reliably amplify by $T=4$; only then extend those cases to determine their fate. Standard NLS results motivate the method but cannot supply the answer \cite{RT}.
+
+\paragraph{3. Advance the restricted linear result, rather than repeat it.}
+Extend the existing eight restricted cases to $512$ and $1024$, tighten the 1\% screen, and vary spectral separation, bandwidth and leakage toward the degenerate set. Ask whether the near-$3/2$ regime persists and how its crossover depends on those restrictions. The four Gaussian-family extensions are already done. An analytical companion should specify the input class and constants through dispersion geometry and stationary-phase/tail analysis \cite{BAKS,MPS}. A later optical experiment could ask whether nonlinear frequency transfer destroys an initially favorable spectral restriction; the canonical-to-optical correspondence must first be made explicit.
+
+\paragraph{4. Give learning a testable scientific job.}
+Train one short-time conditioned operator on the resolved optical family. Compare an FNO/PINO route with a physics-informed DeepONet only if the comparison answers a useful tradeoff \cite{PINO,DeepONet}. Split by complete initial-condition trajectories; keep nearby frames from one trajectory out of multiple splits. Hold out combinations of amplitude, width and phase, and separately hold out an entire pulse family. Measure phase-sensitive field error, invariants, peak/event timing, and whether the behavior map is preserved. Compare against a numerical solver at matched accuracy, including data-generation and training costs. Operator rollout is a second test, not an automatic consequence of one-step accuracy \cite{LongOperator}.
+
+\paragraph{5. Return to very long time only with a specific discriminator.}
+Choose whether the target is a periodic recurrence or approximation to an unbounded-domain packet. Specify a result that would distinguish the proposed mechanism from competing explanations, and require convergence of that observable over the full history. Preserve complex fields and compact modal diagnostics around events. A longer terminal time alone supplies more of an already ambiguous trace.
+
+\paragraph{Immediate ordering.}
+Freeze the optical convention and diagnostics; design the bounded input family; resolve the short optical comparisons and stripe map; then train the conditioned model.
+
+\newpage
+\section{A reading list tied to decisions}
+These are methodological and model-specific sources, not claims that the project has already reproduced every result in them. The supplied manuscript has no independently verified public URL for this particular version.
+\begin{thebibliography}{9}
+\setlength{\itemsep}{.55em}
+\bibitem{MPS} R. Mosincat, D. Pilod and J.-C. Saut.
+\emph{On Third Order Nonlinear Schr\"odinger Equations}. Supplied manuscript, 22 January 2026, file \texttt{Dysthe3D-2.pdf}.
+Read \S1, \S5.2, \S6.2--6.3 and \S7. Theorem 5.1 is local $H^s(\RR^3)$ well-posedness for $s>1/2$ for $\epsilon_1>0$ and either $\epsilon_2>0$ or $\epsilon_2=-\epsilon_1/3$, not a global stability theorem. It anchors the exact equation and the open questions.
+
+\bibitem{BAKS} M. Ben-Artzi, H. Koch and J.-C. Saut (2003).
+\href{https://math.huji.ac.il/~mbartzi/recent-publications/120025491_PDE_028_011-012_R1.pdf}{\emph{Dispersion Estimates for Third Order Equations in Two Dimensions}}.
+\emph{Communications in PDE} 28, 1943--1974.
+Read for cubic phase geometry and degeneracy. It motivates a restricted-class analysis; its two-variable theorems do not directly prove our three-variable bound.
+
+\bibitem{RT} F. Rousset and N. Tzvetkov (2009).
+\href{https://arxiv.org/abs/math/0612494}{\emph{Transverse nonlinear instability for two-dimensional dispersive models}}.
+\emph{Annales de l'IHP, Analyse non lin\'eaire} 26, 477--496.
+Read the NLS example in \S1 and \S3. It supplies a stability-analysis template for stripes, with a different elliptic cubic equation from our optical model.
+
+\bibitem{FD} F. Fedele and D. Dutykh (2011).
+\href{https://arxiv.org/abs/1110.4083}{\emph{Hamiltonian form and solitary waves of the spatial Dysthe equations}}.
+\emph{JETP Letters} 94, 840--844.
+The closest source for our water-wave profiles and collisions. Use it to distinguish reproduction from a new stability or parameter-dependent result.
+
+\bibitem{ABK} A. Armaroli, M. Brunetti and J. Kasparian (2017).
+\href{https://arxiv.org/abs/1703.09482}{\emph{Recurrence in the high-order nonlinear Schr\"odinger equation: a low dimensional analysis}}.
+\emph{Physical Review E} 96, 012222.
+Read for modal exchange and recurrence diagnostics. Its deep-water HONLS setting does not identify an optical breather in our data.
+
+\bibitem{DeepONet} S. Wang, H. Wang and P. Perdikaris (2021).
+\href{https://arxiv.org/abs/2103.10974}{\emph{Learning the solution operator of parametric partial differential equations with physics-informed DeepONets}}.
+Read \S2--3 and the varying-initial-function example. This directly addresses conditioning on initial data; benchmark speed and accuracy do not transfer automatically to Dysthe.
+
+\bibitem{PINO} Z. Li et al. (2021; revised 2023).
+\href{https://arxiv.org/abs/2111.03794}{\emph{Physics-Informed Neural Operator for Learning Partial Differential Equations}}.
+Read \S3--4 for combining examples with equation residuals. It is a practical route from existing Fourier infrastructure to a checked optical operator.
+
+\bibitem{LongOperator} S. Wang and P. Perdikaris (2021).
+\href{https://arxiv.org/abs/2106.05384}{\emph{Long-time integration of parametric evolution equations with physics-informed DeepONets}}.
+Read \S3.2, the KdV example and the discussion. It motivates repeated short-time prediction, with accumulated rollout error requiring its own assessment.
+
+\bibitem{PINNfail} A. Krishnapriyan et al. (2021).
+\href{https://arxiv.org/abs/2109.01050}{\emph{Characterizing possible failure modes in physics-informed neural networks}}.
+\emph{NeurIPS 2021}.
+Read before treating more iterations or a smaller physics penalty as proof of accuracy. Its demonstrated failure mechanisms are hypotheses to test here, not diagnoses of our optical run.
+\end{thebibliography}
+
+\newpage
+\section{Evidence index and verification limits}
+Paths below are relative to the complete Dysthe workspace; the nested Git repository is \texttt{dysthe-pinn/}. The bundled \texttt{evidence.json} records the plotted numbers and SHA-256 hashes of the source records. The accompanying \texttt{audit-notes.md} provides a fuller inventory, including negative cases and distinctions between repeated reports and new experiments.
+
+\begin{center}\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.09\linewidth}>{\raggedright\arraybackslash}p{.85\linewidth}@{}}
+\toprule
+Key & Primary local evidence \\\midrule
+L1 & \path{results/verification.json}; \path{results/norm_history.csv}\\[.25em]
+L2 & \path{results/decay_dataset/RESULTS.md}, \path{REFINEMENT.md}, and \path{refinement_checks.json} in that directory\\[.25em]
+L3 & \path{results/long_time/summary.json}; \path{results/spatial_reliability/summary.json}\\[.25em]
+L4 & \path{results/extended_decay/summary.json} and per-case follow-up records\\[.25em]
+L5 & \path{results/research_experiments/summary.json}\\[.25em]
+L6 & \path{results/restricted_decay/summary.json}, \path{config.json}, and per-case JSON follow-ups in that directory\\[.25em]
+L7 & \path{output/packet_alternative_views/README.md}\\[.25em]
+N1 & \path{results/nonlinear/analysis_summary.json}\\[.25em]
+N2 & \path{results/nonlinear/profile_checks.json}; \path{timestep_dysthe_0.01.json} and \path{timestep_dysthe_0.00125.json} in that directory\\[.25em]
+N3 & \path{results/nonlinear/collision_refined_N8192_h0.000625.json} and \path{collision_refined_domain.json}\\[.25em]
+N4 & \path{results/nonlinear/transverse_refined_*}; \path{optical3d_mixed_*} in that directory\\[.25em]
+O1 & \path{dysthe-pinn/results/evaluation-001/metrics.json}, \path{reference-audit.json}; \path{dysthe-pinn/results/training-001/summary.json}\\[.25em]
+O2 & \path{dysthe-pinn/results/long-reference-77502/sequence-summary.json}\\[.25em]
+O3 & \path{dysthe-pinn/results/late-window-1024-2048/summary.json}\\[.25em]
+O4 & \path{dysthe-pinn/results/breathing-preview-12288/summary.json}\\[.25em]
+O5 & \path{dysthe-pinn/reports/late-window-review/review-statistics.json} and \path{oscillation-fit.json}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Fresh checks, 24 September 2026.}
+All six original nonlinear unit tests and 12 nested optical physics/resume/late-window tests pass. A nonseparable $16^3$ field gives relative RHS disagreement $8.45\times10^{-18}$ and one-step disagreement $3.19\times10^{-20}$ between the two current optical implementations. This is consistent with the independent analytical tests; it does not verify long-time convergence. No implementation discrepancy was found in these checks.
+
+\paragraph{Scope of this audit.}
+Short fixed-grid time-step pilots, GPU smoke tests, resume tests, animations and planned late-window scripts were reviewed as supporting infrastructure. They are not additional long-time scientific results. The archived physical runs were not repeated. No laboratory measurements, dimensional calibration, whole-space nonlinear convergence proof, general stability theorem, or optical out-of-family learning result is established by this report. Figures are vector PDFs regenerated from retained numerical records; the source bundle reproduces the report, not the full experiments.
+\end{document}

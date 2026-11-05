@@ -1,0 +1,84 @@
+{
+  "model_id": "dysthe-1979-temporal-potential-1d-stability-sign-v1",
+  "epsilon": 0.05,
+  "c": 1.5,
+  "maximum_saved_T": 16,
+  "primary_snapshot_sha256": "dce3a8adf1ee852b901bfec3d9eb61d06d426079164b65036f7c01adb29ce56c",
+  "verified_full_fields": [
+    {
+      "family": "packet",
+      "source_array": "results-audit/packet-eps0.05-stability-T16.npz",
+      "sha256": "09f4279db55219a098362fed88e1a514c86f5c90a901f4f3f6680023c266064a",
+      "grid": 4096,
+      "length": 40.0,
+      "step": 0.0025,
+      "saved_times": 81,
+      "qualified": true,
+      "refinement": {
+        "grid": {
+          "h0": 1.4239202907115043e-12,
+          "h1": 5.352286206295241e-11,
+          "h2": 1.2422983612054568e-09
+        },
+        "step": {
+          "h0": 8.811692675198809e-09,
+          "h1": 1.6625179474604987e-08,
+          "h2": 3.5137296518583687e-07
+        }
+      }
+    },
+    {
+      "family": "sideband",
+      "source_array": "results-audit/sideband-eps0.05-stability-T16.npz",
+      "sha256": "127df1d0c0a3fbae65ce3faebd8085e589f033a98cde318fb566d7b172df40bc",
+      "grid": 4096,
+      "length": 40.0,
+      "step": 0.0025,
+      "saved_times": 81,
+      "qualified": true,
+      "refinement": {
+        "grid": {
+          "h0": 9.937303006865299e-12,
+          "h1": 4.2000474075219335e-10,
+          "h2": 1.0393330531534473e-08
+        },
+        "step": {
+          "h0": 1.1135989991384859e-08,
+          "h1": 2.8153514410690534e-08,
+          "h2": 2.8695486659723645e-07
+        }
+      }
+    },
+    {
+      "family": "random",
+      "source_array": "results-audit/random-eps0.05-stability-T16.npz",
+      "sha256": "abf4e1c2c50db27deaa6e308460982199bf94ee613c8ec5d5bb540570cb93795",
+      "grid": 4096,
+      "length": 40.0,
+      "step": 0.0025,
+      "saved_times": 81,
+      "qualified": true,
+      "refinement": {
+        "grid": {
+          "h0": 3.716370263406195e-10,
+          "h1": 2.388627527639994e-08,
+          "h2": 1.1135862123539441e-06
+        },
+        "step": {
+          "h0": 2.840609786680168e-08,
+          "h1": 2.1495457386288715e-07,
+          "h2": 5.917684464003899e-06
+        }
+      }
+    }
+  ],
+  "projection_formula": "f_s(K,T)^2=sum_{|m|>K}(1+k_m^2)^s |u_hat_m(T)|^2 / sum_m(1+k_m^2)^s |u_hat_m(T)|^2; k_m=2*pi*m/L.",
+  "projection_interpretation": "At each saved T, orthogonal Fourier projection minimizes relative Hs error among fields supported in |m|<=K. The figure reports maxima over saved T, which lower-bound continuous-interval worst-case error. No neural fit is included.",
+  "carrier_band_formula": "B_s(b,T)=sum_{epsilon*|k_m|>=b}(1+k_m^2)^s |u_hat_m(T)|^2 / sum_m(1+k_m^2)^s |u_hat_m(T)|^2, s=0 or2.",
+  "carrier_interpretation": "Right panel shows separate sampled maxima of action and H2 squared fractions. Their maximizing times need not coincide. b=.5 is an illustrative diagnostic, not a universal physical-validity cutoff.",
+  "limitations": [
+    "Finite-periodic-reference diagnostics, not a continuum existence or water-wave approximation certificate.",
+    "The K48 obstruction applies to outputs restricted to |m|<=48 on this L40 temporal domain; it is not a claim that no PINN can approximate these trajectories.",
+    "Projection norms are square roots of omitted weighted-energy fractions; the carrier-band panel deliberately shows squared-norm fractions."
+  ]
+}

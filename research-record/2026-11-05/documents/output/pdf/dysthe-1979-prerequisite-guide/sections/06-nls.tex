@@ -1,0 +1,130 @@
+\section{NLS: the baseline approximation and its instability}
+\label{sec:nls}
+\subsection{Dysthe's dimensionless variables}
+\label{sec:scaling}
+From this point, use the transformation in (2.18). To make its meaning
+unambiguous, write
+\begin{align*}
+ t&=\omega_0t_{\rm dim},& (x,y,z)&=k_0(x_{\rm dim},y_{\rm dim},z_{\rm dim}),\\
+ A&=\frac{2k_0^2}{\omega_0}A_{\rm dim},&
+ \Ph&=\frac{2k_0^2}{\omega_0}\Ph_{\rm dim},&
+ \Zh&=k_0\Zh_{\rm dim}.
+\end{align*}
+The carrier phase becomes $x-t$ and $c_g=1/2$. These are carrier units,
+not yet the separate slow coordinates $X,Y,T$. The envelope remains
+$O(\varepsilon)$ and varies slowly in $x,y,t$.
+
+Deleting the right side of (2.19) gives
+\begin{equation}\label{eq:nls}
+ 2i\left(A_t+\frac12A_x\right)
+ +\frac12A_{yy}-\frac14A_{xx}-|A|^2A=0.
+\end{equation}
+In the group coordinate $X=x-t/2$, a longitudinal envelope obeys
+\[
+ iA_t-\frac18A_{XX}-\frac12|A|^2A=0.
+\]
+Both coefficients are negative. Their product is positive, so this has
+the focusing NLS sign combination; reversing time gives the frequently
+used convention with two positive signs. A sign difference between
+references need not imply different physics, but conventions must be checked.
+
+The dispersive coefficients follow from \eqref{eq:dispersion-series}.
+The cubic term describes an amplitude-dependent frequency shift. A
+constant envelope solution is
+\begin{equation}\label{eq:plane-wave}
+ A=A_0e^{-iA_0^2t/2},\qquad A_0>0.
+\end{equation}
+Its magnitude is constant. Multiplication by the carrier gives total phase
+$x-(1+A_0^2/2)t$ to this order. The extra phase rotation is the weakly
+nonlinear Stokes frequency correction.
+
+\subsection{What linear stability asks}
+Stability asks whether a small disturbance of this particular solution
+remains small initially or grows. It does not ask whether $|A|$ itself
+oscillates, and it does not prove later breaking.
+
+Introduce an independent small perturbation parameter $\eta$:
+\begin{equation}\label{eq:perturbation}
+ A=A_0[1+\eta u(x,y,t)]
+       e^{i(\eta v(x,y,t)-A_0^2t/2)},
+\end{equation}
+where $u,v$ are real and $\eta\ll1$. To first order,
+$A=A_0e^{-iA_0^2t/2}[1+\eta(u+iv)]+O(\eta^2)$.
+The amplitude-expansion parameter $\varepsilon$ and perturbation parameter
+$\eta$ have different jobs. Linearization discards $\eta^2$ while retaining
+the prescribed powers of $A_0=O(\varepsilon)$.
+
+Set $\Dg=\partial_t+\tfrac12\partial_x$ and
+$P_2=\tfrac14\partial_y^2-\tfrac18\partial_x^2$.
+Substituting \eqref{eq:perturbation} into \eqref{eq:nls}, cancelling the
+background solution, and separating real and imaginary parts gives
+\begin{equation}\label{eq:nls-linear}
+ \Dg u+P_2v=0,\qquad
+ \Dg v-P_2u+A_0^2u=0.
+\end{equation}
+One useful intermediate identity is
+$|A|^2A=A_0^3e^{-iA_0^2t/2}[1+\eta(3u+iv)]+O(\eta^2)$.
+The phase shift from the background cancels one part of this contribution.
+
+\subsection{The Fourier-mode matrix calculation}
+Use a complex representation for the perturbation modes and take real
+parts at the end:
+\[
+ (u,v)=(\widehat u,\widehat v)e^{i(\lambda x+\mu y-\Omega t)}.
+\]
+Define
+\[
+ p=\frac{\lambda^2}{8}-\frac{\mu^2}{4},\qquad
+ V=\Omega-\frac\lambda2.
+\]
+$\Dg$ acts as $-iV$ and $P_2$ acts as $p$. The homogeneous system is
+\[
+ \begin{pmatrix}-iV&p\\A_0^2-p&-iV\end{pmatrix}
+ \begin{pmatrix}\widehat u\\\widehat v\end{pmatrix}=0.
+\]
+A nonzero perturbation requires determinant zero:
+\begin{equation}\label{eq:nls-dispersion}
+ \left(\Omega-\frac\lambda2\right)^2=p(p-A_0^2).
+\end{equation}
+
+\begin{proposition}[Growth in the linearized NLS model]
+For $A_0>0$ and real $\lambda,\mu$, a growing Fourier mode exists precisely
+when $0<p<A_0^2$. Its growth rate is
+$\gamma=\sqrt{p(A_0^2-p)}$.
+\end{proposition}
+\begin{proof}
+If $0<p<A_0^2$, the right side of \eqref{eq:nls-dispersion} is negative,
+so one frequency has $\operatorname{Im}\Omega>0$. For
+$\Omega=\Omega_r+i\gamma$, the time factor is
+$e^{-i\Omega t}=e^{-i\Omega_rt}e^{\gamma t}$. Otherwise the roots are
+real, including repeated roots at the boundaries, and have no positive
+exponential growth rate.\qedhere
+\end{proof}
+Repeated boundary roots can require separate analysis of neutral or
+algebraic behavior. The proposition concerns exponential mode growth only.
+
+For longitudinal perturbations, $\mu=0$ and $p=\lambda^2/8$. Thus
+\begin{equation}\label{eq:nls-results}
+ 0<|\lambda|<2\sqrt2 A_0,\qquad
+ |\lambda_M|=2A_0,\qquad \gamma_M=\frac12A_0^2.
+\end{equation}
+To maximize growth, complete the square:
+$p(A_0^2-p)=A_0^4/4-(p-A_0^2/2)^2$.
+The fastest NLS disturbance therefore has $p=A_0^2/2$.
+
+\subsection{Why transverse perturbations matter}
+For two horizontal modulation directions, the maximum condition is
+\begin{equation}\label{eq:hyperbola}
+ \lambda^2-2\mu^2=4A_0^2.
+\end{equation}
+This hyperbola is unbounded. The NLS polynomial dispersion approximation
+formally predicts equal maximum growth at arbitrarily large modulation
+wavenumbers along it, although those wavenumbers violate the narrowband
+assumption. Dysthe's correction reduces this degeneracy. It does not make
+a small-bandwidth approximation valid at large bandwidth.
+
+\paperlink{Read the introduction's discussion of NLS, then (3.1)--(3.7).
+The matrix calculation above is the simpler version of Dysthe's calculation.}
+\checkpoint{Explain why $\Omega$ with positive imaginary part grows for
+the convention $e^{-i\Omega t}$.}
+\clearpage

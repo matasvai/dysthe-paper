@@ -1,0 +1,66 @@
+\section{Recommendation and review method}
+\label{sec:recommendation}
+\paragraph{Recommended first paper.}
+Ask: \emph{When does spatial Dysthe physics improve reconstruction and
+downstream prediction from sparse water-wave observations, after NLS is
+allowed to fit effective coefficients?} The contribution should be a
+validated map of when the additional physics is useful, including
+uncertainty and computational cost. It should not rest solely
+on substituting a more complicated residual into a familiar neural network.
+
+The clearest published motivation is Ehlers et al.'s water-wave NLS study,
+whose Conclusions propose Dysthe as a next model \cite{ehlers2024}.
+However, subsequent papers already address fully nonlinear wave
+reconstruction and reusable physics-informed operators
+\cite{ehlers2025,wavepino}. Therefore, generic claims of the first PINN
+for water-wave reconstruction or a fast water-wave PINO are unsuitable.
+The more defensible opportunity is a controlled comparison of physics,
+identifiability, phase accuracy, and generalization in the specified equation.
+
+\paragraph{What newest and best mean here.}
+This is a targeted critical review of primary literature available by
+25 October 2026, not an exhaustive systematic review or a universal ranking.
+Searches combined NLS/Schr\"odinger, PINN, water waves, Dysthe,
+conservation, causal training, optimization, error bounds, sparse
+assimilation, and operator learning; recent searches emphasized 2024--2026.
+Publisher records, author manuscripts, proceedings, author code, and data
+repositories were consulted. Publication status was checked separately from
+arXiv submission dates. The source ledgers supplied with the report record
+access and limitations. A search failure is not proof of absence.
+
+Priority is based on relevance to the task, quality of comparisons,
+independent test data, access to methods and code, and clarity about costs.
+There is no common benchmark establishing one best NLS--PINN method across
+forward, inverse, long-distance, and many-query problems. Numerical errors
+reported on different domains, norms, equations, and data budgets are not a
+leaderboard. Very recent publisher abstracts are useful leads, but provide
+less inspectable evidence than a complete manuscript and executable release.
+
+\paragraph{Reading priorities.}
+Read Ehlers et al. (2024) for the direct research motivation;
+Urb\'an et al. (2025) for a serious compact NLS training baseline;
+Zhang et al. (2025) for complex-valued NLS learning;
+Hao et al. (2026) for hard-constraint ablations;
+and the 2025 water-wave PINO paper for the many-query comparison
+\cite{ehlers2024,urban,cvpinn,hardic,wavepino}.
+Read the 2026 GRAVIS, Noether, and phase--amplitude papers as recent
+method candidates, with the access limitations in Section~\ref{sec:literature}.
+For a mathematics-led direction, add Alejo et al. and Eiras et al.
+\cite{alejo,eiras}.
+
+\paragraph{Evidence labels.}
+Throughout this report, \emph{reported} means an author's result, not a result
+reproduced here. \emph{Explicit future work} identifies an actual statement
+in the inspected source. \emph{Proposed question} is this review's synthesis.
+An available code repository is evidence of availability, not evidence that
+the code reproduces every claim. The figures in this report are original
+analytic illustrations and experiment diagrams, not new PINN experiments.
+
+\paragraph{Scope.}
+The literature survey concerns NLS methods broadly. All proposed active
+research stays within unidirectional deep-water gravity waves and the
+one-profile-coordinate spatial free-surface model
+\texttt{water-wave-dysthe-spatial-v1}. General NLS, higher-order NLS, and
+other Schr\"odinger demonstrations can motivate algorithms; they are not
+water-wave Dysthe validation. Changes of formulation, dimension, or
+coefficients require explicit separate model identities.
